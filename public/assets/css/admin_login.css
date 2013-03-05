@@ -1,0 +1,39 @@
+body {
+	background-color: #062264;
+}
+
+fieldset {
+    padding: 15px 0;
+}
+
+.input-xxlarge {
+    font-size: 17pt;
+    height: 30px;
+    width: 530px;
+}
+
+.form-actions {
+    background-color: #0b3570;
+    border-top: 0px solid #DDDDDD;
+    margin-bottom: 18px;
+    margin-top: 18px;
+    padding: 17px 195px 18px;
+    border-radius: 8px;
+}
+
+form .input-wrapper {
+	margin:  5px 0px;
+}
+
+h3 {
+    color: #FFFFFF;
+    font-family: Helvetica;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 36px;
+    text-align: center;
+}
+
+.container {
+    width: 940px;
+}

@@ -1,2 +1,7 @@
 fuel/app/logs/*/*/*
 fuel/app/cache/*/*
+public/files/*
+docs/*
+nbproject
+.DS_Store
+*.tmproj
