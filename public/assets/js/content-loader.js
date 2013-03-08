@@ -17,6 +17,7 @@ $(document).ready( function() {
 	$(".content-arrow ul li a").click(function(){
 	        var selected = $(this).attr('href');
 	        $("#content").scrollTo(selected, 900, {offset:{ left:0, top:-125 }});
+			$("#content").scrollTo( '-=48px', 900, { axis:'x'});
 	        return false;
 	    });
 	
@@ -31,15 +32,17 @@ $(document).ready( function() {
 	        return false;
 	    });
 
-	$(".metro-wrapper ul li a").click(function(){
+	$(".metro-wrapper ul li a, a.map-link").click(function(){
 		var selected = $(this).attr('href');	
 		$("#content").scrollTo(selected, 900);	
+		$("#content").scrollTo( '-=48px', 900, { axis:'x'});
 		return false;
 	});
 
     $(".main-menu-content a").click(function(){
 		var selected = $(this).attr('href');	
 		$("#content").scrollTo(selected, 900);
+		$("#content").scrollTo( '-=48px', 900, { axis:'x'});
 		HideMenu();		
 		return false;
 	});

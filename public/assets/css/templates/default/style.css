@@ -26,12 +26,17 @@ html {
 #header h1 {
 	display: block;
 	margin: 0;
-	width: 805px;
+	width: 150px;
 	height: 110px;
 	padding: 0;
-	background: url('../../../img/templates/default/Logo-Smoll.png') no-repeat scroll 40px 10px transparent;
+	background: url('../../../img/templates/default/Logo-Smoll.png') no-repeat scroll 50px 5px transparent;
 	margin: 0 auto;
 	text-indent: -999999px;
+}
+
+#header .header-wrapper {
+	width: 800px;
+	margin: 0 auto;
 }
 
  .main-menu {
@@ -72,6 +77,7 @@ html {
  .main-menu-content .menu-tile img {
 	width: 43px;
 	height: 38px;
+	border: 0 solid #fff;
 }
 
 .main-menu-content .menu-tile ul.submenu {
@@ -193,14 +199,14 @@ html {
 }
 
 #content {
-	width: 715px;
+	width: 800px;
 	height: 620px;
 	margin: 0 auto;
 	overflow: hidden;
 }
 
 #all-columns {
-	width: 6834px;
+	width: 6440px;
 }
 
 .menu-all {
@@ -209,13 +215,13 @@ html {
 }
 
 .column {
-	width: 800px;
 	padding: 0 31px;
+    	width: 738px;
 }
 
 .column.main-column {
 	padding: 0;
-	width: 715px;
+    	width: 800px;
 }
 
 .metro-wrapper {
@@ -246,6 +252,11 @@ html {
 	overflow: hidden;
 	margin-top: 5px;
 	margin-left: 5px;
+
+}
+
+.metro-wrapper .home-tile ul li img {
+	border: 0 solid #fff;
 }
 
 .metro-wrapper .home-tile ul li.big {
@@ -430,8 +441,8 @@ html {
 
 .column .content ul.tile li h3 {
 	background-color: #5B3411;
-    background-image: url("../../../img/templates/default/dots.png");
-    background-position: right center;
+    background-image: url("../../../img/templates/default/dots1.png");
+    background-position: center center;
     background-repeat: no-repeat;
     bottom: 0;
     color: #FFFFFF;
@@ -470,7 +481,7 @@ html {
 }
 
 #footer {
-	height: 110px;
+	__height: 110px;
 	background-color: #825000;
 }
 
@@ -482,6 +493,7 @@ html {
 #footer ul.social {
 	margin: 0;
 	padding: 15px 0 0 48px;
+	width: 50%;
 }
 
 #footer ul.social li {
@@ -535,6 +547,46 @@ html {
 	margin: 15px 35px 0 0;
 }
 
+#footer .contacts {
+	width: 325px;
+	height: 160px;
+	color: #fff;
+	margin-left: 55px;
+	margin-top: 17px;
+}
+
+#footer .contacts h3 {
+	font-size: 9pt;
+    	margin: 5px 0 0;
+}
+
+#footer .contacts span, #footer .contacts-dop span {
+	display: block;
+    	font-size: 8pt;
+    	line-height: 14px;
+}
+
+#footer .contacts-dop {
+	color: #FFFFFF;
+	height: 135px;
+	margin-top: 24px;
+	width: 245px;
+
+}
+
+#footer span a {
+	color: #333399;
+	display: block;
+	font-size: 9pt;
+	font-weight: bold;
+	padding-top: 10px;	
+}
+
+#footer .contacts-dop span a {
+	display: block;
+    	margin-top: 15px;
+}
+
 /* popup styles */
 
 .reveal-modal h3 {
@@ -575,6 +627,108 @@ html {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.6);
 }
 
+
+/* Arrows */
+
+
+
+.content-arrow {
+
+    position: absolute;
+
+    height: 620px;
+
+    width: 36px;
+
+    _background-color: #ef9696;
+
+    z-index: 25;
+
+    background-repeat: no-repeat;
+
+}
+
+
+
+.left-arrow {
+
+    background: url(../../../img/templates/default/nav_button_lf_no_activ.png) 0 0 transparent;
+
+    left: 0;
+
+}
+
+
+
+.right-arrow {
+
+    background: url(../../../img/templates/default/nav_button_rh_no_activ.png) 0 0 transparent;
+
+    right: 0;
+
+}
+
+
+
+.left-arrow:hover {
+
+    _background-position: 36px 0px;
+    background: url(../../../img/templates/default/nav_button_lf_activ.png) 0 0 transparent;
+
+}
+
+
+
+.right-arrow:hover {
+
+    _background-position: 36px 0px;
+    background: url(../../../img/templates/default/nav_button_rh_activ.png) 0 0 transparent;
+
+}
+
+
+
+.content-arrow ul {
+
+    list-style-type: none;
+
+    padding: 0;
+
+    margin: 35px 3px 0 3px;
+
+}
+
+.content-arrow ul li {
+
+
+
+}
+
+
+
+.content-arrow ul li a {
+	display:block;
+	width: 28px;
+	height:25px;
+	border: 1px solid #663300;
+	margin-bottom: 5px;
+	background-size: 28px 25px;
+	border-radius: 3px;
+}
+
+
+
+
+.indicator-main {
+    background: url(../../../img/templates/default/icons_button/i_nb_01_1.png) 0 0 transparent;
+}
+.indicator-main:hover {
+    background: url(../../../img/templates/default/icons_button/i_nb_01.png) 0 0 transparent;
+}
+
+.indicator-news {
+    background: url(../../../img/templates/default/icons_button/i_nb_02.png) 0 0 transparent;
+}
 
 /* ClearFix )))) */
 
