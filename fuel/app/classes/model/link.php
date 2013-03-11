@@ -55,7 +55,7 @@ class Model_Link extends Model
 		$hui = self::find('all', array(
 							'order_by' => array('weight' => 'asc')
 						  ));
-						  //var_dump($hui); die();
+
 						  return $hui;
 	}
 

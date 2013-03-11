@@ -39,7 +39,7 @@
 				<?= render("templates/{$template}/header",array()); ?>
 			</div>
 			<div id="content-wrapper">
-					<?= render("templates/{$template}/menu/arrows",array()); ?>
+					<?= render("templates/{$template}/menu/arrows",array('links' => Model_Link::get_public())); ?>
 				<div id="second-wrapper">
 					<div class="menu-all clearfix">
 						<?= render("templates/{$template}/menu/main",array('template' => $template)); ?>

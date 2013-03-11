@@ -1,17 +1,23 @@
 <div class="content-arrow left-arrow">
 	<ul class="right">
 		<li><a class="indicator-main" href="#2"></a></li>
-		<li><a class="indicator-news" href="#news"></a></li>
-		<li><a class="indicator-products" href="#products"></a></li>
-		<li><a class="indicator-implementations" href="#productions"></a></li>
-	<li><a class="indicator-raws" href="#raws" ></a></li>
-		<li><a class="indicator-productions" href="#implementations"></a></li>
+		<? $link_kount = 0; ?>
+		<? foreach ($links as $link): ?>
+			<? if($link_kount < 5): ?>
+				<? $link_kount++; ?>
+				<li><a class="indicator" href="#<?= $link->page->alias; ?>"><?= Html::img("files/{$link->image}"); ?></a></li>
+			<? endif; ?>
+		<? endforeach; ?>
 	</ul>
 </div>
 <div class="content-arrow right-arrow">
 	<ul class="left">
-	<li><a class="indicator-contacts"        href="#contacts"></a></li>
-		<li><a class="indicator-partners"        href="#partners"></a></li>
-		<li><a class="indicator-contacts-2"        href="#contacts"></a></li>
+		<? $link_kount = 0; ?>
+		<? foreach ($links as $link): ?>
+			<? if($link_kount >= 6): ?>
+				<li><a class="indicator" href="#<?= $link->page->alias; ?>"><?= Html::img("files/{$link->image}"); ?></a></li>
+			<? endif; ?>
+			<? $link_kount++; ?>
+		<? endforeach; ?>
 	</ul>
 </div>

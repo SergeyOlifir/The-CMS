@@ -754,7 +754,10 @@ html {
 	border-radius: 3px;
 }
 
-
+.content-arrow ul li a img {
+	width: 28px;
+	height: 25px;
+}
 
 
 .indicator-main {
