@@ -19,17 +19,25 @@ html {
 
 #header {
 	height: 110px;
-	background-color: #825000;
+	background: #557c26; /* Old browsers */
+	background: -moz-linear-gradient(top,  #557c26 0%, #53862e 48%, #40b235 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#557c26), color-stop(48%,#53862e), color-stop(100%,#40b235)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #557c26 0%,#53862e 48%,#40b235 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #557c26 0%,#53862e 48%,#40b235 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #557c26 0%,#53862e 48%,#40b235 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #557c26 0%,#53862e 48%,#40b235 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#557c26', endColorstr='#40b235',GradientType=0 ); /* IE6-9 */
+	border-bottom: 5px solid #FF6633;
 	position: relative;
 }
 
 #header h1 {
 	display: block;
 	margin: 0;
-	width: 150px;
+	width: 195px;
 	height: 110px;
 	padding: 0;
-	background: url('../../../img/templates/default/Logo-Smoll.png') no-repeat scroll 50px 5px transparent;
+	background: url('../../../img/templates/kandibur/Logo-Smoll.png') no-repeat scroll 50px 5px transparent;
 	margin: 0 auto;
 	text-indent: -999999px;
 }
@@ -40,18 +48,18 @@ html {
 }
 
  .main-menu {
-	background: url("../../../img/templates/default/menu.png") no-repeat scroll 0 -4px transparent;
-    height: 40px;
-    margin: 0 auto;
-    padding: 6px 0 0;
-    position: relative;
-    width: 790px;
-    z-index: 2;
+	background: url("../../../img/templates/kandibur/menu.png") no-repeat scroll 0 0 transparent;
     cursor: pointer;
+    height: 50px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    position: relative;
+    width: 805px;
+    z-index: 2;
 }
 
  .main-menu-content {
-	background-color: rgba(169, 102, 11, 0.88);
+	background-color: rgba(68, 143, 255, 0.88);
 	height: 0px;
 	margin: 0 auto;
 	padding: 0;
@@ -75,9 +83,10 @@ html {
 }
 
  .main-menu-content .menu-tile img {
-	width: 43px;
-	height: 38px;
-	border: 0 solid #fff;
+	border: 3px solid #FF791F;
+    border-radius: 43px 43px 43px 43px;
+    height: 43px;
+    width: 43px;
 }
 
 .main-menu-content .menu-tile ul.submenu {
@@ -102,11 +111,11 @@ html {
  .main-menu-content .menu-tile .menu-description {
 	height: 40px;
     padding-left: 3px;
-    width: 192px;
+    width: 187px;
 }
 
  .main-menu-content .menu-tile .menu-description h3 {
-	color: #FFFFFF;
+	color: #003399;
 	font-size: 8pt;
 	font-weight: bold;
 	margin: 0;
@@ -114,7 +123,7 @@ html {
 }
 
 .main-menu-content .menu-tile .menu-description .menu-text {
-	color: #FFFFFF;
+	color: #003399;
 	font-size: 7pt;
 	line-height: 12px;
 	width: 180px;
@@ -135,7 +144,7 @@ html {
 	display: block;
 	width: 15px;
 	height: 11px;
-	background: url('../../../img/templates/default/message.png') no-repeat scroll 0px 0px transparent;
+	background: url('../../../img/templates/kandibur/message.png') no-repeat scroll 0px 0px transparent;
 	text-indent: -999999px;
 	margin-left: 20px;
 }
@@ -164,37 +173,31 @@ html {
 }
 
 .main-menu .flags li a.ru {
-	background: url('../../../img/templates/default/ru.png') no-repeat scroll 0px 0px transparent;
+	background: url('../../../img/templates/kandibur/ru.png') no-repeat scroll 0px 0px transparent;
 }
 
  .main-menu .flags li a.uk {
-	background: url('../../../img/templates/default/uk.png') no-repeat scroll 0px 0px transparent;
+	background: url('../../../img/templates/kandibur/uk.png') no-repeat scroll 0px 0px transparent;
 }
 
 .main-menu .flags li a.en {
-	background: url('../../../img/templates/default/en.png') no-repeat scroll 0px 0px transparent;
+	background: url('../../../img/templates/kandibur/en.png') no-repeat scroll 0px 0px transparent;
 }
 
  .main-menu .flags li a.de {
-	background: url('../../../img/templates/default/de.png') no-repeat scroll 0px 0px transparent;
+	background: url('../../../img/templates/kandibur/de.png') no-repeat scroll 0px 0px transparent;
 }
 
 #content-wrapper {
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bb8044', endColorstr='#ffe9c4',GradientType=0 ); /* IE6-9 */
-	background: #bb8044; /* Old browsers */
-	background: -moz-linear-gradient(top,  #bb8044 0%, #f7cca2 72%, #ffe9c4 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bb8044), color-stop(72%,#f7cca2), color-stop(100%,#ffe9c4)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #bb8044 0%,#f7cca2 72%,#ffe9c4 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #bb8044 0%,#f7cca2 72%,#ffe9c4 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #bb8044 0%,#f7cca2 72%,#ffe9c4 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #bb8044 0%,#f7cca2 72%,#ffe9c4 100%); /* W3C */
+	background: #ffffcc; /* Old browsers */
+	
 }
 
 #second-wrapper {
 	width: 805px;
 	height: 620px;
 	margin: 0 auto;
-	background: url('../../../img/templates/default/Fon_centr.jpg') no-repeat scroll center transparent;
+	background: url('../../../img/templates/kandibur/Fon_centr.jpg') no-repeat scroll center transparent;
 	position: relative;
 }
 
@@ -211,7 +214,7 @@ html {
 
 .menu-all {
 	position: absolute;
-	left: 8px;
+	left: 0px;
 }
 
 .column {
@@ -276,7 +279,7 @@ html {
 
 .metro-wrapper .home-tile ul li h3 {
 	background-color: #5B3411;
-    background-image: url("../../../img/templates/default/dots.png");
+    background-image: url("../../../img/templates/kandibur/dots.png");
     background-position: right center;
     background-repeat: no-repeat;
     bottom: 0;
@@ -315,7 +318,7 @@ html {
 }
 
 .column h2 {
-	color: #76410B;
+	color: #092F90;
     font-size: 10pt;
     font-weight: bold;
     margin: 0;
@@ -326,14 +329,14 @@ html {
 	width: 715px;
 	height: 26px;
 	margin: 0 auto;
-	color: #E6CEAC;
+	color: #092F90;
     font-size: 9pt;
     font-weight: bold;
     cursor: pointer;
 }
 
 .column .paginator-wrapper .paginator-top {
-	background: url("../../../img/templates/default/Plashka_content_verh.png") no-repeat scroll 0 0 transparent;
+	background: url("../../../img/templates/kandibur/Plashka_content_verh.png") no-repeat scroll 0 0 transparent;
     width: 640px;
     height: 22px;
     padding: 4px 0 0 15px;
@@ -344,7 +347,7 @@ html {
 	width: 713px;
 	height: 26px;
 	padding: 4px 0 0 15px;
-	background: url("../../../img/templates/default/Plashka_content_niz.png") no-repeat scroll 0 0 transparent;
+	background: url("../../../img/templates/kandibur/Plashka_content_niz.png") no-repeat scroll 0 0 transparent;
 }
 
 .column .content {
@@ -360,8 +363,8 @@ html {
 }
 
 .column .content ul.list li {
-	background-color: rgba(240, 210, 172, 0.8);
-    border: 1px solid #8F6628;
+	background-color: rgba(117, 217, 243, 0.8);
+    border: 1px solid #059c01;
     float: left;
     height: 104px;
     list-style: none outside none;
@@ -370,18 +373,22 @@ html {
     overflow: hidden;
     padding: 2px;
     width: 345px;
+	border-radius: 25px 25px 25px 25px;
 }
 
 .column .content ul.list li .image-wrapper, .column .content ul.tile li .image-wrapper  {
 	border: 1px solid #9A6533;
+    border-radius: 20px 20px 20px 20px;
     height: 101px;
+    overflow: hidden;
     width: 111px;
 }
 
 .column .content ul.list li img, .column .content ul.tile li img {
-	max-width: 108px;
-	max-height: 98px;
-	border: 1px solid #fff;
+	border: 1px solid #FF2E09;
+    border-radius: 20px 20px 20px 20px;
+    max-height: 98px;
+    max-width: 108px;
 }
 
 .column .content ul.list .description {
@@ -393,7 +400,7 @@ html {
 }
 
 .column .content ul.list .description h3 {
-	color: #653300;
+	color: #092F90;
     display: block;
     font-size: 10pt;
     font-weight: bold;
@@ -406,13 +413,13 @@ html {
 }
 
 .column .content ul.list .date {
-	color: #FFFFFF;
+	color: #5c6ffc;
     font-size: 8pt;
 	font-weight: normal;
 }
 
 .column .content ul.list .description .text {
-	color: #653300;
+	color: #092F90;
     font-size: 10pt;
     font-weight: normal;
     height: 66px;
@@ -428,24 +435,25 @@ html {
 }
 
 .column .content ul.tile li {
-	float: left;
+	border: 1px solid #FFFFFF;
+    border-radius: 20px 20px 20px 20px;
+    float: left;
     height: 101px;
     list-style: none outside none;
+    margin-right: 10px;
+    margin-top: 10px;
     overflow: hidden;
     position: relative;
     width: 110px;
-    margin-right: 10px;
-    margin-top: 10px;
-    border: 1px solid #9A6533;
 }
 
 .column .content ul.tile li h3 {
-	background-color: #5B3411;
-    background-image: url("../../../img/templates/default/dots1.png");
+	background-color: #89A1CF;
+    background-image: url("../../../img/templates/kandibur/dots1.png");
     background-position: center center;
     background-repeat: no-repeat;
     bottom: 0;
-    color: #FFFFFF;
+    color: #0232A1;
     display: block;
     font-size: 8pt;
     font-weight: bold;
@@ -473,16 +481,24 @@ html {
 }
 
 .column .paginator-wrapper a.list-button {
-	background: url("../../../img/templates/default/button_list.png") no-repeat scroll 0 0 transparent;
+	background: url("../../../img/templates/kandibur/button_list.png") no-repeat scroll 0 0 transparent;
 }
 
 .column .paginator-wrapper a.tile-button {
-	background: url("../../../img/templates/default/button_sq.png") no-repeat scroll 0 0 transparent;
+	background: url("../../../img/templates/kandibur/button_sq.png") no-repeat scroll 0 0 transparent;
 }
 
 #footer {
 	__height: 110px;
-	background-color: #825000;
+	background: #557c26; /* Old browsers */
+	background: -moz-linear-gradient(top,  #557c26 0%, #53862e 48%, #40b235 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#557c26), color-stop(48%,#53862e), color-stop(100%,#40b235)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #557c26 0%,#53862e 48%,#40b235 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #557c26 0%,#53862e 48%,#40b235 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #557c26 0%,#53862e 48%,#40b235 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #557c26 0%,#53862e 48%,#40b235 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#557c26', endColorstr='#40b235',GradientType=0 ); /* IE6-9 */
+
 }
 
 #footer .footer-content {
@@ -493,7 +509,6 @@ html {
 #footer ul.social {
 	margin: 0;
 	padding: 15px 0 0 48px;
-	width: 50%;
 }
 
 #footer ul.social li {
@@ -509,50 +524,50 @@ html {
 }
 
 #footer ul.social li a.fab {
-	background: url('../../../img/templates/default/facebook.png') no-repeat scroll 0 0 transparent;
+	background: url('../../../img/templates/kandibur/facebook.png') no-repeat scroll 0 0 transparent;
 }
 
 #footer ul.social li a.vk {
-	background: url('../../../img/templates/default/vk.png') no-repeat scroll 0 100% transparent;
+	background: url('../../../img/templates/kandibur/vk.png') no-repeat scroll 0 100% transparent;
 }
 
 #footer ul.social li a.od {
-	background: url('../../../img/templates/default/od.png') no-repeat scroll 0 100% transparent;
+	background: url('../../../img/templates/kandibur/od.png') no-repeat scroll 0 100% transparent;
 }
 
 #footer ul.social li a.ram {
-	background: url('../../../img/templates/default/ram.png') no-repeat scroll 0 100% transparent;
+	background: url('../../../img/templates/kandibur/ram.png') no-repeat scroll 0 100% transparent;
 }
 
 #footer ul.social li a.fl {
-	background: url('../../../img/templates/default/flower.png') no-repeat scroll 0 100% transparent;
+	background: url('../../../img/templates/kandibur/flower.png') no-repeat scroll 0 100% transparent;
 }
 
 #footer ul.social li a.ya {
-	background: url('../../../img/templates/default/ya.png') no-repeat scroll 0 100% transparent;
+	background: url('../../../img/templates/kandibur/ya.png') no-repeat scroll 0 100% transparent;
 }
 
 #footer ul.social li a.g {
-	background: url('../../../img/templates/default/g.png') no-repeat scroll 0 100% transparent;
+	background: url('../../../img/templates/kandibur/g.png') no-repeat scroll 0 100% transparent;
 }
 
 #footer ul.social li a.tv {
-	background: url('../../../img/templates/default/bird.png') no-repeat scroll 0 100% transparent;
+	background: url('../../../img/templates/kandibur/bird.png') no-repeat scroll 0 100% transparent;
 }
 
 #footer .map {
 	width: 140px;
 	height: 90px;
-	background: url('../../../img/templates/default/Map_geo.png') no-repeat scroll 0 0 transparent;
+	background: url('../../../img/templates/kandibur/Map_geo.png') no-repeat scroll 0 0 transparent;
 	margin: 15px 35px 0 0;
 }
 
 #footer .contacts {
-	width: 325px;
-	height: 160px;
-	color: #fff;
-	margin-left: 55px;
-	margin-top: 17px;
+	color: #000000;
+    height: 115px;
+    margin-left: 40px;
+    margin-top: 8px;
+    width: 195px;
 }
 
 #footer .contacts h3 {
@@ -562,16 +577,39 @@ html {
 
 #footer .contacts span, #footer .contacts-dop span {
 	display: block;
-    	font-size: 8pt;
-    	line-height: 14px;
+    font-size: 7pt;
+    font-weight: bold;
+    line-height: 14px;
+}
+
+#footer .contacts-dop p {
+	margin: 10px 0;
+}
+
+#footer .groups {
+	color: #003366;
+    font-size: 7pt;
+    padding-left: 53px;
+}
+
+#footer .groups a, #footer .groups a:visited  {
+	background: url("../../../img/templates/kandibur/vk2.png") no-repeat scroll 0 0 transparent;
+    color: #003366;
+    display: block;
+    font-weight: bold;
+    height: 16px;
+    line-height: 19px;
+    margin-top: 5px;
+    padding-left: 20px;
+    text-decoration: none;
 }
 
 #footer .contacts-dop {
-	color: #FFFFFF;
-	height: 135px;
-	margin-top: 24px;
-	width: 245px;
-
+	color: #000000;
+    height: 100px;
+    margin-left: 20px;
+    margin-top: 15px;
+    width: 245px;
 }
 
 #footer span a {
@@ -652,7 +690,7 @@ html {
 
 .left-arrow {
 
-    background: url(../../../img/templates/default/nav_button_lf_no_activ.png) 0 0 transparent;
+    background: url(../../../img/templates/kandibur/nav_button_lf_no_activ.png) 0 0 transparent;
 
     left: 0;
 
@@ -662,7 +700,7 @@ html {
 
 .right-arrow {
 
-    background: url(../../../img/templates/default/nav_button_rh_no_activ.png) 0 0 transparent;
+    background: url(../../../img/templates/kandibur/nav_button_rh_no_activ.png) 0 0 transparent;
 
     right: 0;
 
@@ -673,7 +711,7 @@ html {
 .left-arrow:hover {
 
     _background-position: 36px 0px;
-    background: url(../../../img/templates/default/nav_button_lf_activ.png) 0 0 transparent;
+    background: url(../../../img/templates/kandibur/nav_button_lf_activ.png) 0 0 transparent;
 
 }
 
@@ -682,7 +720,7 @@ html {
 .right-arrow:hover {
 
     _background-position: 36px 0px;
-    background: url(../../../img/templates/default/nav_button_rh_activ.png) 0 0 transparent;
+    background: url(../../../img/templates/kandibur/nav_button_rh_activ.png) 0 0 transparent;
 
 }
 
@@ -720,14 +758,14 @@ html {
 
 
 .indicator-main {
-    background: url(../../../img/templates/default/icons_button/i_nb_01_1.png) 0 0 transparent;
+    background: url(../../../img/templates/kandibur/icons_button/i_nb_01_1.png) 0 0 transparent;
 }
 .indicator-main:hover {
-    background: url(../../../img/templates/default/icons_button/i_nb_01.png) 0 0 transparent;
+    background: url(../../../img/templates/kandibur/icons_button/i_nb_01.png) 0 0 transparent;
 }
 
 .indicator-news {
-    background: url(../../../img/templates/default/icons_button/i_nb_02.png) 0 0 transparent;
+    background: url(../../../img/templates/kandibur/icons_button/i_nb_02.png) 0 0 transparent;
 }
 
 /* ClearFix )))) */
