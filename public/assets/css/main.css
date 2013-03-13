@@ -219,3 +219,39 @@ form .actions {
 
 
 /* end */
+
+/* Alerts */
+
+.alert {
+	background-color: #00ba00;
+    border: #006a00;
+    color: #FFFFFF;
+    font-size: 14pt;
+    padding: 20px 35px 20px 14px;
+	border-radius: 0px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.alert p {
+	font-size: 17px;
+    line-height: 18px;
+    margin: 0;
+}
+
+.alert .close {
+    color: #000000;
+    font-size: 22pt;
+    line-height: 18px;
+    position: relative;
+    right: -21px;
+    top: -2px;
+}
+.close {
+    color: #000000;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 18px;
+    opacity: 0.34;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
