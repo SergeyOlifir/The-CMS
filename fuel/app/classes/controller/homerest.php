@@ -12,6 +12,6 @@
  */
 class Controller_Homerest extends Controller_Rest {
 	protected $format = "json";
-	protected $template = "default";
+	protected $template = "kandibur";
 }
 ?>
