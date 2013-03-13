@@ -4,7 +4,7 @@ $(document).ready( function() {
         $( ".main-menu-content" ).toggleClass( "active", 500 );
     });
 
-    $('.metro-wrapper ul li').hover(function(){
+    $('.metro-wrapper .round').hover(function(){
 		$(this).find('h3').toggleClass("menu-tile-active", 200);
 	});
 

@@ -72,7 +72,7 @@ html {
  .main-menu-content.active {
 	height: 255px;
 	padding: 20px 34px;
-	border: 2px solid #825000;
+	border: 2px solid #0d7fc8;
 }
 
  .main-menu-content .menu-tile {
@@ -131,13 +131,18 @@ html {
 
 
  .main-menu span {
-	color: #663400;
+	color: #0D7FC8;
     display: block;
     float: left;
-    font-size: 10pt;
+    font-size: 9pt;
     font-weight: bold;
-    margin-left: 15px;
-    margin-top: -2px;
+    margin-left: 5px;
+    margin-top: -1px;
+}
+
+.main-menu .center {
+	margin: 0 auto;
+	width: 120px;
 }
 
 .main-menu .mail {
@@ -232,55 +237,66 @@ html {
 	margin-top: 125px;
 	width: 690px;
 	height: 325px;
-}
-
-.metro-wrapper .home-tile {
-	width: 230px;
-	height: 100%;
-}
-
-.metro-wrapper .home-tile.center {
-	width: 230px;
-}
-
-.metro-wrapper .home-tile ul {
-	margin: 0px;
-	padding: 0;
-}
-
-.metro-wrapper .home-tile ul li {
-	list-style: none;
 	position: relative;
-	float: left;
-	overflow: hidden;
-	margin-top: 5px;
-	margin-left: 5px;
-
 }
 
-.metro-wrapper .home-tile ul li img {
+.metro-wrapper div.round img {
 	border: 0 solid #fff;
 }
 
-.metro-wrapper .home-tile ul li.big {
-	width: 225px;
-	height: 214px;
+.metro-wrapper  div.round {
+	border: 4px solid #FF6633;
+    border-radius: 63px 63px 63px 63px;
+    height: 110px;
+    width: 110px;
+	overflow: hidden;
+	position: absolute;
 }
 
-.metro-wrapper .home-tile ul li.little {
-	width: 110px;
-	height: 103px;
+.metro-wrapper div.round img {
+	height: 110px;
+    width: 110px;
 }
 
-.metro-wrapper .home-tile ul li.long {
-	width: 110px;
-	height: 216px;
+.metro-wrapper  div.round._1 {
+	left: 293px;
+    top: 30px;
 }
 
-.metro-wrapper .home-tile ul li h3 {
+.metro-wrapper  div.round._2 {
+	left: 454px;
+    top: 5px;
+}
+
+.metro-wrapper  div.round._3 {
+	left: 605px;
+    top: 34px;
+}
+
+.metro-wrapper  div.round._4 {
+	left: 350px;
+    top: 161px;
+}
+
+.metro-wrapper  div.round._5 {
+	left: 502px;
+    top: 150px;
+}
+
+.metro-wrapper  div.round._6 {
+	left: 435px;
+    top: 280px;
+}
+
+.metro-wrapper  div.round._7 {
+	left: 600px;
+    top: 255px;
+}
+
+.metro-wrapper div.round h3 {
 	background-color: #5B3411;
     background-image: url("../../../img/templates/kandibur/dots.png");
-    background-position: right center;
+    background-position: center center;
     background-repeat: no-repeat;
     bottom: 0;
     color: #FFFFFF;
@@ -294,28 +310,22 @@ html {
     font-size: 8pt;
 	height: 19px;
 	opacity: 0.65;
+	text-indent: -500px;
+	width: 100%;
 }
 
-.metro-wrapper .home-tile ul li h3 span {
+.metro-wrapper div.round h3 span {
 	display: block;
 	padding-top: 3px;
 	font-weight: bold;
 }
 
-.metro-wrapper .home-tile ul li h3.menu-tile-active {
-	height: 40%;
+.metro-wrapper div.round h3.menu-tile-active {
+	height: 60%;
 	background-image: none;
+	text-indent: 0px;
 }
 
-.metro-wrapper .home-tile ul li h3.menu-tile-active span {
-	display: none;
-
-}
-
-.metro-wrapper .home-tile.center div.left {
-	width: 115px;
-	overflow: hidden;
-}
 
 .column h2 {
 	color: #092F90;
@@ -629,7 +639,7 @@ html {
 
 .reveal-modal h3 {
 	font-size: 11pt;
-	color: #663300;
+	color: #1d4c9a;
 	margin: 8px 0;
 }
 
@@ -638,10 +648,10 @@ html {
 }
 
 .reveal-modal {
-    background: none repeat scroll 0 0 #F6E3D1;
+    background: none repeat scroll 0 0 #ffffdb;
     border-radius: 0;
     top:80px !important;
-    border: 1px solid #885520;
+    border: 1px solid #326733;
     z-index: 6;
     position: fixed;
     padding-left: 30px;
@@ -649,7 +659,7 @@ html {
 }
 
 .reveal-modal .popup-content {
-	color: #663300;
+	color: #1d4c9a;
 	font-size: 10pt;
 	overflow:auto;
 	max-height: 400px;
@@ -741,22 +751,22 @@ html {
 
 
 }
-
-
-
 .content-arrow ul li a {
-	display:block;
-	width: 28px;
-	height:25px;
-	border: 1px solid #663300;
-	margin-bottom: 5px;
 	background-size: 28px 25px;
-	border-radius: 3px;
+    border: 2px solid #343499;
+    border-radius: 14px 14px 14px 14px;
+    display: block;
+    height: 28px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    width: 28px;
 }
 
 .content-arrow ul li a img {
-	width: 28px;
-	height: 25px;
+	border: 0 solid;
+    border-radius: 14px 14px 14px 14px;
+    height: 28px;
+    width: 30px;
 }
 
 
