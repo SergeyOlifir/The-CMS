@@ -52,11 +52,10 @@ class Model_Link extends Model
 	
 	public static function get_public() 
 	{
-		$hui = self::find('all', array(
+		return self::find('all', array(
+							'where' => array('public' => 1),
 							'order_by' => array('weight' => 'asc')
 						  ));
-
-						  return $hui;
 	}
 
 }
