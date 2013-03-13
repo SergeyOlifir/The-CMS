@@ -105,6 +105,29 @@ class Controller_Content extends Controller_Administration {
 		Response::redirect("content/index/{$page_id}");
 
 	}
+	
+	public function action_unset($id = null, $related_id = null) {
+		is_null($related_id) and Response::redirect('Content');
+		if ($content = Model_Content::find($id)) {
+			unset($content->related_content[$related_id]);
+			$content->save();
+			Response::redirect("content/edit/{$id}");
+		}
+	}
+	
+	public function  action_set ($id = null) {
+		is_null($id) and Response::redirect('Content');
+		if(\Fuel\Core\Input::post() && ($content = Model_Content::find($id)) && count(\Fuel\Core\Input::post('relations')) > 0) {
+			foreach (\Fuel\Core\Input::post('relations') as $related_id) {
+				if($related_model = Model_Content::find((int)$related_id)) {
+					$content->related_content[] = $related_model;
+				}
+			}
+			
+			$content->save();	
+		}
+		Response::redirect("content/edit/{$id}");
+	}
 
 
 }

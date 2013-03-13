@@ -28,6 +28,29 @@ class Model_Content extends Model
 			'mysql_timestamp' => false,
 		)
 	);
+	
+	protected static $_many_many = array(
+		'related_content' => array(
+			'key_from' => 'id',
+			'key_through_from' => 'content_id',
+			'table_through' => 'contents_in_content',
+			'key_through_to' => 'related_content_id',
+			'model_to' => 'Model_Content',
+			'key_to' => 'id',
+			'cascade_save' => true,
+			'cascade_delete' => false,
+		)
+	);
+	
+	protected static $_has_one = array(
+		'page' => array(
+			'key_from' => 'page_id',
+			'model_to' => 'Model_Page',
+			'key_to' => 'id',
+			'cascade_save' => true,
+			'cascade_delete' => false,
+		)
+	);
 
 	public static function validate($factory)
 	{

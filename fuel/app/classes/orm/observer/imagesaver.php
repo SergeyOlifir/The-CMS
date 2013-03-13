@@ -10,7 +10,13 @@ class Observer_ImageSaver extends Observer
 
 	public function save_image($obj)
 	{
-		if( count(\Upload::get_files()) > 0 ) {
+		try {
+			$count = count(\Upload::get_files());
+		} catch (\FuelException $e) {
+			$count = 0;
+		} 
+		
+		if( $count > 0 ) {
 		$config = \Config::get('settings.logo');
 		$logo_path = $config['upload']['path'];
 		foreach( \Upload::get_files() as $file ) {

@@ -7,10 +7,23 @@
 		<title><?= $title; ?></title>
 
 		<?= Asset::css('bootstrap.min.css'); ?>
+		<?= Asset::css('reveal.css'); ?>
+		<?= Asset::css('jquery.fancybox.css'); ?>
+		<?= Asset::css('jquery.fancybox-buttons.css'); ?>
+		<?= Asset::css('jquery.mCustomScrollbar.css'); ?>
 		<?= Asset::css('main.css'); ?>
+		
 		<?= Asset::render('stylesheets'); ?>
-		<?= Asset::js('jquery-1.6.4.min.js'); ?>
+		<?= Asset::js('jquery-1.8.3.min.js'); ?>
+		<?= Asset::js('jquery-ui-1.9.0.custom.min.js'); ?>
 		<?= Asset::js('bootstrap-alerts.js');?>
+		<?= Asset::js('jquery.mousewheel.min.js'); ?>
+		<?= Asset::js('jquery.reveal.js'); ?>
+		<?= Asset::js('jquery.fancybox.pack.js'); ?>
+		<?= Asset::js('jquery.fancybox-buttons.js'); ?>
+		<?= Asset::js('jquery.scrollTo.js');?>
+		<?= Asset::js('jquery.mCustomScrollbar.min.js'); ?>
+		
 		<?= Asset::render('javascripts'); ?>
 	</head>
 	<body>
