@@ -5,3 +5,4 @@ docs/*
 nbproject
 .DS_Store
 *.tmproj
+fuel/app/config/development/db.php
