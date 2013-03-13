@@ -8,8 +8,10 @@
 					<?= Html::img("files/{$content->image}"); ?>
 					<h3><?= $content->name; ?></h3>
 				</a>
+				<div class="buttons-area clearfix">
+					<a href="/content/delete/<?=$content->id; ?>" class="delite-button right">Delete</a>
+				</div>
 			</div>
-			</a>
 		<? endforeach; ?>
 	</div>
 <?php else: ?>
