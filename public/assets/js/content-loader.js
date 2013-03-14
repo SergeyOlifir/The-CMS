@@ -34,7 +34,7 @@ $(document).ready( function() {
 	        return false;
 	    });
 
-	$(".metro-wrapper ul li a, a.map-link").click(function(){
+	$(".metro-wrapper  a").click(function(){
 		var selected = $(this).attr('href');	
 		$("#content").scrollTo(selected, 900);	
 		$("#content").scrollTo( '-=48px', 900, { axis:'x'});
