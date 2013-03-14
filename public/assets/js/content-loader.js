@@ -11,6 +11,8 @@ $(document).ready( function() {
 	$(window).resize(function() {
 		setPadding();
 	});
+	
+	
 
 	setPadding();
 
@@ -87,9 +89,28 @@ function get(uri, to, params) {
 		url: uri,
 		success: function(response) {
 			var dat = response;
-			$(to).html(dat.data + dat.popup);
+			$(to).html(dat.data);
 			galeryInitialise();
 			tilehover(to);
+			$('a[data-reveal-id]').live('click', function(e) {
+				e.preventDefault();
+				get("home/page/popup/" + $(this).attr("content_id"), "#content-of-popup");
+			});
+		},
+		error: function(data) {
+			$(to).html("Пусто");
+		}
+	});
+}
+
+function get_full_content(uri, to, params) {
+	$.ajax({
+		url: uri,
+		success: function(response) {
+			var dat = response;
+			$(to).html(dat.popup);
+			//galeryInitialise();
+			//tilehover(to);
 		},
 		error: function(data) {
 			$(to).html("Пусто");

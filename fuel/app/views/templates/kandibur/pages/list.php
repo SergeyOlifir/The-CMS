@@ -5,7 +5,7 @@
 	<ul class='list clearfix'>
 		<? $contents = $page->contents; ?>
 		<? foreach ($contents as $content): ?>
-			<a data-reveal-id="<?= $page->alias; ?>_reveal_<?= $content->id; ?>" href="#">
+			<a data-reveal-id="contents_popup" href="#" content_id="<?= $content->id; ?>" class="show-popup">
 				<li>
 					<div class="clearfix">
 						<div class="image-wrapper left">

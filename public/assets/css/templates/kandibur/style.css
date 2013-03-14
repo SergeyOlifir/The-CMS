@@ -394,7 +394,7 @@ html {
     width: 111px;
 }
 
-.column .content ul.list li img, .column .content ul.tile li img {
+.column .content ul.list li img, .column .content ul.tile li img, #content-of-popup ul.tile li img {
 	border: 1px solid #FF2E09;
     border-radius: 20px 20px 20px 20px;
     max-height: 98px;
@@ -439,12 +439,12 @@ html {
     padding: 0;
     text-overflow: ellipsis}
 
-.column .content ul.tile {
+.column .content ul.tile, #content-of-popup ul.tile {
 	margin: 0;
 	padding: 0px 0 0 30px;
 }
 
-.column .content ul.tile li {
+.column .content ul.tile li, #content-of-popup ul.tile li {
 	border: 1px solid #FFFFFF;
     border-radius: 20px 20px 20px 20px;
     float: left;
@@ -457,7 +457,7 @@ html {
     width: 110px;
 }
 
-.column .content ul.tile li h3 {
+.column .content ul.tile li h3, #content-of-popup ul.tile li h3 {
 	background-color: #89A1CF;
     background-image: url("../../../img/templates/kandibur/dots1.png");
     background-position: center center;
@@ -478,7 +478,7 @@ html {
     width: 103px;
 }
 
-.column .content ul.tile li h3.tile-active {
+.column .content ul.tile li h3.tile-active, #content-of-popup ul.tile li h3.tile-active  {
 	height: 70%;
 	text-indent: 0px;
 	background-image: none;

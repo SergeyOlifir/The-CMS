@@ -59,5 +59,6 @@
 				<?= render("templates/{$template}/footer"); ?>
 			</div>
 		</div>
+		<?= render("templates/{$template}/popup"); ?>
 	</body>
 </html>

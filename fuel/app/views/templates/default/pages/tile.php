@@ -5,7 +5,7 @@
 <ul class="tile clearfix">
 	<? foreach ($contents as $content): ?>
 			<li>
-				<a id="tile-<?= $page->alias; ?>-<?= $content->id; ?>" data-reveal-id="<?= $page->alias; ?>_reveal_<?= $content->id; ?>" href="#">
+				<a id ="<?= $content->id; ?>" data-reveal-id="contents_popup" href="#" content_id="<?= $content->id; ?>" class="show-popup">
 					<div class="img-wrapper">
 						<?= Html::img("files/{$content->image}"); ?>
 					</div>
