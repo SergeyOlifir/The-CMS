@@ -6,5 +6,5 @@ nbproject
 .DS_Store
 *.tmproj
 fuel/app/config/development/*
-
+fuel/app/cache/*
 
