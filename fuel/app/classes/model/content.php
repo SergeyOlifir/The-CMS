@@ -42,7 +42,7 @@ class Model_Content extends Model
 		)
 	);
 	
-	protected static $_has_one = array(
+	protected static $_belongs_to = array(
 		'page' => array(
 			'key_from' => 'page_id',
 			'model_to' => 'Model_Page',
