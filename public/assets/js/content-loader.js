@@ -3,6 +3,8 @@ $(document).ready( function() {
 	$( ".main-menu" ).click(function() {
         $( ".main-menu-content" ).toggleClass( "active", 500 );
     });
+	
+	$("#all-columns").css("width", $("#all-columns").children().length * $(".column").width());
 
     $('.metro-wrapper .round').hover(function(){
 		$(this).find('h3').toggleClass("menu-tile-active", 200);
