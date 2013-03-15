@@ -787,10 +787,17 @@ html {
 
 
 .movie-wrapper {
-	width: 100px;
-	height: 100px;
-	margin-right: 20px;
-    margin-top: 5px;
+	border: 10px solid #4682FA;
+    border-radius: 91px 91px 91px 91px;
+    height: 98px;
+    margin-right: 20px;
+    margin-top: -15px;
+    overflow: hidden;
+    width: 98px;
+}
+
+.movie-wrapper embed {
+	margin: -4px 0 0 -2px;
 }
 
 /* Alerts */
