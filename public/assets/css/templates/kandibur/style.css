@@ -315,7 +315,8 @@ html {
 	height: 19px;
 	opacity: 0.75;
 	text-indent: -500px;
-	width: 100%;
+	text-align: center;
+    width: 121px;
 }
 
 .metro-wrapper div.round h3 span {
@@ -397,7 +398,7 @@ html {
 	-webkit-border-radius: 20px;
     height: 101px;
     overflow: hidden;
-    width: 111px;
+    width: 109px;
 }
 
 .column .content ul.list li img, .column .content ul.tile li img, #content-of-popup ul.tile li img {
@@ -516,7 +517,7 @@ html {
 	background: -ms-linear-gradient(top,  #557c26 0%,#53862e 48%,#40b235 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #557c26 0%,#53862e 48%,#40b235 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#557c26', endColorstr='#40b235',GradientType=0 ); /* IE6-9 */
-	border-top: 5px solid #FF6633;
+	border-top: 7px solid #ff6600;
 }
 
 #footer .footer-content {
@@ -781,9 +782,16 @@ html {
 
 
 .indicator-main {
-    background: url(../../../img/templates/kandibur/main-images/3.jpg) 0 0 transparent;
+    background: url(../../../img/templates/kandibur/main-images/1.jpg) 0 0 transparent;
 }
 
+
+.movie-wrapper {
+	width: 100px;
+	height: 100px;
+	margin-right: 20px;
+    margin-top: 5px;
+}
 
 /* Alerts */
 
