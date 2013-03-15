@@ -467,24 +467,25 @@ html {
 }
 
 .column .content ul.tile li h3, #content-of-popup ul.tile li h3 {
-	background-color: #89A1CF;
-    background-image: url("../../../img/templates/kandibur/dots1.png");
+	background-color: #3282FA;
+    background-image: url("../../../img/templates/kandibur/dots.png");
     background-position: center center;
     background-repeat: no-repeat;
     bottom: 0;
-    color: #0232A1;
+    color: #FFFFFF;
     display: block;
-    font-size: 8pt;
+    font-size: 10pt;
     font-weight: bold;
     height: 18px;
     margin: 0;
-    opacity: 0.65;
+    opacity: 0.75;
     overflow: hidden;
     padding-left: 5px;
     padding-right: 3px;
     position: absolute;
     text-indent: -300px;
-    width: 103px;
+    width: 107px;
+	
 }
 
 .column .content ul.tile li h3.tile-active, #content-of-popup ul.tile li h3.tile-active  {
