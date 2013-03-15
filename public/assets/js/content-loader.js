@@ -11,44 +11,27 @@ $(document).ready( function() {
 	$(window).resize(function() {
 		setPadding();
 	});
-	
-	
+			
+	$("body").on("click", 'a[data-reveal-id]', function(event){
+		get("home/page/popup/" + $(this).attr("content_id"), "#content-of-popup");
+	});
 
 	setPadding();
-
-	$(".content-arrow ul li a").click(function(){
-	        var selected = $(this).attr('href');
-	        $("#content").scrollTo(selected, 900, {offset:{ left:0, top:-125 }});
-			$("#content").scrollTo( '-=48px', 900, { axis:'x'});
-	        return false;
-	    });
-	
-	    $(".left-arrow").click(function(){
-	        $("#content").scrollTo( '-=800px', 900, { axis:'x'});
-	        return false;
-	    });
-	
-	    $(".right-arrow").click(function(){
-	        $("#content").scrollTo( '+=800px', 900, { axis:'x', offset:700});
-	        //$("#content").scrollTo( '-=20px', 900, { axis:'y'});
-	        return false;
-	    });
-
-	$(".metro-wrapper  a").click(function(){
-		var selected = $(this).attr('href');	
-		$("#content").scrollTo(selected, 900);	
-		$("#content").scrollTo( '-=48px', 900, { axis:'x'});
+	$(".content-arrow ul li, .metro-wrapper, .main-menu-content").on('click', 'a', function(event){
+		$("#content").scrollTo($(this).attr('href'), 900).scrollTo( '-=48px', 900, { axis:'x'});
+		HideMenu();
 		return false;
 	});
 
-    $(".main-menu-content a").click(function(){
-		var selected = $(this).attr('href');	
-		$("#content").scrollTo(selected, 900);
-		$("#content").scrollTo( '-=48px', 900, { axis:'x'});
-		HideMenu();		
+	$(".left-arrow").click(function(){
+		$("#content").scrollTo( '-=800px', 900, { axis:'x'});
 		return false;
 	});
 
+	$(".right-arrow").click(function(){
+		$("#content").scrollTo( '+=800px', 900, { axis:'x', offset:700});
+		return false;
+	});
 
 	$(".column .paginator-wrapper .paginator-bottom").click(function(){
 		$('#' + $(this).attr('targetContent')).scrollTo('+=345px', 500, { axis:'y' });
@@ -92,25 +75,6 @@ function get(uri, to, params) {
 			$(to).html(dat.data);
 			galeryInitialise();
 			tilehover(to);
-			$('a[data-reveal-id]').live('click', function(e) {
-				e.preventDefault();
-				get("home/page/popup/" + $(this).attr("content_id"), "#content-of-popup");
-			});
-		},
-		error: function(data) {
-			$(to).html("Пусто");
-		}
-	});
-}
-
-function get_full_content(uri, to, params) {
-	$.ajax({
-		url: uri,
-		success: function(response) {
-			var dat = response;
-			$(to).html(dat.popup);
-			//galeryInitialise();
-			//tilehover(to);
 		},
 		error: function(data) {
 			$(to).html("Пусто");
@@ -143,7 +107,6 @@ function setPadding() {
 	var contentHeight = $("#all-wrapper").height();
 	var clientHeight = window.innerHeight;
 	var pading = (clientHeight - contentHeight) / 2;
-	//debugger;
 	if(pading > 0) {
 		$("#header").css("padding", pading+"px 0 0 0");
 		$("#footer").css("padding", "0 0 " + pading + "px 0");
