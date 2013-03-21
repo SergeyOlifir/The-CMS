@@ -685,6 +685,14 @@ html {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.6);
 }
 
+#content-of-popup ul.tile {
+	background-image: url("../../../img/templates/kandibur/separator.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-top: 6px;
+    padding-top: 30px;
+}
+
 
 /* Arrows */
 
