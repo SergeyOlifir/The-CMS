@@ -6,7 +6,7 @@ $(document).ready( function() {
 	
 	$("#all-columns").css("width", $("#all-columns").children().length * $(".column").width());
 
-    $('.metro-wrapper .round').hover(function(){
+    $('.metro-wrapper .round, .metro-wrapper li').hover(function(){
 		$(this).find('h3').toggleClass("menu-tile-active", 200);
 	});
 

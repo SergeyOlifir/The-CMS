@@ -23,7 +23,8 @@ class Observer_ImageSaver extends Observer
 				if($file['field'] == 'image') {
 					$logo_name = $file['saved_as'];
 					$new_logo_name = str_replace(".{$file['extension']}", "-cropt." . \Str::lower($file['extension']) , $file['saved_as']);
-					\Image::load("{$logo_path}/{$logo_name}")->resize($config['sizes']["small"]["width"], $config['sizes']["small"]["height"], true, false)->save("{$logo_path}/{$new_logo_name}");
+					\Image::load($logo_path . DS . $logo_name)->resize(\Arr::get($config, 'sizes.small.width'), \Arr::get($config, 'sizes.small.height'), true, false)
+							->save($logo_path . DS . $new_logo_name);
 					$obj->image = $new_logo_name;
 					return true;
 				}

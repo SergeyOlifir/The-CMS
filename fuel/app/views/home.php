@@ -1,5 +1,5 @@
 <? $current_page = Controller_Application::$current_page; ?>
-<? $template = "kandibur"; ?>
+<? $template = "default"; ?>
 <!DOCTYPE html>
 <html lang="<?= Config::get('language'); ?>">
 	 <head>
