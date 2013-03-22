@@ -1,0 +1,1 @@
+<?= render('templates/red/columns/carusel',array()); ?>
