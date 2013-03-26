@@ -13,7 +13,7 @@
 		<meta property="fb:admins" content="100005100901584" />
 
 		<title><?= $title; ?></title>
-		<link rel="shortcut icon" href="files/favicon.png" type="image/png">
+		<link rel="shortcut icon" href="assets/img/templates/<?= $template; ?>/favicon.png" type="image/png">
 		<?= Asset::css('reveal.css'); ?>
 		<?= Asset::css('jquery.fancybox.css'); ?>
 		<?= Asset::css('jquery.fancybox-buttons.css'); ?>
@@ -29,7 +29,8 @@
 		<?= Asset::js('jquery.fancybox-buttons.js'); ?>
 		<?= Asset::js('jquery.scrollTo.js');?>
 		<?= Asset::js('jquery.mCustomScrollbar.min.js'); ?>
-		<?= Asset::js('content-loader.js'); ?>
+		<?= Asset::js("templates/{$template}/content-loader.js"); ?>
+		<?= Asset::js("templates/{$template}/jcarousellite_1.0.1.js"); ?>
 		<?= Asset::render('javascripts'); ?>
 	</head>
 
@@ -59,6 +60,7 @@
 				<?= render("templates/{$template}/footer"); ?>
 			</div>
 		</div>
+		<?= render("templates/{$template}/loading"); ?>
 		<?= render("templates/{$template}/popup"); ?>
 	</body>
 </html>

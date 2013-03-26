@@ -18,7 +18,7 @@ html {
 }
 
 #header {
-	height: 110px;
+	height: 130px;
 	background: #557c26; /* Old browsers */
 	background: -moz-linear-gradient(top,  #557c26 0%, #53862e 48%, #40b235 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#557c26), color-stop(48%,#53862e), color-stop(100%,#40b235)); /* Chrome,Safari4+ */
@@ -35,9 +35,9 @@ html {
 	display: block;
 	margin: 0;
 	width: 195px;
-	height: 110px;
+	height: 130px;
 	padding: 0;
-	background: url("../../../img/templates/kandibur/Logo-Smoll.png") no-repeat scroll 14px -3px transparent;
+	background: url("../../../img/templates/kandibur/Logo-Smoll.png") no-repeat scroll 14px 16px transparent;
 	margin: 0 auto;
 	text-indent: -999999px;
 }
@@ -677,6 +677,7 @@ html {
 }
 .reveal-modal .popup-content .p{
 }
+
 .reveal-modal-bg {
 	z-index: 5;
 }
@@ -693,10 +694,87 @@ html {
     padding-top: 30px;
 }
 
+#loading_popup {
+	background-image: url("../../../img/templates/kandibur/zagruzka.jpg");
+	background-repeat: no-repeat;
+	width: 750px;
+	height: 580px;
+	z-index: 6;
+	position: fixed;
+	top: 10%;
+	left: 50%;
+	margin-left: -375px;
+}
+
+#loading_popup .close-reveal-modal-loading {
+	color: #0066cc;
+	font-size: 12px;
+	font-family: Tahoma;
+	font-weight: bold;
+	cursor: pointer;
+	position: absolute;
+	right: 18px;
+	top: 12px;
+	font-style: normal;
+	text-shadow: 0 0 2px #fff;
+	text-decoration: underline;
+}
+
+.carusel {
+	margin: 0 0 0 5px;
+	height: 103px;
+	width: 455px;
+	overflow: hidden;
+	border: 2px solid #336699;
+	background-color: #fff;
+	float: left;
+	top: 20px;
+	left: 
+}
+
+.carusel img {
+	width: 108px;
+	height: 95px;
+	border: 1px solid #cd0404;
+	margin: 3px 1.5px;
+}
+
+.carusel li {
+	padding: 0px 1.5px;
+}
+
+.hint {
+	background-image: url("../../../img/templates/kandibur/podskazka.png");
+	background-position: center top;
+	background-repeat: no-repeat;
+	width: 202px;
+	height: 78px;
+	position: absolute;
+	display: none;
+	top: 130px;
+	z-index: 3;
+}
+
+.hint p.hint-title {
+	margin: 6px 7px 3px 7px;
+}
+
+.hint p.hint-title a {
+	font-size: 10px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+}
+
+.hint p.hint-info {
+	font-size: 10px;
+	font-weight: normal;
+	color: #fff;
+	margin: 0 5px;
+	line-height: 115%;
+}
 
 /* Arrows */
-
-
 
 .content-arrow {
 
@@ -799,8 +877,8 @@ html {
 	border: 10px solid #4682FA;
     border-radius: 91px 91px 91px 91px;
     height: 98px;
-    margin-right: 20px;
-    margin-top: -15px;
+    margin-right: 12px;
+    margin-top: 13px;
     overflow: hidden;
     width: 98px;
 }
