@@ -29,10 +29,14 @@ $(document).ready( function() {
 
 	$('.reveal-modal-bg').fadeIn(400);
 	$('#loading_popup').fadeIn(400);
-	$('.close-reveal-modal-loading').click(function() {
+
+	function close_loading () {
 		$('#loading_popup').fadeOut(400);
 		$('.reveal-modal-bg').fadeOut(400);
-	})
+	}
+
+	$('.close-reveal-modal-loading').click(close_loading);
+	$('.reveal-modal-bg').click(close_loading);
 
 	$( ".main-menu" ).click(function() {
         $( ".main-menu-content" ).toggleClass( "active", 500 );
