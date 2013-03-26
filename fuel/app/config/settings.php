@@ -1,7 +1,7 @@
 <?php
 
 return array(
-	'site_name' => 'Житница',
+	'site_name' => 'Детский центр Г. Р. КАНДИБУРА',
 	'admin_email' => 'Juise_Man',
 	'admin_pass' => '8056202',
 	'logo' => array(

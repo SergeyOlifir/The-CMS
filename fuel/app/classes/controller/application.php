@@ -6,7 +6,7 @@ class Controller_Application extends Controller_Template {
 	public static $current_page = "";
 		public function before() {
 			parent::before();
-			$this->template->title = "CMS";//Config::get('settings.site_name');
+			$this->template->title = Config::get('settings.site_name'); //"CMS";
 			$this->auth = Auth::instance();
 		}
 	
