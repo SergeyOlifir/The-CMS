@@ -6,7 +6,7 @@ $(document).ready( function() {
 	
 	$("#all-columns").css("width", $("#all-columns").children().length * $(".column").width());
 
-    $('.metro-wrapper .round').hover(function(){
+    $('.metro-wrapper li').hover(function(){
 		$(this).find('h3').toggleClass("menu-tile-active", 200);
 	});
 
@@ -101,7 +101,7 @@ function galeryInitialise() {
 
 function tilehover(to) {
 	$(to +' ul.tile li a').hover(function(){
-		$("#" + this.id + ' h3').toggleClass("tile-active", 200);
+		$(to +" #" + this.id + ' h3').toggleClass("tile-active", 200);
 	});
 }
 
