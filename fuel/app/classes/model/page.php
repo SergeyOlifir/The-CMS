@@ -63,4 +63,9 @@ class Model_Page extends Model
 		return $result;
 	}
 
+	public function get_sorted_content() 
+	{
+		return Model_Content::query()->where('page_id', "=", $this->id)->order_by('updated_at', 'asc')->get();
+	}
+
 }
