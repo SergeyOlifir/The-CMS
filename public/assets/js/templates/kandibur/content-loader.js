@@ -8,12 +8,12 @@ $(document).ready( function() {
 	    });
 	});
 
-	$('.carusel ul li').on('mouseenter',function(e) {
+	$('.carusel ul').on('mouseenter','li', function(e) {
 		var coord_x = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft) - document.documentElement.clientLeft - 22;
 		$('.hint p.hint-title a').html($(this).find('a').attr('data-title'));
 		$('.hint p.hint-info').html($(this).find('a').attr('data-info'));
 		$('.hint').css('left',coord_x).fadeIn(300);
-	}).on('mouseleave',function(e) {
+	}).on('mouseleave','li',function(e) {
 		var curr_x = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);
 		var curr_y = e.clientY + (document.documentElement.scrollTop || document.body.scrollTop);
 		$('.hint').offset(function(i,val){
