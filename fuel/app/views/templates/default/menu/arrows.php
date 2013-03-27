@@ -5,7 +5,7 @@
 		<? foreach ($links as $link): ?>
 			<? if($link_kount < 5): ?>
 				<? $link_kount++; ?>
-				<li><a class="indicator" href="#<?= $link->page->alias; ?>"><?= Html::img("files/{$link->image}"); ?></a></li>
+				<li><a class="indicator" href="#<?= $link->page->alias; ?>"><?= Html::img("assets/img/templates/default/{$link->image}"); ?></a></li>
 			<? endif; ?>
 		<? endforeach; ?>
 	</ul>
@@ -15,7 +15,7 @@
 		<? $link_kount = 0; ?>
 		<? foreach ($links as $link): ?>
 			<? if($link_kount >= 6): ?>
-				<li><a class="indicator" href="#<?= $link->page->alias; ?>"><?= Html::img("files/{$link->image}"); ?></a></li>
+				<li><a class="indicator" href="#<?= $link->page->alias; ?>"><?= Html::img("assets/img/templates/default/{$link->image}"); ?></a></li>
 			<? endif; ?>
 			<? $link_kount++; ?>
 		<? endforeach; ?>
