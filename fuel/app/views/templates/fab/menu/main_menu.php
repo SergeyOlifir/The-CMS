@@ -18,7 +18,7 @@
 		<a href="#<?= $link->page->alias; ?>">
 			<div class="clearfix menu-tile left">
 				<div class="image-wrapper left">
-					<?= Html::img("assets/img/templates/fab/main-images/menu_icons/{$link->image}") ?>
+					<?= Html::img("files/{$link->image}") ?>
 				</div>
 				<div class="menu-description left">
 					<h3>
