@@ -3,7 +3,7 @@
 		<div class="home-tile left">
 			<ul class="tile-list clearfix">
 				<li class="big">
-					<a href="#contacts">
+					<a href="#company">
 						<div class="img-wrapper">
 							<?= Html::img("assets/img/templates/default/main-images/tolokno.jpg"); ?>
 						</div>
@@ -14,7 +14,7 @@
 					</a>
 				</li>
 				<li class="little">
-					<a href="#partners">
+					<a href="#products">
 						<div class="img-wrapper">
 							<?= Html::img("assets/img/templates/default/main-images/productions.jpg"); ?>
 						</div>
@@ -25,7 +25,7 @@
 					</a>
 				</li>
 				<li class="little">
-					<a href="#products">
+					<a href="#drinks">
 						<div class="img-wrapper">
 							<?= Html::img("assets/img/templates/default/main-images/napitok.jpg"); ?>
 						</div>
@@ -52,7 +52,7 @@
 						</a>
 					</li>
 					<li class="long">
-						<a href="#raws">
+						<a href="#diets">
 							<div class="img-wrapper">
 								<?= Html::img("assets/img/templates/default/main-images/dieta.jpg"); ?>
 							</div>
@@ -67,7 +67,7 @@
 			<div class="left">
 				<ul class="tile-list clearfix">
 					<li class="long">
-						<a href="#productions">
+						<a href="#entrees">
 							<div class="img-wrapper">
 								<?= Html::img("assets/img/templates/default/main-images/deserts.jpg"); ?>
 							</div>
@@ -78,7 +78,7 @@
 						</a>
 					</li>
 					<li class="little">
-						<a href="#implementations">
+						<a href="#cosmetics">
 							<div class="img-wrapper">
 								<?= Html::img("assets/img/templates/default/main-images/masc.jpg"); ?>
 							</div>
@@ -94,7 +94,7 @@
 		<div class="home-tile left">
 			<ul class="tile-list clearfix">
 				<li class="little">
-					<a href="#productions">
+					<a href="#entrees">
 						<div class="img-wrapper">
 							<?= Html::img("assets/img/templates/default/main-images/hleb.jpg"); ?>
 						</div>
@@ -105,7 +105,7 @@
 					</a>
 				</li>
 				<li class="little">
-					<a href="#contacts">
+					<a href="#company">
 						<div class="img-wrapper">
 							<?= Html::img("assets/img/templates/default/main-images/product.jpg"); ?>
 						</div>
@@ -116,7 +116,7 @@
 					</a>
 				</li>
 				<li class="big">
-					<a href="#contacts">
+					<a href="#company">
 						<div class="img-wrapper">
 							<?= Html::img("assets/img/templates/default/main-images/melnitca.jpg"); ?>
 						</div>

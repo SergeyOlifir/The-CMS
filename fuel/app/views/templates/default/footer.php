@@ -1,10 +1,10 @@
 <div class="footer-content clearfix">
 	<ul class="social clearfix left">
 		<li>
-			<a class="fab" href="#"></a>
+			<a class="fab" href="https://www.facebook.com/RidnaZhitnitsaTM" target="_blank"></a>
 		</li>
 		<li>
-			<a class="vk" href="#"></a>
+			<a class="vk" href="https://vk.com/ridnazhitnitsa" target="_blank"></a>
 		</li>
 		<li>
 			<a class="od" href="#"></a>
@@ -19,13 +19,13 @@
 			<a class="ya" href="#"></a>
 		</li>
 		<li>
-			<a class="g" href="#"></a>
+			<a class="g" href="https://plus.google.com/115881097286613802999/posts" target="_blank"></a>
 		</li>
 		<li>
 			<a class="tv" href="#"></a>
 		</li>
 	</ul>
-	<a class="map-link" href="#contacts"><div class="map right"></div></a>
+	<a class="map-link" href="#company"><div class="map right"></div></a>
 	<div class="contacts left">
 		<h3>Контактная информация.</h3> 
 		<span>Телефон для справок по вопросам применения и 
@@ -45,6 +45,6 @@
 		 <span>т. моб. + 38 (066) 937-12-14</span>
 		 <span>т. моб. + 38 (050) 131-13-48</span>
 
-		 <span><a href="http://umimarket.com.ua/index.php?route=product/category&amp;path=119" style="color: #333399;" target="_blank">Купить в интернет магазине</a></span>
+		 <span><a href="http://umimarket.com.ua/index.php?route=product/category&amp;path=119" style="color: #332277;" target="_blank">Купить в интернет магазине</a></span>
 	</div>
 </div>
