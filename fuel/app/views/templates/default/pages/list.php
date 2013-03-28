@@ -18,9 +18,11 @@
 							<div class="text">
 								<?= $content->short_description; ?>
 							</div>
-							<div class="date">
-								<?= Date::forge($content->updated_at)->format("%d.%m.%Y", true); ?>
-							</div>
+							<? if ($page->public_data == 1): ?>
+								<div class="date">
+									<?= Date::forge($content->updated_at)->format("%d.%m.%Y", true); ?>
+								</div>
+							<? endif; ?>
 						</div>
 					</div>
 				</li>

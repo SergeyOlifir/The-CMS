@@ -8,6 +8,7 @@ class Model_Page extends Model
 		'name',
 		'alias',
 		'header',
+		'public_data',
 		'created_at',
 		'updated_at',
 	);

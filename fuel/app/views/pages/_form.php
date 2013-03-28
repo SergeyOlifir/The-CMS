@@ -20,6 +20,12 @@
 				<?php echo Form::textarea('header', Input::post('header', isset($page) ? $page->header : ''), array('class' => 'span12', 'rows' => 12)); ?>
 			</div>
 		</div>
+		<div class="clearfix">
+			<div class="input">
+				<?= Form::checkbox('public_data', 1, isset($page) && $page->public_data > 0 ? true : false);  ?>
+				<?= Form::label('Отображать дату контента', 'public_data'); ?>
+			</div>
+		</div>
 		<div class="actions">
 			<?php echo Form::submit('submit', 'Сохранить', array('class' => 'btn btn-primary btn-large')); ?>
 		</div>

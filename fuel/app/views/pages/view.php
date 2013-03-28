@@ -9,6 +9,9 @@
 <p>
 	<strong>Header:</strong>
 	<?php echo $page->header; ?></p>
+<p>
+	<strong>Public_data:</strong>
+	<?php echo $page->public_data; ?></p>
 
 <?php echo Html::anchor('pages/edit/'.$page->id, 'Edit'); ?> |
 <?php echo Html::anchor('pages', 'Back'); ?>
