@@ -9,7 +9,7 @@
 				<li>
 					<div class="clearfix">
 						<div class="image-wrapper left">
-							<?= Html::img("assets/img/templates/default/{$content->image}"); ?>
+							<?= Html::img("files/{$content->image}"); ?>
 						</div>
 						<div class="description left">
 							<h3>

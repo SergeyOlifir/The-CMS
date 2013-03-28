@@ -29,7 +29,7 @@ html {
 	width: 150px;
 	height: 110px;
 	padding: 0;
-	background: url('../../../img/templates/default/Logo-Smoll.png') no-repeat scroll 50px 5px transparent;
+	background: url('../../../img/templates/default/Logo-Smoll.png') no-repeat scroll 30px 10px transparent;
 	margin: 0 auto;
 	text-indent: -999999px;
 }
@@ -51,7 +51,7 @@ html {
 }
 
  .main-menu-content {
-	background-color: rgba(169, 102, 11, 0.88);
+	background-color: rgba(145, 80, 0, 0.85);
 	height: 0px;
 	margin: 0 auto;
 	padding: 0;
@@ -64,7 +64,7 @@ html {
  .main-menu-content.active {
 	height: 255px;
 	padding: 20px 34px;
-	border: 2px solid #825000;
+	border: 1px solid #825000;
 }
 
  .main-menu-content .menu-tile {
@@ -75,9 +75,10 @@ html {
 }
 
  .main-menu-content .menu-tile img {
-	width: 43px;
-	height: 38px;
-	border: 0 solid #fff;
+	width: 40px;
+	height: 37px;
+	border: 1px solid #663300;
+	border-radius: 4px;
 }
 
 .main-menu-content .menu-tile ul.submenu {
@@ -110,12 +111,12 @@ html {
 	font-size: 8pt;
 	font-weight: bold;
 	margin: 0;
-	padding: 1px 0;
+	padding: 3px 0;
 }
 
 .main-menu-content .menu-tile .menu-description .menu-text {
 	color: #FFFFFF;
-	font-size: 7pt;
+	font-size: 8pt;
 	line-height: 12px;
 	width: 180px;
 }
@@ -206,7 +207,7 @@ html {
 }
 
 #all-columns {
-	width: 6440px;
+	width: 6452px !important;
 }
 
 .menu-all {
@@ -266,12 +267,12 @@ html {
 
 .metro-wrapper .home-tile ul li.little {
 	width: 110px;
-	height: 103px;
+	height: 102px;
 }
 
 .metro-wrapper .home-tile ul li.long {
 	width: 110px;
-	height: 216px;
+	height: 215px;
 }
 
 .metro-wrapper .home-tile ul li h3 {
@@ -285,22 +286,22 @@ html {
     font-weight: normal;
     margin: 0;
     overflow: hidden;
-    padding-left: 5px;
+    padding-left: 3px;
     padding-right: 3px;
     position: absolute;
     font-size: 8pt;
-	height: 19px;
-	opacity: 0.65;
+	height: 17px;
+	opacity: 0.8;
 }
 
 .metro-wrapper .home-tile ul li h3 span {
 	display: block;
-	padding-top: 3px;
+	padding-top: 2px;
 	font-weight: bold;
 }
 
 .metro-wrapper .home-tile ul li h3.menu-tile-active {
-	height: 40%;
+	height: 52%;
 	background-image: none;
 }
 
@@ -336,7 +337,7 @@ html {
 	background: url("../../../img/templates/default/Plashka_content_verh.png") no-repeat scroll 0 0 transparent;
     width: 640px;
     height: 22px;
-    padding: 4px 0 0 15px;
+    padding: 6px 0 0 15px;
 
 }
 
@@ -360,22 +361,22 @@ html {
 }
 
 .column .content ul.list li {
-	background-color: rgba(240, 210, 172, 0.8);
-    border: 1px solid #8F6628;
+	background-color: rgba(250, 235, 205, 0.4);
+    border: 1px solid #885500;
     float: left;
-    height: 104px;
+    height: 103px;
     list-style: none outside none;
-    margin-left: 3px;
+    margin-left: 2px;
     margin-top: 5px;
     overflow: hidden;
     padding: 2px;
-    width: 345px;
+    width: 343px;
 }
 
 .column .content ul.list li .image-wrapper, .column .content ul.tile li .image-wrapper  {
-	border: 1px solid #9A6533;
-    height: 101px;
-    width: 111px;
+	border: 1px solid #553300;
+    height: 100px;
+    width: 110px;
 }
 
 .column .content ul.list li img, .column .content ul.tile li img, #content-of-popup ul.tile li img {
@@ -387,17 +388,17 @@ html {
 .column .content ul.list .description {
 	height: 96px;
     overflow: hidden;
-    padding: 2px 2px 5px 9px;
+    padding: 2px 2px 5px 7px;
     text-overflow: ellipsis;
-    width: 220px;
+    width: 218px;
 }
 
 .column .content ul.list .description h3 {
-	color: #653300;
+	color: #553300;
     display: block;
     font-size: 10pt;
     font-weight: bold;
-    height: 20px;
+    height: 17px;
     margin: 0;
     overflow: hidden;
     padding: 0;
@@ -412,10 +413,10 @@ html {
 }
 
 .column .content ul.list .description .text {
-	color: #653300;
-    font-size: 10pt;
+	color: #553300;
+    font-size: 9pt;
     font-weight: normal;
-    height: 66px;
+    height: 68px;
     line-height: 13px;
     margin: 0;
     overflow: hidden;
@@ -436,7 +437,7 @@ html {
     width: 110px;
     margin-right: 10px;
     margin-top: 10px;
-    border: 1px solid #9A6533;
+    border: 1px solid #885500;
 }
 
 .column .content ul.tile li h3, #content-of-popup ul.tile li h3 {
@@ -451,7 +452,7 @@ html {
     font-weight: bold;
     height: 18px;
     margin: 0;
-    opacity: 0.65;
+    opacity: 0.8;
     overflow: hidden;
     padding-left: 5px;
     padding-right: 3px;
@@ -463,7 +464,7 @@ html {
 
 
 .column .content ul.tile li h3.tile-active, #content-of-popup ul.tile li h3.tile-active {
-	height: 70%;
+	height: 55%;
 	text-indent: 0px;
 	background-image: none;
 }
@@ -546,7 +547,7 @@ html {
 	width: 140px;
 	height: 90px;
 	background: url('../../../img/templates/default/Map_geo.png') no-repeat scroll 0 0 transparent;
-	margin: 15px 35px 0 0;
+	margin: 10px 35px 0 0;
 }
 
 #footer .contacts {
@@ -554,7 +555,7 @@ html {
 	height: 160px;
 	color: #fff;
 	margin-left: 55px;
-	margin-top: 17px;
+	margin-top: 10px;
 }
 
 #footer .contacts h3 {
@@ -565,28 +566,28 @@ html {
 #footer .contacts span, #footer .contacts-dop span {
 	display: block;
     	font-size: 8pt;
-    	line-height: 14px;
+    	line-height: 13px;
 }
 
 #footer .contacts-dop {
 	color: #FFFFFF;
 	height: 135px;
-	margin-top: 24px;
+	margin-top: 26px;
 	width: 245px;
 
 }
 
 #footer span a {
-	color: #333399;
+	color: #332277;
 	display: block;
 	font-size: 9pt;
 	font-weight: bold;
-	padding-top: 10px;	
+	padding-top: 7px;	
 }
 
 #footer .contacts-dop span a {
 	display: block;
-    	margin-top: 15px;
+    	margin-top: 1px;
 }
 
 /* popup styles */
@@ -594,7 +595,7 @@ html {
 .reveal-modal h3 {
 	font-size: 11pt;
 	color: #663300;
-	margin: 8px 0;
+	margin: 6px 0;
 }
 
 .reveal-modal .close-reveal-modal {
@@ -603,9 +604,9 @@ html {
 
 .reveal-modal {
     background: none repeat scroll 0 0 #F6E3D1;
-    border-radius: 0;
-    top:80px !important;
-    border: 1px solid #885520;
+    border-radius: 10px 10px 10px 10px;
+    top:90px !important;
+    border: 2px solid #775520;
     z-index: 6;
     position: fixed;
     padding-left: 30px;
@@ -622,18 +623,18 @@ html {
 .reveal-modal .popup-content .p{
 }
 .reveal-modal-bg {
-	z-index: 5;
+	z-index: 4;
 }
 
 .content .reveal-modal-bg {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.6);
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.65);
 }
 
 #content-of-popup ul.tile {
 	background-image: url("../../../img/templates/default/separator.png");
     background-position: center top;
     background-repeat: no-repeat;
-    margin-top: 6px;
+    margin-top: 8px;
     padding-top: 30px;
 }
 
@@ -712,7 +713,7 @@ html {
 
     padding: 0;
 
-    margin: 25px 4px 0 3px;
+    margin: 20px 5px 0 5px;
 
 }
 
@@ -723,18 +724,27 @@ html {
 }
 .content-arrow ul li a {
 	background-size: 28px 28px;
-    border: 2px solid #9A6533;
+    __border: 2px solid #9A6533;
     display: block;
-    height: 28px;
-    margin-bottom: 5px;
+    height: 29px;
+    margin-bottom: 4px;
     overflow: hidden;
-    width: 28px;
+    width: 31px;
+}
+
+.content-arrow ul li a.indicator-main {
+	background: url("../../../img/templates/default/menu_ico_01.jpg") repeat scroll 0 0 / 29px 28px transparent;
+	border: 1px solid #663300;
+    border-radius: 3px 3px 3px 3px;
+	height: 27px;
+    width: 29px;	
 }
 
 .content-arrow ul li a img {
-	border: 0 solid;
-    height: 28px;
-    width: 28px;
+	border: 1px solid #663300;
+    	height: 27px;
+    	width: 29px;
+	border-radius: 3px;
 }
 
 /* ClearFix )))) */

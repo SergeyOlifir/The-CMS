@@ -31,7 +31,8 @@ $(document).ready( function() {
 	});
 
 	$(".right-arrow").click(function(){
-		$("#content").scrollTo( '+=800px', 900, { axis:'x', offset:700});
+		if ($("#all-columns").width() - $("#content").scrollLeft() > 2*800)
+			$("#content").scrollTo( '+=800px', 900, { axis:'x', offset:700});
 		return false;
 	});
 
