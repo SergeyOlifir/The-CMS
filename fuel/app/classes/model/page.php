@@ -9,6 +9,7 @@ class Model_Page extends Model
 		'alias',
 		'header',
 		'public_data',
+		'view_content',
 		'created_at',
 		'updated_at',
 	);

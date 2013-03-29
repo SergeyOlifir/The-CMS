@@ -18,7 +18,7 @@ class Controller_Home_Page extends Controller_Homerest {
 		$this->response(array('data' => $result_content), 200);
 	}
 	
-	public function get_tiles($pageId = null) {
+	public function get_tile($pageId = null) {
 		try {
 			$result_content = Cache::get('tile' . $pageId);
 		} catch (\CacheNotFoundException $e) {

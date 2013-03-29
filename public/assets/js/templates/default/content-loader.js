@@ -53,20 +53,6 @@ $(document).ready( function() {
     	if($(".main-menu-content").hasClass('active')){ $(".main-menu-content").removeClass( "active", 500 ); };
     	return false;
     }
-	
-	$(".content").each(function(){
-		var _this = this;
-		get("home/page/list/" + $(this).attr("data"), "#" + $(this).attr("id"), "");
-		$('#list-' + $(this).attr("id") + '-button').click(function() {
-			get("home/page/list/" + $(_this).attr("data"), "#" + $(_this).attr("id"), "");
-			return false;
-		});
-		
-		$('#tile-' + $(this).attr("id") + '-button').click(function() {
-			get("home/page/tiles/" + $(_this).attr("data"), "#" + $(_this).attr("id"), "");
-			return false;
-		});
-	});
 
 });
 

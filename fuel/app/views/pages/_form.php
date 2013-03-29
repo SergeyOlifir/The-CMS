@@ -21,6 +21,15 @@
 			</div>
 		</div>
 		<div class="clearfix">
+			<?php echo Form::label('Вид отображения контента:', 'view_content'); ?>
+			<div class="input">
+				<?= Form::radio('view_content', 'list', isset($page) && $page->view_content == 'list' ? true : false); ?>
+				<?= Form::label('Список (list)', 'view_content'); ?>
+				<?= Form::radio('view_content', 'tile', isset($page) && $page->view_content == 'tile' ? true : false); ?>
+				<?= Form::label('Плитка (tile)', 'view_content'); ?>
+			</div>
+		</div>
+		<div class="clearfix">
 			<div class="input">
 				<?= Form::checkbox('public_data', 1, isset($page) && $page->public_data > 0 ? true : false);  ?>
 				<?= Form::label('Отображать дату контента', 'public_data'); ?>

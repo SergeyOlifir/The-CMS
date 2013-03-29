@@ -10,8 +10,8 @@
 	<strong>Header:</strong>
 	<?php echo $page->header; ?></p>
 <p>
-	<strong>Public_data:</strong>
-	<?php echo $page->public_data; ?></p>
+	<strong>Content_date:</strong>
+	<?php echo $page->public_data == 1 ? '+' : '-'; ?></p>
 
 <?php echo Html::anchor('pages/edit/'.$page->id, 'Edit'); ?> |
 <?php echo Html::anchor('pages', 'Back'); ?>

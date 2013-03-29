@@ -100,7 +100,7 @@ $(document).ready( function() {
 		});
 		
 		$('#tile-' + $(this).attr("id") + '-button').click(function() {
-			get("home/page/tiles/" + $(_this).attr("data"), "#" + $(_this).attr("id"), "");
+			get("home/page/tile/" + $(_this).attr("data"), "#" + $(_this).attr("id"), "");
 			return false;
 		});
 	});

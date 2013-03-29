@@ -2,7 +2,7 @@
 	<a href="#2">
 		<div class="clearfix menu-tile left">
 			<div class="image-wrapper left">
-				<?= Html::img("assets/img/templates/default/main-images/menu_icons/menu_icon_17.png") ?>
+				<?= Html::img("assets/img/templates/default/menu_ico_01.jpg") ?>
 			</div>
 			<div class="menu-description left">
 				<h3>

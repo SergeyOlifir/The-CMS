@@ -6,6 +6,8 @@
 				<th>Название</th>
 				<th>Alias</th>
 				<th>Дата создания</th>
+				<th>Дата контента</th>
+				<th>Вид контента</th>
 				<th>Действия</th>
 			</tr>
 		</thead>
@@ -15,6 +17,8 @@
 					<td><?= $page->name; ?></td>
 					<td><?= $page->alias; ?></td>
 					<td><?= Date::forge($page->created_at)->format("%d.%m.%Y", true); ?></td>
+					<th><?= $page->public_data == 1 ? '+' : '-'; ?></th>
+					<td><?= $page->view_content; ?></td>
 					<td>
 						<?= Html::anchor('content/index/'.$page->id, 'View', array("class" => "view-button")); ?> 
 						<?= Html::anchor('pages/edit/'.$page->id, 'Edit', array("class" => "edit-button")); ?> 

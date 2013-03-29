@@ -1,3 +1,19 @@
+<script type="text/javascript">
+	$(function() {
+		var page = "#<?= $page->alias; ?>";
+		var _page = page;
+		get("home/page/<?= $page->view_content; ?>/" + $(page).attr("data"), "#" + $(page).attr("id"), "");
+		$('#list-' + $(page).attr("id") + '-button').click(function() {
+			get("home/page/list/" + $(_page).attr("data"), "#" + $(_page).attr("id"), "");
+			return false;
+		});
+		
+		$('#tile-' + $(page).attr("id") + '-button').click(function() {
+			get("home/page/tile/" + $(_page).attr("data"), "#" + $(_page).attr("id"), "");
+			return false;
+		});
+	})
+</script>
 <div class="column left" id="<?= $page->alias; ?>-column">
 	<h2>
 		<?= $page->header; ?>

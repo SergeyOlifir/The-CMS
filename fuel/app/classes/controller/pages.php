@@ -33,6 +33,7 @@ class Controller_Pages extends Controller_Administration
 					'alias' => Input::post('alias'),
 					'header' => Input::post('header'),
 					'public_data' => Input::post('public_data') == 1 ? 1 : 0,
+					'view_content' => Input::post('view_content') == 'tile' ? 'tile' : 'list',
 				));
 				if ($page and $page->save()) {
 					$this->SetNotice('success', 'Added page #'.$page->id.'.');
@@ -66,6 +67,7 @@ class Controller_Pages extends Controller_Administration
 			$page->alias = Input::post('alias');
 			$page->header = Input::post('header');
 			$page->public_data = Input::post('public_data') == 1 ? 1 : 0;
+			$page->view_content = Input::post('view_content') == 'tile' ? 'tile' : 'list';
 			if ($page->save())	{
 				$this->SetNotice('success', 'Updated page #' . $id);
 				Response::redirect('pages');
@@ -78,6 +80,7 @@ class Controller_Pages extends Controller_Administration
 				$page->alias = $val->validated('alias');
 				$page->header = $val->validated('header');
 				$page->public_data = $val->validated('public_data');
+				$page->view_content = $val->validated('view_content');
 				$this->SetNotice('error', $val->error());
 			}
 			$this->template->set_global('page', $page, false);
