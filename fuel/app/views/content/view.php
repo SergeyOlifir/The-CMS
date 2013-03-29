@@ -15,6 +15,9 @@
 <p>
 	<strong>Page id:</strong>
 	<?php echo $content->page_id; ?></p>
+<p>
+	<strong>Date:</strong>
+	<?php echo Date::forge($content->date_create)->format("%m/%d/%Y", true); ?></p>
 
 <?php echo Html::anchor('content/edit/'.$content->id, 'Edit'); ?> |
 <?php echo Html::anchor('content', 'Back'); ?>

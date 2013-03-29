@@ -22,6 +22,9 @@
 
 		} );
 	};
+	$(function() {
+		$("#form_date_create").datepicker();
+	})
 </script>
 <?php echo Form::open(array('enctype'=>'multipart/form-data')); ?>
 	<fieldset>
@@ -50,6 +53,12 @@
 			<?= Form::label('Полное описание', 'description'); ?>
 			<div class="input">
 				<?= Form::textarea('description', Input::post('description', isset($content) ? $content->description : ''), array('class' => 'span12', 'rows' => 12)); ?>
+			</div>
+		</div>
+		<div class="clearfix">
+			<?= Form::label('Дата создания', 'date_create'); ?>
+			<div class="input">
+				<?= Form::input('date_create', Input::post('date_create', isset($content) ? Date::forge($content->date_create)->format("%m/%d/%Y", true) : Date::time()->format("%m/%d/%Y", true)), array('class' => 'span12')); ?>
 			</div>
 		</div>
 		<div class="actions">

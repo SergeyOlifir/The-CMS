@@ -271,3 +271,57 @@ form .actions {
     opacity: 0.34;
     text-shadow: 0 1px 0 #FFFFFF;
 }
+
+/* for_datepicker */
+
+#ui-datepicker-div {
+	border-radius: 3px;
+	background-color: #fff;
+	border: 1px solid #333;
+	box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.475);
+	padding: 2px;
+}
+
+.ui-datepicker-calendar thead {
+	background-color: #444;
+}
+.ui-datepicker-calendar tbody td {
+	border: 0 none;
+    padding: 1px;
+}
+
+.ui-datepicker-calendar tbody td .ui-state-default {
+	border: 1px solid #D3D3D3;
+	text-align: right;
+	background-color: #e6e6e6;
+	padding: 0px 4px;
+	display: block;
+	font-size: 12px;
+}
+
+.ui-datepicker-calendar tbody td .ui-state-default:hover,
+.ui-datepicker-calendar tbody td .ui-state-active {
+	color: #212121;
+	background-color: #fff;
+	border: 1px solid #999;
+}
+
+.ui-datepicker-calendar tbody td .ui-state-default:hover {
+	text-decoration: none;
+}
+
+a.ui-datepicker-prev span {
+	float: left;
+	cursor: pointer;
+	margin-left: 3px;
+}
+
+a.ui-datepicker-next span {
+	float: right;
+	cursor: pointer;
+	margin-right: 3px;
+}
+
+.ui-datepicker-title {
+	text-align: center;
+}

@@ -10,6 +10,7 @@ class Model_Content extends Model
 		'short_description',
 		'image',
 		'page_id',
+		'date_create',
 		'created_at',
 		'updated_at',
 	);

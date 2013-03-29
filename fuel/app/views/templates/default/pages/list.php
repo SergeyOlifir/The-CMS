@@ -20,7 +20,7 @@
 							</div>
 							<? if ($page->public_data == 1): ?>
 								<div class="date">
-									<?= Date::forge($content->updated_at)->format("%d.%m.%Y", true); ?>
+									<?= Date::forge($content->date_create)->format("%d.%m.%Y", true); ?>
 								</div>
 							<? endif; ?>
 						</div>

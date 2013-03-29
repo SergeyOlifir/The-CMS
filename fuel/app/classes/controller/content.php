@@ -34,6 +34,7 @@ class Controller_Content extends Controller_Administration {
 					'name' => Input::post('name'),
 					'description' => Input::post('description'),
 					'short_description' => Input::post('short_description'),
+					'date_create' => Date::create_from_string(Input::post('date_create'), "us")->get_timestamp(),
 					'page_id' => $page_id,
 				));
 				if ($content and $content->save()) {
@@ -66,6 +67,7 @@ class Controller_Content extends Controller_Administration {
 			$content->name = Input::post('name');
 			$content->description = Input::post('description');
 			$content->short_description = Input::post('short_description');
+			$content->date_create = Date::create_from_string(Input::post('date_create'), "us")->get_timestamp();
 			if(Upload::is_valid()) {
 				Upload::save();
 			}
@@ -80,6 +82,7 @@ class Controller_Content extends Controller_Administration {
 				$content->name = $val->validated('name');
 				$content->description = $val->validated('description');
 				$content->short_description = $val->validated('short_description');
+				$content->date_create = $val->validated('date_create');
 				$this->SetNotice('error', $val->error());
 			}
 			$this->template->set_global('content', $content, false);
