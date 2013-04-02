@@ -37,14 +37,14 @@ html {
     font-size: 18pt;
     font-style: italic;
     font-weight: bold;
-    margin-top: 50px;
+    margin-bottom: 2px;
 }
 
 #header h1 {
 	background: url("../../../img/templates/fab/Logo-Smoll.png") no-repeat scroll 0 0 transparent;
 	display: block;
 	height: 70px;
-	margin: 0 0 0 17px;
+	margin: 15px 0 0 17px;
 	padding: 0;
 	text-indent: -999999px;
 	width: 215px;
@@ -616,6 +616,58 @@ html {
 
 .content .reveal-modal-bg {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
+}
+
+.carusel {
+	overflow: hidden;
+	border: 1px solid #e16d22;
+	background-color: #fff;
+	height: 45px;
+	box-shadow: 2px 2px 2px rgba(225, 133, 98, 1);
+	margin-right: -6px;
+}
+
+.carusel img {
+	width: 103px;
+	height: 35px;
+	border: 1px solid #e16d22;
+	margin: 4px 1.5px;
+}
+
+.carusel li {
+	padding: 0;
+}
+
+.hint {
+	background-image: url("../../../img/templates/fab/hint.png");
+	background-position: center top;
+	background-repeat: no-repeat;
+	width: 202px;
+	height: 77px;
+	position: absolute;
+	display: none;
+	top: 97px;
+	z-index: 3;
+}
+
+.hint p.hint-title {
+	margin: 9px 7px 3px 9px;
+}
+
+.hint p.hint-title a {
+	font-size: 10px;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+}
+
+.hint p.hint-info {
+	font-size: 10px;
+	font-weight: normal;
+	color: #000;
+	margin: 0 5px;
+	line-height: 115%;
+	margin: 0 8px;
 }
 
 /* Arrows */

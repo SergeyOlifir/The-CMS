@@ -208,6 +208,7 @@ $.fn.jCarouselLite = function(o) {
         btnGo: null,
         mouseWheel: false,
         auto: null,
+        hoverPause: false,
 
         speed: 200,
         easing: null,
@@ -249,15 +250,23 @@ $.fn.jCarouselLite = function(o) {
 
         div.css(sizeCss, divSize+"px");                     // Width of the DIV. length of visible images
 
-        if(o.btnPrev)
+        if(o.btnPrev) {
             $(o.btnPrev).click(function() {
                 return go(curr-o.scroll);
             });
+            if(o.hoverPause) {
+                $(o.btnPrev).hover(function(){stopAuto();}, function(){startAuto();});
+            }
+        }
 
-        if(o.btnNext)
+        if(o.btnNext) {
             $(o.btnNext).click(function() {
                 return go(curr+o.scroll);
             });
+            if(o.hoverPause) {
+                $(o.btnNext).hover(function(){stopAuto();}, function(){startAuto();});
+            }
+        }
 
         if(o.btnGo)
             $.each(o.btnGo, function(i, val) {
@@ -271,10 +280,25 @@ $.fn.jCarouselLite = function(o) {
                 return d>0 ? go(curr-o.scroll) : go(curr+o.scroll);
             });
 
-        if(o.auto)
-            setInterval(function() {
+        var autoInterval;
+        
+        function startAuto() {
+            stopAuto();
+            autoInterval = setInterval(function() {
                 go(curr+o.scroll);
             }, o.auto+o.speed);
+        };
+
+        function stopAuto() {
+            clearInterval(autoInterval);
+        };
+
+        if(o.auto) {
+            if(o.hoverPause) {
+                div.hover(function(){stopAuto();}, function(){startAuto();});
+            }
+            startAuto();
+        }
 
         function vis() {
             return li.slice(curr).slice(0,v);
