@@ -690,6 +690,40 @@ h3.top-left-border.right-corner {
 	padding: 0 5px;
 }
 
+.hint {
+	background-image: url("../../../img/templates/red/hint.png");
+	background-position: center top;
+	background-repeat: no-repeat;
+	width: 202px;
+	height: 78px;
+	position: absolute;
+	display: none;
+	top: 103px;
+	z-index: 3;
+}
+
+.hint p.hint-title {
+	margin: 9px 7px 3px 9px;
+	letter-spacing: -0.5px;
+}
+
+.hint p.hint-title a {
+	font-size: 10px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+}
+
+.hint p.hint-info {
+	font-size: 10px;
+	font-weight: normal;
+	color: #fff;
+	margin: 0 5px;
+	line-height: 115%;
+	letter-spacing: -0.5px;
+	margin: 0 8px;
+}
+
 /* Arrows */
 
 .content-arrow {

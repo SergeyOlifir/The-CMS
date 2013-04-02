@@ -4,9 +4,29 @@ $(document).ready( function() {
 	    $(".carusel").jCarouselLite({
 	       'auto': 1300,
 	       'visible': 7,
+	       'hoverPause': true
 	    });
 	});
 		
+	$('.carusel ul').on('mouseenter','li', function(e) {
+		var coord_x = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft) - document.documentElement.clientLeft - 22;
+		$('.hint p.hint-title a').html($(this).find('a').attr('data-title'));
+		$('.hint p.hint-info').html($(this).find('a').attr('data-info'));
+		$('.hint').css('left',coord_x).fadeIn(300);
+	}).on('mouseleave','li',function(e) {
+		var curr_x = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);
+		var curr_y = e.clientY + (document.documentElement.scrollTop || document.body.scrollTop);
+		$('.hint').offset(function(i,val){
+			if ((curr_x < val.left) || (curr_x > val.left + this.width) || (curr_y < val.top - 10) || (curr_y > val.top + this.height)) {
+				$('.hint').fadeOut(200);
+			}
+		});
+	});
+
+	$('.hint').on('mouseleave',function() {
+		$('.hint').fadeOut(200);
+	})
+
 	$( ".main-menu" ).click(function() {
         $( ".main-menu-content" ).toggleClass( "active", 500 );
     });
