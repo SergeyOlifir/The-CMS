@@ -210,8 +210,11 @@ html {
 	overflow: hidden;
 }
 
-#all-columns {
+/*#all-columns {
 	width: 6834px;
+}*/
+#all-columns {
+	width: 6452px !important;
 }
 
 .menu-all {

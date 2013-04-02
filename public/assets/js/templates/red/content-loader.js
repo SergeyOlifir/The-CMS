@@ -183,7 +183,7 @@ function galeryInitialise() {
 
 function tilehover(to) {
 	$(to +' ul.tile li a').hover(function(){
-		$("#" + this.id + ' h3').toggleClass("tile-active", 200);
+		$(to + " #" + this.id + ' h3').toggleClass("tile-active", 200);
 	});
 }
 

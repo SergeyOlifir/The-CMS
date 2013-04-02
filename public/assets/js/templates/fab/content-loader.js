@@ -4,7 +4,9 @@ $(document).ready( function() {
         $( ".main-menu-content" ).toggleClass( "active", 500 );
     });
 
-    $('.metro-wrapper ul li').hover(function(){
+	$("#all-columns").css("width", $("#all-columns").children().length * $(".column").width());
+
+    $('.metro-wrapper li').hover(function(){
 		$(this).find('h3').toggleClass("menu-tile-active", 200);
 	});
 
@@ -15,26 +17,28 @@ $(document).ready( function() {
 	setPadding();
 
 	$(".content-arrow ul li a").click(function(){
-	        var selected = $(this).attr('href');
-	        $("#content").scrollTo(selected, 900, {offset:{ left:0, top:-125 }});
-	        return false;
-	    });
-	
-	    $(".left-arrow").click(function(){
-	        $("#content").scrollTo( '-=800px', 900, { axis:'x'});
-	        return false;
-	    });
-	
-	    $(".right-arrow").click(function(){
-	        $("#content").scrollTo( '+=800px', 900, { axis:'x'});
-	        //$("#content").scrollTo( '-=20px', 900, { axis:'y'});
-	        return false;
-	    });
+        var selected = $(this).attr('href');
+        $("#content").scrollTo(selected, 900, {offset:{ left:0, top:-125 }});
+        $("#content").scrollTo( '-=48px', 900, { axis:'x'});
+        return false;
+    });
+
+    $(".left-arrow").click(function(){
+        $("#content").scrollTo( '-=800px', 900, { axis:'x'});
+        return false;
+    });
+
+    $(".right-arrow").click(function(){
+    	if ($("#all-columns").width() - $("#content").scrollLeft() > 2*800)
+        	$("#content").scrollTo( '+=800px', 900, { axis:'x'});
+        //$("#content").scrollTo( '-=20px', 900, { axis:'y'});
+        return false;
+    });
 
 	$(".metro-wrapper ul li a").click(function(){
 		var selected = $(this).attr('href');	
 		$("#content").scrollTo(selected, 900);
-		$("#content").scrollTo( '-=100px', 900, { axis:'x'});	
+		$("#content").scrollTo( '-=48px', 900, { axis:'x'});	
 		return false;
 	});
 
@@ -168,7 +172,7 @@ function galeryInitialise() {
 
 function tilehover(to) {
 	$(to +' ul.tile li a').hover(function(){
-		$("#" + this.id + ' h3').toggleClass("tile-active", 200);
+		$(to + " #" + this.id + ' h3').toggleClass("tile-active", 200);
 	});
 }
 
