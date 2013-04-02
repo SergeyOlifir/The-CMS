@@ -3,7 +3,7 @@ $(document).ready( function() {
 	$(function() {
 	    $(".carusel").jCarouselLite({
 	       'auto': 1300,
-	       'visible': 4,
+	       'visible': 5,
 	       'hoverPause': true
 	    });
 	});
@@ -58,7 +58,7 @@ $(document).ready( function() {
 
 	setPadding();
 	$(".content-arrow ul li, .metro-wrapper, .main-menu-content").on('click', 'a', function(event){
-		$("#content").scrollTo($(this).attr('href'), 900).scrollTo( '-=48px', 900, { axis:'x'});
+		$("#content").scrollTo($(this).attr('href'), 900).scrollTo( '-=45px', 900, { axis:'x'});
 		HideMenu();
 		return false;
 	});

@@ -721,21 +721,22 @@ html {
 }
 
 .carusel {
-	margin: 0 0 0 5px;
+	margin: 0 0 0 12px;
 	height: 103px;
-	width: 455px;
+	width: 580px;
 	overflow: hidden;
 	border: 2px solid #336699;
+	border-radius: 10px 10px 10px 10px;
 	background-color: #fff;
 	float: left;
 	top: 20px;
-	left: 
 }
 
 .carusel img {
 	width: 108px;
 	height: 95px;
-	border: 1px solid #cd0404;
+	border: 1px solid #cc0000;
+	border-radius: 8px 8px 8px 8px;
 	margin: 3px 1.5px;
 }
 
@@ -872,20 +873,6 @@ html {
     background: url(../../../img/templates/kandibur/main-images/1.jpg) 0 0 transparent;
 }
 
-
-.movie-wrapper {
-	border: 10px solid #4682FA;
-    border-radius: 91px 91px 91px 91px;
-    height: 98px;
-    margin-right: 12px;
-    margin-top: 13px;
-    overflow: hidden;
-    width: 98px;
-}
-
-.movie-wrapper embed {
-	margin: -4px 0 0 -2px;
-}
 
 /* Alerts */
 

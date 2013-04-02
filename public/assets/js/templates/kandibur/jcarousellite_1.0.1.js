@@ -283,10 +283,10 @@ $.fn.jCarouselLite = function(o) {
         var autoInterval;
         
         function startAuto() {
-          stopAuto();
-          autoInterval = setInterval(function() {
-                  go(curr+o.scroll);
-              }, o.auto+o.speed);
+            stopAuto();
+            autoInterval = setInterval(function() {
+                go(curr+o.scroll);
+            }, o.auto+o.speed);
         };
 
         function stopAuto() {
@@ -294,9 +294,6 @@ $.fn.jCarouselLite = function(o) {
         };
 
         if(o.auto) {
-            /*setInterval(function() {
-                go(curr+o.scroll);
-            }, o.auto+o.speed);*/
             if(o.hoverPause) {
                 div.hover(function(){stopAuto();}, function(){startAuto();});
             }
