@@ -59,7 +59,7 @@ $(document).ready( function() {
 	});
 
 	setPadding();
-	$(".content-arrow ul li, .metro-wrapper, .main-menu-content").on('click', 'a', function(event){
+	$(".content-arrow ul li, .metro-wrapper, .main-menu-content, .carusel").on('click', 'a', function(event){
 		$("#content").scrollTo($(this).attr('href'), 900).scrollTo( '-=45px', 900, { axis:'x'});
 		HideMenu();
 		return false;
