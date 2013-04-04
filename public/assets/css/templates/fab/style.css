@@ -34,10 +34,21 @@ html {
 #header .slogan {
     color: #FF6000;
     font-family: Times New Roman;
-    font-size: 18pt;
     font-style: italic;
     font-weight: bold;
     margin-bottom: 2px;
+    width: 540px;
+    margin-right: -6px;
+}
+
+#header .slogan .left {
+	font-size: 9pt;
+	margin: 10px 0 0 0;
+}
+
+#header .slogan .right {
+	font-size: 18pt;
+	margin-right: 6px;
 }
 
 #header h1 {
