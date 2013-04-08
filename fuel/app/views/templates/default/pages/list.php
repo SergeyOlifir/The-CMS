@@ -1,26 +1,25 @@
 <script>
-	$(".scroll-<?= $page->alias; ?>-index").mCustomScrollbar();
-	$(".scroll-<?= $page->alias; ?>-tiles").mCustomScrollbar();
+	$(".scroll-<? //echo $page->alias; ?>-index").mCustomScrollbar();
+	$(".scroll-<? //echo $page->alias; ?>-tiles").mCustomScrollbar();
 </script>
 	<ul class='list clearfix'>
-		<? $contents = $page->get_sorted_content(); ?>
 		<? foreach ($contents as $content): ?>
-			<a data-reveal-id="contents_popup" href="#" content_id="<?= $content->id; ?>" class="show-popup">
+			<a data-reveal-id="contents_popup" href="#" content_id="<?= $content['id']; ?>" class="show-popup">
 				<li>
 					<div class="clearfix">
 						<div class="image-wrapper left">
-							<?= Html::img("files/{$content->image}"); ?>
+							<?= Html::img("files/{$content['image']}"); ?>
 						</div>
 						<div class="description left">
 							<h3>
-								<?= $content->name; ?>
+								<?= $content["name"]; ?>
 							</h3>
 							<div class="text">
-								<?= $content->short_description; ?>
+								<?= $content["short_description"]; ?>
 							</div>
-							<? if ($page->public_data == 1): ?>
+							<? if ($public_data == 1): ?>
 								<div class="date">
-									<?= Date::forge($content->date_create)->format("%d.%m.%Y", true); ?>
+									<?= Date::forge($content["date_create"])->format("%d.%m.%Y", true); ?>
 								</div>
 							<? endif; ?>
 						</div>
