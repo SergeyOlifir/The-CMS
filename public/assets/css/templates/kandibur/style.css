@@ -365,6 +365,15 @@ html {
 	background: url("../../../img/templates/kandibur/Plashka_content_niz.png") no-repeat scroll 0 0 transparent;
 }
 
+.pagination {
+	width: 50px;
+	margin: 0 63px 0 0;
+}
+
+.pagination pre {
+	margin: 0;
+}
+
 .column .content {
 	width: 710px;
 	height: 350px;
