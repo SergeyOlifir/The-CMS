@@ -77,13 +77,13 @@ $(document).ready( function() {
 	});
 
 
-	$(".column .paginator-wrapper .paginator-bottom").click(function(){
+	/*$(".column .paginator-wrapper .paginator-bottom").click(function(){
 		$('#' + $(this).attr('targetContent')).scrollTo('+=345px', 500, { axis:'y' });
 	});
 
 	$(".column .paginator-wrapper .paginator-top").click(function(){
 		$('#' + $(this).attr('targetContent')).scrollTo('-=345px', 500, { axis:'y' });
-	});
+	});*/
 
 
    $('body').click(function (event) {

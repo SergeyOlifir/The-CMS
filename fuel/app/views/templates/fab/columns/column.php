@@ -1,3 +1,55 @@
+<script type="text/javascript">
+
+	var view_content = "<?= $page->view_content; ?>";
+
+	$(function() {
+
+		var page = "#<?= $page->alias; ?>";
+		var _page = page;
+		var cur_page, total_items;
+
+		get("home/page/<?= $page->view_content; ?>/" + $(page).attr("data"), "#" + $(page).attr("id"), "");
+		$('#list-' + $(page).attr("id") + '-button').click(function() {
+			get("home/page/list/" + $(_page).attr("data"), "#" + $(_page).attr("id"), "");
+			$('#<?= $page->alias; ?>-column .pagination .cur_page').html('1');
+			$('#<?= $page->alias; ?>-column .current_page').attr('value', '1');
+			$('#<?= $page->alias; ?>-column .pagination .total_items').html("<?= ceil(count(Model_Content::query()->where('page_id', '=', $page->id)->get())/6); ?>");
+			view_content = 'list';
+			return false;
+		});
+		
+		$('#tile-' + $(page).attr("id") + '-button').click(function() {
+			get("home/page/tile/" + $(_page).attr("data"), "#" + $(_page).attr("id"), "");
+			$('#<?= $page->alias; ?>-column .pagination .cur_page').html('1');
+			$('#<?= $page->alias; ?>-column .current_page').attr('value', '1');
+			$('#<?= $page->alias; ?>-column .pagination .total_items').html("<?= ceil(count(Model_Content::query()->where('page_id', '=', $page->id)->get())/15); ?>");
+			view_content = 'tile';
+			return false;
+		});
+
+		$('#<?= $page->alias; ?>-column .paginator-wrapper .paginator-bottom').click(function() {			
+			cur_page = parseInt($('#<?= $page->alias; ?>-column .current_page').attr('value'));
+			total_items = parseInt($('#<?= $page->alias; ?>-column .pagination .total_items').html());
+			if (1 <= cur_page && cur_page < total_items) {
+				get("home/page/" + view_content + "/" + $(_page).attr("data") + '?page=' + (cur_page + 1), "#" + $(_page).attr("id"), "");
+				$('#<?= $page->alias; ?>-column .current_page').attr('value', cur_page + 1);
+				$('#<?= $page->alias; ?>-column .pagination .cur_page').html(cur_page + 1);
+			}
+			return false;
+		});
+
+		$('#<?= $page->alias; ?>-column .paginator-wrapper .paginator-top').click(function() {
+			cur_page = parseInt($('#<?= $page->alias; ?>-column .current_page').attr('value'));
+			total_items = parseInt($('#<?= $page->alias; ?>-column .pagination .total_items').html());
+			if (1 < cur_page && cur_page <= total_items) {
+				get("home/page/" + view_content + "/" + $(_page).attr("data") + '?page=' + (cur_page - 1), "#" + $(_page).attr("id"), "");
+				$('#<?= $page->alias; ?>-column .current_page').attr('value', cur_page - 1);
+				$('#<?= $page->alias; ?>-column .pagination .cur_page').html(cur_page - 1);
+			}
+			return false;
+		});
+	})
+</script>
 <div class="column left" id="<?= $page->alias; ?>-column">
 	<h2>
 		<?= $page->header; ?>
@@ -15,6 +67,10 @@
 	<div class="paginator-wrapper clearfix">
 		<div class="paginator-bottom left" targetContent="<?= $page->alias; ?>">
 			Следующие
+			<div class="pagination right">
+				<pre>стр. <span class="cur_page">1</span> из <span class="total_items"><?= ceil(count(Model_Content::query()->where('page_id', '=', $page->id)->get())/(($page->view_content == 'list') ? 6 : 15)); ?></span></pre>
+			</div>
 		</div>
 	</div>
+	<input type="hidden" class="current_page" value="1"></input>
 </div>
