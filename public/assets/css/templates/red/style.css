@@ -195,7 +195,7 @@ html {
 }
 
 #all-columns {
-	width: 715px;
+	margin-left: 11px;
 }
 
 .menu-all {
@@ -435,6 +435,15 @@ h3.top-left-border.right-corner {
 	color: #990000;
 }
 
+.pagination {
+	width: 50px;
+	margin: 0 63px 0 0;
+}
+
+.pagination pre {
+	margin: 0;
+}
+
 .column .content {
 	width: 710px;
 	height: 350px;
@@ -512,7 +521,7 @@ h3.top-left-border.right-corner {
 
 .column .content ul.tile {
 	margin: 0;
-	padding: 0px 0 0 10px;
+	padding: 0px 0 0 30px;
 }
 
 .column .content ul.tile li {
