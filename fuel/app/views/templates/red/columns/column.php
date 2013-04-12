@@ -68,7 +68,7 @@
 		<div class="paginator-bottom left" targetContent="<?= $page->alias; ?>">
 			Следующие
 			<div class="pagination right">
-				<pre>стр. <span class="cur_page">1</span> из <span class="total_items"><?= ceil(count(Model_Content::query()->where('page_id', '=', $page->id)->get())/(($page->view_content == 'list') ? 6 : 15)); ?></span></pre>
+				стр.&nbsp;<span class="cur_page">1</span>&nbsp;из&nbsp;<span class="total_items"><?= ceil(count(Model_Content::query()->where('page_id', '=', $page->id)->get())/(($page->view_content == 'list') ? 6 : 15)); ?></span>
 			</div>
 		</div>
 	</div>
