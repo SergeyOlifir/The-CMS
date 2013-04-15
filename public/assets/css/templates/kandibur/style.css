@@ -298,37 +298,37 @@ html {
 }
 
 .metro-wrapper div.round h3 {
-	background-color: rgb(50, 130, 250);
+	background-color: rgb(0, 102, 255);
     background-image: url("../../../img/templates/kandibur/dots.png");
     background-position: center center;
     background-repeat: no-repeat;
     bottom: 0;
-    color: #FFFFFF;
+    color: #FFFF00;
     display: block;
     font-weight: normal;
     margin: 0;
     overflow: hidden;
-    padding-left: 5px;
+    padding-left: 3px;
     padding-right: 3px;
     position: absolute;
     font-size: 10pt;
-	height: 19px;
-	opacity: 0.75;
-	text-indent: -500px;
-	text-align: center;
+    height: 21px;
+    opacity: 0.80;
+    text-indent: -500px;
+    text-align: center;
     width: 121px;
 }
 
 .metro-wrapper div.round h3 span {
 	display: block;
-	padding-top: 3px;
-	font-weight: bold;
+    padding-top: 3px;
+    font-weight: bold;
 }
 
 .metro-wrapper div.round h3.menu-tile-active {
-	height: 60%;
-	background-image: none;
-	text-indent: 0px;
+	height: 52%;
+    background-image: none;
+    text-indent: 0px;
 }
 
 
@@ -354,20 +354,19 @@ html {
 	background: url("../../../img/templates/kandibur/Plashka_content_verh.png") no-repeat scroll 0 0 transparent;
     width: 640px;
     height: 22px;
-    padding: 4px 0 0 15px;
-
+    padding: 5px 0 0 15px;
 }
 
 .column .paginator-wrapper .paginator-bottom {
 	width: 713px;
-	height: 26px;
-	padding: 4px 0 0 15px;
-	background: url("../../../img/templates/kandibur/Plashka_content_niz.png") no-repeat scroll 0 0 transparent;
+    height: 26px;
+    padding: 5px 0 0 15px;
+    background: url("../../../img/templates/kandibur/Plashka_content_niz.png") no-repeat scroll 0 0 transparent;
 }
 
 .pagination {
 	width: 50px;
-	margin: 0 63px 0 0;
+    margin: 1px 50px 0 0;
 }
 
 .column .content {
@@ -383,51 +382,51 @@ html {
 }
 
 .column .content ul.list li {
-	background-color: rgba(117, 217, 243, 0.8);
-    border: 1px solid #059c01;
+	background-color: rgba(0, 102, 250, 0.3);
+    border: 1px solid #3366cc;
     float: left;
-    height: 104px;
+    height: 103px;
     list-style: none outside none;
     margin-left: 3px;
-    margin-top: 5px;
+    margin-top: 6px;
     overflow: hidden;
     padding: 2px;
     width: 345px;
-	border-radius: 25px 25px 25px 25px;
-	-webkit-border-radius: 25px;
+    border-radius: 25px 25px 25px 25px;
+    -webkit-border-radius: 25px;
 }
 
 .column .content ul.list li .image-wrapper, .column .content ul.tile li .image-wrapper  {
-	border: 1px solid #9A6533;
+	border: 2px solid #ffff00;
     border-radius: 20px 20px 20px 20px;
-	-webkit-border-radius: 20px;
-    height: 101px;
+    -webkit-border-radius: 20px;
+    height: 100px;
     overflow: hidden;
-    width: 109px;
+    width: 110px;
 }
 
 .column .content ul.list li img, .column .content ul.tile li img, #content-of-popup ul.tile li img {
-	border: 1px solid #FF2E09;
+	border: 1px solid #990000;
     border-radius: 20px 20px 20px 20px;
-	-webkit-border-radius: 20px;
-    max-height: 98px;
+    -webkit-border-radius: 20px;
+    max-height: 99px;
     max-width: 108px;
 }
 
 .column .content ul.list .description {
-	height: 96px;
+	height: 93px;
     overflow: hidden;
-    padding: 2px 2px 5px 9px;
+    padding: 2px 2px 5px 7px;
     text-overflow: ellipsis;
     width: 220px;
 }
 
 .column .content ul.list .description h3 {
-	color: #092F90;
+	color: #003399;
     display: block;
     font-size: 10pt;
     font-weight: bold;
-    height: 20px;
+    height: 18px;
     margin: 0;
     overflow: hidden;
     padding: 0;
@@ -436,35 +435,36 @@ html {
 }
 
 .column .content ul.list .date {
-	color: #5c6ffc;
+	color: #ffffff;
     font-size: 8pt;
-	font-weight: normal;
+    font-weight: normal;
 }
 
 .column .content ul.list .description .text {
-	color: #092F90;
-    font-size: 10pt;
+	color: #003399;
+    font-size: 9pt;
     font-weight: normal;
-    height: 66px;
-    line-height: 13px;
+    height: 69px;
+    line-height: 14px;
     margin: 0;
     overflow: hidden;
     padding: 0;
-    text-overflow: ellipsis}
+    text-overflow: ellipsis;
+}
 
 .column .content ul.tile, #content-of-popup ul.tile {
 	margin: 0;
-	padding: 0px 0 0 30px;
+    padding: 0px 0 0 15px;
 }
 
 .column .content ul.tile li, #content-of-popup ul.tile li {
-	border: 1px solid #FFFFFF;
+	border: 1px solid #FFFF00;
     border-radius: 20px 20px 20px 20px;
-	-webkit-border-radius: 20px;
+    -webkit-border-radius: 20px;
     float: left;
-    height: 101px;
+    height: 100px;
     list-style: none outside none;
-    margin-right: 10px;
+    margin-right: 8px;
     margin-top: 10px;
     overflow: hidden;
     position: relative;
@@ -472,20 +472,20 @@ html {
 }
 
 .column .content ul.tile li h3, #content-of-popup ul.tile li h3 {
-	background-color: #3282FA;
+	background-color: #3366ff;
     background-image: url("../../../img/templates/kandibur/dots.png");
     background-position: center center;
     background-repeat: no-repeat;
     bottom: 0;
-    color: #FFFFFF;
+    color: #ffff66;
     display: block;
     font-size: 10pt;
     font-weight: bold;
     height: 18px;
     margin: 0;
-    opacity: 0.75;
+    opacity: 0.7;
     overflow: hidden;
-    padding-left: 5px;
+    padding-left: 4px;
     padding-right: 3px;
     position: absolute;
     text-indent: -300px;
@@ -494,9 +494,9 @@ html {
 }
 
 .column .content ul.tile li h3.tile-active, #content-of-popup ul.tile li h3.tile-active  {
-	height: 70%;
-	text-indent: 0px;
-	background-image: none;
+	height: 45%;
+    text-indent: 0px;
+    background-image: none;
 }
 
 .column .paginator-wrapper a {
@@ -664,9 +664,9 @@ html {
 
 .reveal-modal {
     background: none repeat scroll 0 0 #ffffdb;
-    border-radius: 0;
+    border-radius: 15px;
     top:80px !important;
-    border: 1px solid #326733;
+    border: 2px solid #ff7722;
     z-index: 6;
     position: fixed;
     padding-left: 30px;
@@ -712,17 +712,16 @@ html {
 }
 
 #loading_popup .close-reveal-modal-loading {
-	color: #0066cc;
-	font-size: 12px;
-	font-family: Tahoma;
-	font-weight: bold;
-	cursor: pointer;
-	position: absolute;
-	right: 18px;
-	top: 12px;
-	font-style: normal;
-	text-shadow: 0 0 2px #fff;
-	text-decoration: underline;
+	color: #003366;
+	font-size: 10pt;
+    font-family: Tahoma;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 60px;
+    top: 23px;
+    font-style: normal;
+    text-decoration: underline;
 }
 
 .carusel {
@@ -752,32 +751,32 @@ html {
 .hint {
 	background-image: url("../../../img/templates/kandibur/hint.png");
 	background-position: center top;
-	background-repeat: no-repeat;
-	width: 202px;
-	height: 78px;
-	position: absolute;
-	display: none;
-	top: 130px;
-	z-index: 3;
+    background-repeat: no-repeat;
+    width: 202px;
+    height: 85px;
+    position: absolute;
+    display: none;
+    top: 130px;
+    z-index: 3;
 }
 
 .hint p.hint-title {
-	margin: 6px 7px 3px 7px;
+	margin: 5px 7px 1px 7px;
 }
 
 .hint p.hint-title a {
-	font-size: 10px;
-	font-weight: bold;
-	color: #fff;
-	text-decoration: none;
+	font-size: 10pt;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
 }
 
 .hint p.hint-info {
-	font-size: 10px;
-	font-weight: normal;
-	color: #fff;
-	margin: 0 5px;
-	line-height: 115%;
+	font-size: 8pt;
+    font-weight: normal;
+    color: #fff;
+    margin: 0 5px;
+    line-height: 115%;
 }
 
 /* Arrows */
