@@ -66,7 +66,7 @@
 					<?= Html::img("assets/img/templates/kandibur/main-images/9.jpg"); ?>
 				</div>
 				<h3 class="header">
-					О детском центре, наши контакты 
+					О нашем центре, контакты, карта 
 				</h3>
 			</a>
 		</div>
