@@ -1,26 +1,26 @@
 <?php
 
-class Controller_Pages extends Controller_Administration 
+class Controller_Admin_Pages extends Controller_Admin_Administration 
 {
 
 	public function action_index() {
-		$data['uri'] = "pages/create";
+		$data['uri'] = "admin/pages/create";
 		$data['back'] = "admin/index";
 		$data['pages'] = Model_Page::find('all');
 		$this->template->title = "Pages";
 		$this->template->back_button = View::forge("admin/back_button_block", $data);
 		$this->template->add_button = View::forge("admin/add_button_block", $data);
-		$this->template->content = View::forge('pages/index', $data);
+		$this->template->content = View::forge('admin/pages/index', $data);
 	}
 
 	public function action_view($id = null) {
 		is_null($id) and Response::redirect('Pages');
 		if ( ! $data['page'] = Model_Page::find($id)) {
 			$this->SetNotice('error', 'Could not find page #'.$id);
-			Response::redirect('Pages');
+			Response::redirect('admin/Pages');
 		}
 		$this->template->title = "Page";
-		$this->template->content = View::forge('pages/view', $data);
+		$this->template->content = View::forge('admin/pages/view', $data);
 
 	}
 
@@ -37,7 +37,7 @@ class Controller_Pages extends Controller_Administration
 				));
 				if ($page and $page->save()) {
 					$this->SetNotice('success', 'Added page #'.$page->id.'.');
-					Response::redirect('pages');
+					Response::redirect('admin/pages');
 				} else {
 					$this->SetNotice('error', 'Could not save page.');
 				}
@@ -46,20 +46,20 @@ class Controller_Pages extends Controller_Administration
 				$this->SetNotice('error', $val->error());
 			}
 		}
-		$data['back'] = "pages/index";
+		$data['back'] = "admin/pages/index";
 		$this->template->back_button = View::forge("admin/back_button_block", $data);
 		$this->template->title = "Pages";
-		$this->template->content = View::forge('pages/create');
+		$this->template->content = View::forge('admin/pages/create');
 
 	}
 
 	public function action_edit($id = null) {
 		is_null($id) and Response::redirect('Pages');
-		$data['back'] = "pages/index";
+		$data['back'] = "admin/pages/index";
 		$this->template->back_button = View::forge("admin/back_button_block", $data);
 		if ( ! $page = Model_Page::find($id)) {
 			$this->SetNotice('error', 'Could not find page #'.$id);
-			Response::redirect('Pages');
+			Response::redirect('admin/Pages');
 		}
 		$val = Model_Page::validate('edit');
 		if ($val->run()) {
@@ -70,7 +70,7 @@ class Controller_Pages extends Controller_Administration
 			$page->view_content = Input::post('view_content') == 'tile' ? 'tile' : 'list';
 			if ($page->save())	{
 				$this->SetNotice('success', 'Updated page #' . $id);
-				Response::redirect('pages');
+				Response::redirect('admin/pages');
 			} else {
 				Session::set_flash('error', 'Could not update page #' . $id);
 			}
@@ -86,7 +86,7 @@ class Controller_Pages extends Controller_Administration
 			$this->template->set_global('page', $page, false);
 		}
 		$this->template->title = "Pages";
-		$this->template->content = View::forge('pages/edit');
+		$this->template->content = View::forge('admin/pages/edit');
 
 	}
 
@@ -99,7 +99,7 @@ class Controller_Pages extends Controller_Administration
 		else {
 			$this->SetNotice('error', 'Could not delete page #'.$id);
 		}
-		Response::redirect('pages');
+		Response::redirect('admin/pages');
 	}
 
 

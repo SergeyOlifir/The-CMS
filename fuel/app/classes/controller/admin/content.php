@@ -1,14 +1,14 @@
 <?php
-class Controller_Content extends Controller_Administration {
+class Controller_Admin_Content extends Controller_Admin_Administration {
 	public function action_index($page_id = null) {
 		is_null($page_id) and Response::redirect('Pages');
 		$data['page'] = Model_Page::find($page_id);
-		$data['back'] = "pages/index";
-		$data['uri'] = "content/create/{$page_id}";
+		$data['back'] = "admin/pages/index";
+		$data['uri'] = "admin/content/create/{$page_id}";
 		$this->template->back_button = View::forge("admin/back_button_block", $data);
 		$this->template->add_button = View::forge("admin/add_button_block", $data);
 		$this->template->title = "Contents";
-		$this->template->content = View::forge('content/index', $data);
+		$this->template->content = View::forge('admin/content/index', $data);
 	}
 
 	public function action_view($id = null) {
@@ -18,7 +18,7 @@ class Controller_Content extends Controller_Administration {
 			Response::redirect('Content');
 		}
 		$this->template->title = "Content";
-		$this->template->content = View::forge('content/view', $data);
+		$this->template->content = View::forge('admin/content/view', $data);
 
 	}
 
@@ -39,7 +39,7 @@ class Controller_Content extends Controller_Administration {
 				));
 				if ($content and $content->save()) {
 					$this->SetNotice('success', 'Added content #'.$content->id.'.');
-					Response::redirect("content/index/{$page_id}");
+					Response::redirect("admin/content/index/{$page_id}");
 				} else {
 					$this->SetNotice('error', 'Could not save content.');
 				}
@@ -47,19 +47,19 @@ class Controller_Content extends Controller_Administration {
 				$this->SetNotice('error', $val->error());
 			}
 		}
-		$data['back'] = "content/index/{$page_id}";
+		$data['back'] = "admin/content/index/{$page_id}";
 		$this->template->back_button = View::forge("admin/back_button_block", $data);
 		$this->template->title = "Contents";
-		$this->template->content = View::forge("content/create");
+		$this->template->content = View::forge("admin/content/create");
 
 	}
 
 	public function action_edit($id = null) {
-		is_null($id) and Response::redirect('Content');
+		is_null($id) and Response::redirect('admin/Content');
 		$config = \Config::get('settings.logo.upload');
 		if ( ! $content = Model_Content::find($id)) {
 			$this->SetNotice('error', 'Could not find content #'.$id);
-			Response::redirect('Content');
+			Response::redirect('admin/Content');
 		}
 		$val = Model_Content::validate('edit');
 		if ($val->run()) {
@@ -73,7 +73,7 @@ class Controller_Content extends Controller_Administration {
 			}
 			if ($content->save()) {
 				$this->SetNotice('success', 'Updated content #' . $id);
-				Response::redirect("content/index/{$content->page_id}");
+				Response::redirect("admin/content/index/{$content->page_id}");
 			} else {
 				$this->SetNotice('error', 'Could not update content #' . $id);
 			}
@@ -87,10 +87,10 @@ class Controller_Content extends Controller_Administration {
 			}
 			$this->template->set_global('content', $content, false);
 		}
-		$data['back'] = "content/index/{$content->page_id}";
+		$data['back'] = "admin/content/index/{$content->page_id}";
 		$this->template->back_button = View::forge("admin/back_button_block", $data);
 		$this->template->title = "Contents";
-		$this->template->content = View::forge('content/edit');
+		$this->template->content = View::forge('admin/content/edit');
 
 	}
 
@@ -105,7 +105,7 @@ class Controller_Content extends Controller_Administration {
 		else {
 			$this->SetNotice('error', 'Could not delete content #'.$id);
 		}
-		Response::redirect("content/index/{$page_id}");
+		Response::redirect("admin/content/index/{$page_id}");
 
 	}
 	
@@ -114,7 +114,7 @@ class Controller_Content extends Controller_Administration {
 		if ($content = Model_Content::find($id)) {
 			unset($content->related_content[$related_id]);
 			$content->save();
-			Response::redirect("content/edit/{$id}");
+			Response::redirect("admin/content/edit/{$id}");
 		}
 	}
 	
@@ -129,7 +129,7 @@ class Controller_Content extends Controller_Administration {
 			
 			$content->save();	
 		}
-		Response::redirect("content/edit/{$id}");
+		Response::redirect("admin/content/edit/{$id}");
 	}
 
 

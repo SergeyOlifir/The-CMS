@@ -18,8 +18,8 @@
 			<td><?= $link->weight; ?></td>
 			<td><?= $link->public; ?></td>
 			<td>
-				<?= Html::anchor('links/edit/'.$link->id, 'Edit', array("class" => "edit-button")); ?> 
-				<?= Html::anchor('links/delete/'.$link->id, 'Delete', array('onclick' => "return confirm('Are you sure?')", "class" => "delite-button")); ?>
+				<?= Html::anchor('admin/links/edit/'.$link->id, 'Edit', array("class" => "edit-button")); ?> 
+				<?= Html::anchor('admin/links/delete/'.$link->id, 'Delete', array('onclick' => "return confirm('Are you sure?')", "class" => "delite-button")); ?>
 			</td>
 		</tr>
 	<? endforeach; ?>

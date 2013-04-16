@@ -20,9 +20,9 @@
 					<th><?= $page->public_data == 1 ? '+' : '-'; ?></th>
 					<td><?= $page->view_content; ?></td>
 					<td>
-						<?= Html::anchor('content/index/'.$page->id, 'View', array("class" => "view-button")); ?> 
-						<?= Html::anchor('pages/edit/'.$page->id, 'Edit', array("class" => "edit-button")); ?> 
-						<?= Html::anchor('pages/delete/'.$page->id, 'Delete', array("class" => "delite-button", 'onclick' => "return confirm('Are you sure?')")); ?>
+						<?= Html::anchor('admin/content/index/'.$page->id, 'View', array("class" => "view-button")); ?> 
+						<?= Html::anchor('admin/pages/edit/'.$page->id, 'Edit', array("class" => "edit-button")); ?> 
+						<?= Html::anchor('admin/pages/delete/'.$page->id, 'Delete', array("class" => "delite-button", 'onclick' => "return confirm('Are you sure?')")); ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>	

@@ -5,12 +5,12 @@
 		<? $related_contents = $content->related_content; ?>
 		<? foreach ($related_contents as $related): ?>
 			<div class="tile left smoll content">
-				<a href="/content/edit/<?=$related->id; ?>">
+				<a href="/admin/content/edit/<?=$related->id; ?>">
 					<?= Html::img("files/{$related->image}"); ?>
 					<h3><?= $related->name; ?></h3>
 				</a>
 				<div class="buttons-area clearfix">
-					<a href="/content/unset/<?=$content->id; ?>/<?=$related->id; ?>" class="delite-button right">Delete</a>
+					<a href="/admin/content/unset/<?=$content->id; ?>/<?=$related->id; ?>" class="delite-button right">Delete</a>
 				</div>
 			</div>
 		<? endforeach; ?>
@@ -21,7 +21,7 @@
 
 <div id="add_poup" class="reveal-modal">
 	<div class="popup-content scroll-news-index">
-		<?= Form::open("content/set/{$content->id}"); ?>
+		<?= Form::open("admin/content/set/{$content->id}"); ?>
 			<table class="table table-striped">
 				<thead>
 					<tr>

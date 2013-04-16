@@ -4,12 +4,12 @@
 	<div class="main-metro-wrapper clearfix">
 		<? foreach ($contents as $content): ?>
 			<div class="tile left smoll content">
-				<a href="/content/edit/<?=$content->id; ?>">
+				<a href="/admin/content/edit/<?=$content->id; ?>">
 					<?= Html::img("files/{$content->image}"); ?>
 					<h3><?= $content->name; ?></h3>
 				</a>
 				<div class="buttons-area clearfix">
-					<a href="/content/delete/<?=$content->id; ?>" class="delite-button right">Delete</a>
+					<a href="/admin/content/delete/<?=$content->id; ?>" class="delite-button right">Delete</a>
 				</div>
 			</div>
 		<? endforeach; ?>

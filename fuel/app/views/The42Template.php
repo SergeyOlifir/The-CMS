@@ -9,7 +9,6 @@
 		<?= Asset::css('reveal.css'); ?>
 		<?= Asset::css('jquery.fancybox.css'); ?>
 		<?= Asset::css('jquery.fancybox-buttons.css'); ?>
-		<?= Asset::css('jquery.mCustomScrollbar.css'); ?>
 		<?= Asset::css("templates/{$template}/style.css"); ?>
 		
 		<?= Asset::js('jquery-1.8.3.min.js'); ?>

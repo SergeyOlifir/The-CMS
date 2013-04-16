@@ -17,7 +17,7 @@
 
 return array(
 	'url_suffix'  => '.html',
-	'caching' => true,
+	'caching' => false,
 	'module_paths' => array(
 		APPPATH.'modules'.DS,		// path to application modules
 		APPPATH.'..'.DS.'globalmods'.DS	// path to our global modules

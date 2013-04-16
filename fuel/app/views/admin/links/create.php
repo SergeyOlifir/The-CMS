@@ -1,2 +1,2 @@
 <h2>Создание новой ссылки в главном меню</h2>
-<?= render('links/_form'); ?>
+<?= render('admin/links/_form'); ?>

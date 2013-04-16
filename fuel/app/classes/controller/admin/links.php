@@ -1,16 +1,16 @@
 <?php
-class Controller_Links extends Controller_Administration {
+class Controller_Admin_Links extends Controller_Admin_Administration {
 
 	public function action_index() {
 		$data['links'] = Model_Link::find('all', array(
 							'order_by' => array('weight' => 'asc')
 						 ));
 		$data['back'] = "admin/index";
-		$data['uri'] = "links/create";
+		$data['uri'] = "admin/links/create";
 		$this->template->back_button = View::forge("admin/back_button_block", $data);
 		$this->template->add_button = View::forge("admin/add_button_block", $data);
 		$this->template->title = "Links";
-		$this->template->content = View::forge('links/index', $data);
+		$this->template->content = View::forge('admin/links/index', $data);
 	}
 
 	public function action_view($id = null)
@@ -24,7 +24,7 @@ class Controller_Links extends Controller_Administration {
 		}
 
 		$this->template->title = "Link";
-		$this->template->content = View::forge('links/view', $data);
+		$this->template->content = View::forge('admin/links/view', $data);
 
 	}
 
@@ -45,7 +45,7 @@ class Controller_Links extends Controller_Administration {
 				));
 				if ($link and $link->save()) {
 					$this->SetNotice('success', 'Added link #'.$link->id.'.');
-					Response::redirect('links');
+					Response::redirect('admin/links');
 				} else {
 					$this->SetNotice('error', 'Could not save link.');
 				}
@@ -54,10 +54,10 @@ class Controller_Links extends Controller_Administration {
 				$this->SetNotice('error', $val->error());
 			}
 		}
-		$data['back'] = "links/index";
+		$data['back'] = "admin/links/index";
 		$this->template->back_button = View::forge("admin/back_button_block", $data);
 		$this->template->title = "Links";
-		$this->template->content = View::forge('links/create');
+		$this->template->content = View::forge('admin/links/create');
 
 	}
 
@@ -65,7 +65,7 @@ class Controller_Links extends Controller_Administration {
 		is_null($id) and Response::redirect('Links');
 		if ( ! $link = Model_Link::find($id)) {
 			$this->SetNotice('error', 'Could not find link #'.$id);
-			Response::redirect('Links');
+			Response::redirect('admin/Links');
 		}
 		$val = Model_Link::validate('edit');
 		if ($val->run()) {
@@ -81,7 +81,7 @@ class Controller_Links extends Controller_Administration {
 			}
 			if ($link->save()) {
 				$this->SetNotice('success', 'Updated link #' . $id);
-				Response::redirect('links');
+				Response::redirect('admin/links');
 			} else {
 				$this->SetNotice('error', 'Could not update link #' . $id);
 			}
@@ -97,10 +97,10 @@ class Controller_Links extends Controller_Administration {
 			}
 			$this->template->set_global('link', $link, false);
 		}
-		$data['back'] = "links/index";
+		$data['back'] = "admin/links/index";
 		$this->template->back_button = View::forge("admin/back_button_block", $data);
 		$this->template->title = "Links";
-		$this->template->content = View::forge('links/edit');
+		$this->template->content = View::forge('admin/links/edit');
 
 	}
 
@@ -112,7 +112,7 @@ class Controller_Links extends Controller_Administration {
 		} else {
 			$this->SetNotice('error', 'Could not delete link #'.$id);
 		}
-		Response::redirect('links');
+		Response::redirect('admin/links');
 	}
 
 }
