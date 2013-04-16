@@ -17,6 +17,12 @@
 
 return array(
 	'url_suffix'  => '.html',
+	'caching' => true,
+	'module_paths' => array(
+		APPPATH.'modules'.DS,		// path to application modules
+		APPPATH.'..'.DS.'globalmods'.DS	// path to our global modules
+	),
+	
 	'always_load'  => array(
 			'packages'  => array(
 				'orm',
