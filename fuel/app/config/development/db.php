@@ -8,7 +8,7 @@ return array(
 		'connection'  => array(
 			'dsn'        => 'mysql:host=localhost;dbname=sevennights_cms',
 			'username'   => 'root',
-			'password'   => '8056202',
+			'password'   => '5563',
 		),
 	),
 );
