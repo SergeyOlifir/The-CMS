@@ -9,7 +9,7 @@
 		<?= Controller_Application::$current_page == "About" ? \Fuel\Core\Html::anchor("hui", "About us", array('class' => 'active')) : \Fuel\Core\Html::anchor("hui", "About us"); ?>
 	</li>
 	<li>
-		<?= Controller_Application::$current_page == "Portfolio" ? \Fuel\Core\Html::anchor("portfolio", "Portfolio", array('class' => 'active')) : \Fuel\Core\Html::anchor("portfolio", "Portfolio"); ?>
+		<?= Controller_Application::$current_page == "content" ? \Fuel\Core\Html::anchor("home/content", "Portfolio", array('class' => 'active')) : \Fuel\Core\Html::anchor("home/content", "Portfolio"); ?>
 	</li>
 	<li>
 		<?= \Fuel\Core\Html::anchor("hui", "Blog & News"); ?>

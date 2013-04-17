@@ -4,12 +4,12 @@
 			<h3>Пользователи</h3>
 		</div>
 	</a>
-	<a href="/pages">
+	<a href="/admin/pages">
 		<div class="tile big left pages">
 			<h3>Страницы</h3>
 		</div>
 	</a>
-	<a href="/links">
+	<a href="/admin/links">
 		<div class="tile big left links">
 			<h3>Главное меню</h3>
 		</div>

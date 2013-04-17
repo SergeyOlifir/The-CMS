@@ -14,7 +14,7 @@ class Model_Link extends Model
 		'created_at',
 		'updated_at',
 	);
-	protected static $_has_one = array(
+	protected static $_belongs_to = array(
 		'page' => array(
 			'key_from' => 'page_id',
 			'model_to' => 'Model_Page',
