@@ -1,7 +1,7 @@
 <? $current_page = Controller_Application::$current_page; ?>
 <? $template = "default"; ?>
 <!DOCTYPE html>
-<html lang="<?= Config::get('language'); ?>">
+<html lang="<?= Session::get('lang') ? Session::get('lang') : Config::get('language'); ?>">
 	 <head>
 		<meta charset="utf-8"/>
 		
@@ -35,6 +35,12 @@
 	</head>
 
 	<body>
+		<? 
+			if (Session::get('lang')) {
+        		Config::set('language', Session::get('lang'));
+            }
+            Lang::load($template.'.php');
+        ?>
 		<div id="all-wrapper">
 			<div id="header">
 				<?= render("templates/{$template}/header",array()); ?>

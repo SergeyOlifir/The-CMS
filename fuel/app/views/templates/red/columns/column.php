@@ -56,7 +56,7 @@
 	</h2>
 	<div class="paginator-wrapper clearfix">
 		<div class="paginator-top left disable" targetContent="<?= $page->alias; ?>">
-			Предыдущие
+			<?= __("pagination.prev"); ?>
 		</div>
 		<a id="list-<?= $page->alias; ?>-button" class="list-button left" href="#"></a>
 		<a id="tile-<?= $page->alias; ?>-button" class="tile-button left" href="#"></a>
@@ -66,9 +66,9 @@
 	</div>
 	<div class="paginator-wrapper clearfix">
 		<div class="paginator-bottom left" targetContent="<?= $page->alias; ?>">
-			Следующие
+			<?= __("pagination.next"); ?>
 			<div class="pagination right">
-				стр.&nbsp;<span class="cur_page">1</span>&nbsp;из&nbsp;<span class="total_items"><?= ceil(count(Model_Content::query()->where('page_id', '=', $page->id)->get())/(($page->view_content == 'list') ? 6 : 15)); ?></span>
+				<?= __("pagination.page"); ?>&nbsp;<span class="cur_page">1</span>&nbsp;<?= __("pagination.of"); ?>&nbsp;<span class="total_items"><?= ceil(count(Model_Content::query()->where('page_id', '=', $page->id)->get())/(($page->view_content == 'list') ? 6 : 15)); ?></span>
 			</div>
 		</div>
 	</div>

@@ -36,5 +36,5 @@ return array(
 			),
 			'language'  => array(),
 		),
-	
+	'language'   => 'ru',
 );

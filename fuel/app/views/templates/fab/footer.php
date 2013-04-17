@@ -1,8 +1,8 @@
 <div class="footer-content clearfix">
 	<div class="adress left">
-		<h3>Международное агенство</h3>
-		<span>Украина, г. Днепропетровск, Наб. Ленина 15а, офис 46
-		тел. +38 0562 34-01-54, моб. +38 067 562-47-13</span>
+		<h3><?= __("contacts.title"); ?></h3>
+		<span><?= __("contacts.address"); ?>
+		<?= __("contacts.phones"); ?></span>
 	</div>
 	<ul class="social clearfix right">
 		<li>

@@ -27,12 +27,11 @@
 	</ul>
 	<a class="map-link" href="#company"><div class="map right"></div></a>
 	<div class="contacts left">
-		<h3>Контактная информация.</h3> 
-		<span>Телефон для справок по вопросам применения и 
-		качества продукта:</span>
-		<span>т. моб. + 38 (063) 685-16-67 - применение</span> 
-		<span>т. моб. + 38 (095) 061-65-93 - качество</span>
-		<span>т. моб. + 38 (067) 633-42-85 - жалобы, предложения</span>
+		<h3><?= __("contacts.title"); ?></h3>
+		<span><?= __("contacts.phone_information.title"); ?></span>
+		<span><?= __("contacts.phone_information.use"); ?></span> 
+		<span><?= __("contacts.phone_information.quality"); ?></span>
+		<span><?= __("contacts.phone_information.complains"); ?></span>
 		<span> 
 			<a target="_blank" href="mailto:ridnazhitnitsa@gmail.com">
 				E-mail: ridnazhitnitsa@gmail.com
@@ -40,11 +39,11 @@
 		</span>
 	</div>
 	<div class="contacts-dop left">
-		 <span>Телефон по вопросам приобретения и развития дилерской сети:</span>
-		 <span>т. моб. + 38 (099) 219-24-18</span>
-		 <span>т. моб. + 38 (066) 937-12-14</span>
-		 <span>т. моб. + 38 (050) 131-13-48</span>
+		 <span><?= __("contacts.phone_shopping.title"); ?></span>
+		 <span><?= __("contacts.phone_shopping.mob1"); ?></span>
+		 <span><?= __("contacts.phone_shopping.mob2"); ?></span>
+		 <span><?= __("contacts.phone_shopping.mob3"); ?></span>
 
-		 <span><a href="http://umimarket.com.ua/index.php?route=product/category&amp;path=119" style="color: #332277;" target="_blank">Купить в интернет магазине</a></span>
+		 <span><a href="http://umimarket.com.ua/index.php?route=product/category&amp;path=119" style="color: #332277;" target="_blank"><?= __("contacts.shop_for"); ?></a></span>
 	</div>
 </div>

@@ -81,15 +81,6 @@ $(document).ready( function() {
         return false;
     });
 
-	/*$(".column .paginator-wrapper .paginator-bottom").click(function(){
-		$('#' + $(this).attr('targetContent')).scrollTo('+=345px', 500, { axis:'y' });
-	});
-
-	$(".column .paginator-wrapper .paginator-top").click(function(){
-		$('#' + $(this).attr('targetContent')).scrollTo('-=345px', 500, { axis:'y' });
-	});*/
-
-
    $('body').click(function (event) {
     	HideMenu();
     });  
@@ -99,75 +90,9 @@ $(document).ready( function() {
     	return false;
     }
 
-	get("news/index",            "#news", "");
-	get("products/tiles",        "#products", "");
-	get("productions/index",     "#productions", "");
-	get("raws/index",            "#raws", "");
-	get("implementations/tiles", "#implementations", "");
-	get("partners/tiles",        "#partners", "");
-	get("contacts/tiles",        "#contacts", "");
-
-	$('#list-news-button').click(function() {
-		get("news/index", "#news", "");
-		return false;
-	});
-	$('#tile-news-button').click(function() {
-		get("news/tiles", "#news", "");
-		return false;
-	});
-
-	$('#list-products-button').click(function() {
-		get("products/index", "#products", "");
-		return false;
-	});
-	$('#tile-products-button').click(function() {
-		get("products/tiles", "#products", "");
-		return false;
-	});
-
-	$('#list-productions-button').click(function() {
-		get("productions/index", "#productions", "");
-		return false;
-	});
-	$('#tile-productions-button').click(function() {
-		get("productions/tiles", "#productions", "");
-		return false;
-	});
-
-	$('#list-raws-button').click(function() {
-		get("raws/index", "#raws", "");
-		return false;
-	});
-	$('#tile-raws-button').click(function() {
-		get("raws/tiles", "#raws", "");
-		return false;
-	});
-
-	$('#list-implementations-button').click(function() {
-		get("implementations/index", "#implementations", "");
-		return false;
-	});
-	$('#tile-implementations-button').click(function() {
-		get("implementations/tiles", "#implementations", "");
-		return false;
-	});
-
-	$('#list-partners-button').click(function() {
-		get("partners/index", "#partners", "");
-		return false;
-	});
-	$('#tile-partners-button').click(function() {
-		get("partners/tiles", "#partners", "");
-		return false;
-	});
-	$('#list-contacts-button').click(function() {
-		get("contacts/index", "#contacts", "");
-		return false;
-	});
-	$('#tile-contacts-button').click(function() {
-		get("contacts/tiles", "#contacts", "");
-		return false;
-	});
+    $('.flags a').click(function(event){
+    	event.stopPropagation();
+    })
 
 });
 
