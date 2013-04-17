@@ -39,7 +39,7 @@
 			if (Session::get('lang')) {
         		Config::set('language', Session::get('lang'));
             }
-            Lang::load('default.php');
+            Lang::load($template.'.php');
         ?>
 		<div id="all-wrapper">
 			<div id="header">
