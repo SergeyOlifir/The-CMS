@@ -6,6 +6,7 @@
 		<title><?= $title; ?></title>
 		<meta charset="utf-8"/>
 		<link rel="shortcut icon" href="assets/img/templates/<?= $template; ?>/favicon.png" type="image/png">
+		<?= Asset::css('bootstrap.min.css'); ?>
 		<?= Asset::css('reveal.css'); ?>
 		<?= Asset::css('jquery.fancybox.css'); ?>
 		<?= Asset::css('jquery.fancybox-buttons.css'); ?>
@@ -18,8 +19,7 @@
 		<?= Asset::js('jquery.reveal.js'); ?>
 		<?= Asset::js('jquery.fancybox.pack.js'); ?>
 		<?= Asset::js('jquery.fancybox-buttons.js'); ?>
-		<?= Asset::js('jquery.scrollTo.js');?>
-		<?= Asset::js('jquery.mCustomScrollbar.min.js'); ?>
+		<?= Asset::js('bootstrap.min.js'); ?>
 		<?= Asset::js("templates/{$template}/jcarousellite_1.0.1.js"); ?>
 		<?= Asset::render('javascripts'); ?>
 	</head>
