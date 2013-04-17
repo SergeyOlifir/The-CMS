@@ -7,4 +7,4 @@ nbproject
 *.tmproj
 fuel/app/config/development/*
 fuel/app/cache/*
-
+.idea
