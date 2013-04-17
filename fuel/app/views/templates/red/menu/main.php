@@ -3,9 +3,9 @@
 </div>			
 <div class="main-menu clearfix">
 	<a class="mail left" target="_blank" href="#">Mail</a>
-	<span>Меню</span>
+	<span><?= __("menu"); ?></span>
 	<ul class="flags right clearfix">
-		<li><a href="#" class="ru">ru</a></li>
-		<li><a href="#" class="uk">ua</a></li>
+		<li><a href="<?= \Uri::base(false);?>lang/index/ru" class="ru">ru</a></li>
+		<li><a href="<?= \Uri::base(false);?>lang/index/uk" class="uk">ua</a></li>
 	</ul>
 </div>
