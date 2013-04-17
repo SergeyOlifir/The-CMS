@@ -53,6 +53,10 @@ $(document).ready( function() {
     	return false;
     }
 
+    $('.flags a').click(function(event){
+    	event.stopPropagation();
+    })
+
 });
 
 function get(uri, to, params) {
