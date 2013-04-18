@@ -4,6 +4,6 @@
 <div class="main-menu">
 	<div class="center clearfix">
 		<a class="mail left" target="_blank" href="mailto:O.Shkurchenko@i.ua">O.Shkurchenko@i.ua</a>
-		<span>Меню</span>
+		<span><?= __("menu"); ?></span>
 	</div>
 </div>

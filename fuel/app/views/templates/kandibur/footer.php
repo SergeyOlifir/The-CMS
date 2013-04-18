@@ -27,17 +27,17 @@
 			</li>
 		</ul>
 		<div class="groups">
-			<a href="#">Группа Д.Ц. "Г.Р. Кандибура" ВКонтакте</a>
-			<a href="#">Группа Д.Ц. "Радость"  ВКонтакте</a>
+			<a href="#"><?= __("group_kandibur_vk"); ?></a>
+			<a href="#"><?= __("group_joy_vk"); ?></a>
 		</div>
 	</div>
 	
 	<div class="contacts left">
-		<h3>Контакты детского центра:</h3>
-		<span>Украина. г. Днепропетровск</span>
-		<span>пр. Карла Маркса 111-а, 3 этаж</span>
-		<span>гор. тел. +38 056 788-69-37</span>
-		<span>моб. тел. +38 097 699-43-57</span>
+		<h3><?= __("contacts.children_center.title"); ?></h3>
+		<span><?= __("contacts.children_center.city"); ?></span>
+		<span><?= __("contacts.children_center.address"); ?></span>
+		<span><?= __("contacts.children_center.tel1"); ?></span>
+		<span><?= __("contacts.children_center.tel2"); ?></span>
 		<span> 
 			<a target="_blank" href="mailto:O.Shkurchenko@i.ua">
 				e-mail:  O.Shkurchenko@i.ua
@@ -45,13 +45,13 @@
 		</span>
 	</div>
 	<div class="contacts-dop left">
-		<span>Д.Ц. "Радость"  г.Днепропетровск,</span> 
-		<span>пр. Прады 14 Б, напротив АТБ</span>
-		<span>гор. тел. +38 056 735-07-08</span> 
+		<span><?= __("contacts.children_center_joy.title"); ?></span> 
+		<span><?= __("contacts.children_center_joy.address"); ?></span>
+		<span><?= __("contacts.children_center_joy.tel"); ?></span> 
 		<p>
-			<span>Д.Ц. "Звездочка"  г.Днепропетровск,</span>
-			<span>бульвар Звездный 1, район ТРЦ “Дафи”</span>
-			<span>гор. тел. +38 056 785-88-70</span> 
+			<span><?= __("contacts.children_center_star.title"); ?></span>
+			<span><?= __("contacts.children_center_star.address"); ?></span>
+			<span><?= __("contacts.children_center_star.tel"); ?></span> 
 		</p>
 	</div>
 </div>
