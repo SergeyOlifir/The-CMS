@@ -30,9 +30,12 @@ return array(
 			),
 	
 			'modules'  => array(),
-			'classes'  => array(),
+			'classes'  => array(
+				
+			),
 			'config'  => array(
 				'settings',
+				'TCTheme'
 			),
 			'language'  => array(),
 		),

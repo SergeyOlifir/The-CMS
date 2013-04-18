@@ -5,8 +5,14 @@
  * @author juise_man
  */
 class Controller_Home extends Controller_Application {
-	public $template = 'The42Template';
+	//public $template = TCTheme::main_view;
 	
+	function before() {
+		$this->template = TCTheme::main_view();
+		//var_dump(TCTheme::$tempalte_dir); die();
+		parent::before();
+	}
+			
 	function action_index() {
 		self::$current_page = "Home";
         $content = \Model_Page::find('all');

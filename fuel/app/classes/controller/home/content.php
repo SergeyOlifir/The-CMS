@@ -43,7 +43,9 @@ class Controller_Home_Content extends Controller_Home {
 						->cached(3600)
 						->execute();
 		
-		$this->template->content = \Fuel\Core\View::forge("templates/{$this::$template_name}/content/index",array('content' => $content, 'pagination' => $pagination->render(), 'category' => ''));
+		//$this->template->content = \Fuel\Core\View::forge("templates/{$this::$template_name}/content/index",array('content' => $content, 'pagination' => $pagination->render(), 'category' => ''));
+	
+		$this->template->content = TCTheme::load_view('content/index', array('content' => $content, 'pagination' => $pagination->render(), 'category' => ''));
 	}
 	
 	function action_change($view = null, $category = null) {

@@ -8,3 +8,4 @@ nbproject
 fuel/app/config/development/*
 fuel/app/cache/*
 .idea
+fuel/app/config/TCTheme.php
