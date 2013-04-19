@@ -1,4 +1,4 @@
-<div class="projects clearfix">
+<div class="projects wrapper-padding clearfix">
 	<? foreach ($content as $project): ?>
 		<div class="project tile left">
 			<div class="logo-wrapper">

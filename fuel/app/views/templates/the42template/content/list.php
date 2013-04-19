@@ -1,8 +1,9 @@
-<div class="projects clearfix">
+<div class="projects wrapper-padding clearfix">
 	<? foreach ($content as $project): ?>
 		<div class="project clearfix">
 			<div class="logo-wrapper left">
 				<?= Html::img("files/{$project['image']}"); ?>
+                <span class="shadow-vertical"></span>
 			</div>
 			<div class="name left">
 				<h3><?= \Fuel\Core\Html::anchor("/home/content/view/{$project->id}", $project['name'], array('class' => 'project-link')); ?></h3>

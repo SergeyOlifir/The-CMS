@@ -2,7 +2,7 @@
 	<h2>Portfolio</h2>
 </div>
 
-<div class="container single-content">
+<div class="container single-content wrapper-padding">
 	<div class="row">
 		<div class="span9">
 			    <div id="Carousel" class="carousel slide">
