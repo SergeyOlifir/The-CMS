@@ -1,9 +1,9 @@
 <? if(isset($content)): ?>
-    <div class='app-categories'>
+    <div class='app-categories clearfix'>
         <ul>
             <? foreach($content as $category) { ?>
-                <li class="category">
-                    <a class="image"></a>
+                <li class="category img-circle">
+                    <a class="image img-circle"></a>
                     <a class="name">
                         <?= $category->name; ?>
                     </a>
