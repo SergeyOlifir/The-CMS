@@ -252,6 +252,40 @@ a.list {
     width: 25px;
 }
 
+.container.single-content {
+	width: 964px;
+}
+
+.single-content .row {
+	background-color: #fff;
+	margin: 0px;
+}
+
+.single-content .span9 {
+	width: 700px;
+	margin: 0px;
+}
+
+.single-content .span3 {
+	width: 204px;
+	margin: 0px;
+	padding: 30px;
+}
+
+.single-content .carousel-indicators .active {
+    background-color: #5baa00;
+}
+
+.single-content .carousel-inner > .item > img, 
+.single-content .carousel-inner > .item > a > img {
+    max-width: 700px;
+}
+
+.single-content .carousel-inner > .item {
+	height: 510px;
+}
+
+
 .pagination span a {
 	color: #a7a7a7;
 	text-decoration: none;

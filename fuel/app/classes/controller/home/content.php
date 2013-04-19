@@ -48,6 +48,15 @@ class Controller_Home_Content extends Controller_Home {
 		$this->template->content = TCTheme::load_view('content/index', array('content' => $content, 'pagination' => $pagination->render(), 'category' => ''));
 	}
 	
+	function action_view($id = null) {
+		!isset($id) and Fuel\Core\Response::redirect('/');
+		if($content = Model_Content::find($id)) {
+			$this->template->content = TCTheme::load_view('content/view', array('content' => $content));
+		} else {
+			Fuel\Core\Response::redirect('/');
+		}
+	}
+			
 	function action_change($view = null, $category = null) {
 		!isset($view) and Fuel\Core\Response::redirect('home/content');
 		if ($view === 'tile') {

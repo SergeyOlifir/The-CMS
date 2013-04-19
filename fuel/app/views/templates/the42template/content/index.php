@@ -6,7 +6,7 @@
 <? if (Session::get('tile')): ?>
 	<?= TCTheme::render("content/tiles", array('content' => $content)); ?>
 <? else: ?>
-	<?= TCThemes::render("content/list", array('content' => $content)); ?>
+	<?= TCTheme::render("content/list", array('content' => $content)); ?>
 <? endif;?>
 
 <?= $pagination; ?>

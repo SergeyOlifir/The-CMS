@@ -20,6 +20,7 @@
 		<?= Asset::js('jquery.fancybox.pack.js'); ?>
 		<?= Asset::js('jquery.fancybox-buttons.js'); ?>
 		<?= Asset::js('bootstrap.min.js'); ?>
+		<? TCTheme::add_js('carousel.js'); ?>
 		<?= Asset::render('javascripts'); ?>
 	</head>
 
