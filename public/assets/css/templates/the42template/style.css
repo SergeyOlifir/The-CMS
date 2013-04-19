@@ -39,7 +39,7 @@ html {
 	position: absolute;
 	background-image: url('../../../img/templates/the42template/logo.png');
 	background-repeat: no-repeat;
-	text-indent: -9999px;
+	text-indent: -99999px;
 	padding: 0;
 	margin: 0;
 	top: 15px;
@@ -94,10 +94,9 @@ html {
 .submenu h2 {
 	color: #FFFFFF;
     display: inline-block;
-    font-size: 10pt;
+    font-size: 12pt;
     font-weight: normal;
-    margin: 0;
-    padding: 35px 0 0 165px;
+    margin: 35px 0 0 165px;
     text-transform: uppercase;
 }
 
@@ -106,7 +105,7 @@ a.tile {
     background-repeat: no-repeat;
     display: inline-block;
     height: 22px;
-    text-indent: -999px;
+    text-indent: -99999px;
     width: 21px;
 	margin-left: 15px;
 }
@@ -117,8 +116,8 @@ a.list {
     background-size: 22px 22px;
     display: inline-block;
     height: 22px;
-    margin: 0 0 0 5px;
-    text-indent: -999px;
+    margin:0;
+    text-indent: -99999px;
     width: 21px;
 }
 
@@ -138,13 +137,11 @@ a.list {
 }
 
 .project .logo-wrapper {
-	height: 157px;
-    width: 257px;
+
 }
 
 .project.tile .logo-wrapper {
-    height: 155px;
-    width: 257px;
+
 }
 
 .project .logo-wrapper img {
@@ -153,15 +150,13 @@ a.list {
 	border: 1px solid #fff;
 }
 
-.project .logo-wrapper .shadow-vertical {
-    display: block;
-    background: url("../../../img/templates/the42template/shadow-vertical.png") no-repeat;
-    width: 25px;
+.project .white-block {
+    background: url("../../../img/templates/the42template/shadow-vertical.png") no-repeat scroll -3px 0px #FFFFFF;
     height: 155px;
 }
 
 .project .name {
-	width: 155px;
+	width: 120px;
 	padding: 30px 10px;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -184,7 +179,7 @@ a.list {
     padding: 0 0 0 55px;
     text-overflow: ellipsis;
     width: 200px;
-	height: 68px;
+	height: 61px;
 }
 
 .project .name h3 {
@@ -194,20 +189,17 @@ a.list {
 
 .project.tile .name h3 {
 	display: block;
-    font-size: 12pt;
-    height: 20px;
-    margin: 15px 0 0;
+    font-size: 16pt;
+    margin: 17px 0 0;
     overflow: hidden;
     padding: 0;
     text-overflow: ellipsis;
-    width: 165px;
 	color: #FFFFFF;
+    line-height: 18px;
 }
 
 .project.tile .name p {
 	font-size: 10pt;
-    height: 20px;
-    margin: 5px 0 0;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 165px;
@@ -215,24 +207,19 @@ a.list {
 
 .project .description {
 	font-size: 11pt;
-    font-style: normal;
-    height: 86px;
-    overflow: hidden;
-    padding: 30px 115px 20px 10px;
-    text-overflow: ellipsis;
-    width: 265px;
+    margin: 30px 115px 20px 10px;
+    width: 302px;
 }
 
 .project a.more-link {
-	background-image: url("../../../img/templates/the42template/more.png");
+	background: url("../../../img/templates/the42template/more.png") no-repeat;
     bottom: 0;
     display: block;
     height: 60px;
     position: absolute;
     right: 0;
-    text-indent: -999px;
+    text-indent: -99999px;
     width: 63px;
-	overflow: hidden;
 }
 
 .project.tile a.more-link {
@@ -243,7 +230,7 @@ a.list {
     left: 10px;
     overflow: hidden;
     position: absolute;
-    text-indent: -999px;
+    text-indent: -99999px;
     width: 34px;
 }
 
@@ -319,13 +306,12 @@ a.list {
 
 /* Home page Categories  */
 
-.app-categories ul {
+.app-categories ul{
     list-style-type: none;
     margin: 23px 0px 10px 0px;
 }
 
-.app-categories ul .category {
-    float: left;
+.app-categories  .category {
     height: 350px;
     width: 150px;
     background-color: #fff;
@@ -334,42 +320,45 @@ a.list {
     margin-right: 30px;
 }
 
-.app-categories ul .category+.category {
+.app-categories .category+.category {
     background-image: url('"../../../img/templates/the42template/seo-logo.png"');
 }
 
-.app-categories ul .category+.category+.category {
+.app-categories .category+.category+.category {
     background-image: url('"../../../img/templates/the42template/mobile-logo.png"');
 }
 
-.app-categories ul .category+.category+.category+.category {
-    background-image: url('"../../../img/templates/the42template/unity3d-logo.png"');
+.app-categories .category+.category+.category+.category {
+    background-image: url("../../../img/templates/the42template/unity3d-logo.png");
     margin-right: 0;
 }
 
-.app-categories ul .category a,
-.app-categories ul .category span,
-.app-categories ul .category {
+.app-categories .category a,
+.app-categories .category span,
+.app-categories .category {
     display: block;
 }
 
-.app-categories ul .category .image {
+.app-categories .category .image {
     width: 150px;
     height: 150px;
     background-color: #5ca800;
 }
 
-.app-categories ul .category .name {
+.app-categories .category .name {
     text-align: center;
     font-size: 16px;
     text-transform: uppercase;
     color: #5ca800;
     font-weight: bold;
-    margin-top: 20px;
 }
 
-.app-categories ul .category .description {
-    margin: 10px 10px 0 15px;
+.app-categories .category h3 {
+    margin-bottom: 0;
+}
+
+.app-categories .category .description {
+    margin: 0px 10px 0 15px;
     font-size: 12px;
     color: #4c4a4b;
 
