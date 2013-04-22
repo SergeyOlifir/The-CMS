@@ -6,8 +6,8 @@
 				</a>
 			</li>
 			<li>
-				<a href="/admin/pages/create">
-					Добавить страницу
+				<a href="/<?= $uri; ?>">
+					Добавить контент
 				</a>
 			</li>
 		</ul>
@@ -24,10 +24,10 @@
 								<div  class="thumbnail">
 									<?= Html::img("files/{$content->image}", array('class' => 'img-polaroid')); ?>
 									<div class="caption">
-										<h3><?= $content->name; ?></h3>
+										<h3><?= "";//$content->name; ?></h3>
 									</div>
 									<p>
-										<a class="btn btn-primary" href="/admin/content/edit/<?=$content->id; ?>">Релактировать</a>
+										<a class="btn btn-primary" href="/admin/content/edit/<?=$content->id; ?>/1">Релактировать</a>
 										<a class="btn btn-danger" href="/admin/content/delete/<?=$content->id;?>">Удалить</a>
 									</p>
 								</div>
@@ -40,4 +40,3 @@
 			<?php endif; ?>
 		</section>
 	</div>
-

@@ -26,7 +26,7 @@
 		$("#form_date_create").datepicker();
 	})
 </script>
-<?php echo Form::open(array('enctype'=>'multipart/form-data')); ?>
+<?php echo Form::open(array('enctype'=>'multipart/form-data', 'class' => 'content-form')); ?>
 	<fieldset>
 		<div class="clearfix">
 			<? if(isset($content->image)): ?>

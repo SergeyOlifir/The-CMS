@@ -1,5 +1,5 @@
-<h1 class="logo">
-	42 Develipment Studio
+<h1>
+    <?= \Fuel\Core\Html::anchor("/", "42 Develipment Studio", array('class' =>'logo')); ?>
 </h1>
 <ul class="menu clearfix">
 	<li>
@@ -12,9 +12,9 @@
 		<?= Controller_Application::$current_page == "content" ? \Fuel\Core\Html::anchor("home/content", "Portfolio", array('class' => 'active')) : \Fuel\Core\Html::anchor("home/content", "Portfolio"); ?>
 	</li>
 	<li>
-		<?= \Fuel\Core\Html::anchor("hui", "Blog & News"); ?>
+		<?= \Fuel\Core\Html::anchor("#", "Blog & News"); ?>
 	</li>
 	<li>
-		<?= \Fuel\Core\Html::anchor("hui", "Contact us"); ?>
+		<?= \Fuel\Core\Html::anchor("#", "Contact us"); ?>
 	</li>
 </ul>

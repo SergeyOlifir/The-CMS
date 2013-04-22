@@ -21,6 +21,6 @@ class Create_galery
 
 	public function down()
 	{
-		\DBUtil::drop_table('contents');
+		\DBUtil::drop_table('images');
 	}
 }
