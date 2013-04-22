@@ -24,8 +24,8 @@
 				</div>
 		</div>
 		<div class="span3">
-			<h3 class="text-center"><?= $translitions->name; ?></h3>
-			<p><?=$translitions->description; ?></p>
+			<h3 class="text-center"><?= $content->name; ?></h3>
+			<p><?=$content->description; ?></p>
 		</div>
 	</div>
 </div>

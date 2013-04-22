@@ -1,7 +1,7 @@
 <?php
 use Orm\Model;
 
-class Model_Content extends Model
+class Model_Content extends Model_Base
 {
 	protected static $_properties = array(
 		'id',
@@ -14,7 +14,7 @@ class Model_Content extends Model
 		'created_at',
 		'updated_at',
 	);
-
+	
 	protected static $_observers = array(
 		'Orm\Observer_CreatedAt' => array(
 			'events' => array('before_insert'),
@@ -69,30 +69,19 @@ class Model_Content extends Model
 			'cascade_delete' => false,
 		)
 	);
+	
+	protected static $_translition = array(
+		'key_from' => 'id',
+		'model_to' => 'Model_Localcontent',
+		'key_to' => 'content_id',
+	);
+	
+	protected static $_to_translition_exclude = array(
+		'id',
+		'created_at',
+		'updated_at',
+	);
 
-	public function get_translation($lang_id = null) {
-		return Model_Localcontent::query()->where('local_id', '=', $lang_id)->where('content_id', '=', $this->id)->get_one();
-	}
-	
-	public static function find_with_translitions($lang_id, $limit = null, $offset = null) {
-		$content = DB::select()
-						->from('contents')
-						->join('localcontents')
-		    			->on('contents.id', '=', 'localcontents.content_id')
-		    			->where('local_id', '=', $lang_id)
-						->select('contents.id', 'contents.image', 'contents.page_id', 'contents.date_create', 'contents.created_at', 'contents.updated_at')
-						->order_by('date_create', 'desc');
-		if(isset($limit)) {
-			$content->limit($limit);
-		}
-		
-		if(isset($offset)) {
-			$content->offset($offset);
-		}
-		$content->as_object('Model_Content');
-		return $content->execute();
-	}
-	
 	public static function find_with_translitions_related_to_category($lang_id, $category_alias, $limit = null, $offset = null) {
 		$content = DB::select()
 						->from('contents')
