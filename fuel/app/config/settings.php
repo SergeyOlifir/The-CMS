@@ -17,7 +17,29 @@ return array(
 				'height' => 200
 			),
 		)
-	),	
+	),
+	'galery' => array(
+		'upload' => array(
+			'path' => DOCROOT.'files',
+			'randomize' => true,
+			'normalize' => true,
+			'type_whitelist' => array('image')
+		),
+		'sizes' => array(
+			'thumb' => array(
+				'width' => 100,
+				'height' => 100,
+			),
+			'galery' => array(
+				'width' => 700,
+				'height' => 600,
+			),
+			'full' => array(
+				'width' => 1024,
+				'height' => 768,
+			),
+		),
+	),
 	'time_to_logout' => array(
 		'time' => 4
 	),

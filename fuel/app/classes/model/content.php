@@ -43,6 +43,16 @@ class Model_Content extends Model
 		)
 	);
 	
+	protected static $_has_many = array(
+    'images' => array(
+        'key_from' => 'id',
+        'model_to' => 'Model_Image',
+        'key_to' => 'owner_id',
+        'cascade_save' => true,
+        'cascade_delete' => true,
+    )
+);
+	
 	protected static $_belongs_to = array(
 		'page' => array(
 			'key_from' => 'page_id',

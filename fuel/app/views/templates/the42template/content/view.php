@@ -7,20 +7,19 @@
 		<div class="span9">
 			    <div id="Carousel" class="carousel slide">
 					<ol class="carousel-indicators">
-						<li data-target="#Carousel" data-slide-to="0" class="active"></li>
-						<li data-target="#Carousel" data-slide-to="1"></li>
-						<li data-target="#Carousel" data-slide-to="2"></li>
+						<? $i = 0; ?> 
+						<? foreach($content->images as $image): ?>
+							<li data-target="#Carousel" class="<?= $i == 0 ? 'active' : '' ?>" data-slide-to="<?= $i++; ?>"></li>
+						<? endforeach; ?>
 					</ol>
 					<div class="carousel-inner">
-						<div class="active item">
-							<?= Html::img("files/3.jpg"); ?>
-						</div>
-						<div class="item">
-							<?= Html::img("files/4.jpg"); ?>
-						</div>
-						<div class="item">
-							<?= Html::img("files/3.jpg"); ?>
-						</div>
+						<? $i = 0; ?> 
+						<? foreach($content->images as $image): ?>
+							<div class="<?= $i == 0 ? 'active' : '' ?> item">
+								<?= Html::img("files/{$image->galery}"); ?>
+							</div>
+							<? $i++; ?>
+						<? endforeach; ?>
 					</div>
 				</div>
 		</div>
