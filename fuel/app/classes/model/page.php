@@ -65,9 +65,20 @@ class Model_Page extends Model
 		return $result;
 	}
 
-	public function get_sorted_content() 
-	{
+	public function get_sorted_content() {
 		return Model_Content::query()->where('page_id', "=", $this->id)->order_by('date_create', 'desc')->get();
+	}
+
+	public function get_count_content($lang_id = null) {
+		return DB::select()
+			->from('contents')
+			->where('page_id', '=', $this->id)
+			->join('localcontents')
+			->on('contents.id', '=', 'localcontents.content_id')
+			->where('local_id', '=', $lang_id)
+			->cached(3600)
+			->execute()
+			->count();
 	}
 
 }

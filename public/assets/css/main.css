@@ -325,3 +325,16 @@ a.ui-datepicker-next span {
 .ui-datepicker-title {
 	text-align: center;
 }
+
+/* for tabs */
+ul.nav {
+	margin-bottom: 0;
+}
+
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus {
+	background-color: #001941;
+}
+
+.content-form {
+	padding: 20px;
+}

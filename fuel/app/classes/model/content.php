@@ -5,9 +5,9 @@ class Model_Content extends Model
 {
 	protected static $_properties = array(
 		'id',
-		'name',
+		/*'name',
 		'description',
-		'short_description',
+		'short_description',*/
 		'image',
 		'page_id',
 		'date_create',
@@ -53,13 +53,17 @@ class Model_Content extends Model
 		)
 	);
 
-	public static function validate($factory)
-	{
-		$val = Validation::forge($factory);
-		$val->add_field('name', 'Name', 'required|max_length[255]');
-		$val->add_field('description', 'Description', 'required');
-		$val->add_field('short_description', 'Short Description', 'required');
-		return $val;
-	}
+	protected static $_has_many = array(
+		'local_contents' => array(
+			'key_from' => 'id',
+			'model_to' => 'Model_Localcontent',
+			'key_to' => 'content_id',
+			'cascade_save' => true,
+			'cascade_delete' => true,
+		)
+	);
 
+	public function get_translation($lang_id = null) {
+		return Model_Localcontent::query()->where('local_id', '=', $lang_id)->where('content_id', '=', $this->id)->get_one();
+	}
 }

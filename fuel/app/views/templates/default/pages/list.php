@@ -4,7 +4,7 @@
 </script>
 	<ul class='list clearfix'>
 		<? foreach ($contents as $content): ?>
-			<a data-reveal-id="contents_popup" href="#" content_id="<?= $content['id']; ?>" class="show-popup">
+			<a data-reveal-id="contents_popup" href="#" content_id="<?= $content['content_id']; ?>" class="show-popup">
 				<li>
 					<div class="clearfix">
 						<div class="image-wrapper left">
