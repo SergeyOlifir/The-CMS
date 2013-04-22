@@ -10,12 +10,7 @@ class Controller_Home_Content extends Controller_Home {
 			
 	function action_index() {
 		
-		$count = DB::select()
-							->from('contents')
-							->as_object('Model_Content')
-							->cached(3600)
-							->execute()
-							->count();
+		$count = Model_Content::find_with_translitions($this->lang_id)->count();
 
 		$base_url = \Uri::base(false) . 'home/content';
 		$config = array(
@@ -31,20 +26,10 @@ class Controller_Home_Content extends Controller_Home {
 				'previous-inactive' => '<span class="previous-inactive hui">\n\t{link}\n</span>\n',
             ),
 		);
-
+		Model_Content::find_with_translitions($this->lang_id);
 		$pagination = Pagination::forge('pagination', $config);
 			
-		$content = DB::select()
-						->from('contents')
-						->order_by('date_create', 'desc')
-						->limit($pagination->per_page)
-						->offset($pagination->offset)
-						->as_object('Model_Content')
-						->cached(3600)
-						->execute();
-		
-		//$this->template->content = \Fuel\Core\View::forge("templates/{$this::$template_name}/content/index",array('content' => $content, 'pagination' => $pagination->render(), 'category' => ''));
-	
+		$content = Model_Content::find_with_translitions(1, $pagination->per_page, $pagination->offset);
 		$this->template->content = TCTheme::load_view('content/index', array('content' => $content, 'pagination' => $pagination->render(), 'category' => ''));
 	}
 	

@@ -3,15 +3,8 @@
 class Controller_Home_Category extends Controller_Home {
 	function action_view($category_alias = null) {
 		!isset($category_alias) and Response::redirect('home/content');
-		$count = \Fuel\Core\DB::select()->from('contents')
-					->join('pages')
-					->on('contents.page_id', '=', 'pages.id')
-					->where('pages.alias', '=', $category_alias)
-					->select('contents.id', 'contents.name', 'contents.description', 'contents.short_description', 'contents.image', 'contents.page_id', 'contents.created_at', 'contents.updated_at', 'contents.date_create')
-					//->select(array_keys(Model_Content::properties()))
-					->as_object('Model_Content')
-					->execute()
-					->count();			
+		
+		$count = Model_Content::find_with_translitions_related_to_category($this->lang_id, $category_alias)->count();
 		
 		$base_url = \Uri::base(false) . 'home/content';
 		$config = array(
@@ -30,16 +23,7 @@ class Controller_Home_Category extends Controller_Home {
 
 		$pagination = Pagination::forge('pagination', $config);
 			
-		$content = DB::select()->from('contents')
-						->join('pages')
-						->on('contents.page_id', '=', 'pages.id')
-						->where('pages.alias', '=', $category_alias)
-						->select('contents.id', 'contents.name', 'contents.description', 'contents.short_description', 'contents.image', 'contents.page_id', 'contents.created_at', 'contents.updated_at', 'contents.date_create')
-						->order_by('date_create', 'desc')
-						->limit($pagination->per_page)
-						->offset($pagination->offset)
-						->as_object('Model_Content')
-						->execute();
+		$content = Model_Content::find_with_translitions_related_to_category($this->lang_id, $category_alias, $pagination->per_page, $pagination->offset);
 		//$this->template->content = \Fuel\Core\View::forge("templates/{$this::$template_name}/content/index",array('content' => $content, 'pagination' => $pagination->render(), 'category' => $category_alias));
 		$this->template->content = TCTheme::load_view('content/index', array('content' => $content, 'pagination' => $pagination->render(), 'category' => $category_alias));
 				

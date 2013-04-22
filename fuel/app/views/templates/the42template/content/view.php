@@ -1,7 +1,7 @@
 <div class="submenu">
 	<h2>Portfolio</h2>
 </div>
-
+<? $translitions = $content->get_translation(1); ?>
 <div class="container single-content wrapper-padding">
 	<div class="row">
 		<div class="span9">
@@ -24,8 +24,8 @@
 				</div>
 		</div>
 		<div class="span3">
-			<h3 class="text-center"><?= $content->name; ?></h3>
-			<p><?=$content->description; ?></p>
+			<h3 class="text-center"><?= $translitions->name; ?></h3>
+			<p><?=$translitions->description; ?></p>
 		</div>
 	</div>
 </div>

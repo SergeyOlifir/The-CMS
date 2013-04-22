@@ -73,4 +73,45 @@ class Model_Content extends Model
 	public function get_translation($lang_id = null) {
 		return Model_Localcontent::query()->where('local_id', '=', $lang_id)->where('content_id', '=', $this->id)->get_one();
 	}
+	
+	public static function find_with_translitions($lang_id, $limit = null, $offset = null) {
+		$content = DB::select()
+						->from('contents')
+						->join('localcontents')
+		    			->on('contents.id', '=', 'localcontents.content_id')
+		    			->where('local_id', '=', $lang_id)
+						->select('contents.id', 'contents.image', 'contents.page_id', 'contents.date_create', 'contents.created_at', 'contents.updated_at')
+						->order_by('date_create', 'desc');
+		if(isset($limit)) {
+			$content->limit($limit);
+		}
+		
+		if(isset($offset)) {
+			$content->offset($offset);
+		}
+		$content->as_object('Model_Content');
+		return $content->execute();
+	}
+	
+	public static function find_with_translitions_related_to_category($lang_id, $category_alias, $limit = null, $offset = null) {
+		$content = DB::select()
+						->from('contents')
+						->join('localcontents')
+		    			->on('contents.id', '=', 'localcontents.content_id')
+		    			->where('local_id', '=', $lang_id)
+						->join('pages')
+						->on('contents.page_id', '=', 'pages.id')
+						->where('pages.alias', '=', $category_alias)
+						->select('contents.id', 'contents.image', 'contents.page_id', 'contents.date_create', 'contents.created_at', 'contents.updated_at')
+						->order_by('date_create', 'desc');
+		if(isset($limit)) {
+			$content->limit($limit);
+		}
+		
+		if(isset($offset)) {
+			$content->offset($offset);
+		}
+		$content->as_object('Model_Content');
+		return $content->execute();
+	}
 }
