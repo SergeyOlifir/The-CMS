@@ -10,7 +10,7 @@
 		<?= Asset::css('reveal.css'); ?>
 		<?= Asset::css('jquery.fancybox.css'); ?>
 		<?= Asset::css('jquery.fancybox-buttons.css'); ?>
-		<?= Asset::css("templates/{$template}/style.css"); ?>
+		<?= TCTheme::add_css("style.css"); ?>
 		
 		<?= Asset::js('jquery-1.8.3.min.js'); ?>
 		<?= Asset::js('jquery-ui-1.9.0.custom.min.js'); ?>
@@ -20,14 +20,13 @@
 		<?= Asset::js('jquery.fancybox.pack.js'); ?>
 		<?= Asset::js('jquery.fancybox-buttons.js'); ?>
 		<?= Asset::js('bootstrap.min.js'); ?>
-		<?= Asset::js("templates/{$template}/jcarousellite_1.0.1.js"); ?>
 		<?= Asset::render('javascripts'); ?>
 	</head>
 
 	<body>
 		<div id="all-wrapper">
 			<div id="header">
-				<?= render("templates/{$template}/header",array()); ?>
+				<?= TCTheme::render("header",array()); ?>
 			</div>
 			
 			<div id="content">
@@ -37,7 +36,7 @@
 			</div>
 			
 			<div id="footer">
-				<?= render("templates/{$template}/footer"); ?>
+				<?= TCTheme::render("footer"); ?>
 			</div>
 		</div>
 	</body>

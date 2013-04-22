@@ -40,8 +40,9 @@ class Controller_Home_Category extends Controller_Home {
 						->offset($pagination->offset)
 						->as_object('Model_Content')
 						->execute();
-		$this->template->content = \Fuel\Core\View::forge("templates/{$this::$template_name}/content/index",array('content' => $content, 'pagination' => $pagination->render(), 'category' => $category_alias));
-
+		//$this->template->content = \Fuel\Core\View::forge("templates/{$this::$template_name}/content/index",array('content' => $content, 'pagination' => $pagination->render(), 'category' => $category_alias));
+		$this->template->content = TCTheme::load_view('content/index', array('content' => $content, 'pagination' => $pagination->render(), 'category' => $category_alias));
+				
 	}
 }
 

@@ -17,7 +17,9 @@ html {
 	_font-style: italic;
 }
 
-/**/
+.wrapper-padding {
+    padding: 0 100px;
+}
 
 #all-wrapper {
 	width: 1024px;
@@ -30,19 +32,21 @@ html {
 	position: relative;
 }
 
-#header h1.logo {
+#header h1 .logo {
 	display: block;
 	width: 113px;
 	height: 113px;
 	position: absolute;
 	background-image: url('../../../img/templates/the42template/logo.png');
 	background-repeat: no-repeat;
-	text-indent: -9999px;
+	text-indent: -99999px;
 	padding: 0;
 	margin: 0;
 	top: 15px;
 	left: 25px;
 }
+
+/* Menu */
 
 #header ul.menu {
 	margin: 0;
@@ -61,8 +65,8 @@ html {
 	text-decoration: none;
 	color: #e4e5e2;
 	display: block;
-	padding: 35px 10px;
-	font-size: 17px;
+	padding: 30px 10px;
+	font-size: 18px;
 	font-style: normal;
 }
 
@@ -73,6 +77,8 @@ html {
 #header ul.menu li a.active {
 	color: #53861f;
 }
+
+/* Menu End */
 
 #content {
 	background-image: url('../../../img/templates/the42template/back.png');
@@ -88,10 +94,9 @@ html {
 .submenu h2 {
 	color: #FFFFFF;
     display: inline-block;
-    font-size: 10pt;
+    font-size: 12pt;
     font-weight: normal;
-    margin: 0;
-    padding: 35px 0 0 165px;
+    margin: 35px 0 0 165px;
     text-transform: uppercase;
 }
 
@@ -100,7 +105,7 @@ a.tile {
     background-repeat: no-repeat;
     display: inline-block;
     height: 22px;
-    text-indent: -999px;
+    text-indent: -99999px;
     width: 21px;
 	margin-left: 15px;
 }
@@ -111,13 +116,9 @@ a.list {
     background-size: 22px 22px;
     display: inline-block;
     height: 22px;
-    margin: 0 0 0 5px;
-    text-indent: -999px;
+    margin:0;
+    text-indent: -99999px;
     width: 21px;
-}
-
-.projects {
-	padding: 0 100px;
 }
 
 .projects .project {
@@ -136,13 +137,11 @@ a.list {
 }
 
 .project .logo-wrapper {
-	height: 157px;
-    width: 257px;
+
 }
 
 .project.tile .logo-wrapper {
-    height: 155px;
-    width: 257px;
+
 }
 
 .project .logo-wrapper img {
@@ -151,8 +150,13 @@ a.list {
 	border: 1px solid #fff;
 }
 
+.project .white-block {
+    background: url("../../../img/templates/the42template/shadow-vertical.png") no-repeat scroll -3px 0px #FFFFFF;
+    height: 155px;
+}
+
 .project .name {
-	width: 155px;
+	width: 120px;
 	padding: 30px 10px;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -175,7 +179,7 @@ a.list {
     padding: 0 0 0 55px;
     text-overflow: ellipsis;
     width: 200px;
-	height: 68px;
+	height: 61px;
 }
 
 .project .name h3 {
@@ -185,20 +189,17 @@ a.list {
 
 .project.tile .name h3 {
 	display: block;
-    font-size: 12pt;
-    height: 20px;
-    margin: 15px 0 0;
+    font-size: 16pt;
+    margin: 17px 0 0;
     overflow: hidden;
     padding: 0;
     text-overflow: ellipsis;
-    width: 165px;
 	color: #FFFFFF;
+    line-height: 18px;
 }
 
 .project.tile .name p {
 	font-size: 10pt;
-    height: 20px;
-    margin: 5px 0 0;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 165px;
@@ -206,24 +207,19 @@ a.list {
 
 .project .description {
 	font-size: 11pt;
-    font-style: normal;
-    height: 86px;
-    overflow: hidden;
-    padding: 30px 115px 20px 10px;
-    text-overflow: ellipsis;
-    width: 265px;
+    margin: 30px 115px 20px 10px;
+    width: 302px;
 }
 
 .project a.more-link {
-	background-image: url("../../../img/templates/the42template/more.png");
+	background: url("../../../img/templates/the42template/more.png") no-repeat;
     bottom: 0;
     display: block;
     height: 60px;
     position: absolute;
     right: 0;
-    text-indent: -999px;
+    text-indent: -99999px;
     width: 63px;
-	overflow: hidden;
 }
 
 .project.tile a.more-link {
@@ -234,7 +230,7 @@ a.list {
     left: 10px;
     overflow: hidden;
     position: absolute;
-    text-indent: -999px;
+    text-indent: -99999px;
     width: 34px;
 }
 
@@ -251,6 +247,40 @@ a.list {
     text-align: center;
     width: 25px;
 }
+
+.container.single-content {
+	width: 964px;
+}
+
+.single-content .row {
+	background-color: #fff;
+	margin: 0px;
+}
+
+.single-content .span9 {
+	width: 700px;
+	margin: 0px;
+}
+
+.single-content .span3 {
+	width: 204px;
+	margin: 0px;
+	padding: 30px;
+}
+
+.single-content .carousel-indicators .active {
+    background-color: #5baa00;
+}
+
+.single-content .carousel-inner > .item > img, 
+.single-content .carousel-inner > .item > a > img {
+    max-width: 700px;
+}
+
+.single-content .carousel-inner > .item {
+	height: 510px;
+}
+
 
 .pagination span a {
 	color: #a7a7a7;
@@ -273,6 +303,67 @@ a.list {
 	border-top: 5px solid #6cb92c;
 }
 
+
+/* Home page Categories  */
+
+.app-categories ul{
+    list-style-type: none;
+    margin: 23px 0px 10px 0px;
+}
+
+.app-categories  .category {
+    height: 350px;
+    width: 150px;
+    background-color: #fff;
+    background-image: url('"../../../img/templates/the42template/site-logo.png"');
+    padding: 15px;
+    margin-right: 30px;
+}
+
+.app-categories .category+.category {
+    background-image: url('"../../../img/templates/the42template/seo-logo.png"');
+}
+
+.app-categories .category+.category+.category {
+    background-image: url('"../../../img/templates/the42template/mobile-logo.png"');
+}
+
+.app-categories .category+.category+.category+.category {
+    background-image: url("../../../img/templates/the42template/unity3d-logo.png");
+    margin-right: 0;
+}
+
+.app-categories .category a,
+.app-categories .category span,
+.app-categories .category {
+    display: block;
+}
+
+.app-categories .category .image {
+    width: 150px;
+    height: 150px;
+    background-color: #5ca800;
+}
+
+.app-categories .category .name {
+    text-align: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #5ca800;
+    font-weight: bold;
+}
+
+.app-categories .category h3 {
+    margin-bottom: 0;
+}
+
+.app-categories .category .description {
+    margin: 0px 10px 0 15px;
+    font-size: 12px;
+    color: #4c4a4b;
+
+}
+/* end Categories */
 
 /* ClearFix )))) */
 
