@@ -1,3 +1,5 @@
+<? Session::get('lang') ? ($curr_lang = Session::get('lang')) : ($curr_lang = Config::get('language'));
+	$curr_lang_id = Model_Local::query()->where('name', '=', $curr_lang)->get_one()->id; ?>
 <script type="text/javascript">
 
 	var view_content = "<?= $page->view_content; ?>";
@@ -13,7 +15,7 @@
 			get("home/page/list/" + $(_page).attr("data"), "#" + $(_page).attr("id"), "");
 			$('#<?= $page->alias; ?>-column .pagination .cur_page').html('1');
 			$('#<?= $page->alias; ?>-column .current_page').attr('value', '1');
-			$('#<?= $page->alias; ?>-column .pagination .total_items').html("<?= ceil(count(Model_Content::query()->where('page_id', '=', $page->id)->get())/6); ?>");
+			$('#<?= $page->alias; ?>-column .pagination .total_items').html("<?= ceil($page->get_count_content($curr_lang_id)/6); ?>");
 			view_content = 'list';
 			return false;
 		});
@@ -22,7 +24,7 @@
 			get("home/page/tile/" + $(_page).attr("data"), "#" + $(_page).attr("id"), "");
 			$('#<?= $page->alias; ?>-column .pagination .cur_page').html('1');
 			$('#<?= $page->alias; ?>-column .current_page').attr('value', '1');
-			$('#<?= $page->alias; ?>-column .pagination .total_items').html("<?= ceil(count(Model_Content::query()->where('page_id', '=', $page->id)->get())/15); ?>");
+			$('#<?= $page->alias; ?>-column .pagination .total_items').html("<?= ceil($page->get_count_content($curr_lang_id)/15); ?>");
 			view_content = 'tile';
 			return false;
 		});
@@ -68,7 +70,7 @@
 		<div class="paginator-bottom left" targetContent="<?= $page->alias; ?>">
 			<?= __("pagination.next"); ?>
 			<div class="pagination right">
-				<?= __("pagination.page"); ?>&nbsp;<span class="cur_page">1</span>&nbsp;<?= __("pagination.of"); ?>&nbsp;<span class="total_items"><?= ceil(count(Model_Content::query()->where('page_id', '=', $page->id)->get())/(($page->view_content == 'list') ? 6 : 15)); ?></span>
+				<?= __("pagination.page"); ?>&nbsp;<span class="cur_page">1</span>&nbsp;<?= __("pagination.of"); ?>&nbsp;<span class="total_items"><?= ceil($page->get_count_content($curr_lang_id)/(($page->view_content == 'list') ? 6 : 15)); ?></span>
 			</div>
 		</div>
 	</div>

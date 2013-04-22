@@ -10,7 +10,7 @@
 					<?= Html::img("files/{$content->image}"); ?>
 				</div>
 				<h3 class="header">
-					<?= $content->get_translation(1)['name']; ?>
+					<?= $content->get_translation(1)->name; ?>
 				</h3>
 			</a>
 		</li>
