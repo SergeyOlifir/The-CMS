@@ -2,7 +2,7 @@
 	<h2>Portfolio</h2>
 </div>
 <? $translitions = $content->get_translation(1); ?>
-<div class="container single-content wrapper-padding">
+<div class="container single-content">
 	<div class="row">
 		<div class="span9">
 			    <div id="Carousel" class="carousel slide">
