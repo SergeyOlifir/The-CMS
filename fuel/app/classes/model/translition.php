@@ -17,25 +17,26 @@ class Model_Translition extends Model_Base {
 		parent::__construct($data, $new, $view);
 		$model = static::$_translition['model_to'];
 		$this->current_lang_id = TCLocale::get_current_leng_id();
-		if(empty($this->translated_items)) {
-			$this->translated_items = self::get_translitions($model);
-		}
+		//if(empty($this->translated_items) and !$this->_is_new) {
+		//	$this->translated_items = self::get_translitions($model);
+		//}
 	}
 	
 	protected function get_translitions($model) {
+		//var_dump($this->_data); die();
 		if(!isset($this->current_lang_id)) {
 			$this->current_lang_id = TCLocale::get_current_leng_id();
 		}
 		return \Fuel\Core\DB::select()
 				->from($model::table())
 				->where('local_id', '=', $this->current_lang_id)
-				->where(static::$_translition['key_to'], '=', !empty($this->_data) ? $this->_data[static::$_translition['key_from']] : $this->cached_id)
+				->where(static::$_translition['key_to'], '=', !empty($this->_data['id']) ? $this->_data[static::$_translition['key_from']] : $this->cached_id)
 				->execute()
 				->as_array();
 	}
 	
 	public function __set($property, $value) {
-		if($property === 'id') {
+		if($property == 'id') {
 			$this->cached_id = $value;
 		}
 		parent::__set($property, $value);
@@ -46,8 +47,8 @@ class Model_Translition extends Model_Base {
 		if(count($this->translated_items) == 0) {
 			$this->translated_items = self::get_translitions($model);
 		}
-
-		if(in_array($property, static::$_to_translition_exclude) or !\Fuel\Core\Arr::key_exists($this->translated_items[0], $property)) {
+		
+		if(in_array($property, static::$_to_translition_exclude) or empty($this->translated_items) or !\Fuel\Core\Arr::key_exists($this->translated_items[0], $property)) {
 			return parent::get($property);
 		} else {
 			return $this->translated_items[0][$property];
