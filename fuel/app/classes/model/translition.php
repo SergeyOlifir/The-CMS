@@ -33,6 +33,7 @@ class Model_Translition extends Model_Base {
 				->where(static::$_translition['key_to'], '=', !empty($this->_data['id']) ? $this->_data[static::$_translition['key_from']] : $this->cached_id)
 				->execute()
 				->as_array();
+				
 	}
 	
 	public function __set($property, $value) {
@@ -47,8 +48,12 @@ class Model_Translition extends Model_Base {
 		if(count($this->translated_items) == 0) {
 			$this->translated_items = self::get_translitions($model);
 		}
-		
+
 		if(in_array($property, static::$_to_translition_exclude) or empty($this->translated_items) or !\Fuel\Core\Arr::key_exists($this->translated_items[0], $property)) {
+			if(!in_array($property, static::$_to_translition_exclude) and in_array($property, array_keys($model::properties()))) {
+				$hh = "";
+				return $hh;
+			}
 			return parent::get($property);
 		} else {
 			return $this->translated_items[0][$property];
