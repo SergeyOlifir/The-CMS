@@ -12,7 +12,8 @@ Autoloader::add_classes(array(
 	// Add classes you want to override here
 	// Example: 'View' => APPPATH.'classes/view.php',
 	'Image' => APPPATH.'classes/image.php',
-	'TCTheme' => APPPATH . 'classes/Tccore/tctheme.php'
+	'TCTheme' => APPPATH . 'classes/Tccore/tctheme.php',
+	'TCLocale' => APPPATH . 'classes/Tccore/tclocale.php'
 ));
 
 // Register the autoloader
