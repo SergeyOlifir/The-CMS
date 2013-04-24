@@ -18,7 +18,7 @@
 		} );
 	};
 </script>
-<?= Form::open(array('enctype'=>'multipart/form-data')); ?>
+<?= Form::open(array('enctype'=>'multipart/form-data', 'class' => 'content-form')); ?>
 	<fieldset>
 		<div class="clearfix">
 			<? if(isset($link->image)): ?>

@@ -66,7 +66,7 @@ class Model_Translition extends Model_Base {
 		return $model::query()->where('local_id', '=', $lang_id)->where(static::$_translition['key_to'], '=', $this->id)->get_one();
 	}
 	
-	public static function find_with_translitions($lang_id, $limit = null, $offset = null) {
+	public static function find_with_translitions($lang_id, $limit = null, $offset = null, $order_by = null, $desc_or_asc = null) {
 		$model = static::$_translition['model_to'];
 		$content = DB::select()
 						->from(static::table())
@@ -74,7 +74,7 @@ class Model_Translition extends Model_Base {
 		    			->on(static::table() . '.id', '=', $model::table(). "." . static::$_translition['key_to'])
 		    			->where('local_id', '=', $lang_id)
 						->select_array(static::getTablesRow())
-						->order_by('date_create', 'desc');
+						->order_by($order_by ? $order_by : 'created_at', $desc_or_asc ? $desc_or_asc : 'asc');
 		if(isset($limit)) {
 			$content->limit($limit);
 		}

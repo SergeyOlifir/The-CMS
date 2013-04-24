@@ -1,23 +1,21 @@
 <?php
 use Orm\Model;
 
-class Model_Localcontent extends Model_Base
+class Model_Localpage extends Model_Base
 {
 	protected static $_properties = array(
 		'id',
-		'content_id',
+		'page_id',
 		'local_id',
-		'name',
-		'description',
-		'short_description',
+		'header',
 		'created_at',
 		'updated_at',
 	);
 	
 	protected static $_belongs_to = array(
-		'content' => array(
-			'key_from' => 'content_id',
-			'model_to' => 'Model_Content',
+		'page' => array(
+			'key_from' => 'page_id',
+			'model_to' => 'Model_Page',
 			'key_to' => 'id',
 			'cascade_save' => true,
 			'cascade_delete' => false,
@@ -37,10 +35,10 @@ class Model_Localcontent extends Model_Base
 
 	public static function validate($factory)
 	{
-		$val = Validation::forge($factory);
-		$val->add_field('name', 'Name', 'required|max_length[255]');
-		$val->add_field('description', 'Description', 'required');
-		$val->add_field('short_description', 'Short Description', 'required');
+		$val = Validation::instance($factory);
+		$val->add_field('header', 'Header', 'required');
+
 		return $val;
 	}
+
 }

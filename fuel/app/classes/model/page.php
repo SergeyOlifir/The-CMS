@@ -1,13 +1,13 @@
 <?php
 use Orm\Model;
 
-class Model_Page extends Model
+class Model_Page extends Model_Translition
 {
 	protected static $_properties = array(
 		'id',
 		'name',
 		'alias',
-		'header',
+		//'header',
 		'public_data',
 		'view_content',
 		'created_at',
@@ -20,7 +20,14 @@ class Model_Page extends Model
 			'model_to' => 'Model_Content',
 			'key_to' => 'page_id',
 			'cascade_save' => true,
-			'cascade_delete' => false,
+			'cascade_delete' => true,
+		),
+		'localpage' => array(
+			'key_from' => 'id',
+			'model_to' => 'Model_Localpage',
+			'key_to' => 'page_id',
+			'cascade_save' => true,
+			'cascade_delete' => true,
 		)
 	);
 	
@@ -32,6 +39,18 @@ class Model_Page extends Model
 			'cascade_save' => true,
 			'cascade_delete' => true,
 		)
+	);
+
+	protected static $_translition = array(
+		'key_from' => 'id',
+		'model_to' => 'Model_Localpage',
+		'key_to' => 'page_id',
+	);
+	
+	protected static $_to_translition_exclude = array(
+		'id',
+		'created_at',
+		'updated_at',
 	);
 
 	protected static $_observers = array(
@@ -50,7 +69,6 @@ class Model_Page extends Model
 		$val = Validation::forge($factory);
 		$val->add_field('name', 'Name', 'required|max_length[255]');
 		$val->add_field('alias', 'Alias', 'required|max_length[255]');
-		$val->add_field('header', 'Header', 'required');
 
 		return $val;
 	}

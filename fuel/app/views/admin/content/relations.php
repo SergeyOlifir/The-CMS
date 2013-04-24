@@ -7,7 +7,7 @@
 			<div class="tile left smoll content">
 				<a href="/admin/content/edit/<?=$related->id; ?>/1">
 					<?= Html::img("files/{$related->image}"); ?>
-					<h3><?= $related->get_translation(1)->name; ?></h3>
+					<h3><?= $related->name; ?></h3>
 				</a>
 				<div class="buttons-area clearfix">
 					<a href="/admin/content/unset/<?=$content->id; ?>/<?=$related->id; ?>" class="delite-button right">Delete</a>
@@ -36,8 +36,8 @@
 						<? if(!in_array($cont, $related_contents) && $content->id != $cont->id) : ?>
 							<tr>
 								<td><?= Form::checkbox('relations[]', $cont->id, false);  ?></td>
-								<td><?= $cont->get_translation(1)->name; ?></td>
-								<td><?= $cont->page->name; ?></td>
+								<td><?= $cont->name; ?></td>
+								<td><?= $cont->page['name']; ?></td>
 							</tr>
 						<? endif; ?>
 					<? endforeach; ?>	

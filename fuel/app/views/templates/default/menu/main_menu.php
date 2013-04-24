@@ -6,10 +6,10 @@
 			</div>
 			<div class="menu-description left">
 				<h3>
-					 Главная
+					<?= __("default_menu.name"); ?>
 				</h3>
 				<div class="menu-text">
-					Все о нашем проекте в интернете и производмых продуктах ...
+					<?= __("default_menu.description"); ?>
 				</div>
 			</div>
 		</div>
@@ -22,7 +22,7 @@
 				</div>
 				<div class="menu-description left">
 					<h3>
-						 <?= $link->name; ?>
+						<?= $link->name; ?>
 					</h3>
 					<div class="menu-text">
 						<?= $link->description; ?>
@@ -31,5 +31,4 @@
 			</div>
 		</a>
 	<? endforeach; ?>
-	
 </div>
