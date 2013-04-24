@@ -15,7 +15,7 @@ class Create_local_pages
 			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 		), array('id'));
 
-		$pages = \Model_Page::find('all');
+		$pages = \Model_Category::find('all');
 		foreach ($pages as $page) {
 			$localpage = \Model_Localpage::forge(
 				array(
@@ -29,7 +29,7 @@ class Create_local_pages
 			$localpage->save();
 		}
 
-		\DBUtil::drop_fields('pages', array(
+		\DBUtil::drop_fields('categories', array(
 			'header',
 		));	
 	}
@@ -38,7 +38,7 @@ class Create_local_pages
 	{
 		\DBUtil::drop_table('localpages');
 
-		\DBUtil::add_fields('pages', array(
+		\DBUtil::add_fields('categories', array(
 			'header' => array('type' => 'text'),
 		));
 	}

@@ -15,7 +15,7 @@ class Model_Localpage extends Model_Base
 	protected static $_belongs_to = array(
 		'page' => array(
 			'key_from' => 'page_id',
-			'model_to' => 'Model_Page',
+			'model_to' => 'Model_Category',
 			'key_to' => 'id',
 			'cascade_save' => true,
 			'cascade_delete' => false,

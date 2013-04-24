@@ -1,7 +1,7 @@
 <?php
 use Orm\Model;
 
-class Model_Category extends Model {
+class Model_Category extends Model_Translition {
 
 	protected static $_properties = array(
 		'id',
