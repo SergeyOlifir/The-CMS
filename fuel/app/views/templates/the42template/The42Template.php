@@ -19,8 +19,7 @@
 		<?= Asset::js('jquery.reveal.js'); ?>
 		<?= Asset::js('jquery.fancybox.pack.js'); ?>
 		<?= Asset::js('jquery.fancybox-buttons.js'); ?>
-        <?= Asset::js('templates/the42template/jquery.jscrollpane.min.js'); ?>
-        <?= Asset::js('templates/the42template/content-loader.js'); ?>
+        <?=TCTheme::add_js('content-loader.js'); ?>
         <?= Asset::js('bootstrap.min.js'); ?>
 		<?= Asset::render('javascripts'); ?>
 	</head>
