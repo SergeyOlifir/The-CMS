@@ -26,6 +26,27 @@ html {
 	margin: 0 auto;
 }
 
+.one_half 		{ width: 49%;   position:relative;}
+.one_third 		{ width: 32%;  position:relative;}
+.two_third 		{ width: 66%; position:relative;}
+.three_fourth	{ width: 74%;    position:relative;}
+.four_fifth		{ width: 78%;     position:relative;}
+.one_fourth 	{ width: 23.5%;   position:relative;}
+.one_fifth 		{ width: 18.2%; position:relative;}
+.two_fifth 		{ width: 37.6%; position:relative;}
+.three_fifth 	{ width: 58.3%; position:relative;}
+.one_sixth 		{ width: 13.33%; position:relative;}
+
+.one_half,.one_third,
+.two_third,.one_fourth,
+.one_fifth, .three_fourth,
+.one_sixth, .four_fifth,
+.two_fifth, .three_fifth {
+    float: left;
+    margin-bottom: 0;
+    margin-right: 2%;
+}
+
 #header {
 	background-color: #424242;
 	_height: 90px;
@@ -370,14 +391,173 @@ a.list {
 /* END Categories */
 
 
+/* InfiniteBox */
+
+.infinitebox.opened {
+    width: 580px;
+}
+
+.infinitebox {
+    height: 150px;
+    margin-bottom: 2px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s ease-out 0s;
+    width: 160px;
+    z-index: 5;
+}
+
+.toright .ib-draws {
+    left: 0;
+}
+.ib-draws {
+    background: none repeat scroll 0 0 #333436;
+    height: 152px;
+    position: absolute;
+    width: 152px;
+    z-index: 2;
+}
+
+.ib-draw {
+    background: none repeat scroll 0 0 #1B1C1E;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    height: 75px;
+    line-height: 75px;
+    margin-bottom: 1px;
+    margin-right: 1px;
+    text-align: center;
+    width: 75px;
+}
+
+
+.ib-icon {
+    background-position: left bottom;
+    cursor: pointer;
+    margin-left: 23px;
+    margin-top: 23px;
+    transition: all 0.2s ease-out 0s;
+    -webkit-transition:  all 0.2s ease-out 0s; /* Safari */
+}
+
+
+.toright .ib-content {
+    padding-left: 175px;
+    right: 0;
+}
+
+.ib-content {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background-color: #FFFFFF;
+    height: 150px;
+    overflow: hidden;
+    padding: 10px 25px;
+    position: absolute;
+    width: 580px;
+}
+
+.ib-content-wrap {
+    display: none;
+}
+
+.ib-content-wrap.active {
+    display: block;
+}
+
+.closed.toright .ib-close:before {
+    border-color: transparent #FFFFFF transparent currentColor;
+    border-right: 7px solid #FFFFFF;
+    border-style: solid solid solid none;
+    border-width: 7px 7px 7px medium;
+}
+
+.toright .ib-close:before {
+    margin-left: -7px;
+}
+
+.ib-close:before {
+    border-bottom: 7px solid transparent;
+    border-right: 7px solid #1B1C1E;
+    border-top: 7px solid transparent;
+    content: "";
+    height: 0;
+    margin-top: -6px;
+    position: absolute;
+    top: 50%;
+    width: 0;
+    z-index: 4;
+}
+.toright .ib-close {
+    border-left: 3px solid #FFFFFF;
+    right: 0;
+}
+.ib-close {
+    background: none repeat scroll 0 0 #1B1C1E;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 7px;
+}
+
+.scroll-pane {
+    height: 130px;
+    overflow: auto;
+    width: 100%;
+}
+
+.jspContainer {
+    overflow: hidden;
+    position: relative;
+}
+
+.jspPane {
+    position: absolute;
+}
+/*END InfiniteBox */
+
 
 /* Footer */
 
+.footer .container {
+    margin-top: 20px;
+}
+
+
+.ib-draw .twitter-icon {
+    background: url("../../../img/templates/the42template/twitter.png") no-repeat scroll left bottom #1B1C1E;
+    height: 26px;
+    width: 29px;
+}
+
+.ib-draw .facebook-icon {
+    background: url("../../../img/templates/the42template/facebook.png") no-repeat scroll left bottom #1B1C1E;
+    height: 26px;
+    width: 29px;
+}
+
+.ib-draw .comment-icon {
+    background: url("../../../img/templates/the42template/comment.png") no-repeat scroll left bottom #1B1C1E;
+    height: 27px;
+    width: 29px;
+}
+
+.ib-draw .article-icon {
+    background: url("../../../img/templates/the42template/article.png") no-repeat scroll left bottom #1B1C1E;
+    height: 26px;
+    width: 29px;
+}
+
+.ib-icon:hover, .ib-icon.selected {
+    background-position: left top;
+}
 
 /*END Footer */
 
 /* ClearFix )))) */
-
 *+html .clearfix{
   min-height: 1%;
 }
@@ -396,3 +576,4 @@ a.list {
 }
 
 /* end clearfix */
+
