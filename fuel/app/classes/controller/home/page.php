@@ -48,7 +48,7 @@ class Controller_Home_Page extends Controller_Homerest {
                             ->execute()
                             ->as_array();
         
-		$data['public_data'] = Model_Page::find($pageId)->public_data;
+		$data['public_data'] = Model_Category::find($pageId)->public_data;
 
 		$result_content = View::forge("templates/{$this->template}/pages/list", $data)->render();
 		$this->response(array('data' => $result_content), 200); 
@@ -96,7 +96,7 @@ class Controller_Home_Page extends Controller_Homerest {
                             ->execute()
                             ->as_array();
         
-		$data['public_data'] = Model_Page::find($pageId)->public_data;
+		$data['public_data'] = Model_Category::find($pageId)->public_data;
 
 		$result_content = View::forge("templates/{$this->template}/pages/tile", $data)->render();
 		$this->response(array('data' => $result_content), 200);

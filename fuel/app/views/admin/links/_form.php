@@ -44,7 +44,7 @@
 		<div class="clearfix">
 			<?= Form::label('Страница', 'page_id'); ?>
 			<div class="input">
-				<?= Form::select('page_id', Input::post('page_id', isset($link) ? $link->page_id : ''), Model_Page::as_array(), array('class' => 'span12')); ?>
+				<?= Form::select('page_id', Input::post('page_id', isset($link) ? $link->page_id : ''), Model_Category::as_array(), array('class' => 'span12')); ?>
 			</div>
 		</div>
 		<div class="clearfix">

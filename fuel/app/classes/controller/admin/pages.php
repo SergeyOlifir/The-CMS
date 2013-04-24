@@ -6,7 +6,7 @@ class Controller_Admin_Pages extends Controller_Admin_Administration
 	public function action_index() {
 		$data['uri'] = "admin/pages/create";
 		$data['back'] = "admin/index";
-		$data['pages'] = Model_Page::find('all');
+		$data['pages'] = Model_Category::find('all');
 		$this->template->title = "Pages";
 		$this->template->back_button = View::forge("admin/back_button_block", $data);
 		$this->template->add_button = View::forge("admin/add_button_block", $data);
@@ -15,7 +15,7 @@ class Controller_Admin_Pages extends Controller_Admin_Administration
 
 	public function action_view($id = null) {
 		is_null($id) and Response::redirect('Pages');
-		if ( ! $data['page'] = Model_Page::find($id)) {
+		if ( ! $data['page'] = Model_Category::find($id)) {
 			$this->SetNotice('error', 'Could not find page #'.$id);
 			Response::redirect('admin/Pages');
 		}
@@ -26,9 +26,9 @@ class Controller_Admin_Pages extends Controller_Admin_Administration
 
 	public function action_create() {
 		if (Input::method() == 'POST') {
-			$val = Model_Page::validate('create');
+			$val = Model_Category::validate('create');
 			if ($val->run()) {
-				$page = Model_Page::forge(array(
+				$page = Model_Category::forge(array(
 					'name' => Input::post('name'),
 					'alias' => Input::post('alias'),
 					'header' => Input::post('header'),
@@ -57,11 +57,11 @@ class Controller_Admin_Pages extends Controller_Admin_Administration
 		is_null($id) and Response::redirect('Pages');
 		$data['back'] = "admin/pages/index";
 		$this->template->back_button = View::forge("admin/back_button_block", $data);
-		if ( ! $page = Model_Page::find($id)) {
+		if ( ! $page = Model_Category::find($id)) {
 			$this->SetNotice('error', 'Could not find page #'.$id);
 			Response::redirect('admin/Pages');
 		}
-		$val = Model_Page::validate('edit');
+		$val = Model_Category::validate('edit');
 		if ($val->run()) {
 			$page->name = Input::post('name');
 			$page->alias = Input::post('alias');
@@ -92,7 +92,7 @@ class Controller_Admin_Pages extends Controller_Admin_Administration
 
 	public function action_delete($id = null) {
 		is_null($id) and Response::redirect('Pages');
-		if ($page = Model_Page::find($id)) {
+		if ($page = Model_Category::find($id)) {
 			$page->delete();
 			$this->SetNotice('success', 'Deleted page #'.$id);
 		}

@@ -2,7 +2,7 @@
 class Controller_Admin_Content extends Controller_Admin_Administration {
 	public function action_index($page_id = null) {
 		is_null($page_id) and Response::redirect('Pages');
-		$data['page'] = Model_Page::find($page_id);
+		$data['page'] = Model_Category::find($page_id);
 		$data['back'] = "admin/pages/index";
 		$data['uri'] = "admin/content/create/{$page_id}/1";
 		$this->template->back_button = View::forge("admin/back_button_block", $data);

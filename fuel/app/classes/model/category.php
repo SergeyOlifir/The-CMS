@@ -1,8 +1,8 @@
 <?php
 use Orm\Model;
 
-class Model_Page extends Model
-{
+class Model_Category extends Model {
+
 	protected static $_properties = array(
 		'id',
 		'name',
@@ -58,9 +58,9 @@ class Model_Page extends Model
 	public static function as_array() 
 	{
 		$result = array();
-		$pages = self::find('all');
-		foreach ($pages as $page) {
-			$result[$page->id] = $page->name;
+		$categories = self::find('all');
+		foreach ($categories as $category) {
+			$result[$category->id] = $category->name;
 		}
 		return $result;
 	}

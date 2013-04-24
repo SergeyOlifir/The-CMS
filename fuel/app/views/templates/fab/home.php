@@ -54,7 +54,7 @@
 					<div id="content">
 						<div id="all-columns" class="clearfix">
 							<?= render("templates/{$template}/columns/main",array()); ?>
-							<? $pages = Model_Page::find('all'); ?>
+							<? $pages = Model_Category::find('all'); ?>
 							<? foreach ($pages as $page): ?>
 								<?= render("templates/{$template}/columns/column",array('page' => $page)); ?>
 							<? endforeach; ?>
