@@ -63,7 +63,14 @@ class Model_Content extends Model_Translition
 	protected static $_belongs_to = array(
 		'page' => array(
 			'key_from' => 'page_id',
-			'model_to' => 'Model_Page',
+			'model_to' => 'Model_Category',
+			'key_to' => 'id',
+			'cascade_save' => true,
+			'cascade_delete' => false,
+		),
+		'category' => array(
+			'key_from' => 'page_id',
+			'model_to' => 'Model_Category',
 			'key_to' => 'id',
 			'cascade_save' => true,
 			'cascade_delete' => false,
@@ -88,7 +95,7 @@ class Model_Content extends Model_Translition
 						->join('localcontents')
 		    			->on('contents.id', '=', 'localcontents.content_id')
 		    			->where('local_id', '=', $lang_id)
-						->join('pages')
+						->join('categories')
 						->on('contents.page_id', '=', 'pages.id')
 						->where('pages.alias', '=', $category_alias)
 						->select('contents.id', 'contents.image', 'contents.page_id', 'contents.date_create', 'contents.created_at', 'contents.updated_at')

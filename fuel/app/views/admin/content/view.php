@@ -2,13 +2,13 @@
 
 <p>
 	<strong>Name:</strong>
-	<?php echo $content->name; ?></p>
+	<?php echo $localcontent->name; ?></p>
 <p>
 	<strong>Description:</strong>
-	<?php echo $content->description; ?></p>
+	<?php echo $localcontent->description; ?></p>
 <p>
 	<strong>Short description:</strong>
-	<?php echo $content->short_description; ?></p>
+	<?php echo $localcontent->short_description; ?></p>
 <p>
 	<strong>Image:</strong>
 	<?php echo $content->image; ?></p>
@@ -19,5 +19,5 @@
 	<strong>Date:</strong>
 	<?php echo Date::forge($content->date_create)->format("%m/%d/%Y", true); ?></p>
 
-<?php echo Html::anchor('content/edit/'.$content->id, 'Edit'); ?> |
-<?php echo Html::anchor('content', 'Back'); ?>
+<?php echo Html::anchor('admin/content/edit/'.$content->id.'/1', 'Edit'); ?> |
+<?php echo Html::anchor('admin/pages', 'Back'); ?>

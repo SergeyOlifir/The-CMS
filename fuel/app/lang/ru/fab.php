@@ -3,6 +3,11 @@
 return array(
 	'menu'	=> 'Меню',
 
+	'default_menu' 	=> array(
+		'name'		=> 'Главная',
+		'description' => 'О нашем проекте в интернете, новости, услуги, партнеры...',
+	),
+
 	'pagination' 	=> array(
 		'prev' 	 	=> 'Предыдущие',
 		'next' 	 	=> 'Следующие',

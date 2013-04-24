@@ -7,7 +7,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="/admin/pages/create">
+				<a href="/admin/pages/create/1">
 					Добавить страницу
 				</a>
 			</li>
@@ -44,7 +44,7 @@
 										</a>
 											<ul class="dropdown-menu">
 												<li><?= Html::anchor('admin/content/index/'.$page->id, 'View', array()); ?></li> 
-												<li><?= Html::anchor('admin/pages/edit/'.$page->id, 'Edit', array()); ?> </li>
+												<li><?= Html::anchor('admin/pages/edit/'.$page->id.'/1', 'Edit', array()); ?> </li>
 												<li><?= Html::anchor('admin/pages/delete/'.$page->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?></li>
 											</ul>
 									</div>

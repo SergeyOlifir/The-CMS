@@ -10,8 +10,7 @@ class Controller_Application extends Controller_Template {
 			parent::before();
 			$this->template->title = Config::get('settings.site_name'); //"CMS";
 			$this->auth = Auth::instance();
-			Session::get('lang') ? ($curr_lang = Session::get('lang')) : ($curr_lang = Config::get('language'));
-			$this->lang_id = Model_Local::query()->where('name', '=', $curr_lang)->get_one()->id;
+			$this->lang_id = TCLocale::get_current_leng_id();
 	}
 	
 	protected function set_page_title($page_title = null) {

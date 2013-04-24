@@ -18,7 +18,7 @@
 		<?= Asset::css('jquery.fancybox.css'); ?>
 		<?= Asset::css('jquery.fancybox-buttons.css'); ?>
 		<?= Asset::css('jquery.mCustomScrollbar.css'); ?>
-		<?= Asset::css("templates/{$template}/style.css"); ?>
+		<?= TCTheme::add_css("style.css"); ?>
 
 		<?= Asset::js('jquery-1.8.3.min.js'); ?>
 		<?= Asset::js('jquery-ui-1.9.0.custom.min.js'); ?>
@@ -29,8 +29,8 @@
 		<?= Asset::js('jquery.fancybox-buttons.js'); ?>
 		<?= Asset::js('jquery.scrollTo.js');?>
 		<?= Asset::js('jquery.mCustomScrollbar.min.js'); ?>
-		<?= Asset::js("templates/{$template}/content-loader.js"); ?>
-		<?= Asset::js("templates/{$template}/jcarousellite_1.0.1.js"); ?>
+		<?= TCTheme::add_js("content-loader.js"); ?>
+		<?= TCTheme::add_js("jcarousellite_1.0.1.js"); ?>
 		<?= Asset::render('javascripts'); ?>
 	</head>
 
@@ -40,33 +40,33 @@
         		Config::set('language', Session::get('lang'));
             }
             Lang::load($template.'.php');
+            $curr_lang = TCLocale::get_current_leng_id();
         ?>
 		<div id="all-wrapper">
 			<div id="header">
-				<?= render("templates/{$template}/header",array()); ?>
+				<?= TCTheme::render("header",array()); ?>
 			</div>
 			<div id="content-wrapper">
-					<?= render("templates/{$template}/menu/arrows",array('links' => Model_Link::get_public())); ?>
+					<?= TCTheme::render("menu/arrows",array('links' => Model_Link::find_with_translitions_related_to_public($curr_lang))); ?>
 				<div id="second-wrapper">
 					<div class="menu-all clearfix">
-						<?= render("templates/{$template}/menu/main",array('template' => $template)); ?>
+						<?= TCTheme::render("menu/main",array('template' => $template)); ?>
 					</div>
 					<div id="content">
 						<div id="all-columns" class="clearfix">
-							<?= render("templates/{$template}/columns/main",array()); ?>
-							<? $pages = Model_Page::find('all'); ?>
+							<?= TCTheme::render("columns/main",array()); ?>
+							<? $pages = Model_Category::find('all'); ?>
 							<? foreach ($pages as $page): ?>
-								<?= render("templates/{$template}/columns/column",array('page' => $page)); ?>
+								<?= TCTheme::render("columns/column",array('page' => $page)); ?>
 							<? endforeach; ?>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div id="footer">
-				<?= render("templates/{$template}/footer"); ?>
+				<?= TCTheme::render("footer"); ?>
 			</div>
 		</div>
-		<?= render("templates/{$template}/loading"); ?>
-		<?= render("templates/{$template}/popup"); ?>
+		<?= TCTheme::render("popup"); ?>
 	</body>
 </html>

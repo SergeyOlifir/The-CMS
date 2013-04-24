@@ -7,4 +7,4 @@
 		</li>
 	<? endforeach; ?>
 </ul>	
-<?= render('admin/content/_form_create'); ?>
+<?= render('admin/content/_form'); ?>

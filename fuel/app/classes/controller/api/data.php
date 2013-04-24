@@ -6,7 +6,7 @@ class Controller_Api_Data extends Controller_Api_Apis {
 	public function get_index()
 	{
 		/* pages (id, name, alias, header) */
-		$result_pages = Format::forge(Model_Page::find('all'))->to_array();
+		$result_pages = Format::forge(Model_Category::find('all'))->to_array();
 
 		/* content (id, name, description, image, page_id) */
 		$result_content = Format::forge(Model_Content::find('all'))->to_array();
