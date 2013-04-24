@@ -1,6 +1,7 @@
 <?php
 class Controller_Admin_Content extends Controller_Admin_Administration {
 	public function action_index($page_id = null) {
+		TCLocale::set_locale_from_name(Model_Local::find(1)->name);
 		is_null($page_id) and Response::redirect('Pages');
 		$data['page'] = Model_Category::find($page_id);
 		$data['back'] = "admin/pages/index";
@@ -12,17 +13,20 @@ class Controller_Admin_Content extends Controller_Admin_Administration {
 	}
 
 	public function action_view($id = null) {
+		TCLocale::set_locale_from_name(Model_Local::find(1)->name);
 		is_null($id) and Response::redirect('Content');
 		if ( ! $data['content'] = Model_Content::find($id)) {
 			Session::set_flash('error', 'Could not find content #'.$id);
 			Response::redirect('Content');
 		}
+		$data['localcontent'] = $data['content']->get_translation(1);
 		$this->template->title = "Content";
 		$this->template->content = View::forge('admin/content/view', $data);
 
 	}
 
 	public function action_create($page_id = null, $local_id = null) {
+		TCLocale::set_locale_from_name(Model_Local::find($local_id)->name);
 		$config = \Config::get('settings.logo.upload');
 		is_null($page_id) and Response::redirect('Pages');
 		if (Input::method() == 'POST') {
@@ -61,6 +65,7 @@ class Controller_Admin_Content extends Controller_Admin_Administration {
 	}
 
 	public function action_edit($id = null, $local_id = null) {
+		TCLocale::set_locale_from_name(Model_Local::find($local_id)->name);
 		is_null($id) and Response::redirect('admin/Content');
 		$config = \Config::get('settings.logo.upload');
 		if ( ! $content = Model_Content::find($id)) {
@@ -96,13 +101,6 @@ class Controller_Admin_Content extends Controller_Admin_Administration {
 				$this->SetNotice('error', 'Could not update content #' . $id);
 			}
 		} else {
-			/*if (Input::method() == 'POST') {
-				$localcontent->name = $val->validated('name');
-				$localcontent->description = $val->validated('description');
-				$localcontent->short_description = $val->validated('short_description');
-				$content->date_create = $val->validated('date_create');
-				$this->SetNotice('error', $val->error());
-			}*/
 			$this->SetNotice('error', $val->error());
 			$this->template->set_global('content', $content, false);
 		}

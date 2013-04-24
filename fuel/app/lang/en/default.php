@@ -3,6 +3,11 @@
 return array(
 	'menu'	=> 'Menu',
 
+	'default_menu' 	=> array(
+		'name'		=> 'Home',
+		'description' => 'All of our project on the Internet and produced products ...',
+	),
+
 	'pagination' 	=> array(
 		'prev' 	 	=> 'Previous',
 		'next' 	 	=> 'Next',

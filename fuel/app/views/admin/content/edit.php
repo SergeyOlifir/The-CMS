@@ -8,5 +8,5 @@
 	<? endforeach; ?>
 </ul>
 <? $data['local_id'] = $curr_local; ?>
-<?= render('admin/content/_form_edit', $data); ?>
+<?= render('admin/content/_form', $data); ?>
 <?= render('admin/content/relations'); ?>

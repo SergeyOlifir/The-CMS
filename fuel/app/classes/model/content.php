@@ -95,7 +95,7 @@ class Model_Content extends Model_Translition
 						->join('localcontents')
 		    			->on('contents.id', '=', 'localcontents.content_id')
 		    			->where('local_id', '=', $lang_id)
-						->join('pages')
+						->join('categories')
 						->on('contents.page_id', '=', 'pages.id')
 						->where('pages.alias', '=', $category_alias)
 						->select('contents.id', 'contents.image', 'contents.page_id', 'contents.date_create', 'contents.created_at', 'contents.updated_at')
