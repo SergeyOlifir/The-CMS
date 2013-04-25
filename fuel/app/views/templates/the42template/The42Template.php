@@ -19,16 +19,17 @@
 		<?= Asset::js('jquery.reveal.js'); ?>
 		<?= Asset::js('jquery.fancybox.pack.js'); ?>
 		<?= Asset::js('jquery.fancybox-buttons.js'); ?>
-        <?=TCTheme::add_js('content-loader.js'); ?>
+        <?=TCTheme::add_js('application.js'); ?>
         <?= Asset::js('bootstrap.min.js'); ?>
 		<?= Asset::render('javascripts'); ?>
 	</head>
 
 	<body>
-		<div id="all-wrapper">
-			<div id="header">
-				<?= TCTheme::render("header",array()); ?>
-			</div>
+        <div id="header">
+            <?= TCTheme::render("header",array()); ?>
+        </div>
+		<div class="all-wrapper">
+
 			
 			<div id="content">
 				<? if(isset($content)): ?>
@@ -36,9 +37,10 @@
 				<? endif; ?>
 			</div>
 			
-			<div id="footer">
-				<?= TCTheme::render("footer"); ?>
-			</div>
+
 		</div>
+        <div id="footer">
+            <?= TCTheme::render("footer"); ?>
+        </div>
 	</body>
 </html>

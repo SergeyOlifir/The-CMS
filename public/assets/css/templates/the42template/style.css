@@ -10,6 +10,7 @@
 body {
 	margin: 0px;
 	background-color: #282828;
+    background-image: url("../../../img/templates/the42template/background.png");
 }
 
 html {	
@@ -21,7 +22,7 @@ html {
     padding: 0 100px;
 }
 
-#all-wrapper {
+.all-wrapper {
 	width: 1024px;
 	margin: 0 auto;
 }
@@ -53,18 +54,31 @@ html {
 	position: relative;
 }
 
+#header h1 {
+    margin: 0;
+    position: relative;
+    z-index: 3;
+    top: 15px;
+    left: 25px;
+    float: left;
+    width: 150px;
+    height: 80px;
+}
+
+#header .all-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
 #header h1 .logo {
 	display: block;
 	width: 113px;
 	height: 113px;
-	position: absolute;
 	background-image: url('../../../img/templates/the42template/logo.png');
 	background-repeat: no-repeat;
 	text-indent: -99999px;
 	padding: 0;
 	margin: 0;
-	top: 15px;
-	left: 25px;
 }
 
 /* Menu */
@@ -73,7 +87,9 @@ html {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	margin-left: 170px;
+	margin-right: 80px;
+    position: relative;
+    float:right;
 }
 
 #header ul.menu li {
@@ -86,7 +102,7 @@ html {
 	text-decoration: none;
 	color: #e4e5e2;
 	display: block;
-	padding: 30px 10px;
+	padding: 30px 20px;
 	font-size: 18px;
 	font-style: normal;
 }
@@ -102,12 +118,11 @@ html {
 /* Menu End */
 
 #content {
-	background-image: url('../../../img/templates/the42template/back.png');
+/*background-image: url('../../../img/templates/the42template/back.png'); */
 }
 
 .submenu {
-	background-color: #4B820B;
-    background-image: url("../../../img/templates/the42template/submenu.png");
+    background: url("../../../img/templates/the42template/submenu.png") no-repeat 0 0 #4B820B;
     height: 80px;
     margin-bottom: 30px;
 }
@@ -117,7 +132,7 @@ html {
     display: inline-block;
     font-size: 12pt;
     font-weight: normal;
-    margin: 35px 0 0 165px;
+    margin: 25px 0 0 165px;
     text-transform: uppercase;
 }
 
@@ -293,7 +308,7 @@ a.list {
     background-color: #5baa00;
 }
 
-.single-content .carousel-inner > .item > img, 
+.single-content .carousel-inner > .item > img,
 .single-content .carousel-inner > .item > a > img {
     max-width: 700px;
 }
