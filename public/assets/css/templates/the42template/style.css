@@ -127,6 +127,11 @@ html {
     margin-bottom: 30px;
 }
 
+.submenu-back {
+    background: url("../../../img/templates/the42template/submenu-part.png") repeat-x 0 0 #4B820B;
+    height: 80px;
+}
+
 .submenu h2 {
 	color: #FFFFFF;
     display: inline-block;
@@ -244,7 +249,7 @@ a.list {
 .project .description {
 	font-size: 11pt;
     margin: 30px 115px 20px 10px;
-    width: 302px;
+    width: 300px;
 }
 
 .project a.more-link {
@@ -339,7 +344,31 @@ a.list {
 	border-top: 5px solid #6cb92c;
 }
 
+#footer .one_half {
+    float: left;
+    margin-right: 20px;
+    margin-top: 20px;
 
+}
+
+#footer .logo-footer {
+    background-image: url("../../../img/templates/the42template/logo-footer.png");
+    display: block;
+    width: 51px;
+    height: 51px;
+    float:left;
+    margin: 7px 0 0 25px;
+}
+
+#footer .one_half+.one_half {
+    margin-right: 0;
+    color: #e4e5e2;
+}
+
+#footer .address {
+    width: 50%;
+    float: left;
+}
 /* Home page Categories  */
 
 .app-categories ul{
@@ -409,7 +438,7 @@ a.list {
 /* InfiniteBox */
 
 .infinitebox.opened {
-    width: 580px;
+    width: 500px;
 }
 
 .infinitebox {
@@ -458,7 +487,7 @@ a.list {
 
 
 .toright .ib-content {
-    padding-left: 175px;
+    padding-left: 247px;
     right: 0;
 }
 
