@@ -29,11 +29,17 @@
 	<body>
 		<div class="navbar navbar-fixed-top navbar-inverse">
 			<div class="navbar-inner">
-				<a class="brand" href="#">THE CMS</a>
+				<a class="brand" href="/admin">THE CMS</a>
 				<ul class="nav">
-					<li class="active"><a href="#">Пользователи</a></li>
-					<li><a href="/admin/pages">Категории</a></li>
-					<li><a href="/admin/links">Ссылки</a></li>
+					<li class="<?= Controller_Application::$current_page == 'users' ? 'active' : ''; ?>">
+						<a href="#">Пользователи</a>
+					</li>
+					<li class="<?= Controller_Application::$current_page == 'pages' ? 'active' : ''; ?>">
+						<a href="/admin/pages">Категории</a>
+					</li>
+					<li class="<?= Controller_Application::$current_page == 'links' ? 'active' : ''; ?>">
+						<a href="/admin/links">Ссылки</a>
+					</li>
 				</ul>
 			</div>
         </div>

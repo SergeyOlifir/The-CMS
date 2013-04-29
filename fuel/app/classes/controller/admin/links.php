@@ -2,6 +2,7 @@
 class Controller_Admin_Links extends Controller_Admin_Administration {
 
 	public function action_index() {
+		Controller_Application::$current_page = 'links';
 		TCLocale::set_locale_from_name(Model_Local::find(1)->name);
 		$data['links'] = Model_Link::find('all', array(
 											'order_by' => array('weight' => 'asc')

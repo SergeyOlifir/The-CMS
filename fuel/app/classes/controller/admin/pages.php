@@ -4,6 +4,7 @@ class Controller_Admin_Pages extends Controller_Admin_Administration
 {
 
 	public function action_index() {
+		Controller_Application::$current_page = 'pages';
 		TCLocale::set_locale_from_name(Model_Local::find(1)->name);
 		$data['uri'] = "admin/pages/create/1";
 		$data['back'] = "admin/index";
