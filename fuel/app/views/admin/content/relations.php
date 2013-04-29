@@ -1,20 +1,29 @@
 
 <div class="clearfix">
 	<?= Form::label('Привязанный контент', 'related_content'); ?>
-	<div class="main-metro-wrapper clearfix">
-		<? $related_contents = $content->related_content; ?>
-		<? foreach ($related_contents as $related): ?>
-			<div class="tile left smoll content">
-				<a href="/admin/content/edit/<?=$related->id; ?>/1">
-					<?= Html::img("files/{$related->image}"); ?>
-					<h3><?= $related->name; ?></h3>
-				</a>
-				<div class="buttons-area clearfix">
-					<a href="/admin/content/unset/<?=$content->id; ?>/<?=$related->id; ?>" class="delite-button right">Delete</a>
-				</div>
-			</div>
-		<? endforeach; ?>
-	</div>
+	<? $related_contents = $content->related_content; ?>
+	<?php if ($related_contents): ?>
+		<div class="main-metro-wrapper clearfix">
+			<ul class="thumbnails">
+				<? foreach ($related_contents as $related): ?>
+					<li class="span3">
+						<div  class="thumbnail">
+							<?= Html::img("files/{$related->image}", array('class' => 'img-polaroid')); ?>
+							<div class="caption">
+								<h3><?= ""; //$related->name; ?></h3>
+							</div>
+							<p>
+								<a class="btn btn-primary" href="/admin/content/edit/<?=$related->id; ?>/1">Редактировать</a>
+								<a class="btn btn-danger" href="/admin/content/unset/<?=$content->id; ?>/<?=$related->id; ?>">Удалить</a>
+							</p>
+						</div>
+					</li>
+				<? endforeach; ?>
+			</ul>
+		</div>
+	<?php else: ?>
+		<p>Привязанного контента пока нет.</p>
+	<?php endif; ?>
 	<?= Html::anchor("#add_poup", 'Добавить связанный контент', array('class' => 'btn btn-primary btn-large', 'data-reveal-id' => "add_poup")); ?>
 </div>
 
