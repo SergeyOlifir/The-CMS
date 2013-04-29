@@ -1,5 +1,4 @@
-<? Session::get('lang') ? ($curr_lang = Session::get('lang')) : ($curr_lang = Config::get('language'));
-	$curr_lang_id = Model_Local::query()->where('name', '=', $curr_lang)->get_one()->id; ?>
+<? $curr_lang_id = TCLocale::get_current_leng_id(); ?>
 <script type="text/javascript">
 
 	var view_content = "<?= $page->view_content; ?>";

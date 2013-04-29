@@ -1,5 +1,6 @@
+<? $curr_lang = TCLocale::get_current_leng_id(); ?>
 <div class="main-menu-content">
-	<?= render("templates/{$template}/menu/main_menu",array('links' => Model_Link::get_public())); ?>
+	<?= TCTheme::render("menu/main_menu",array('links' => Model_Link::find_with_translitions_related_to_public($curr_lang))); ?>
 </div>			
 <div class="main-menu clearfix">
 	<a class="mail left" target="_blank" href="#">Mail</a>

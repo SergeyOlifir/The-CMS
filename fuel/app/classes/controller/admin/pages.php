@@ -72,7 +72,7 @@ class Controller_Admin_Pages extends Controller_Admin_Administration
 			Response::redirect('admin/Pages');
 		}
 
-		$val = Model_Category::validate('edit');
+		$val1 = Model_Category::validate('edit');
 		$val2 = Model_Localpage::validate('edit');
 		$localpage = Model_Localpage::query()->where('page_id', '=', $id)->where('local_id', '=', $local_id)->get_one();
 		if ($val1->run()) {
