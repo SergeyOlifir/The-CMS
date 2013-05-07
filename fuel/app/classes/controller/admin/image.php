@@ -3,11 +3,11 @@
 
 class Controller_Admin_Image extends Controller_Admin {
 	
-	function action_index() {
-		return Fuel\Core\Response::forge("hui", '200');
+	public function action_index() {
+            return Fuel\Core\Response::forge("hui", '200');
 	}
 	
-	function action_create($content_id = null, $local_id) {
+	public function action_create($content_id = null, $local_id) {
 		!isset($content_id) and Fuel\Core\Response::redirect('admin');
 		if($content = Model_Content::find($content_id) and Input::method() == 'POST') {
 			$config = \Config::get('settings.logo.upload');
