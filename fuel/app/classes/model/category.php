@@ -7,7 +7,6 @@ class Model_Category extends Model_Translition {
 		'id',
 		'name',
 		'alias',
-		//'header',
 		'public_data',
 		'view_content',
 		'created_at',
@@ -22,36 +21,8 @@ class Model_Category extends Model_Translition {
 			'cascade_save' => true,
 			'cascade_delete' => true,
 		),
-		'localpage' => array(
-			'key_from' => 'id',
-			'model_to' => 'Model_Localpage',
-			'key_to' => 'page_id',
-			'cascade_save' => true,
-			'cascade_delete' => true,
-		)
 	);
 	
-	protected static $_has_one = array(
-		'link' => array(
-			'key_from' => 'id',
-			'model_to' => 'Model_Link',
-			'key_to' => 'page_id',
-			'cascade_save' => true,
-			'cascade_delete' => true,
-		)
-	);
-
-	protected static $_translition = array(
-		'key_from' => 'id',
-		'model_to' => 'Model_Localpage',
-		'key_to' => 'page_id',
-	);
-	
-	protected static $_to_translition_exclude = array(
-		'id',
-		'created_at',
-		'updated_at',
-	);
 
 	protected static $_observers = array(
 		'Orm\Observer_CreatedAt' => array(
@@ -61,6 +32,19 @@ class Model_Category extends Model_Translition {
 		'Orm\Observer_UpdatedAt' => array(
 			'events' => array('before_save'),
 			'mysql_timestamp' => false,
+		),
+	);
+        
+        protected static $_translated_properties = array(
+		'name' => array(
+			'wiget' => 'input',
+			'label' => 'Имя страницы',
+                        'placeholder' => 'Имя категории',
+		),
+                'header' => array(
+			'wiget' => 'input',
+			'label' => 'Заголовок страницы',
+                        'placeholder' => 'Заголовок категории',
 		),
 	);
 

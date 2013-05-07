@@ -27,7 +27,7 @@
 										<h3><?= "";//$content->name; ?></h3>
 									</div>
 									<p>
-										<a class="btn btn-primary" href="/admin/content/edit/<?=$content->id; ?>/1">Редактировать</a>
+										<a class="btn btn-primary" href="/admin/content/edit/<?=$content->id; ?>/1">Релактировать</a>
 										<a class="btn btn-danger" href="/admin/content/delete/<?=$content->id;?>">Удалить</a>
 									</p>
 								</div>
@@ -36,7 +36,7 @@
 					</ul>
 				</div>
 			<?php else: ?>
-				<p>Контента здесь пока нет. Но это дело поправимое</p>
+				<p>Контента здесь пока нет. Но ето дело поправимое</p>
 			<?php endif; ?>
 		</section>
 	</div>

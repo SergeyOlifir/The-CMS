@@ -7,7 +7,7 @@ class Controller_Admin_Image extends Controller_Admin {
 		return Fuel\Core\Response::forge("hui", '200');
 	}
 	
-	function action_create($content_id = null) {
+	function action_create($content_id = null, $local_id) {
 		!isset($content_id) and Fuel\Core\Response::redirect('admin');
 		if($content = Model_Content::find($content_id) and Input::method() == 'POST') {
 			$config = \Config::get('settings.logo.upload');
@@ -20,7 +20,7 @@ class Controller_Admin_Image extends Controller_Admin {
 			}
 		}
 		
-		Fuel\Core\Response::redirect('admin/content/edit/' . $content_id);
+		Fuel\Core\Response::redirect('admin/content/edit/' . $content_id . '/' . $local_id);
 	}
 	
 	public function action_delete($id = null, $page_id = null) {

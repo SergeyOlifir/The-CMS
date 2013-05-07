@@ -1,10 +1,3 @@
-<? $locals = Model_Local::find('all'); ?>
 <h2>Cоздание нового контента</h2>
-<ul class="nav nav-tabs">
-	<? foreach ($locals as $local): ?>
-		<li class="<?= $curr_local == $local->id ? 'active' : ''; ?>">
-   			<?= Html::anchor('admin/content/create/'.$page_id.'/'.$local->id, $local->name); ?>
-		</li>
-	<? endforeach; ?>
-</ul>	
+<?= Model_Translition::get_langvige_tabs($curr_local); ?>
 <?= render('admin/content/_form'); ?>

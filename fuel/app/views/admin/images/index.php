@@ -15,7 +15,7 @@
 		</div>
 	</div>
 <? endif; ?>
-	<?= Form::open(array('enctype'=>'multipart/form-data', 'action' => "admin/image/create/{$content->id}")); ?>
+	<?= Form::open(array('enctype'=>'multipart/form-data', 'action' => "admin/image/create/{$content->id}/{$locale}")); ?>
 	<fieldset>
 		<div class="clearfix">
 			<?= Form::label('Изображение', 'image'); ?>

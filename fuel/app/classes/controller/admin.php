@@ -7,7 +7,6 @@ class Controller_Admin extends Controller_Application {
 	}
 	
 	function action_index () {
-		Controller_Application::$current_page = '';
 		if ($this->check_admin() || (Input::post() && $this->auth->login() && $this->check_admin())) {
 		    $this->template->content = View::forge("admin/index");	
 		} else {

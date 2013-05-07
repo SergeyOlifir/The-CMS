@@ -37,24 +37,9 @@
 				<?= Form::file("image",array('class' => 'span12')); ?>
 			</div>
 		</div>
-		<div class="clearfix">
-			<?= Form::label('Заголовок', 'name'); ?>
-			<div class="input">
-				<?= Form::input('name', Input::post('name', isset($content) ? $content->name : ''), array('class' => 'span12')); ?>
-			</div>
-		</div>
-		<div class="clearfix">
-			<?= Form::label('Краткое описание', 'short_description'); ?>
-			<div class="input">
-				<?= Form::textarea('short_description', Input::post('short_description', isset($content) ? $content->short_description : ''), array('class' => 'span12', 'rows' => 12)); ?>
-			</div>
-		</div>
-		<div class="clearfix">
-			<?= Form::label('Полное описание', 'description'); ?>
-			<div class="input">
-				<?= Form::textarea('description', Input::post('description', isset($content) ? $content->description : ''), array('class' => 'span12', 'rows' => 12)); ?>
-			</div>
-		</div>
+		
+                <?= isset($content) ? $content->translition_form() : Model_Content::get_translition_form(); ?>
+            
 		<div class="clearfix">
 			<?= Form::label('Дата создания', 'date_create'); ?>
 			<div class="input">

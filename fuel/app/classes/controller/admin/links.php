@@ -2,15 +2,10 @@
 class Controller_Admin_Links extends Controller_Admin_Administration {
 
 	public function action_index() {
-		Controller_Application::$current_page = 'links';
 		TCLocale::set_locale_from_name(Model_Local::find(1)->name);
 		$data['links'] = Model_Link::find('all', array(
-											'order_by' => array('weight' => 'asc')
-										));
-		$data['back'] = "admin/index";
-		$data['uri'] = "admin/links/create/1";
-		$this->template->back_button = View::forge("admin/back_button_block", $data);
-		$this->template->add_button = View::forge("admin/add_button_block", $data);
+							'order_by' => array('weight' => 'asc')
+				));
 		$this->template->title = "Links";
 		$this->template->content = View::forge('admin/links/index', $data);
 	}
@@ -34,10 +29,9 @@ class Controller_Admin_Links extends Controller_Admin_Administration {
 	public function action_create($local_id = null) {
 		TCLocale::set_locale_from_name(Model_Local::find($local_id)->name);
 		if (Input::method() == 'POST') {
-			$val = Model_Locallink::validate('create');
 			$config = \Config::get('settings.logo.upload');
 			Upload::process($config);
-			if ($val->run() && Upload::is_valid()) {
+			if (Upload::is_valid()) {
 				Upload::save();
 				$link = Model_Link::forge(array(
 					'image' => Input::post('image'),
@@ -45,27 +39,17 @@ class Controller_Admin_Links extends Controller_Admin_Administration {
 					'weight' => Input::post('weight'),
 					'public' => Input::post('public') == 1 ? 1 : 0,
 				));
-				if ($link and $link->save()) {
-					$locallink = Model_Locallink::forge(array(
-						'link_id' => $link->id,
-						'local_id' => $local_id,
-						'name' => Input::post('name'),
-						'description' => Input::post('description'),
-					));
-				}
-				if ($locallink and $locallink->save()) {
-					$this->SetNotice('success', 'Added link #' . $link->id . ' (' . Model_Local::find($local_id)->name . ')');
-					Response::redirect('admin/links');
+				if ($link and $link->save_translitions(\Fuel\Core\Input::post(), $local_id) and $link->save()) {
+                                    $this->SetNotice('success', 'Added link #' . $link->id . ' (' . Model_Local::find($local_id)->name . ')');
+                                    Response::redirect('admin/links');
 				} else {
 					$this->SetNotice('error', 'Could not save link.');
 				}
 			}
 			else {
-				$this->SetNotice('error', $val->error());
+				$this->SetNotice('error', 'Error');
 			}
 		}
-		$data['back'] = "admin/links/index";
-		$this->template->back_button = View::forge("admin/back_button_block", $data);
 		$this->template->title = "Links";
 		$this->template->content = View::forge('admin/links/create', array('curr_local' => $local_id));
 
@@ -78,55 +62,23 @@ class Controller_Admin_Links extends Controller_Admin_Administration {
 			$this->SetNotice('error', 'Could not find link #'.$id);
 			Response::redirect('admin/Links');
 		}
-		$val1 = Model_Link::validate('edit');
-		$val2 = Model_Locallink::validate('edit');
-		$locallink = Model_Locallink::query()->where('link_id', '=', $id)->where('local_id', '=', $local_id)->get_one();
-		if ($val1->run()) {
-			if ($val2->run()) {
-				$config = \Config::get('settings.logo.upload');
-				Upload::process($config);
-				if ($locallink) {
-					$locallink->name = Input::post('name');
-					$locallink->description = Input::post('description');
-					$link->page_id = Input::post('page_id');
-					$link->weight = Input::post('weight');
-					$link->public = Input::post('public') == 1 ? 1 : 0;
-				} else {
-					$locallink = Model_Locallink::forge(array(
-						'link_id' => $id,
-						'local_id' => $local_id,
-						'name' => Input::post('name'),
-						'description' => Input::post('description'),
-					));
-				}
-				if(Upload::is_valid()) {
-					Upload::save();
-				}
-				if ($link->save() and $locallink->save()) {
-					$this->SetNotice('success', 'Updated link #' . $id . ' (' . Model_Local::find($local_id)->name . ')');
-					Response::redirect('admin/links');
-				} else {
-					$this->SetNotice('error', 'Could not update link #' . $id);
-				}
-			} else {
-				$this->SetNotice('error', $val2->error());
-				$this->template->set_global('link', $link, false);
-			}
-		} else {
-			/*if (Input::method() == 'POST') {
-				$link->name = $val->validated('name');
-				$link->description = $val->validated('description');
-				$link->image = $val->validated('image');
-				$link->page_id = $val->validated('page_id');
-				$link->weight = $val->validated('weight');
-				$link->public = $val->validated('public');
-				$this->SetNotice('error', $val->error());
-			}*/
-			$this->SetNotice('error', $val1->error());
-			$this->template->set_global('link', $link, false);
+		$config = \Config::get('settings.logo.upload');
+		if(\Fuel\Core\Input::post()) {
+                    Upload::process($config);	
+                    if(Upload::is_valid()) {
+                        Upload::save();
+			$link->page_id = Input::post('page_id');
+			$link->weight = Input::post('weight');
+			$link->public = Input::post('public') == 1 ? 1 : 0;
+                    }
+                    if ($link->save_translitions(\Fuel\Core\Input::post(), $local_id) and $link->save()) {
+                        $this->SetNotice('success', 'Updated link #' . $id . ' (' . Model_Local::find($local_id)->name . ')');
+                        Response::redirect('admin/links');
+                    } else {
+                        $this->SetNotice('error', 'Could not update link #' . $id);
+                    }
 		}
-		$data['back'] = "admin/links/index";
-		$this->template->back_button = View::forge("admin/back_button_block", $data);
+                $this->template->set_global('link', $link, false);
 		$this->template->title = "Links";
 		$this->template->content = View::forge('admin/links/edit', array('id' => $id, 'curr_local' => $local_id));
 

@@ -17,7 +17,7 @@ class Model_Link extends Model_Translition
 	protected static $_belongs_to = array(
 		'page' => array(
 			'key_from' => 'page_id',
-			'model_to' => 'Model_Category',
+			'model_to' => 'Model_Page',
 			'key_to' => 'id',
 			'cascade_save' => true,
 			'cascade_delete' => false,
@@ -60,6 +60,20 @@ class Model_Link extends Model_Translition
 		'created_at',
 		'updated_at',
 	);
+        
+        protected static $_translated_properties = array(
+		'name' => array(
+			'wiget' => 'input',
+			'label' => 'Имя страницы',
+                        'placeholder' => 'Имя страницы',
+		),
+                
+		'description' => array(
+			'wiget' => 'textarea',
+			'label' => 'Описание',
+                        'placeholder' => 'Описание',
+		)
+	);
 
 	public static function validate($factory)
 	{
@@ -71,13 +85,13 @@ class Model_Link extends Model_Translition
 	
 	public static function find_with_translitions_related_to_public($lang_id, $limit = null, $offset = null) {
 		$link = DB::select()
-						->from('links')
-						->join('locallinks')
-		    			->on('links.id', '=', 'locallinks.link_id')
-		    			->where('local_id', '=', $lang_id)
-		    			->and_where('public', '=', 1)
-						->select('links.id', 'links.image', 'links.page_id', 'links.weight', 'links.public', 'links.created_at', 'links.updated_at')
-						->order_by('weight', 'desc');
+                                ->from('links')
+                                ->join('locallinks')
+                                ->on('links.id', '=', 'locallinks.link_id')
+                                ->where('local_id', '=', $lang_id)
+                                ->and_where('public', '=', 1)
+                                ->select('links.id', 'links.image', 'links.page_id', 'links.weight', 'links.public', 'links.created_at', 'links.updated_at')
+                                ->order_by('weight', 'desc');
 		if(isset($limit)) {
 			$link->limit($limit);
 		}

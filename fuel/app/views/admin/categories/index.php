@@ -3,19 +3,19 @@
 		<ul class="nav nav-list well span2 affix">
 			<li class="active">
 				<a href="#page-list">
-					Cписок страниц
+					Cписок категорий
 				</a>
 			</li>
 			<li>
-				<a href="/admin/pages/create/1">
-					Добавить страницу
+				<a href="/admin/categories/create/1">
+					Добавить категорию
 				</a>
 			</li>
 		</ul>
 	</div>
 	<div class="span9">
 		<section id="page-list">
-			<h2>Список созданных страниц</h2>
+			<h2>Список созданных категорий</h2>
 			<?php if ($pages): ?>
 				<table class="table table-striped">
 					<thead>
@@ -23,6 +23,8 @@
 							<th>Название</th>
 							<th>Alias</th>
 							<th>Дата создания</th>
+							<th>Дата контента</th>
+							<th>Вид контента</th>
 							<th>Действия</th>
 						</tr>
 					</thead>
@@ -32,6 +34,8 @@
 								<td><?= $page->name; ?></td>
 								<td><?= $page->alias; ?></td>
 								<td><?= Date::forge($page->created_at)->format("%d.%m.%Y", true); ?></td>
+								<th><?= $page->public_data == 1 ? '+' : '-'; ?></th>
+								<td><?= $page->view_content; ?></td>
 								<td>
 									<div class="btn-group">
 										<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -39,9 +43,9 @@
 											<span class="caret"></span>
 										</a>
 											<ul class="dropdown-menu">
-												<li><?= Html::anchor('admin/pages/index/'.$page->id, 'View', array()); ?></li> 
-												<li><?= Html::anchor('admin/pages/edit/'.$page->id.'/1', 'Edit', array()); ?> </li>
-												<li><?= Html::anchor('admin/pages/delete/'.$page->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?></li>
+												<li><?= Html::anchor('admin/content/index/'.$page->id, 'View', array()); ?></li> 
+												<li><?= Html::anchor('admin/categories/edit/'.$page->id.'/1', 'Edit', array()); ?> </li>
+												<li><?= Html::anchor('admin/categories/delete/'.$page->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?></li>
 											</ul>
 									</div>
 									

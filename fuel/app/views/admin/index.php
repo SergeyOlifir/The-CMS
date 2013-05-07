@@ -4,7 +4,7 @@
 			<h3>Пользователи</h3>
 		</div>
 	</a>
-	<a href="/admin/pages">
+	<a href="/admin/categories">
 		<div class="tile big left pages">
 			<h3>Страницы</h3>
 		</div>

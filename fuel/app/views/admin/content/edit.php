@@ -10,3 +10,4 @@
 <? $data['local_id'] = $curr_local; ?>
 <?= render('admin/content/_form', $data); ?>
 <?= render('admin/content/relations'); ?>
+<?= render('admin/images/index', array('locale' => $curr_local)); ?>

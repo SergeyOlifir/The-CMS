@@ -28,37 +28,25 @@ class Controller_Admin_Content extends Controller_Admin_Administration {
 	public function action_create($page_id = null, $local_id = null) {
 		TCLocale::set_locale_from_name(Model_Local::find($local_id)->name);
 		$config = \Config::get('settings.logo.upload');
-		is_null($page_id) and Response::redirect('Pages');
+		is_null($page_id) and Response::redirect('categories');
 		if (Input::method() == 'POST') {
-			$val = Model_Localcontent::validate('create');
 			Upload::process($config);
-			if ($val->run() && Upload::is_valid()) {
-				Upload::save();
-				$content = Model_Content::forge(array(
-					'date_create' => Date::create_from_string(Input::post('date_create'), "us")->get_timestamp(),
-					'page_id' => $page_id,
-				));
-				if ($content and $content->save()) {
-					$localcontent = Model_Localcontent::forge(array(
-						'content_id' => $content->id,
-						'local_id' => $local_id,
-						'name' => Input::post('name'),
-						'description' => Input::post('description'),
-						'short_description' => Input::post('short_description'),
-					));
-				}
-				if ($localcontent and $localcontent->save()) {
-					$this->SetNotice('success', 'Added content #' . $content->id . ' (' . Model_Local::find($local_id)->name . ')');
-					Response::redirect("admin/content/index/{$page_id}");
-				} else {
-					$this->SetNotice('error', 'Could not save content.');
-				}
+			if (Upload::is_valid()) {
+                            Upload::save();
+                            $content = Model_Content::forge(array(
+                                    'date_create' => Date::create_from_string(Input::post('date_create'), "us")->get_timestamp(),
+                                    'page_id' => $page_id,
+                            ));
+                            if ($content and $content->save_translitions(\Fuel\Core\Input::post(), $local_id) and $content->save()) {
+                                Response::redirect("admin/content/index/{$content->page_id}");
+                            } else {
+                                $this->SetNotice('success', 'Created content #' . $content->id . ' (' . Model_Local::find($local_id)->name . ')');
+                                $this->SetNotice('error', 'Could not save content.');
+                            }
 			} else {
-				$this->SetNotice('error', $val->error());
+				$this->SetNotice('error', 'Image Error. Could not save content.');
 			}
 		}
-		$data['back'] = "admin/content/index/{$page_id}";
-		$this->template->back_button = View::forge("admin/back_button_block", $data);
 		$this->template->title = "Contents";
 		$this->template->content = View::forge("admin/content/create", array('page_id' => $page_id, 'curr_local' => $local_id));
 
@@ -72,40 +60,20 @@ class Controller_Admin_Content extends Controller_Admin_Administration {
 			$this->SetNotice('error', 'Could not find content #'.$id);
 			Response::redirect('admin/Content');
 		}
-		$val = Model_Localcontent::validate('edit');
-		$localcontent = Model_Localcontent::query()->where('content_id', '=', $id)->where('local_id', '=', $local_id)->get_one();
-		if ($val->run()) {
-			Upload::process($config);
-			if ($localcontent) {
-				$localcontent->name = Input::post('name');
-				$localcontent->description = Input::post('description');
-				$localcontent->short_description = Input::post('short_description');
-				$content->date_create = Date::create_from_string(Input::post('date_create'), "us")->get_timestamp();
-			} else {
-				$localcontent = Model_Localcontent::forge(array(
-					'content_id' => $id,
-					'local_id' => $local_id,
-					'name' => Input::post('name'),
-					'description' => Input::post('description'),
-					'short_description' => Input::post('short_description'),
-				));
-				$content->date_create = Date::create_from_string(Input::post('date_create'), "us")->get_timestamp();
-			}
-			if(Upload::is_valid()) {
-				Upload::save();
-			}
-			if ($content->save() and $localcontent->save()) {
-				$this->SetNotice('success', 'Updated content #' . $id . ' (' . Model_Local::find($local_id)->name . ')');
-				Response::redirect("admin/content/index/{$content->page_id}");
-			} else {
-				$this->SetNotice('error', 'Could not update content #' . $id);
-			}
-		} else {
-			$this->SetNotice('error', $val->error());
-			$this->template->set_global('content', $content, false);
+                if(\Fuel\Core\Input::post()) {
+                    Upload::process($config);	
+                    $content->date_create = Date::create_from_string(Input::post('date_create'), "us")->get_timestamp();
+                    if(Upload::is_valid()) {
+                            Upload::save();
+                    }
+                    if ($content->save_translitions(\Fuel\Core\Input::post(), $local_id) and $content->save()) {
+                            $this->SetNotice('success', 'Updated content #' . $id . ' (' . Model_Local::find($local_id)->name . ')');
+                            Response::redirect("admin/content/index/{$content->page_id}");
+                    } else {
+                            $this->SetNotice('error', 'Could not update content #' . $id);
+                    }
 		}
-		$data['back'] = "admin/content/index/{$content->page_id}";
-		$this->template->back_button = View::forge("admin/back_button_block", $data);
+                $this->template->set_global('content', $content, false);
 		$this->template->title = "Contents";
 		$this->template->content = View::forge('admin/content/edit', array('id' => $id, 'curr_local' => $local_id));
 
@@ -116,6 +84,7 @@ class Controller_Admin_Content extends Controller_Admin_Administration {
 		$page_id = 0;
 		if ($content = Model_Content::find($id)) {
 			$page_id = $content->page_id;
+                        $content->delete_translitions();
 			$content->delete();
 			$this->SetNotice('success', 'Deleted content #'.$id);
 		}
