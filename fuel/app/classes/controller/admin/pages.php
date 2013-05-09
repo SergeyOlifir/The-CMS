@@ -72,6 +72,35 @@ class Controller_Admin_Pages extends Controller_Admin_Administration
             }
             \Fuel\Core\Response::redirect('admin/pages');
         }
+	
+	
+	public function  action_set ($id = null) {
+		is_null($id) and Response::redirect('Content');
+		if(\Fuel\Core\Input::post() && ($page = Model_Page::find($id)) && count(\Fuel\Core\Input::post('relations')) > 0) {
+			foreach (\Fuel\Core\Input::post('relations') as $related_id) {
+			     \Fuel\Core\DB::insert('categories_in_page')
+				     ->columns(array('category_id', 'owner_id', 'weight'))
+				     ->values(array($related_id, $id, 8))
+				     ->execute();
+			}
+			
+			$page->save();	
+		}
+		Response::redirect("admin/pages/edit/{$id}/1");
+	}
+	
+	public function action_unset($id = null, $related_id = null) {
+	    is_null($related_id) and Response::redirect('Content');
+		/*if ($content = Model_Content::find($id)) {
+			
+			Response::redirect("admin/content/edit/{$id}/1");
+		}*/
+	     \Fuel\Core\DB::delete('categories_in_page')
+		     ->where('categories_in_page.owner_id', '=', $id)
+		     ->where('categories_in_page.category_id', '=', $related_id)
+		     ->execute();
+	     Response::redirect("admin/pages/edit/{$id}/1");
+	}
 }
 
 ?>

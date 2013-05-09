@@ -25,12 +25,24 @@
 			</div>
 		</div>
 		
+		<label class="radio">
+		    <input type="radio" name="uritype" id="optionsRadios1" value="page_id" checked>
+			Ссылка на внутреннюю страницу
+		</label>
 		<div class="clearfix">
-			<?= Form::label('Страница', 'page_id'); ?>
-			<div class="input">
-				<?= Form::select('page_id', Input::post('page_id', isset($link) ? $link->page_id : ''), Model_Page::as_array(), array('class' => 'span12')); ?>
-			</div>
+		    <div class="input">
+			    <?= Form::select('page_id', Input::post('page_id', isset($link) ? $link->page_id : ''), Model_Page::as_array(), array('class' => 'span12')); ?>
+		    </div>
 		</div>
+		<label class="radio">
+		    <input type="radio" name="uritype" id="optionsRadios2" value="page_uri">
+			Ссылка на внешнюю страницу
+		</label>
+		<div class="input-prepend">
+		    <span class="add-on"><?= Fuel\Core\Uri::base(); ?></span>
+		    <input class="span12" id="prependedInput" type="text" placeholder="Uri" name="page_uri">
+		</div>
+		
 		<div class="clearfix">
 			<?= Form::label('Вес', 'weight'); ?>
 			<div class="input">

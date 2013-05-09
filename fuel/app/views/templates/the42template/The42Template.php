@@ -25,9 +25,9 @@
    </head>
 
     <body>
-    <div id="header">
+    <header id="header">
         <?= TCTheme::render("header",array()); ?>
-    </div>
+    </header>
         <div class="all-wrapper">
             <div id="content">
                 <? if(isset($content)): ?>
@@ -35,8 +35,8 @@
                 <? endif; ?>
             </div>
         </div>
-    <div id="footer">
+    <footer id="footer">
         <?= TCTheme::render("footer"); ?>
-    </div>
+    </footer>
     </body>
 </html>

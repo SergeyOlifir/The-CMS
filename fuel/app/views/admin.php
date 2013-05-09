@@ -27,36 +27,36 @@
 		<?= Asset::render('javascripts'); ?>
 	</head>
 	<body>
-		<div class="navbar navbar-fixed-top navbar-inverse">
-			<div class="navbar-inner">
-				<a class="brand" href="/admin">THE CMS</a>
-				<ul class="nav">
-					<li class="<?= Controller_Application::$current_page == 'users' ? 'active' : ''; ?>">
-						<a href="#">Пользователи</a>
-					</li>
-					<li class="<?= Controller_Application::$current_page == 'pages' ? 'active' : ''; ?>">
-						<a href="/admin/pages">Страницы</a>
-					</li>
-					<li class="<?= Controller_Application::$current_page == 'links' ? 'active' : ''; ?>">
-						<a href="/admin/links">Ссылки</a>
-					</li>
-                                        <li class="<?= Controller_Application::$current_page == 'pages' ? 'active' : ''; ?>">
-						<a href="/admin/categories">Категории</a>
-					</li>
-				</ul>
-			</div>
-        </div>
-		
-		<div class="container">
-			<? if($messagess = e((array) Session::get_flash('notice'))): ?>
-				<? foreach ($messagess as $messages) : ?>
-					<?= render('_messages', array('messages' => $messages), false); ?>
-				<? endforeach; ?>
-			<? endif; ?>
-		    <div class="row">
-				<?= $content; ?>
-			</div>
+	    <header>
+		<nav class="navbar navbar-fixed-top navbar-inverse">
+		    <div class="navbar-inner">
+			<a class="brand" href="/admin">THE CMS</a>
+			<ul class="nav">
+			    <li class="<?= Controller_Application::$current_page == 'users' ? 'active' : ''; ?>">
+				<a href="#">Пользователи</a>
+			    </li>
+			    <li class="<?= Controller_Application::$current_page == 'pages' ? 'active' : ''; ?>">
+				<a href="/admin/pages">Страницы</a>
+			    </li>
+			    <li class="<?= Controller_Application::$current_page == 'links' ? 'active' : ''; ?>">
+				<a href="/admin/links">Ссылки</a>
+			    </li>
+			    <li class="<?= Controller_Application::$current_page == 'pages' ? 'active' : ''; ?>">
+				<a href="/admin/categories">Категории</a>
+			    </li>
+			</ul>
+		    </div>
+	        </nav>
+	    </header>
+	    <div class="container">
+		<? if($messagess = e((array) Session::get_flash('notice'))): ?>
+		    <? foreach ($messagess as $messages) : ?>
+			<?= render('_messages', array('messages' => $messages), false); ?>
+		    <? endforeach; ?>
+		<? endif; ?>
+		<div class="row">
+		    <?= $content; ?>
 		</div>
-		
+	    </div>
 	</body>
 </html>
