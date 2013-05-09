@@ -1,5 +1,5 @@
 <? $locals = Model_Local::find('all'); ?>
-<h2>Редактирование ссылки для страницы <?= $link->page->name; ?> (<?= Model_Local::find($curr_local)->name; ?>)</h2>
+<h2>Редактирование ссылки для страницы <?= '';//$link->page->name; ?> (<?= Model_Local::find($curr_local)->name; ?>)</h2>
 <ul class="nav nav-tabs">
 	<? foreach ($locals as $local): ?>
 		<li class="<?= $curr_local == $local->id ? 'active' : ''; ?>">

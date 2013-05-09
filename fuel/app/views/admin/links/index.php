@@ -31,7 +31,7 @@
                             <? foreach ($links as $link): ?>		
                                     <tr>
                                             <td><?= $link->name; ?></td>
-                                            <td><?= $link->page->name; ?></td>
+                                            <td><?= $link->page_id == -1 ? Fuel\Core\Uri::base() . $link->uri : $link->page->name; ?></td>
                                             <td><?= $link->weight; ?></td>
                                             <td><?= $link->public; ?></td>
                                             <td>

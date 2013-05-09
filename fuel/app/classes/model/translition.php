@@ -26,7 +26,11 @@ class Model_Translition extends Model_Base {
             if($result and !empty($this->translated_fields_array)) {
                 $this->translated_fields_array['content_id'] = $this->id;
                 $model = Model_Localcontent::forge();
-                if($model = Model_Localcontent::query()->where('content_id', '=', $this->id)->where('local_id', '=', $this->translated_fields_array['local_id'])->get_one()) {
+                if($model = Model_Localcontent::query()
+			->where('content_id', '=', $this->id)
+			->where('local_id', '=', $this->translated_fields_array['local_id'])
+			->where('table', '=', $this->translated_fields_array['table'])
+			->get_one()) {
                     foreach ($this->translated_fields_array as $key => $value) {
                         $model->__set($key, $value);
                     }
@@ -158,6 +162,7 @@ class Model_Translition extends Model_Base {
                     $content->offset($offset);
             }
             $content->as_object(get_called_class());
+	    
             return $content->execute();
         }
 	

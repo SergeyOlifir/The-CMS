@@ -4,9 +4,9 @@
 	<?= \Fuel\Core\Html::anchor("home/content/change/list/{$category}", "List", array('class' => 'list')); ?>
 </div>
 <? if (Session::get('tile')): ?>
-	<?= TCTheme::render("content/tiles", array('content' => $content)); ?>
+    <?= TCTheme::render("content/tiles", array('content' => $content)); ?>
 <? else: ?>
-	<?= TCTheme::render("content/list", array('content' => $content)); ?>
+    <?= TCTheme::render("content/list", array('content' => $content)); ?>
 <? endif;?>
 
 <?= $pagination; ?>

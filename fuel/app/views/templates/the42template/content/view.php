@@ -1,7 +1,6 @@
 <div class="submenu">
 	<h2>Portfolio</h2>
 </div>
-<? $translitions = $content->get_translation(1); ?>
 <div class="container single-content">
 	<div class="row">
 		<div class="span9">

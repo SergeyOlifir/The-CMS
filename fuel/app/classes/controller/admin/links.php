@@ -35,8 +35,9 @@ class Controller_Admin_Links extends Controller_Admin_Administration {
 				Upload::save();
 				$link = Model_Link::forge(array(
 					'image' => Input::post('image'),
-					'page_id' => Input::post('page_id'),
+					'page_id' => \Fuel\Core\Input::post('uritype') === 'page_id' ? Input::post('page_id') : -1,
 					'weight' => Input::post('weight'),
+					'uri' => \Fuel\Core\Input::post('uritype') === 'page_uri' ? Input::post('page_uri') : null,
 					'public' => Input::post('public') == 1 ? 1 : 0,
 				));
 				if ($link and $link->save_translitions(\Fuel\Core\Input::post(), $local_id) and $link->save()) {
@@ -67,10 +68,19 @@ class Controller_Admin_Links extends Controller_Admin_Administration {
                     Upload::process($config);	
                     if(Upload::is_valid()) {
                         Upload::save();
+		    }
+		    //var_dump(Input::post('uritype')); die();
+		    if(\Fuel\Core\Input::post('uritype') === 'page_id') {
 			$link->page_id = Input::post('page_id');
-			$link->weight = Input::post('weight');
-			$link->public = Input::post('public') == 1 ? 1 : 0;
-                    }
+			$link->uri = null;
+		    } else {
+			$link->page_id = -1;//Input::post('page_id');
+			$link->uri = Input::post('page_uri');
+		    }
+
+		    $link->weight = Input::post('weight');
+		    $link->public = Input::post('public') == 1 ? 1 : 0;
+
                     if ($link->save_translitions(\Fuel\Core\Input::post(), $local_id) and $link->save()) {
                         $this->SetNotice('success', 'Updated link #' . $id . ' (' . Model_Local::find($local_id)->name . ')');
                         Response::redirect('admin/links');

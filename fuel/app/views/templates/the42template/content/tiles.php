@@ -1,6 +1,5 @@
 <div class="projects wrapper-padding clearfix">
 	<? foreach ($content as $project): ?>
-		<? $translitions = $project->get_translation(1); ?>
 		<div class="project tile left">
 			<div class="logo-wrapper">
 				<?= Html::img("files/{$project['image']}", array("alt" => $project['name'])); ?>

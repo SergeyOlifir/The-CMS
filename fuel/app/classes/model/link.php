@@ -11,6 +11,7 @@ class Model_Link extends Model_Translition
 		'page_id',
 		'weight',
 		'public',
+		'uri',
 		'created_at',
 		'updated_at',
 	);

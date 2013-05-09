@@ -5,9 +5,6 @@ class Model_Content extends Model_Translition
 {
 	protected static $_properties = array(
 		'id',
-		/*'name',
-		'description',
-		'short_description',*/
 		'image',
 		'page_id',
 		'date_create',
@@ -94,9 +91,10 @@ class Model_Content extends Model_Translition
                                 ->join('localcontents')
                                 ->on('contents.id', '=', 'localcontents.content_id')
                                 ->where('local_id', '=', $lang_id)
+				->where('localcontents.table', '=', self::table())
                                 ->join('categories')
-                                ->on('contents.page_id', '=', 'pages.id')
-                                ->where('pages.alias', '=', $category_alias)
+                                ->on('contents.page_id', '=', 'categories.id')
+                                ->where('categories.alias', '=', $category_alias)
                                 ->select('contents.id', 'contents.image', 'contents.page_id', 'contents.date_create', 'contents.created_at', 'contents.updated_at')
                                 ->order_by('date_create', 'desc');
 		if(isset($limit)) {

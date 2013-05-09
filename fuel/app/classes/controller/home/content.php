@@ -31,6 +31,7 @@ class Controller_Home_Content extends Controller_Home {
 			
 		$content = Model_Content::find_with_translitions(1, $pagination->per_page, $pagination->offset);
 		$this->template->content = TCTheme::load_view('content/index', array('content' => $content, 'pagination' => $pagination->render(), 'category' => ''));
+	
 	}
 	
 	function action_view($id = null) {
