@@ -20,6 +20,7 @@ html {
 
 .wrapper-padding {
     padding: 0 100px;
+    min-height: 600px;
 }
 
 .all-wrapper {
@@ -289,8 +290,11 @@ a.list {
 }
 
 .single-content .row {
-	background-color: #fff;
-	margin: 0px;
+    margin: 0px;
+    background-color: #FFFFFF;
+    height: 540px;
+    margin-bottom: 20px;
+    overflow: hidden;
 }
 
 .single-content .span9 {
