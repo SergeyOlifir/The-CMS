@@ -1,3 +1,11 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <section class="submenu">
     <h2>Portfolio</h2>
 </section>
@@ -33,11 +41,36 @@
     </article>
 </section>
 
+<sectioin id="social-buttons" class="wrapper-padding">
+	<div class="fb-like" data-href="<?= Fuel\Core\Uri::current(); ?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+	<script type="text/javascript">
+	    VK.init({apiId: 3637024, onlyWidgets: true});
+	</script>
+	<!-- Put this div tag to the place, where the Like block will be -->
+	<div id="vk_like" style="display: inline-block"></div>
+	<script type="text/javascript">
+	    VK.Widgets.Like("vk_like", {type: "mini"});
+	</script>
+	<!-- Поместите этот тег туда, где должна отображаться кнопка +1. -->
+	<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+
+	<!-- Поместите этот тег за последним тегом виджета кнопка +1. -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ru'};
+
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+</sectioin>
+
 <script>$('.carousel').carousel();</script>
 <? if(count($content->related_content) > 0): ?>
     <section class="projects wrapper-padding clearfix">
 	<header>
-	    <h1><legend>Похожые проэкты</legend></h1>
+	    <h1><legend>Похожие проекты</legend></h1>
 	</header>
 	<? foreach ($content->related_content as $project): ?>
 	    <article class="project tile left">

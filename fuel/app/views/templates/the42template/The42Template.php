@@ -22,6 +22,8 @@
            <?=TCTheme::add_js('application.js'); ?>
            <?= Asset::js('bootstrap.min.js'); ?>
            <?= Asset::render('javascripts'); ?>
+	   
+	   <script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
    </head>
 
     <body>
