@@ -28,13 +28,13 @@
     <header id="header">
         <?= TCTheme::render("header",array()); ?>
     </header>
-        <div class="all-wrapper">
+        <content class="all-wrapper">
             <div id="content">
                 <? if(isset($content)): ?>
                         <?= $content; ?>
                 <? endif; ?>
             </div>
-        </div>
+        </content>
     <footer id="footer">
         <?= TCTheme::render("footer"); ?>
     </footer>

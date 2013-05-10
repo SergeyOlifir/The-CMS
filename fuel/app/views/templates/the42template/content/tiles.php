@@ -1,4 +1,4 @@
-<section class="projects wrapper-padding clearfix">
+<section class="projects wrapper-padding min-height clearfix">
     <? foreach ($content as $project): ?>
 	<article class="project tile left">
 	    <div class="logo-wrapper">

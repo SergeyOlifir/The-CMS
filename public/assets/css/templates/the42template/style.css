@@ -7,6 +7,10 @@
 	float: right;
 }
 
+content {
+    display: block;
+}
+
 body {
 	margin: 0px;
 	background-color: #282828;
@@ -20,6 +24,10 @@ html {
 
 .wrapper-padding {
     padding: 0 100px;
+    ___min-height: 600px;
+}
+
+.wrapper-padding .min-height {
     min-height: 600px;
 }
 

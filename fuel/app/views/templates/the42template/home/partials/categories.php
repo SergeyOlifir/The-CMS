@@ -1,5 +1,5 @@
 <? if(isset($content)): ?>
-    <div class='app-categories wrapper-padding'>
+    <section class='app-categories wrapper-padding'>
         <ul class="clearfix">
             <? foreach($content as $category) { ?>
                 <li class="category left img-circle">
@@ -11,5 +11,5 @@
                 </li>
             <? } ?>
         </ul>
-    </div>
+    </section>
 <? endif;?>

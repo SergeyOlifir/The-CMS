@@ -1,4 +1,4 @@
-<div id="Carousel" class="carousel slide">
+<section id="Carousel" class="carousel slide">
     <ol class="carousel-indicators">
 	<li data-target="#Carousel" class="active" data-slide-to="0"></li>
 	<li data-target="#Carousel" class="" data-slide-to="1"></li>
@@ -69,6 +69,6 @@
     </div>
     <a class="carousel-control left" href="#Carousel" data-slide="prev">&lsaquo;</a>
     <a class="carousel-control right" href="#Carousel" data-slide="next">&rsaquo;</a>
-</div>
+</section>
 
 <script>$('.carousel').carousel();</script>
