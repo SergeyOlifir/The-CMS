@@ -14,6 +14,6 @@
                 </div>
 	    </div>
 	    <?= \Fuel\Core\Html::anchor("/home/content/view/{$project['id']}", "More", array('class' => 'more-link')); ?>
-	</article>>
+	</article>
     <? endforeach; ?>
 </section>
