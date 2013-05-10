@@ -5,7 +5,7 @@ class Controller_Home_Content extends Controller_Home {
 	
 	function before() {
 		parent::before();
-		self::$current_page = 'content';
+		//self::$current_page = 'content';
 	}
 			
 	function action_index() {

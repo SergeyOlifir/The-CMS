@@ -9,7 +9,9 @@
         <? $links = Model_Link::find_with_translitions(TCLocale::get_current_leng_id(), null, null, 'weight');?>
         <?php foreach ($links as $link): ?>
         <li>
-	    <?= \Fuel\Core\Html::anchor(($link->page_id) != -1 ? "home/pages/view/{$link->page->alias}" : Fuel\Core\Uri::base() . $link->uri, $link->name, array('class' => ($link->name == Controller_Application::$current_page or ($link->page_id != -1 and Controller_Application::$current_page == $link->page->name )) ? "active" : "")); ?>
+	    <? $utl = ($link->page_id) != -1 ?  Fuel\Core\Uri::base() . "home/pages/view/{$link->page->alias}" : Fuel\Core\Uri::base() . $link->uri; ?>
+	    <?= \Fuel\Core\Html::anchor($utl, $link->name, array('class' => ($utl . '.html' == Controller_Application::$current_page) ? "active" : "")); ?>
+
 	</li>
         <?php endforeach; ?>
     </ul>

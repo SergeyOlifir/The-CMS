@@ -11,6 +11,7 @@ class Controller_Application extends Controller_Template {
 			$this->template->title = Config::get('settings.site_name'); //"CMS";
 			$this->auth = Auth::instance();
 			$this->lang_id = TCLocale::get_current_leng_id();
+			self::$current_page = Fuel\Core\Uri::current();
 	}
 	
 	protected function set_page_title($page_title = null) {
