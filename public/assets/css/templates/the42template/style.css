@@ -27,7 +27,7 @@ html {
     ___min-height: 600px;
 }
 
-.wrapper-padding .min-height {
+.wrapper-padding.min-height {
     min-height: 600px;
 }
 
