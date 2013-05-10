@@ -42,7 +42,7 @@
     </article>
 </section>
 
-<sectioin id="social-buttons" class="wrapper-padding">
+<sectioin id="social-buttons" class="wrapper-padding clearfix">
 	<div class="fb-like" data-href="<?= Fuel\Core\Uri::current(); ?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 	<script type="text/javascript">
 	    VK.init({apiId: 3637024, onlyWidgets: true});
