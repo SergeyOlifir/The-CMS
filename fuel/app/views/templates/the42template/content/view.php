@@ -47,7 +47,7 @@
 	    VK.init({apiId: 3637024, onlyWidgets: true});
 	</script>
 	<!-- Put this div tag to the place, where the Like block will be -->
-	<div id="vk_like" style="display: inline-block"></div>
+	<div id="vk_like" style="display: inline-block; margin-left: 30px;"></div>
 	<script type="text/javascript">
 	    VK.Widgets.Like("vk_like", {type: "mini"});
 	</script>
