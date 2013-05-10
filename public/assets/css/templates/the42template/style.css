@@ -192,6 +192,10 @@ a.list {
     height: 155px;
 }
 
+.project .white-block h1 {
+    font-size: 24.5px;
+}
+
 .project .name {
 	width: 120px;
 	padding: 30px 10px;
@@ -219,12 +223,12 @@ a.list {
 	height: 61px;
 }
 
-.project .name h3 {
+.project .name h1 {
 	padding: 0;
 	margin: 0;
 }
 
-.project.tile .name h3 {
+.project.tile .name h1 {
 	display: block;
     font-size: 16pt;
     margin: 17px 0 0;
@@ -295,6 +299,7 @@ a.list {
     height: 540px;
     margin-bottom: 20px;
     overflow: hidden;
+    ____width: 100%;
 }
 
 .single-content .span9 {
@@ -306,6 +311,10 @@ a.list {
 	width: 204px;
 	margin: 0px;
 	padding: 30px;
+}
+
+.single-content .span3 h1 {
+    font-size: 24.5px
 }
 
 .single-content .carousel-indicators .active {
