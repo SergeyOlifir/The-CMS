@@ -505,6 +505,7 @@ a.list {
 .toright .ib-content {
     padding-left: 247px;
     right: 0;
+    overflow: auto;
 }
 
 .ib-content {
@@ -525,6 +526,8 @@ a.list {
 
 .ib-content-wrap.active {
     display: block;
+    height: 125px;
+    overflow: auto;
 }
 
 .closed.toright .ib-close:before {

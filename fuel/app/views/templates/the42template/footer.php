@@ -27,7 +27,10 @@
                             <h3>Hello world</h3>
                     </div>
                     <div id="ib-draw-4" class="ib-content-wrap">
-                            <h3>Hello world</h3>
+                            
+			    <div style="border: 1px solid #99b; background: #f0f0ff; padding: 5px; font-family: 'Monaco', 'Liberation Mono', 'Droid Sans Mono', 'Ubuntu Mono', 'Lucida Console', 'Helvetica Neue', monospace; font-size: 10pt;">
+<script type="text/javascript" src="http://bash.im/forweb/" charset="windows-1251"></script>
+</div> 
                     </div>
                     <div class="ib-close"> </div>
                 </div>
