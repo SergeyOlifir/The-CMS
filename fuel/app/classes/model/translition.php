@@ -92,7 +92,7 @@ class Model_Translition extends Model_Base {
 		$form = "";
 		foreach (static::$_translated_properties as $key => $property) {
                         $form .= "<label>{$property['label']}</label>";
-			$form .= \Fuel\Core\Form::$property['wiget']($key, '', array('placeholder' => $property['placeholder'], 'class' => 'span12'));
+			$form .= \Fuel\Core\Form::$property['wiget']($key, '', array('placeholder' => $property['placeholder'], 'class' => 'span8'));
                         
                 }
 		
@@ -103,7 +103,7 @@ class Model_Translition extends Model_Base {
 		$form = "";
 		foreach (static::$_translated_properties as $key => $property) {
                         $form .= "<label>{$property['label']}</label>";
-			$form .= \Fuel\Core\Form::$property['wiget']($key, $this->get($key), array('placeholder' => $property['placeholder'], 'class' => 'span12'));
+			$form .= \Fuel\Core\Form::$property['wiget']($key, $this->get($key), array('placeholder' => $property['placeholder'], 'class' => 'span8'));
                 }
 
 		return $form;

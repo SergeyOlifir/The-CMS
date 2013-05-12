@@ -16,7 +16,7 @@ class Controller_Home extends Controller_Application {
             $content = \Model_Category::find('all');
 	    $this->template->content = TCTheme::load_view('home/partials/gallery');
             $this->template->content .= \Fuel\Core\View::forge("templates/{$this::$template_name}/home/partials/categories",array('content' => $content));
-        }
+	}
 
 
     function define_gallery() {

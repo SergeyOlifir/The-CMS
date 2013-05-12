@@ -1,23 +1,25 @@
-
-<div class="clearfix">
-	<?= Form::label('Привязанный контент', 'related_content'); ?>
+<section id="related" class="well">
+    <header>
+	 <h1><legend>Связанный контент</legend></h1>
+    </header>
+    <div class="clearfix">
 	<div class="main-metro-wrapper clearfix">
-		<? $related_contents = $content->related_content; ?>
-		<? foreach ($related_contents as $related): ?>
-			<div class="tile left smoll content">
-				<a href="/admin/content/edit/<?=$related->id; ?>/1">
-					<?= Html::img("files/{$related->image}"); ?>
-					<h3><?= $related->name; ?></h3>
-				</a>
-				<div class="buttons-area clearfix">
-					<a href="/admin/content/unset/<?=$content->id; ?>/<?=$related->id; ?>" class="delite-button right">Delete</a>
-				</div>
-			</div>
-		<? endforeach; ?>
+	    <? $related_contents = $content->related_content; ?>
+	    <? foreach ($related_contents as $related): ?>
+		<div class="tile left smoll content">
+		    <a href="/admin/content/edit/<?=$related->id; ?>/1">
+			<?= Html::img("files/{$related->image}"); ?>
+			<h3><?= $related->name; ?></h3>
+		    </a>
+		    <div class="buttons-area clearfix">
+			<a href="/admin/content/unset/<?=$content->id; ?>/<?=$related->id; ?>" class="delite-button right">Delete</a>
+		    </div>
+		</div>
+	    <? endforeach; ?>
 	</div>
 	<?= Html::anchor("#add_poup", 'Добавить связанный контент', array('class' => 'btn btn-primary btn-large', 'data-reveal-id' => "add_poup")); ?>
-</div>
-
+    </div>
+</section>
 
 <div id="add_poup" class="reveal-modal">
 	<div class="popup-content scroll-news-index">
