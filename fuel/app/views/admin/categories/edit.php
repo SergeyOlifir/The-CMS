@@ -1,10 +1,14 @@
-<? $locals = Model_Local::find('all'); ?>
-<h2>Редактирование страницы <?= $page->name; ?></h2>
-<ul class="nav nav-tabs">
-	<? foreach ($locals as $local): ?>
-		<li class="<?= $curr_local == $local->id ? 'active' : ''; ?>">
-   			<?= Html::anchor('admin/categories/edit/'.$id.'/'.$local->id, $local->name); ?>
-		</li>
-	<? endforeach; ?>
-</ul>
-<?php echo render('admin/categories/_form'); ?>
+<div class="span3">
+    <ul class="nav nav-list well span2 affix" id="scroll" >
+	<li>
+	    <a href="#edit">
+		Редактирование категории
+	    </a>
+	</li>
+    </ul>
+</div>
+<div class="span9">
+    <?= Model_Translition::get_langvige_tabs($curr_local); ?>
+    <? $data['local_id'] = $curr_local; ?>
+    <?= render('admin/categories/_form'); ?>
+</div>

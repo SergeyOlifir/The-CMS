@@ -1,41 +1,41 @@
 
-<section class="well">
-	<?= Form::label('Добавленные категории', 'related_content'); ?>
-	<div class="main-metro-wrapper clearfix">
-	    <p>
-		<table class="table table-striped">
-		    <thead>
-			<tr>
-			    <th>Имя</th>
-			    <th>Алиас</th>
-			    <th>Действия</th>
-			</tr>
-		    </thead>
-		    <tbody>
-			<? $related_contents = $page->category; ?>
-			<? foreach ($related_contents as $related): ?>
-			    <tr>
-				<td><?= $related->name  ?></td>
-				<td><?= $related->alias; ?></td>
-				<td>
-				    <div class="btn-group">
-					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-					    Action
-					    <span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
-					    <li><?= Html::anchor('admin/content/index/'.$related->id, 'Контент', array()); ?></li> 
-					    <li><?= Html::anchor('admin/categories/edit/'.$related->id.'/1', 'Edit', array()); ?> </li>
-					    <li><?= Html::anchor("admin/pages/unset/{$page->id}/{$related->id}", 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?></li>
-					</ul>
-				    </div>
-				</td>
-			    </tr>
-			<? endforeach; ?>	
-		    </tbody>
-		</table>
-	    </p>	
-	</div>
+<section id="category" class="well">
+    <header>
+	 <h1><legend>Категории</legend></h1>
+    </header>
+    <p>
+	<table class="table table-striped">
+	    <thead>
+		<tr>
+		    <th>Имя</th>
+		    <th>Алиас</th>
+		    <th>Действия</th>
+		</tr>
+	    </thead>
+	    <tbody>
+		<? $related_contents = $page->category; ?>
+		<? foreach ($related_contents as $related): ?>
+		    <tr>
+			<td><?= $related->name  ?></td>
+			<td><?= $related->alias; ?></td>
+			<td>
+			    <div class="btn-group">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				    Action
+				    <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+				    <li><?= Html::anchor('admin/content/index/'.$related->id, 'Контент', array()); ?></li> 
+				    <li><?= Html::anchor('admin/categories/edit/'.$related->id.'/1', 'Edit', array()); ?> </li>
+				    <li><?= Html::anchor("admin/pages/unset/{$page->id}/{$related->id}", 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?></li>
+				</ul>
+			    </div>
+			</td>
+		    </tr>
+		<? endforeach; ?>	
+	    </tbody>
+	</table>
+    </p>	
     <a href="#huiModal" role="button" class="btn" data-toggle="modal">Добавить категорию</a>
 </section>
 

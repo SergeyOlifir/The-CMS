@@ -3,12 +3,12 @@
 		$weights[$i] = $i;
 	}
 ?>
-
-<?= Form::open(array('enctype'=>'multipart/form-data', 'class' => 'content-form')); ?>
+<section class="well" id="edit">
+    <?= Form::open(array('enctype'=>'multipart/form-data', 'class' => 'content-form')); ?>
 	<fieldset>
 		<div class="clearfix">
 			<? if(isset($link->image)): ?>
-				<?= Html::img("files/{$link->image}"); ?>
+				<?= Html::img("files/{$link->image}", array('class' => 'img-polaroid')); ?>
 			<? endif; ?>
 			<?= Form::label('Изображение', 'image'); ?>
 			<div class="input">
@@ -31,7 +31,7 @@
 		</label>
 		<div class="clearfix">
 		    <div class="input">
-			<?= Form::select('page_id', Input::post('page_id', isset($link) and $link->page_id != -1 ? $link->page_id : ''), Model_Page::as_array(), array('class' => 'span12')); ?>
+			<?= Form::select('page_id', Input::post('page_id', isset($link) and $link->page_id != -1 ? $link->page_id : ''), Model_Page::as_array(), array('class' => 'span8')); ?>
 		    </div>
 		</div>
 		<label class="radio">
@@ -40,13 +40,13 @@
 		</label>
 		<div class="input-prepend">
 		    <span class="add-on"><?= Fuel\Core\Uri::base(); ?></span>
-		    <input class="span12" id="prependedInput" type="text" placeholder="Uri" name="page_uri" value="<?= (isset($link) and isset($link->uri)) ? $link->uri : ""; ?>" >
+		    <input class="span6" id="prependedInput" type="text" placeholder="Uri" name="page_uri" value="<?= (isset($link) and isset($link->uri)) ? $link->uri : ""; ?>" >
 		</div>
 		
 		<div class="clearfix">
 			<?= Form::label('Вес', 'weight'); ?>
 			<div class="input">
-				<?= Form::select('weight', Input::post('weight', isset($link) ? $link->weight : ''), $weights, array('class' => 'span12')); ?>
+				<?= Form::select('weight', Input::post('weight', isset($link) ? $link->weight : ''), $weights, array('class' => 'span8')); ?>
 			</div>
 		</div>
 			
@@ -54,4 +54,5 @@
 			<?= Form::submit('submit', 'Сохранить', array('class' => 'btn btn-primary btn-large')); ?>
 		</div>
 	</fieldset>
-<?= Form::close(); ?>
+    <?= Form::close(); ?>
+</section>

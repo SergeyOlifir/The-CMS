@@ -1,3 +1,13 @@
-<h2>Создание новой страницы</h2>
-<?= Model_Translition::get_langvige_tabs($curr_local); ?>
-<?php echo render('admin/categories/_form'); ?>
+<div class="span3">
+    <ul class="nav nav-list well span2 affix" id="scroll" >
+	<li>
+	    <a href="#edit">
+		Создание категории
+	    </a>
+	</li>
+    </ul>
+</div>
+<div class="span9">
+    <?= Model_Translition::get_langvige_tabs($curr_local); ?>
+    <?= render('admin/categories/_form'); ?>
+</div>
