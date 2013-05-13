@@ -41,7 +41,7 @@
 			    <li class="<?= Controller_Application::$current_page == 'links' ? 'active' : ''; ?>">
 				<a href="/admin/links">Ссылки</a>
 			    </li>
-			    <li class="<?= Controller_Application::$current_page == 'pages' ? 'active' : ''; ?>">
+			    <li class="<?= Controller_Application::$current_page == 'categories' ? 'active' : ''; ?>">
 				<a href="/admin/categories">Категории</a>
 			    </li>
 			</ul>
