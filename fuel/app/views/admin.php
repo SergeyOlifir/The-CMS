@@ -33,7 +33,7 @@
 			<a class="brand" href="/admin">THE CMS</a>
 			<ul class="nav">
 			    <li class="<?= Controller_Application::$current_page == 'users' ? 'active' : ''; ?>">
-				<a href="#">Пользователи</a>
+				<a href="admin/user">Пользователи</a>
 			    </li>
 			    <li class="<?= Controller_Application::$current_page == 'pages' ? 'active' : ''; ?>">
 				<a href="/admin/pages">Страницы</a>

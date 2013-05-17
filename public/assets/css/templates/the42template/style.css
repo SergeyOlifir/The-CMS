@@ -618,6 +618,13 @@ a.list {
     background-position: left top;
 }
 
+/* registr form */
+.container.registr-form {
+    width: 300px;
+}
+
+/* end */
+
 /*END Footer */
 
 /* ClearFix )))) */
