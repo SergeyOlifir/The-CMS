@@ -22,21 +22,24 @@
 						<? foreach ($contents as $content): ?>
 							<li class="span3">
 								<div  class="thumbnail">
-									<?= Html::img("files/{$content->image}", array('class' => 'img-polaroid')); ?>
-									<div class="caption">
-										<h3><?= "";//$content->name; ?></h3>
+									<div class="thumbnail-wrapper img-polaroid">
+										<?= Html::img("files/{$content->image}"); ?>
+										<div class="caption">
+											<h3><?= $content->name; ?></h3>
+										</div>
 									</div>
-									<p>
-										<a class="btn btn-primary" href="/admin/content/edit/<?=$content->id; ?>/1">Релактировать</a>
-										<a class="btn btn-danger" href="/admin/content/delete/<?=$content->id;?>">Удалить</a>
-									</p>
+									<div class="overlay"></div>
+									<div class="buttons-area clearfix">
+										<a href="/admin/content/edit/<?=$content->id; ?>/1" class="edit-button" title="Редактировать">Edit</a>
+										<a href="/admin/content/delete/<?=$content->id; ?>" class="delite-button" title="Удалить">Delete</a>
+									</div>
 								</div>
 							</li>
 						<? endforeach; ?>
 					</ul>
 				</div>
 			<?php else: ?>
-				<p>Контента здесь пока нет. Но ето дело поправимое</p>
+				<p>Контента здесь пока нет. Но это дело поправимое</p>
 			<?php endif; ?>
 		</section>
 	</div>

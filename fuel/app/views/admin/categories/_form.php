@@ -1,11 +1,11 @@
 <section id="edit" class="well">
     <header>
-	 <h1><legend>Редактирование категории</legend></h1>
+	 <h1><legend><?= __("_form.title"); ?></legend></h1>
     </header>
     <?php echo Form::open(); ?>
 	<fieldset>
 	    <div class="clearfix">
-		<?php echo Form::label('Alias', 'alias'); ?>
+		<?php echo Form::label(__("_form.input.alias"), 'alias'); ?>
 		<div class="input">
 		    <?php echo Form::input('alias', Input::post('alias', isset($page) ? $page->alias : ''), array('class' => 'span8', 'rows' => 12)); ?>
 		</div>
@@ -13,22 +13,22 @@
 	    <?= isset($page) ? $page->translition_form() : Model_Category::get_translition_form(); ?>
 
 	    <div class="clearfix">
-		<?php echo Form::label('Вид отображения контента:', 'view_content'); ?>
+		<?php echo Form::label(__("_form.input.view-content.title"), 'view_content'); ?>
 		<div class="input">
 		    <?= Form::radio('view_content', 'list', isset($page) && $page->view_content == 'list' ? true : false); ?>
-		    <?= Form::label('Список (list)', 'view_content'); ?>
+		    <?= Form::label(__("_form.input.view-content.list"), 'view_content'); ?>
 		    <?= Form::radio('view_content', 'tile', isset($page) && $page->view_content == 'tile' ? true : false); ?>
-		    <?= Form::label('Плитка (tile)', 'view_content'); ?>
+		    <?= Form::label(__("_form.input.view-content.tile"), 'view_content'); ?>
 		</div>
 	    </div>
 	    <div class="clearfix">
 		<div class="input">
 		    <?= Form::checkbox('public_data', 1, isset($page) && $page->public_data > 0 ? true : false);  ?>
-		    <?= Form::label('Отображать дату контента', 'public_data'); ?>
+		    <?= Form::label(__("_form.input.date-content"), 'public_data'); ?>
 		</div>
 	    </div>
 	    <div class="actions">
-		<?php echo Form::submit('submit', 'Сохранить', array('class' => 'btn btn-primary btn-large')); ?>
+		<?php echo Form::submit('submit', __("_form.input.submit"), array('class' => 'btn btn-primary btn-large')); ?>
 	    </div>
 	</fieldset>
     <?php echo Form::close(); ?>

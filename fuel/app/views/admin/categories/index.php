@@ -3,29 +3,29 @@
 		<ul class="nav nav-list well span2 affix">
 			<li class="active">
 				<a href="#page-list">
-					Cписок категорий
+					<?= __("index.navlist.list"); ?>
 				</a>
 			</li>
 			<li>
 				<a href="/admin/categories/create/1">
-					Добавить категорию
+					<?= __("index.navlist.add"); ?>
 				</a>
 			</li>
 		</ul>
 	</div>
 	<div class="span9">
 		<section id="page-list">
-			<h2>Список созданных категорий</h2>
+			<h2><?= __("index.page-list.title"); ?></h2>
 			<?php if ($pages): ?>
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Название</th>
-							<th>Alias</th>
-							<th>Дата создания</th>
-							<th>Дата контента</th>
-							<th>Вид контента</th>
-							<th>Действия</th>
+							<th><?= __("index.page-list.table.name"); ?></th>
+							<th><?= __("index.page-list.table.alias"); ?></th>
+							<th><?= __("index.page-list.table.date-create"); ?></th>
+							<th><?= __("index.page-list.table.date-content"); ?></th>
+							<th><?= __("index.page-list.table.view-content"); ?></th>
+							<th><?= __("index.page-list.table.actions"); ?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -39,13 +39,13 @@
 								<td>
 									<div class="btn-group">
 										<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-											Action
+											<?= __("index.page-list.btn-group.title"); ?>
 											<span class="caret"></span>
 										</a>
 											<ul class="dropdown-menu">
-												<li><?= Html::anchor('admin/content/index/'.$page->id, 'View', array()); ?></li> 
-												<li><?= Html::anchor('admin/categories/edit/'.$page->id.'/1', 'Edit', array()); ?> </li>
-												<li><?= Html::anchor('admin/categories/delete/'.$page->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?></li>
+												<li><?= Html::anchor('admin/content/index/'.$page->id, __("index.page-list.btn-group.view"), array()); ?></li> 
+												<li><?= Html::anchor('admin/categories/edit/'.$page->id.'/1', __("index.page-list.btn-group.edit"), array()); ?> </li>
+												<li><?= Html::anchor('admin/categories/delete/'.$page->id, __("index.page-list.btn-group.delete"), array('onclick' => "return confirm('Are you sure?')")); ?></li>
 											</ul>
 									</div>
 									
@@ -55,7 +55,7 @@
 					</tbody>
 				</table>
 			<?php else: ?>
-				<p>No Pages.</p>
+				<p><?= __("index.page-list.null"); ?></p>
 			<?php endif; ?>
 		</section>
 	</div>

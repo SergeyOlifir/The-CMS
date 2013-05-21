@@ -23,26 +23,28 @@
 		<?= Asset::js('jquery.fancybox-buttons.js'); ?>
 		<?= Asset::js('jquery.scrollTo.js');?>
 		<?= Asset::js('jquery.mCustomScrollbar.min.js'); ?>
+		<?= Asset::js('admin.js'); ?>
 		
 		<?= Asset::render('javascripts'); ?>
 	</head>
-	<body>
+	<body data-spy="scroll" data-target=".scroll">
+		<? Lang::load('admin/index.php', null, 'ru'); ?>
 	    <header>
 		<nav class="navbar navbar-fixed-top navbar-inverse">
 		    <div class="navbar-inner">
-			<a class="brand" href="/admin">THE CMS</a>
+			<a class="brand" href="/admin"><?= __("navbar-top.brand"); ?></a>
 			<ul class="nav">
 			    <li class="<?= Controller_Application::$current_page == 'users' ? 'active' : ''; ?>">
-				<a href="admin/user">Пользователи</a>
+				<a href="/admin/user"><?= __("navbar-top.users"); ?></a>
 			    </li>
 			    <li class="<?= Controller_Application::$current_page == 'pages' ? 'active' : ''; ?>">
-				<a href="/admin/pages">Страницы</a>
+				<a href="/admin/pages"><?= __("navbar-top.pages"); ?></a>
 			    </li>
 			    <li class="<?= Controller_Application::$current_page == 'links' ? 'active' : ''; ?>">
-				<a href="/admin/links">Ссылки</a>
+				<a href="/admin/links"><?= __("navbar-top.links"); ?></a>
 			    </li>
 			    <li class="<?= Controller_Application::$current_page == 'categories' ? 'active' : ''; ?>">
-				<a href="/admin/categories">Категории</a>
+				<a href="/admin/categories"><?= __("navbar-top.categories"); ?></a>
 			    </li>
 			</ul>
 		    </div>

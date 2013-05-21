@@ -27,8 +27,8 @@ return array(
 		),
 		'sizes' => array(
 			'thumb' => array(
-				'width' => 100,
-				'height' => 100,
+				'width' => 150,
+				'height' => 150,
 			),
 			'galery' => array(
 				'width' => 700,

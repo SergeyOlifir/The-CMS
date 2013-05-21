@@ -9,10 +9,14 @@
 	    <div class="main-metro-wrapper clearfix">
 		<? foreach ($content->images as $related): ?>
 		    <div class="tile left  content">
-			<?= Html::img("files/{$related->thumb}", array('class' => 'img-polaroid')); ?>
-			<div class="buttons-area clearfix">
-			    <a href="/admin/image/delete/<?=$related->id; ?>/<?= $content->page_id; ?>" class="delite-button right">Delete</a>
-			</div>
+		    	<div class="gallery-wrapper img-polaroid">
+		    		<?= Html::img("files/{$related->thumb}"); ?>
+				</div>
+				<div class="overlay"></div>
+				<div class="buttons-area clearfix">
+				    <a href="<?= Fuel\Core\Uri::base() . "files/{$related->full}" ?>" class="zoom-button fancybox" data-fancybox-group="button" title="Увеличить">Zoom</a>
+				    <a href="/admin/image/delete/<?=$related->id; ?>/<?= $content->page_id; ?>" class="delite-button" title="Удалить">Delete</a>
+				</div>
 		    </div>
 		<? endforeach; ?>
 	    </div>

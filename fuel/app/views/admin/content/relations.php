@@ -7,13 +7,15 @@
 	    <? $related_contents = $content->related_content; ?>
 	    <? foreach ($related_contents as $related): ?>
 		<div class="tile left smoll content">
-		    <a href="/admin/content/edit/<?=$related->id; ?>/1">
-			<?= Html::img("files/{$related->image}"); ?>
-			<h3><?= $related->name; ?></h3>
-		    </a>
-		    <div class="buttons-area clearfix">
-			<a href="/admin/content/unset/<?=$content->id; ?>/<?=$related->id; ?>" class="delite-button right">Delete</a>
-		    </div>
+			<div class="related-wrapper img-polaroid">
+				<?= Html::img("files/{$related->image}"); ?>
+				<h3><?= $related->name; ?></h3>
+			</div>
+			<div class="overlay"></div>
+			<div class="buttons-area clearfix">
+				<a href="/admin/content/edit/<?=$related->id; ?>/1" class="edit-button" title="Редактировать">Edit</a>
+				<a href="/admin/content/unset/<?=$content->id; ?>/<?=$related->id; ?>" class="delite-button" title="Удалить">Delete</a>
+			</div>
 		</div>
 	    <? endforeach; ?>
 	</div>

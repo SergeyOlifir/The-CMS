@@ -2,8 +2,8 @@
 class Controller_Admin_Links extends Controller_Admin_Administration {
 
     public function before() {
-	parent::before();
-	Controller_Application::$current_page = 'links';
+		parent::before();
+		Controller_Application::$current_page = 'links';
     }
 
     public function action_index() {
