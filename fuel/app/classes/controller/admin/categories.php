@@ -3,8 +3,9 @@
 class Controller_Admin_Categories extends Controller_Admin_Administration 
 {
     public function before() {
-	parent::before();
-	Controller_Application::$current_page = "categories";
+		parent::before();
+		Controller_Application::$current_page = "categories";
+		Lang::load('admin/categories.php', null, 'ru');
     }
 
     public function action_index() {

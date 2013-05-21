@@ -54,7 +54,7 @@
 
                     <? else: ?>
                             <h2>Ссылок в главном меню пока нет</h2>
-                    <?php endif; ?>
+                    <? endif; ?>
                 </section>
 	</div>
 </div>
