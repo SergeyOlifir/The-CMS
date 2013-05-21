@@ -16,7 +16,9 @@ class Controller_Home_Pages extends Controller_Home {
         !(isset($alias)) and Fuel\Core\Response::redirect('404');
         if($page = Model_Page::query()->where('alias', '=', $alias)->get_one()) {
             //Controller_Application::$current_page = $page->alias;
-            $this->template->content = $page->description;
+	    //var_dump($page->content); die();
+            //$this->template->content = $page->description;
+	    $this->template->content = TCTheme::load_view('page/view', array('page' => $page));
         } else {
             Fuel\Core\Response::redirect('404');
         }
