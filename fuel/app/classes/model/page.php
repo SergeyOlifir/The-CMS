@@ -53,6 +53,9 @@ class Model_Page extends Model_Translition {
 	    if($property === 'category') {
 		$pror = $this->get_category();
 		return $pror;
+	    } else if ($property === 'content') {
+		$prop = $this->get_content();
+		return $prop;
 	    } else {
 		return parent::get($property);
 	    }
@@ -74,6 +77,22 @@ class Model_Page extends Model_Translition {
 	  
 	}
 	
+	
+	protected function get_content() {
+	     $result =  \Fuel\Core\DB::select()
+		    ->from(Model_Content::table())
+		    ->join('categories_in_page')
+		    ->on('categories_in_page.category_id', '=', Model_Content::table() . '.page_id')
+		    //->join(self::table())
+		    //->on('categories_in_page.owner_id', '=', self::table() . '.id')
+		    //->where(self::table() . '.id', 'IS', null)
+		    ->where('categories_in_page.owner_id', '=', $this->id)
+		    ->select_array(Model_Content::getTablesRow())
+		    ->as_object('Model_Content')
+		    ->execute();
+	    return $result;
+	}
+
 	protected function get_category() {
 	    return \Fuel\Core\DB::select()
 		    ->from(Model_Category::table())
