@@ -18,12 +18,12 @@
 </script>
 <section id="edit" class="well">
     <header>
-	 <h1><legend>Редактирование страници</legend></h1>
+	 <h1><legend><?= __("_form.title"); ?></legend></h1>
     </header>
     <?php echo Form::open(); ?>
 	<fieldset>
 	    <div class="clearfix">
-		<?php echo Form::label('Alias', 'alias'); ?>
+		<?php echo Form::label(__("_form.input.alias"), 'alias'); ?>
 		    <div class="input">
 			<?php echo Form::input('alias', Input::post('alias', isset($page) ? $page->alias : ''), array('class' => 'span8', 'rows' => 12)); ?>
 		    </div>
@@ -33,10 +33,10 @@
 
 	    <div class="input">
 		<?= Form::checkbox('publish_date', 1, isset($page) && $page->publish_date > 0 ? true : false);  ?>
-		<?= Form::label('Отображать дату контента', 'public_data'); ?>
+		<?= Form::label(__("_form.input.publish_date"), 'public_data'); ?>
 	    </div>
 	    <div class="actions">
-		<?php echo Form::submit('submit', 'Сохранить', array('class' => 'btn btn-primary btn-large')); ?>
+		<?php echo Form::submit('submit', __("_form.input.submit"), array('class' => 'btn btn-primary btn-large')); ?>
 	    </div>
 	</fieldset>
     <?php echo Form::close(); ?>

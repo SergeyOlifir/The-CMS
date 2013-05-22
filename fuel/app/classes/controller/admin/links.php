@@ -4,6 +4,7 @@ class Controller_Admin_Links extends Controller_Admin_Administration {
     public function before() {
 		parent::before();
 		Controller_Application::$current_page = 'links';
+		Lang::load('admin/links.php', null, 'ru');
     }
 
     public function action_index() {

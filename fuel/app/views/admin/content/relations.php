@@ -1,6 +1,6 @@
 <section id="related" class="well">
     <header>
-	 <h1><legend>Связанный контент</legend></h1>
+	 <h1><legend><?= __("edit.relations.title"); ?></legend></h1>
     </header>
     <div class="clearfix">
 	<div class="main-metro-wrapper clearfix">
@@ -13,13 +13,13 @@
 			</div>
 			<div class="overlay"></div>
 			<div class="buttons-area clearfix">
-				<a href="/admin/content/edit/<?=$related->id; ?>/1" class="edit-button" title="Редактировать">Edit</a>
-				<a href="/admin/content/unset/<?=$content->id; ?>/<?=$related->id; ?>" class="delite-button" title="Удалить">Delete</a>
+				<a href="/admin/content/edit/<?=$related->id; ?>/1" class="edit-button" title="<?= __("edit.relations.content.navbtn.edit"); ?>">Edit</a>
+				<a href="/admin/content/unset/<?=$content->id; ?>/<?=$related->id; ?>" class="delite-button" title="<?= __("edit.relations.content.navbtn.delete"); ?>">Delete</a>
 			</div>
 		</div>
 	    <? endforeach; ?>
 	</div>
-	<?= Html::anchor("#add_poup", 'Добавить связанный контент', array('class' => 'btn btn-primary btn-large', 'data-reveal-id' => "add_poup")); ?>
+	<?= Html::anchor("#add_poup", __("edit.relations.navbtn.add"), array('class' => 'btn btn-primary btn-large', 'data-reveal-id' => "add_poup")); ?>
     </div>
 </section>
 
@@ -30,8 +30,8 @@
 				<thead>
 					<tr>
 						<th></th>
-						<th>Название</th>
-						<th>Страница</th>
+						<th><?= __("edit.relations.add-content.navlist.name"); ?></th>
+						<th><?= __("edit.relations.add-content.navlist.page"); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -48,7 +48,7 @@
 				</tbody>
 			</table>
 			<div class="actions">
-				<?= Form::submit('submit', 'Сохранить', array('class' => 'btn btn-primary btn-large')); ?>
+				<?= Form::submit('submit', __("edit.relations.add-content.navbtn.submit"), array('class' => 'btn btn-primary btn-large')); ?>
 			</div>
 		<?= Form::close(); ?>
 	</div>

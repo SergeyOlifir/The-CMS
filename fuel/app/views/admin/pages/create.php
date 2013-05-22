@@ -2,7 +2,7 @@
     <ul class="nav nav-list well span2 affix" id="scroll" >
 	<li>
 	    <a href="#edit">
-		Создание страници
+			<?= __("create.navlist.title"); ?>
 	    </a>
 	</li>
     </ul>

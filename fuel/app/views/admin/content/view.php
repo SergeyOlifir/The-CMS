@@ -1,23 +1,23 @@
-<h2>Viewing #<?php echo $content->id; ?></h2>
+<h2> <?= __("view.title"); ?> #<?php echo $content->id; ?></h2>
 
 <p>
-	<strong>Name:</strong>
+	<strong><?= __("view.name"); ?></strong>
 	<?php echo $localcontent->name; ?></p>
 <p>
-	<strong>Description:</strong>
+	<strong><?= __("view.description"); ?></strong>
 	<?php echo $localcontent->description; ?></p>
 <p>
-	<strong>Short description:</strong>
+	<strong><?= __("view.short-description"); ?></strong>
 	<?php echo $localcontent->short_description; ?></p>
 <p>
-	<strong>Image:</strong>
+	<strong><?= __("view.image"); ?></strong>
 	<?php echo $content->image; ?></p>
 <p>
-	<strong>Page id:</strong>
+	<strong><?= __("view.page-id"); ?></strong>
 	<?php echo $content->page_id; ?></p>
 <p>
-	<strong>Date:</strong>
+	<strong><?= __("view.date"); ?></strong>
 	<?php echo Date::forge($content->date_create)->format("%m/%d/%Y", true); ?></p>
 
-<?php echo Html::anchor('admin/content/edit/'.$content->id.'/1', 'Edit'); ?> |
-<?php echo Html::anchor('admin/pages', 'Back'); ?>
+<?php echo Html::anchor('admin/content/edit/'.$content->id.'/1', __("view.navbtn.edit")); ?> |
+<?php echo Html::anchor('admin/pages', __("view.navbtn.Back")); ?>

@@ -2,12 +2,12 @@
     <ul class="nav nav-list well span2 affix" id="scroll" >
 	<li>
 	    <a href="#edit">
-		Редактирование страници
+			<?= __("edit.navlist.title"); ?>
 	    </a>
 	</li>
 	<li>
 	    <a href="#category">
-		Категории
+			<?= __("edit.navlist.category"); ?>
 	    </a>
 	</li>
     </ul>

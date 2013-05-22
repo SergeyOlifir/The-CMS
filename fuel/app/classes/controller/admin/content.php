@@ -2,8 +2,9 @@
 class Controller_Admin_Content extends Controller_Admin_Administration {
     
     public function before() {
-	parent::before();
-	Controller_Application::$current_page = "categories";
+		parent::before();
+		Controller_Application::$current_page = "categories";
+		Lang::load('admin/content.php', null, 'ru');
     }
 
     public function action_index($page_id = null) {

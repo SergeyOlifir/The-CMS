@@ -5,6 +5,7 @@ class Controller_Admin_User extends Controller_Admin {
 	public function before() {
 		parent::before();
 		Controller_Application::$current_page = "users";
+		Lang::load('admin/user.php', null, 'ru');
     }
 
     function action_index() {

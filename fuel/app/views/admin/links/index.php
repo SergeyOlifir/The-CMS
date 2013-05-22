@@ -3,28 +3,28 @@
 		<ul class="nav nav-list well span2 affix">
 			<li class="active">
 				<a href="#page-list">
-					Cписок Ссылок
+					<?= __("index.navlist.list"); ?>
 				</a>
 			</li>
 			<li>
 				<a href="/admin/links/create/1">
-					Добавить ссылку
+					<?= __("index.navlist.add"); ?>
 				</a>
 			</li>
 		</ul>
 	</div>
 	<div class="span9">
 		<section id="page-list">
-                    <h2>Список ссылок в главном меню</h2>
+                    <h2><?= __("index.page-list.title"); ?></h2>
                     <? if ($links): ?>
                     <table class="table table-striped">
                             <thead>
                                     <tr>
-                                            <th>Заголовок</th>
-                                            <th>Страница</th>
-                                            <th>Вес</th>
-                                            <th>Публикация</th>
-                                            <th>Действия</th>
+                                            <th><?= __("index.page-list.table.name"); ?></th>
+                                            <th><?= __("index.page-list.table.page"); ?></th>
+                                            <th><?= __("index.page-list.table.weight"); ?></th>
+                                            <th><?= __("index.page-list.table.publication"); ?></th>
+                                            <th><?= __("index.page-list.table.actions"); ?></th>
                                     </tr>
                             </thead>
                             <tbody>
@@ -37,12 +37,12 @@
                                             <td>
                                                 <div class="btn-group">
                                                     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                                                        Action
+                                                        <?= __("index.page-list.btn-group.title"); ?>
                                                         <span class="caret"></span>
                                                     </a>
                                                     <ul class="dropdown-menu"> 
-                                                        <li><?= Html::anchor('admin/links/edit/'.$link->id.'/1', 'Edit', array()); ?>  </li>
-                                                        <li><?= Html::anchor('admin/links/delete/'.$link->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?></li>
+                                                        <li><?= Html::anchor('admin/links/edit/'.$link->id.'/1', __("index.page-list.btn-group.edit"), array()); ?>  </li>
+                                                        <li><?= Html::anchor('admin/links/delete/'.$link->id, __("index.page-list.btn-group.delete"), array('onclick' => "return confirm('Are you sure?')")); ?></li>
                                                     </ul>
                                                 </div>
                                                    
@@ -53,7 +53,7 @@
                     </table>
 
                     <? else: ?>
-                            <h2>Ссылок в главном меню пока нет</h2>
+                            <h2><?= __("index.page-list.null"); ?></h2>
                     <? endif; ?>
                 </section>
 	</div>

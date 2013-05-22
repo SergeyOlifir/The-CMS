@@ -10,7 +10,7 @@
 			<? if(isset($link->image)): ?>
 				<?= Html::img("files/{$link->image}", array('class' => 'img-polaroid')); ?>
 			<? endif; ?>
-			<?= Form::label('Изображение', 'image'); ?>
+			<?= Form::label(__("_form.input.image"), 'image'); ?>
 			<div class="input">
 				<?= Form::file("image"); ?>
 			</div>
@@ -21,13 +21,13 @@
 		<div class="clearfix">
 			<div class="input">
 				<?= Form::checkbox('public', 1, isset($link) && $link->public > 0 ? true : false);  ?>
-				<?= Form::label('Публикация', 'public'); ?>
+				<?= Form::label(__("_form.input.publication"), 'public'); ?>
 			</div>
 		</div>
 		
 		<label class="radio">
 		    <input type="radio" name="uritype" id="optionsRadios1" value="page_id" <?= (isset($link) and ($link->page_id != -1)) ? "checked" : ""; ?> >
-			Ссылка на внутреннюю страницу
+			<?= __("_form.input.link_to_internal_page"); ?>
 		</label>
 		<div class="clearfix">
 		    <div class="input">
@@ -36,7 +36,7 @@
 		</div>
 		<label class="radio">
 		    <input type="radio" name="uritype" id="optionsRadios2" value="page_uri" <?= (isset($link) and $link->page_id == -1) ? "checked" : ""; ?>>
-			Ссылка на внешнюю страницу
+			<?= __("_form.input.link_to_external_page"); ?>
 		</label>
 		<div class="input-prepend">
 		    <span class="add-on"><?= Fuel\Core\Uri::base(); ?></span>
@@ -44,14 +44,14 @@
 		</div>
 		
 		<div class="clearfix">
-			<?= Form::label('Вес', 'weight'); ?>
+			<?= Form::label(__("_form.input.weight"), 'weight'); ?>
 			<div class="input">
 				<?= Form::select('weight', Input::post('weight', isset($link) ? $link->weight : ''), $weights, array('class' => 'span8')); ?>
 			</div>
 		</div>
 			
 		<div class="actions">
-			<?= Form::submit('submit', 'Сохранить', array('class' => 'btn btn-primary btn-large')); ?>
+			<?= Form::submit('submit', __("_form.input.submit"), array('class' => 'btn btn-primary btn-large')); ?>
 		</div>
 	</fieldset>
     <?= Form::close(); ?>

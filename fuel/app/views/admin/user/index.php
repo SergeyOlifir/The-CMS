@@ -3,23 +3,23 @@
 	<ul class="nav nav-list well span2 affix">
 	    <li class="active">
 		<a href="#page-list">
-		    Cписок подьзователей
+		    <?= __("index.navlist.list"); ?>
 		</a>
 	    </li>
 	</ul>
     </div>
     <div class="span9">
 	<section id="page-list">
-	    <h2>Список пользователей</h2>
+	    <h2><?= __("index.page-list.title"); ?></h2>
 	    <?php if ($users): ?>
 		<table class="table table-striped">
 		    <thead>
 			<tr>
-			    <th>Имя</th>
-			    <th>Email</th>
-			    <th>Роль</th>
-			    <th>Дата регистрации</th>
-			    <th>Действия</th>
+			    <th><?= __("index.page-list.table.name"); ?></th>
+			    <th><?= __("index.page-list.table.email"); ?></th>
+			    <th><?= __("index.page-list.table.role"); ?></th>
+			    <th><?= __("index.page-list.table.date_registration"); ?></th>
+			    <th><?= __("index.page-list.table.actions"); ?></th>
 			</tr>
 		    </thead>
 		    <tbody>
@@ -32,13 +32,13 @@
 				<td>
 				    <div class="btn-group">
 					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-					    Action
+					    <?= __("index.page-list.btn-group.title"); ?>
 					    <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-					    <li><?= Html::anchor('admin/user/delete/'.$user->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?></li>
-					    <li><?= Html::anchor('admin/user/group/'.$user->id . '/1', 'Бан', array('onclick' => "return confirm('Are you sure?')")); ?></li>
-					    <li><?= Html::anchor('admin/user/group/'.$user->id . '/100', 'Админ', array('onclick' => "return confirm('Are you sure?')")); ?></li>
+					    <li><?= Html::anchor('admin/user/delete/'.$user->id, __("index.page-list.btn-group.delete"), array('onclick' => "return confirm('Are you sure?')")); ?></li>
+					    <li><?= Html::anchor('admin/user/group/'.$user->id . '/1', __("index.page-list.btn-group.ban"), array('onclick' => "return confirm('Are you sure?')")); ?></li>
+					    <li><?= Html::anchor('admin/user/group/'.$user->id . '/100', __("index.page-list.btn-group.admin"), array('onclick' => "return confirm('Are you sure?')")); ?></li>
 					</ul>
 				    </div>
 				</td>
@@ -47,7 +47,7 @@
 		    </tbody>
 		</table>
 	    <?php else: ?>
-		<p>No Pages.</p>
+		<p><?= __("index.page-list.null"); ?></p>
 	    <?php endif; ?>
 	</section>
     </div>

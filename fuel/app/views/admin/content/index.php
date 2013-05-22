@@ -2,19 +2,19 @@
 		<ul class="nav nav-list well span2 affix">
 			<li class="active">
 				<a href="#content-list">
-					Cписок контета
+					<?= __("index.navlist.list"); ?>
 				</a>
 			</li>
 			<li>
 				<a href="/<?= $uri; ?>">
-					Добавить контент
+					<?= __("index.navlist.add"); ?>
 				</a>
 			</li>
 		</ul>
 	</div>
 	<div class="span9">
 		<section id="content-list">
-			<h2>Список контента страницы <?= $page->name; ?></h2>
+			<h2> <?= __("index.page-list.title"); ?> <?= $page->name; ?></h2>
 			<? $contents = $page->contents; ?>
 			<?php if ($contents): ?>
 				<div class="main-metro-wrapper clearfix">
@@ -39,7 +39,7 @@
 					</ul>
 				</div>
 			<?php else: ?>
-				<p>Контента здесь пока нет. Но это дело поправимое</p>
+				<p><?= __("index.page-list.null"); ?></p>
 			<?php endif; ?>
 		</section>
 	</div>

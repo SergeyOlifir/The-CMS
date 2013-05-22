@@ -30,7 +30,7 @@
 </script>
 <section id="edit" class="well">
     <header>
-	 <h1><legend>Редактирование контента</legend></h1>
+	 <h1><legend><?= __("_form.title"); ?></legend></h1>
     </header>
     <?php echo Form::open(array('enctype'=>'multipart/form-data', 'class' => 'content-form')); ?>
 	    <fieldset>
@@ -38,7 +38,7 @@
 			    <? if(isset($content->image)): ?>
 				    <?= Html::img("files/{$content->image}", array('class' => "thumbnail")); ?>
 			    <? endif; ?>
-			    <?= Form::label('Изображение', 'image'); ?>
+			    <?= Form::label(__("_form.input.image"), 'image'); ?>
 			    <div class="input">
 				    <?= Form::file("image",array('class' => 'span8')); ?>
 			    </div>
@@ -47,13 +47,13 @@
 		    <?= isset($content) ? $content->translition_form() : Model_Content::get_translition_form(); ?>
 
 		    <div class="clearfix">
-			    <?= Form::label('Дата создания', 'date_create'); ?>
+			    <?= Form::label(__("_form.input.date-create"), 'date_create'); ?>
 			    <div class="input">
 				    <?= Form::input('date_create', Input::post('date_create', isset($content) ? Date::forge($content->date_create)->format("%m/%d/%Y", true) : Date::time()->format("%m/%d/%Y", true)), array('class' => 'span8')); ?>
 			    </div>
 		    </div>
 		    <div class="actions">
-			    <?= Form::submit('submit', 'Сохранить', array('class' => 'btn btn-primary btn-large')); ?>
+			    <?= Form::submit('submit', __("_form.input.submit"), array('class' => 'btn btn-primary btn-large')); ?>
 		    </div>
 	    </fieldset>
     <?php echo Form::close(); ?>

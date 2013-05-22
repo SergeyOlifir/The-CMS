@@ -13,8 +13,9 @@
 class Controller_Admin_Pages extends Controller_Admin_Administration 
 {
     public function before() {
-	parent::before();
-	Controller_Application::$current_page = "pages";
+		parent::before();
+		Controller_Application::$current_page = "pages";
+		Lang::load('admin/pages.php', null, 'ru');
     }
 
     public function action_index() {

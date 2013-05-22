@@ -2,17 +2,17 @@
     <ul class="nav nav-list well span2 affix" id="scroll" >
 	<li>
 	    <a href="#edit">
-		Редактирование контета
+			<?= __("edit.navlist.edit"); ?>
 	    </a>
 	</li>
 	<li>
 	    <a href="#related">
-		Связанный контент
+			<?= __("edit.navlist.related"); ?>
 	    </a>
 	</li>
 	<li>
 	    <a href="#galery">
-		Галерея
+			<?= __("edit.navlist.galery"); ?>
 	    </a>
 	</li>
     </ul>
