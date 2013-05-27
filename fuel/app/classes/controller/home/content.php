@@ -51,7 +51,7 @@ class Controller_Home_Content extends Controller_Home {
 			\Fuel\Core\Session::delete('tile');
 		}
 		if(isset($category)) {
-			Fuel\Core\Response::redirect("home/category/view/{$category}");
+			Fuel\Core\Response::redirect("home/pages/view/{$category}");
 		}
 		Fuel\Core\Response::redirect("home/content");
 	}

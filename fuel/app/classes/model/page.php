@@ -78,19 +78,22 @@ class Model_Page extends Model_Translition {
 	}
 	
 	
-	protected function get_content() {
+	public function get_content($limit = null, $offset = null) {
 	     $result =  \Fuel\Core\DB::select()
 		    ->from(Model_Content::table())
 		    ->join('categories_in_page')
 		    ->on('categories_in_page.category_id', '=', Model_Content::table() . '.page_id')
-		    //->join(self::table())
-		    //->on('categories_in_page.owner_id', '=', self::table() . '.id')
-		    //->where(self::table() . '.id', 'IS', null)
-		    ->where('categories_in_page.owner_id', '=', $this->id)
-		    ->select_array(Model_Content::getTablesRow())
-		    ->as_object('Model_Content')
-		    ->execute();
-	    return $result;
+		    ->where('categories_in_page.owner_id', '=', $this->id);
+		    if ($limit) {
+		    	$result->limit($limit);
+		    } 
+		    if ($offset) {
+		    	$result->offset($offset);
+		    }
+		    $result->select_array(Model_Content::getTablesRow())
+		    ->as_object('Model_Content');
+		   // ->execute();
+	    return $result->execute();
 	}
 
 	protected function get_category() {
