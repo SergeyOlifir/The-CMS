@@ -73,7 +73,7 @@ class Model_Content extends Model_Translition
 			'label' => 'Имя',
                         'placeholder' => 'Имя',
 		),
-                'short_description' => array(
+        'short_description' => array(
 			'wiget' => 'textarea',
 			'label' => 'Краткое описание',
                         'placeholder' => 'Краткое описание',
@@ -82,6 +82,11 @@ class Model_Content extends Model_Translition
 			'wiget' => 'textarea',
 			'label' => 'Описание',
                         'placeholder' => 'Описание',
+		),
+		'more_description' => array(
+			'wiget' => 'textarea',
+			'label' => 'Дополнительное описание',
+						'placeholder' => 'Дополнительное описание',
 		)
 	);
 

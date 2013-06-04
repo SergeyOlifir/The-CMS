@@ -4,4 +4,5 @@ $(function(){
 		'visible': 6,
 		'hoverPause': true
 	}); 
+	$('.advertising').outerHeight($('.content-and-social-button').outerHeight());
 });

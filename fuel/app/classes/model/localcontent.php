@@ -10,6 +10,7 @@ class Model_Localcontent extends Model_Base
 		'name',
 		'description',
 		'short_description',
+		'more_description',
 		'header',
                 'table',
 		'created_at',

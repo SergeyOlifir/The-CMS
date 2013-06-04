@@ -135,7 +135,6 @@ a {
 
 .all-wrapper {
 	width: 1000px;
-	min-height: 624px;
 	margin: 0 auto;
 }
 
@@ -256,6 +255,7 @@ a {
 
 .important_information {
 	width: 410px;
+	margin-bottom: 15px;
 }
 
 .important_information .name h1, .app-categories .name h1 {
@@ -311,14 +311,15 @@ a {
 .app-categories ul li .description {
 	height: 50px;
 	padding-top: 4px;
-}
-
-.app-categories ul li .description {
-	background-color: #cc0000;
+	background: url("../../../img/templates/carusel/btn_more.png") no-repeat scroll 147px 15px;
 }
 
 .important_information ul li .description {
 	background-color: #336600;
+}
+
+.app-categories ul li .description {
+	background-color: #cc0000;
 }
 
 .important_information ul li .description h1 {
@@ -353,6 +354,7 @@ a {
 
 .app-categories {
 	width: 590px;
+	margin-bottom: 15px;
 }
 
 #footer {
@@ -364,6 +366,7 @@ a {
 	-webkit-box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.3);
 	box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.3); 
 	padding: 0 35px 0 50px;
+	clear: both;
 }
 
 #footer ul.social {
@@ -433,10 +436,10 @@ a {
 	color: #cc0000;
 	font-weight: bold;
 	font-size: 17pt;
-	margin: 3px 32px 0 20px;
 	line-height: 30px;
 	text-shadow: 1px 1px 1px #555;
 	display: inline-block;
+	margin: 3px 32px 0 20px;
 }
 
 .projects .name a {
@@ -534,4 +537,111 @@ a {
 .pagination span:hover, .pagination span.active {
     background-color: #cc0000;
     border: 1px solid #FFFFFF;
+}
+
+.submenu {
+	color: #cc0000;
+	font-weight: bold;
+	line-height: 27px;
+	text-shadow: 1px 1px 1px #555;
+}
+.submenu h1 {
+	font-size: 17pt;
+	display: inline-block;
+	margin: 3px 10px 0 20px;
+	line-height: 27px;
+}
+
+.submenu h2 {
+	font-size: 11.5pt;
+	margin: 3px 15px 0 10px;
+	display: inline-block;
+	line-height: 27px;
+}
+
+.submenu h2.category {
+	text-decoration: underline;
+}
+
+.content-and-social-button {
+	width: 750px;
+	background: url("../../../img/templates/carusel/more.png") no-repeat scroll right bottom;
+	background-color: rgba(255,255,255,0.8);
+	border-radius: 15px;
+	-webkit-box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.3);
+	box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.3); 
+	margin-bottom: 20px;
+}
+
+.advertising {
+	width: 220px;
+	height: 100%;
+	background-color: rgba(255,255,255,0.8);
+	border-radius: 15px;
+	-webkit-box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.3);
+	box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.3); 
+	overflow: hidden;
+}
+
+.single-content .preview {
+	padding: 15px 15px 5px 12px;
+	background-color: rgba(255,255,255,0.8);
+	border-radius: 15px;
+	-webkit-box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.5);
+	box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.5); 
+}
+
+.single-content .preview header h1,
+.projects.related_content header.name h1 {
+	margin: 3px 0 3px 0;
+	line-height: 27px;
+	color: #cc0000;
+}
+
+.single-content .preview header h1 {
+	font-size: 19pt;
+}
+
+.projects.related_content header h1 {
+	font-size: 17pt;
+}
+
+.single-content .preview .carousel-inner {
+	width: 500px;
+	height: 260px;
+	float: left;
+	margin: 0 12px 12px 0;
+}
+
+.single-content .description {
+	padding: 12px 15px 5px 12px;
+	border-bottom: 1px solid #cc0000;
+}
+
+.single-content .short_description,
+.single-content .description {
+	color: #555;
+	font-size: 9pt;
+}
+
+#social-buttons {
+	height: 50px;
+}
+
+#social-buttons .fb-like {
+	margin: 15px 47px 0 45px;
+}
+
+.content-and-social-button .carousel {
+	margin-bottom: 0;
+}
+
+.projects.related_content {
+	border-bottom: 1px solid #cc0000;
+	padding: 15px 15px 5px 15px;
+	width: 720px;
+}
+
+.projects.related_content ul {
+	padding-left: 57px;
 }
