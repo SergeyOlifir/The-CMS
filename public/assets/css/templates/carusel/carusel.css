@@ -624,6 +624,10 @@ a {
 	font-size: 9pt;
 }
 
+.short_description {
+    min-height: 275px;
+}
+
 #social-buttons {
 	height: 50px;
 }
