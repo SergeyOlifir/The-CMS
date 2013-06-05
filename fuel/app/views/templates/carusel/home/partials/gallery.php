@@ -14,25 +14,16 @@
     </ol>
     <div class="carousel-inner">
 		<div class="active item">
-		    <?= Html::img("assets/img/templates/carusel/img_slideshow_01.png"); ?>
+		    <?= Html::img("assets/img/templates/carusel/img_slideshow_01.jpg"); ?>
 		</div>
 		<div class="item">
-		    <?= Html::img("assets/img/templates/carusel/img_slideshow_01.png"); ?>
+		    <?= Html::img("assets/img/templates/carusel/img_slideshow_02.jpg"); ?>
 		</div>
 		<div class="item">
-		    <?= Html::img("assets/img/templates/carusel/img_slideshow_01.png"); ?>
+		    <?= Html::img("assets/img/templates/carusel/img_slideshow_03.jpg"); ?>
 		</div>
 		<div class="item">
-		    <?= Html::img("assets/img/templates/carusel/img_slideshow_01.png"); ?>
-		</div>
-		<div class="item">
-		    <?= Html::img("assets/img/templates/carusel/img_slideshow_01.png"); ?>
-		</div>
-		<div class="item">
-		    <?= Html::img("assets/img/templates/carusel/img_slideshow_01.png"); ?>
-		</div>
-		<div class="item">
-		    <?= Html::img("assets/img/templates/carusel/img_slideshow_01.png"); ?>
+		    <?= Html::img("assets/img/templates/carusel/img_slideshow_04.jpg"); ?>
 		</div>
     </div>
     <a class="carousel-control left" href="#Carousel" data-slide="prev">&lsaquo;</a>

@@ -44,13 +44,13 @@
                 <?= Html::img("assets/img/templates/carusel/faberge.jpg"); ?>
               </li>
               <li>
-                <?= Html::img("assets/img/templates/carusel/appolo.jpg"); ?>
+                <?= Html::img("assets/img/templates/carusel/zhitnitsa.jpg"); ?>
               </li>
               <li>
-                <?= Html::img("assets/img/templates/carusel/agro.jpg"); ?>
+                <?= Html::img("assets/img/templates/carusel/kandibur.jpg"); ?>
               </li>
               <li>
-                <?= Html::img("assets/img/templates/carusel/dentim.jpg"); ?>
+                <?= Html::img("assets/img/templates/carusel/faberge.jpg"); ?>
               </li>
               <li>
                 <?= Html::img("assets/img/templates/carusel/zhitnitsa.jpg"); ?>
