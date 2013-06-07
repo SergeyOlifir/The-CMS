@@ -3,7 +3,7 @@
 ?>
 <section class="important_information left clearfix">
     <header class="name">
-        <h1>Важная информация фестиваля</h1>
+        <h1><a href="/home/pages/view/about">Важная информация фестиваля</a></h1>
     </header>
     <ul>
         <li class="registration left">

@@ -280,6 +280,15 @@ header.name h1 a:hover {
 	color: #336600;
 }
 
+.important_information .name h1 a {
+	color: #336600;
+}
+
+.important_information .name h1 a:hover {
+	color: #336600;
+	text-decoration: none;
+}
+
 .app-categories .name h1 {
 	color: #cc0000;
 }
