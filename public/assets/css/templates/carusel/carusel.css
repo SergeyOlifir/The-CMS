@@ -455,21 +455,22 @@ header.name h1 a:hover {
 
 .projects .name h1 {
 	color: #cc0000;
-	font-weight: bold;
-	font-size: 17pt;
+	font-weight: normal;
+	font-size: 15pt;
 	line-height: 30px;
-	text-shadow: 1px 1px 1px #555;
-	display: inline-block;
-	margin: 3px 32px 0 20px;
+	text-shadow: 1px 1px 1px #656565;
+	display: block;
+	margin: 5px 25px 3px 20px;
 }
 
 .projects .name a {
 	background-repeat: no-repeat;
-    display: inline-block;
-    height: 15px;
-    margin-right: 10px;
-    text-indent: -99999px;
-    width: 23px;
+	display: block;
+	height: 15px;
+	margin-right: 5px;
+	margin-top: 15px 
+	text-indent: -99999px;
+	width: 23px;
 }
 
 .projects a.tile {

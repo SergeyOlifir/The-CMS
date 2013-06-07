@@ -1,8 +1,8 @@
 <section class="projects wrapper-padding clearfix">
-    <header class="name">
-        <h1><?= $page->header; ?></h1>
-        <?= \Fuel\Core\Html::anchor("home/content/change/tile/{$page->alias}", "Tile", array('class' => 'tile')); ?>
-        <?= \Fuel\Core\Html::anchor("home/content/change/list/{$page->alias}", "List", array('class' => 'list')); ?>
+    <header class="name clearfix">
+        <h1 class="left"><?= $page->header; ?></h1>
+        <?= \Fuel\Core\Html::anchor("home/content/change/tile/{$page->alias}", "Tile", array('class' => 'tile left')); ?>
+        <?= \Fuel\Core\Html::anchor("home/content/change/list/{$page->alias}", "List", array('class' => 'list left')); ?>
     </header>
     <? foreach ($content as $project): ?>
         <article class="project clearfix">
