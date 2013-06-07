@@ -501,8 +501,8 @@ header.name h1 a:hover {
 
 .white-block h1 {
 	color: #cc0000;
-	font-weight: bold;
-	font-size: 17pt;
+	font-weight: normal;
+	font-size: 19pt;
 	line-height: 20px;
 }
 
