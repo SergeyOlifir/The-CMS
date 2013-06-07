@@ -15,7 +15,7 @@
                     <header class="description">
                         <h1>
                             <span>Регистрация</span>
-                            участников и партнеров
+                            для участников
                         </h1>
                     </header>
                 </article>
@@ -41,7 +41,7 @@
 <? if(isset($contents)): ?>
     <section class='app-categories wrapper-padding left clearfix'>
         <header class="name">
-            <h1>Новости проекта</h1>
+            <h1><a href="/home/pages/view/news">Новости проекта</a></h1>
         </header>
         <ul class="clearfix">
             <? foreach($contents as $content): ?>
