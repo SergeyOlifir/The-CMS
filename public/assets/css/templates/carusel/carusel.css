@@ -306,9 +306,7 @@ header.name h1 a:hover {
 	overflow: hidden;
 }
 
-article.single-content {
-	margin-bottom: 20px;
-}
+
 
 .app-categories ul li:last-child {
 	margin-right: 0;
@@ -639,7 +637,7 @@ article.single-content {
 }
 
 .single-content .description {
-	padding: 12px 15px 5px 12px;
+	padding: 12px 15px 20px 12px;
 	border-bottom: 1px solid #cc0000;
 }
 
