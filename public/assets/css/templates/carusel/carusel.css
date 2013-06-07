@@ -133,6 +133,16 @@ a {
 	background: url("../../../img/templates/carusel/contacts_activ.png") no-repeat scroll center 0 transparent;
 }
 
+header.name h1 a {
+	color: #cc0000;
+}
+
+header.name h1 a:hover {
+	color: #cc0000;
+	text-decoration: none;
+}
+
+
 .all-wrapper {
 	width: 1000px;
 	margin: 0 auto;
