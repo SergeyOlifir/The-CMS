@@ -32,7 +32,7 @@
           <?= TCTheme::render("header",array()); ?>
       </header>
       <section class="title-content clearfix">
-        <a class="mail left" href="mailto:e-mail@mail.ru" target="_blank">e-mail@mail.ru</a>
+        <a class="mail left" href="mailto:e-mail@" target="_blank">e-mail@mail.ru</a>
         <span class="title-column left">Участники и партнеры фестиваля</span>
         <div class="wrapper-carousel-partners clearfix">
           <div class="carousel-partners">

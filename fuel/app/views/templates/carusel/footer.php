@@ -7,7 +7,7 @@
             <a class="vk" target="_blank" href="#"></a>
         </li>
     </ul>
-    <a class="mail left" href="mailto:e-mail@mail.ru" target="_blank">e-mail@mail.ru</a>
+    <a class="mail left" href="mailto:e-mail@" target="_blank">e-mail@</a>
     <ul class="footer-menu clearfix right">
         <li>
             <?= Controller_Application::$current_page == "Home" ? \Fuel\Core\Html::anchor("/", "Главная", array('class' => 'active')) :  \Fuel\Core\Html::anchor("/", "Главная"); ?>
