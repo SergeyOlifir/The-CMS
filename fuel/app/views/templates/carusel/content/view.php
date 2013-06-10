@@ -87,6 +87,7 @@
 		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 		  })();
 		</script>
+		<?= \Fuel\Core\Html::anchor("#", '', array('class' => 'back-link')); ?>
 	</div>
 </section>
 <script>$('.carousel').carousel();</script>
