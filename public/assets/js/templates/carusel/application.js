@@ -4,5 +4,19 @@ $(function(){
 		'visible': 6,
 		'hoverPause': true
 	}); 
-	$('.advertising').outerHeight($('.content-and-social-button').outerHeight());
+	$('.fancybox').fancybox({
+		closeBtn  : true,
+
+		helpers : {
+			title : {
+				type : 'inside'
+			},
+			buttons: {
+				position : 'top'
+			}
+		},
+		afterLoad : function() {
+			this.title = (this.index + 1) + ' / ' + this.group.length + (this.title ? ' - ' + this.title : '');
+		}
+	});
 });

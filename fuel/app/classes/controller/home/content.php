@@ -34,10 +34,10 @@ class Controller_Home_Content extends Controller_Home {
 	
 	}
 	
-	function action_view($id = null) {
+	function action_view($id = null, $page_alias = null) {
 		!isset($id) and Fuel\Core\Response::redirect('/');
 		if($content = Model_Content::find($id)) {
-			$this->template->content = TCTheme::load_view('content/view', array('content' => $content));
+			$this->template->content = TCTheme::load_view('content/view', array('content' => $content, 'page_alias' => $page_alias));
 		} else {
 			Fuel\Core\Response::redirect('/');
 		}

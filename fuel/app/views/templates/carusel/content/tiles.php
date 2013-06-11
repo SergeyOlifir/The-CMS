@@ -7,7 +7,7 @@
     <ul class="clearfix">
     	<? foreach ($content as $project): ?>
             <li class="category left">
-                <a href="/home/content/view/<?= $project->id; ?>">
+                <a href="/home/content/view/<?= $project->id.'/'.$page->alias; ?>">
                     <article>
                         <div class="img-wrapper">
                             <?= Html::img("files/{$project->image}"); ?>

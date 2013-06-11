@@ -17,7 +17,10 @@
                     <?= Str::truncate($project['description'], 310, '...'); ?>
                 </div>
             </div>
-            <?= \Fuel\Core\Html::anchor("/home/content/view/{$project->id}", $project['name'], array('class' => 'more-link')); ?>
+            <?  if ($page->alias != null) {
+                    echo \Fuel\Core\Html::anchor("/home/content/view/{$project->id}/{$page->alias}", $project['name'], array('class' => 'more-link')); 
+                }
+            ?>
         </article>
     <? endforeach; ?>
 </section>

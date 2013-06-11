@@ -567,13 +567,13 @@ header.name h1 a:hover {
 
 .submenu {
 	color: #CC0000;
-    	font-weight: normal;
+    font-weight: normal;
 	line-height: 27px;
-    	text-shadow: 1px 1px 1px #656565;
+    text-shadow: 1px 1px 1px #656565;
 }
 .submenu h1 {
 	font-size: 15pt;
-        font-weight: normal;
+    font-weight: normal;
 	display: inline-block;
 	margin: 3px 10px 0 20px;
 	line-height: 27px;
@@ -586,7 +586,9 @@ header.name h1 a:hover {
 	line-height: 27px;
 }
 
-.submenu h2.category {
+.submenu .category {
+	color: #CC0000;
+	text-shadow: 1px 1px 1px #656565;
 	text-decoration: underline;
 }
 
@@ -596,7 +598,6 @@ header.name h1 a:hover {
 	border-radius: 15px;
 	-webkit-box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.3);
 	box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.3); 
-	margin-bottom: 20px;
 }
 
 .content-and-social-button #social-buttons .back-link {
@@ -622,6 +623,7 @@ header.name h1 a:hover {
 	-webkit-box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.3);
 	box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.3); 
 	overflow: hidden;
+	margin-left: 30px;
 }
 
 .single-content .preview {
@@ -651,34 +653,45 @@ header.name h1 a:hover {
 	font-size: 17pt;
 }
 
-.single-content .preview .carousel-inner {
+#content-carousel {
 	width: 500px;
 	height: 260px;
-	float: left;
 	margin: 0 12px 12px 0;
+	float: left;
+}
+
+.single-content .preview .carousel-inner {
+	width: 100%;
+	height: 100%;
 }
 
 .single-content .description {
+	clear: both;
 	padding: 12px 15px 20px 12px;
 	border-bottom: 1px solid #cc0000;
+}
+
+.short_description {
+	width: 211px;
+	float: right;
 }
 
 .single-content .short_description,
 .single-content .description {
 	color: #555;
 	font-size: 10pt;
-        font-weight: normal;
+    font-weight: normal;
 }
 
 article.single-content h2 {
 	font-size: 19pt;
 	color: #454545;
-        font-weight: normal;
+    font-weight: normal;
 	line-height: 20px;
 }
 
-.short_description {
-    min-height: 275px;
+.preview {
+    min-height: 301px;
 }
 
 #social-buttons {
@@ -698,5 +711,18 @@ article.single-content h2 {
 	border-bottom: 1px solid #cc0000;
 	padding: 15px 15px 5px 15px;
 	width: 720px;
+}
+.fancybox-image {
+	max-width: 800px !important;
+	height: auto !important;
+}
+
+table.content tr {
+	height: 100%;
+}
+
+table.content td {
+	padding-bottom: 20px;
+	height: 100%;
 }
 
