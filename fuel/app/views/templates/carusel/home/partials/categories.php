@@ -46,7 +46,7 @@
         <ul class="clearfix">
             <? foreach($contents as $content): ?>
                 <li class="category left">
-                    <a href="/home/content/view/<?= $content->id; ?>">
+                    <a href="/home/content/view/<?= $content->id; ?>/news">
                         <article>
                             <div class="img-wrapper">
                                 <?= Html::img("files/{$content->image}"); ?>
