@@ -193,6 +193,7 @@ header.name h1 a:hover {
 	text-align: center;
 	width: 150px;
 	margin: 0 5px;
+	height: 50px !important;
 }
 
 .title-page {
@@ -711,18 +712,26 @@ article.single-content h2 {
 	border-bottom: 1px solid #cc0000;
 	padding: 15px 15px 5px 15px;
 	width: 720px;
+	margin-bottom: 0px;
 }
+
 .fancybox-image {
 	max-width: 800px !important;
 	height: auto !important;
+}
+
+table.content {
+	position: relative;
+	margin-bottom: 20px;
 }
 
 table.content tr {
 	height: 100%;
 }
 
-table.content td {
-	padding-bottom: 20px;
-	height: 100%;
+table.content td:nth-child(2) {
+	vertical-align: top;
+	position: absolute;
+	height: inherit;
 }
 
