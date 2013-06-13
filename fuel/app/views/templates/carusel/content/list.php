@@ -7,7 +7,7 @@
     <? foreach ($content as $project): ?>
         <article class="project clearfix">
             <div class="logo-wrapper left">
-                <a href="/home/content/view/<?= $project->id.'/'.$page->alias; ?>">
+                <a href="/home/content/view/<?= $project->id; ?>">
                     <?= Html::img("files/{$project['image']}"); ?>
                 </a>
             </div>
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <?  if ($page->alias != null) {
-                    echo \Fuel\Core\Html::anchor("/home/content/view/{$project->id}/{$page->alias}", $project['name'], array('class' => 'more-link')); 
+                    echo \Fuel\Core\Html::anchor("/home/content/view/{$project->id}", $project['name'], array('class' => 'more-link')); 
                 }
             ?>
         </article>

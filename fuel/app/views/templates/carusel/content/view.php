@@ -8,8 +8,8 @@
 }(document, 'script', 'facebook-jssdk'));
 </script>
 <section class="submenu">
-    <h1>
-    	<?= \Fuel\Core\Html::anchor("/home/pages/view/{$page_alias}", $content->category->name, array('class' => 'category')); ?>
+    <h1 class="category">
+    	<?= $content->category->name; ?>
 	</h1> - 
     <h2><?= $content->name; ?></h2>
     <h2 class="right">Рекламные места проекта</h2>
@@ -98,7 +98,7 @@
 					    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 					  })();
 					</script>
-					<?= \Fuel\Core\Html::anchor("/home/pages/view/{$page_alias}", '', array('class' => 'back-link')); ?>
+					<div class='back-link'></div>
 				</div>
 			</section>
 		</td>

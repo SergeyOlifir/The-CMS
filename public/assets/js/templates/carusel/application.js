@@ -19,4 +19,7 @@ $(function(){
 			this.title = (this.index + 1) + ' / ' + this.group.length + (this.title ? ' - ' + this.title : '');
 		}
 	});
+	$('.content-and-social-button #social-buttons .back-link').click(function(){
+		history.back();
+	})
 });

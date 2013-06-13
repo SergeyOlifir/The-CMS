@@ -307,13 +307,14 @@ header.name h1 a:hover {
 .important_information ul li, .app-categories ul li {
 	list-style: none outside none;
 	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-o-border-radius: 15px;
+	-webkit-border-radius: 15px;
 	box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.3);
 	width: 180px;
 	margin-right: 25px;
 	overflow: hidden;
 }
-
-
 
 .app-categories ul li:last-child {
 	margin-right: 0;
@@ -622,12 +623,12 @@ header.name h1 a:hover {
 .content-and-social-button #social-buttons .back-link {
 	background: url("../../../img/templates/carusel/more_no_active.png") no-repeat scroll 0 0 transparent;
 	bottom: 0;
-	display: block;
 	height: 50px;
 	position: absolute;
 	right: 0;
 	width: 50px;
 	text-indent: -999999px;
+	cursor: pointer;
 }
 
 .content-and-social-button #social-buttons .back-link:hover {

@@ -5,32 +5,32 @@
     <div class="carousel-partners">
       <ul>
         <li>
-          <a href="/home/content/view/5/organizers">
+          <a href="/home/content/view/5">
             <?= Html::img("assets/img/templates/carusel/kandibur.jpg"); ?>
           </a>
         </li>
         <li>
-          <a href="/home/content/view/4/organizers">
+          <a href="/home/content/view/4">
             <?= Html::img("assets/img/templates/carusel/faberge.jpg"); ?>
           </a>
         </li>
         <li>
-          <a href="/home/content/view/8/partners">
+          <a href="/home/content/view/8">
             <?= Html::img("assets/img/templates/carusel/zhitnitsa.jpg"); ?>
           </a>
         </li>
         <li>
-          <a href="/home/content/view/5/organizers">
+          <a href="/home/content/view/5">
             <?= Html::img("assets/img/templates/carusel/kandibur.jpg"); ?>
           </a>
         </li>
         <li>
-          <a href="/home/content/view/4/organizers">
+          <a href="/home/content/view/4">
             <?= Html::img("assets/img/templates/carusel/faberge.jpg"); ?>
           </a>
         </li>
         <li>
-          <a href="/home/content/view/8/partners">
+          <a href="/home/content/view/8">
             <?= Html::img("assets/img/templates/carusel/zhitnitsa.jpg"); ?>
           </a>
         </li>
