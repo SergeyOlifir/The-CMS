@@ -374,9 +374,9 @@ header.name h1 a:hover {
 }
 
 .app-categories ul li .description .date {
-	font-size: 11pt;
+	font-size: 10pt;
 	color: #fff;
-	margin: 5px 0 0 15px;
+	margin: 2px 0 0 15px;
 }
 
 .important_information ul li img,
@@ -522,7 +522,7 @@ header.name h1 a:hover {
 .white-block .date {
 	font-size: 11pt;
 	color: #555;
-	margin: -7px 0 14px 3px;
+	margin: -8px 0 10px 3px;
 }
 
 .white-block .description {
