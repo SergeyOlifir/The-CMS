@@ -7,7 +7,7 @@
     </header>
     <ul>
         <li class="registration left">
-            <a href="#">
+            <a href="/home/content/view/2/about">
                 <article>
                     <div class="img-wrapper">
                         <?= Html::img("assets/img/templates/carusel/img_registration.png"); ?>
@@ -22,7 +22,7 @@
             </a>
         </li>
         <li class="programma left">
-            <a href="#">
+            <a href="/home/content/view/3/about">
                 <article>
                     <div class="img-wrapper">
                         <?= Html::img("assets/img/templates/carusel/img_programma.png"); ?>

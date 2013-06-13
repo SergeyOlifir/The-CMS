@@ -5,22 +5,34 @@
     <div class="carousel-partners">
       <ul>
         <li>
-          <?= Html::img("assets/img/templates/carusel/kandibur.jpg"); ?>
+          <a href="/home/content/view/5/organizers">
+            <?= Html::img("assets/img/templates/carusel/kandibur.jpg"); ?>
+          </a>
         </li>
         <li>
-          <?= Html::img("assets/img/templates/carusel/faberge.jpg"); ?>
+          <a href="/home/content/view/4/organizers">
+            <?= Html::img("assets/img/templates/carusel/faberge.jpg"); ?>
+          </a>
         </li>
         <li>
-          <?= Html::img("assets/img/templates/carusel/zhitnitsa.jpg"); ?>
+          <a href="/home/content/view/8/partners">
+            <?= Html::img("assets/img/templates/carusel/zhitnitsa.jpg"); ?>
+          </a>
         </li>
         <li>
-          <?= Html::img("assets/img/templates/carusel/kandibur.jpg"); ?>
+          <a href="/home/content/view/5/organizers">
+            <?= Html::img("assets/img/templates/carusel/kandibur.jpg"); ?>
+          </a>
         </li>
         <li>
-          <?= Html::img("assets/img/templates/carusel/faberge.jpg"); ?>
+          <a href="/home/content/view/4/organizers">
+            <?= Html::img("assets/img/templates/carusel/faberge.jpg"); ?>
+          </a>
         </li>
         <li>
-          <?= Html::img("assets/img/templates/carusel/zhitnitsa.jpg"); ?>
+          <a href="/home/content/view/8/partners">
+            <?= Html::img("assets/img/templates/carusel/zhitnitsa.jpg"); ?>
+          </a>
         </li>
       </ul>
     </div>

@@ -83,7 +83,8 @@ class Model_Page extends Model_Translition {
 		    ->from(Model_Content::table())
 		    ->join('categories_in_page')
 		    ->on('categories_in_page.category_id', '=', Model_Content::table() . '.page_id')
-		    ->where('categories_in_page.owner_id', '=', $this->id);
+		    ->where('categories_in_page.owner_id', '=', $this->id)
+		    ->order_by(Model_Content::table() . '.date_create', 'desc');
 		    if ($limit) {
 		    	$result->limit($limit);
 		    } 
