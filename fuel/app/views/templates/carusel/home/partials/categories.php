@@ -51,11 +51,18 @@
                             <div class="img-wrapper">
                                 <?= Html::img("files/{$content->image}"); ?>
                             </div>
-                            <header class="description">
-                                <h1>
-                                    <?= Str::truncate($content->name, 30, '...'); ?>
-                                </h1>
-                            </header>
+                            <div class="description">
+                                <header>
+                                    <h1>
+                                        <?= Str::truncate($content->name, 30, '...'); ?>
+                                    </h1>
+                                </header>
+                                <? if ($content->category->public_data == 1): ?>
+                                    <div class="date">
+                                        <?= Date::forge($content->date_create)->format("%d.%m.%y", true); ?>
+                                    </div>
+                                <? endif; ?>
+                            </div>
                         </article>
                     </a>
                 </li>
