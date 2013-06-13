@@ -7,14 +7,21 @@
     <? foreach ($content as $project): ?>
         <article class="project clearfix">
             <div class="logo-wrapper left">
-                <?= Html::img("files/{$project['image']}"); ?>
+                <a href="/home/content/view/<?= $project->id.'/'.$page->alias; ?>">
+                    <?= Html::img("files/{$project['image']}"); ?>
+                </a>
             </div>
             <div class="white-block left clearfix">
+                <? if ($project->category->public_data == 1): ?>
+                    <div class="date">
+                        <?= Date::forge($project['date_create'])->format("%d.%m.%y", true); ?>
+                    </div>
+                <? endif; ?>
                 <header>
                     <h1><?= $project['name']; ?></h1>
                 </header>
                 <div class="description">
-                    <?= Str::truncate($project['description'], 310, '...'); ?>
+                    <?= Str::truncate($project['description'], 306, '...'); ?>
                 </div>
             </div>
             <?  if ($page->alias != null) {

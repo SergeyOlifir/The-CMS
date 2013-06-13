@@ -54,6 +54,12 @@ a {
 	margin: 29px 62px 0 50px;
 }
 
+#header h1 .logo {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
 #header .menu {
 	display: table-row;
 	margin: 20px 0 0 0;
@@ -347,7 +353,7 @@ header.name h1 a:hover {
 .important_information ul li .description h1 {
 	font-size: 10pt;
 	font-weight: normal;
-	margin: 0 0 0 20px;
+	margin: 0 0 0 15px;
 	line-height: 22px;
 	height: 50px;
 }
@@ -364,7 +370,13 @@ header.name h1 a:hover {
 }
 
 .app-categories ul li .description h1 {
-	margin: 0 20px;
+	margin: 0 15px;
+}
+
+.app-categories ul li .description .date {
+	font-size: 11pt;
+	color: #fff;
+	margin: 5px 0 0 15px;
 }
 
 .important_information ul li img,
@@ -507,9 +519,15 @@ header.name h1 a:hover {
 	line-height: 20px;
 }
 
+.white-block .date {
+	font-size: 11pt;
+	color: #555;
+	margin: -7px 0 14px 3px;
+}
+
 .white-block .description {
-	font-size: 10pt;
-	color: #666;
+	font-size: 11pt;
+	color: #555;
 }
 
 .project .logo-wrapper {
@@ -735,3 +753,17 @@ table.content td:nth-child(2) {
 	height: inherit;
 }
 
+#content-carousel .carousel-indicators {
+	top: 240px;
+}
+
+#content-carousel .carousel-indicators .active {
+	background-color: #cc0000;
+}
+
+#content-carousel .carousel-indicators li {
+	background-color: #fff;
+	border: 1px solid #cc0000;
+	height: 8px;
+	width: 8px;
+}

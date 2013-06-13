@@ -34,7 +34,7 @@
 							<? $i = 0; ?> 
 							<? foreach($content->images as $image): ?>
 							    <div class="<?= $i == 0 ? 'active' : '' ?> item">
-								<a class="fancybox" href="<?= Fuel\Core\Uri::base() . "files/{$image->galery}" ?>"><?= Html::img("files/{$image->galery}"); ?></a>
+								<a class="fancybox" data-fancybox-group="button" href="<?= Fuel\Core\Uri::base() . "files/{$image->full}" ?>"><?= Html::img("files/{$image->galery}"); ?></a>
 							    </div>
 							    <? $i++; ?>
 							<? endforeach; ?>
@@ -110,4 +110,6 @@
 	</tr>
 </table>
 
-<script>$('.carousel').carousel();</script>
+<script>$('.carousel').carousel({
+	interval: 2000
+});</script>
