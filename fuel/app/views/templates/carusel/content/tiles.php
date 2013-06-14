@@ -10,7 +10,7 @@
                 <a href="/home/content/view/<?= $project->id; ?>">
                     <article>
                         <div class="img-wrapper">
-                            <?= Html::img("files/{$project->image}"); ?>
+                            <?= Html::img("files/{$project->logo->tile}"); ?>
                         </div>
                         <div class="description">
                             <header>

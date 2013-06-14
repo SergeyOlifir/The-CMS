@@ -12,9 +12,13 @@ return array(
 			'type_whitelist' => array('image')
 		),
 		'sizes' => array(
-			'small' => array(
-				'width'  => 200,
-				'height' => 200
+			'list' => array(
+				'width'  => 270,
+				'height' => 150,
+			),
+			'tile' => array(
+				'width'  => 180,
+				'height' => 100,
 			),
 		)
 	),

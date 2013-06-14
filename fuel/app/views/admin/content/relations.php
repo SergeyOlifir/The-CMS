@@ -8,7 +8,7 @@
 	    <? foreach ($related_contents as $related): ?>
 		<div class="tile left smoll content">
 			<div class="related-wrapper img-polaroid">
-				<?= Html::img("files/{$related->image}"); ?>
+				<?= Html::img("files/{$related->logo->list}"); ?>
 				<h3><?= $related->name; ?></h3>
 			</div>
 			<div class="overlay"></div>

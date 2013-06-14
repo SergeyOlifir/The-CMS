@@ -91,6 +91,12 @@ body {
     width: 250px;
 }
 
+.main-metro-wrapper .tile .related-wrapper img,
+.main-metro-wrapper .thumbnail .thumbnail-wrapper img {
+    width: 80%;
+    height: auto;
+}
+
 .main-metro-wrapper .tile .buttons-area,
 .main-metro-wrapper .thumbnail .buttons-area {
 	position: absolute;

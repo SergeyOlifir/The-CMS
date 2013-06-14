@@ -306,14 +306,21 @@ header.name h1 a:hover {
 
 .important_information ul li, .app-categories ul li {
 	list-style: none outside none;
-	border-radius: 15px;
 	-moz-border-radius: 15px;
-	-o-border-radius: 15px;
 	-webkit-border-radius: 15px;
+	border-radius: 15px;
 	box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.3);
-	width: 180px;
 	margin-right: 25px;
 	overflow: hidden;
+	width: 180px;
+	display: block;
+}
+
+.important_information ul li a, .app-categories ul li a {
+	overflow: hidden;
+	width: 180px;
+	height: 154px;
+	display: block;
 }
 
 .app-categories ul li:last-child {
@@ -578,6 +585,7 @@ header.name h1 a:hover {
 .pagination span a {
     color: #A7A7A7;
     text-decoration: none;
+    display: block;
 }
 
 .pagination span:hover, .pagination span.active {

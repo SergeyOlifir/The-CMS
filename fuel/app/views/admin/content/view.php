@@ -11,7 +11,7 @@
 	<?php echo $localcontent->short_description; ?></p>
 <p>
 	<strong><?= __("view.image"); ?></strong>
-	<?php echo $content->image; ?></p>
+	<?php echo $content->logo->tile; ?></p>
 <p>
 	<strong><?= __("view.page-id"); ?></strong>
 	<?php echo $content->page_id; ?></p>

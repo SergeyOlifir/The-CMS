@@ -41,6 +41,7 @@ class Controller_Admin_Content extends Controller_Admin_Administration {
 		    if (Upload::is_valid()) {
 			Upload::save();
 			$content = Model_Content::forge(array(
+				'image' => Model_Logo::forge()->id,
 				'date_create' => Date::create_from_string(Input::post('date_create'), "us")->get_timestamp(),
 				'page_id' => $page_id,
 			));
@@ -72,6 +73,9 @@ class Controller_Admin_Content extends Controller_Admin_Administration {
 		$content->date_create = Date::create_from_string(Input::post('date_create'), "us")->get_timestamp();
 		if(Upload::is_valid()) {
 			Upload::save();
+			$logo = Model_Logo::forge();
+			$logo->save();
+			$content->image = $logo->id;
 		}
 		if ($content->save_translitions(\Fuel\Core\Input::post(), $local_id) and $content->save()) {
 			$this->SetNotice('success', 'Updated content #' . $id . ' (' . Model_Local::find($local_id)->name . ')');

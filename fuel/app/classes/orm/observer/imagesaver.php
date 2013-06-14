@@ -21,11 +21,15 @@ class Observer_ImageSaver extends Observer
 		$logo_path = $config['upload']['path'];
 		foreach( \Upload::get_files() as $file ) {
 				if($file['field'] == 'image') {
+					$obj->origin = $file['saved_as'];
 					$logo_name = $file['saved_as'];
-					$new_logo_name = str_replace(".{$file['extension']}", "-cropt." . \Str::lower($file['extension']) , $file['saved_as']);
-					\Image::load($logo_path . DS . $logo_name)->resize(\Arr::get($config, 'sizes.small.width'), \Arr::get($config, 'sizes.small.height'), true, false)
-							->save($logo_path . DS . $new_logo_name);
-					$obj->image = $new_logo_name;
+					foreach($config['sizes'] as $name => $size) {
+						$new_logo_name = str_replace(".{$file['extension']}", "{$name}." . \Str::lower($file['extension']) , $file['saved_as']);
+						\Image::load($logo_path . DS . $logo_name)->resize($size['width'], $size['height'], true, false)
+								->save($logo_path . DS . $new_logo_name);
+						$obj->set($name, $new_logo_name);
+					}
+
 					return true;
 				}
 			}

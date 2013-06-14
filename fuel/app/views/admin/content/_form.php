@@ -46,7 +46,7 @@
 	    <fieldset>
 		    <div class="clearfix">
 			    <? if(isset($content->image)): ?>
-				    <?= Html::img("files/{$content->image}", array('class' => "thumbnail")); ?>
+				    <?= Html::img("files/{$content->logo->list}", array('class' => "thumbnail")); ?>
 			    <? endif; ?>
 			    <?= Form::label(__("_form.input.image"), 'image'); ?>
 			    <div class="input">

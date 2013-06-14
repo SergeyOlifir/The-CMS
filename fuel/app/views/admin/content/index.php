@@ -23,7 +23,7 @@
 							<li class="span3">
 								<div  class="thumbnail">
 									<div class="thumbnail-wrapper img-polaroid">
-										<?= Html::img("files/{$content->image}"); ?>
+										<?= Html::img("files/{$content->logo->list}"); ?>
 										<div class="caption">
 											<h3><?= $content->name; ?></h3>
 										</div>

@@ -49,7 +49,7 @@
                     <a href="/home/content/view/<?= $content->id; ?>/news">
                         <article>
                             <div class="img-wrapper">
-                                <?= Html::img("files/{$content->image}"); ?>
+                                <?= Html::img("files/{$content->logo->tile}"); ?>
                             </div>
                             <div class="description">
                                 <header>

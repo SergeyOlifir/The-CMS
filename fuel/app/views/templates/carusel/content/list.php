@@ -8,7 +8,7 @@
         <article class="project clearfix">
             <div class="logo-wrapper left">
                 <a href="/home/content/view/<?= $project->id; ?>">
-                    <?= Html::img("files/{$project['image']}"); ?>
+                    <?= Html::img("files/{$project->logo->list}"); ?>
                 </a>
             </div>
             <div class="white-block left clearfix">

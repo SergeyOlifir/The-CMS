@@ -64,7 +64,14 @@ class Model_Content extends Model_Translition
 			'key_to' => 'id',
 			'cascade_save' => true,
 			'cascade_delete' => false,
-		)
+		),
+		'logo' => array(
+            'key_from' => 'image',
+            'model_to' => 'Model_Logo',
+            'key_to' => 'id',
+            'cascade_save' => true,
+            'cascade_delete' => false,
+        ),
 	);
         
         protected static $_translated_properties = array(
