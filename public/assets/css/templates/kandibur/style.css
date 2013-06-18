@@ -334,10 +334,10 @@ html {
 
 .column h2 {
 	color: #092F90;
-    font-size: 11pt;
-    font-weight: bold;
-    margin: 0;
-    padding: 55px 0 20px 50px;
+	font-size: 14pt;
+	font-weight: normal;
+	margin: 0;
+	padding: 55px 0 15px 40px;
 }
 
 .column .paginator-wrapper {

@@ -37,7 +37,10 @@ $(document).ready( function() {
 		$('.reveal-modal-bg').fadeOut(400);
 	}
 
-	$('.close-reveal-modal-loading').click(close_loading);
+	$('.close-reveal-modal-loading').click(function(event){
+		close_loading();
+		event.stopPropagation();
+	});
 	$('.reveal-modal-bg').click(close_loading);
 
 	$('#loading_popup').click(function(){
