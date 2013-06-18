@@ -19,6 +19,7 @@
 		<?= Asset::css('jquery.fancybox-buttons.css'); ?>
 		<?= Asset::css('jquery.mCustomScrollbar.css'); ?>
 		<?= TCTheme::add_css("style.css"); ?>
+		<?= Asset::css('bootstrap.min.css'); ?>
 
 		<?= Asset::js('jquery-1.8.3.min.js'); ?>
 		<?= Asset::js('jquery-ui-1.9.0.custom.min.js'); ?>
@@ -30,7 +31,8 @@
 		<?= Asset::js('jquery.scrollTo.js');?>
 		<?= Asset::js('jquery.mCustomScrollbar.min.js'); ?>
 		<?= TCTheme::add_js("content-loader.js"); ?>
-		<?= TCTheme::add_js("jcarousellite_1.0.1.js"); ?>
+		<?= Asset::js("jcarousellite_1.0.1.js"); ?>
+		<?= Asset::js('bootstrap.min.js'); ?>
 		<?= Asset::render('javascripts'); ?>
 	</head>
 

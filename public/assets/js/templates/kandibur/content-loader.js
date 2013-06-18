@@ -12,7 +12,7 @@ $(document).ready( function() {
 
 	$('.carusel ul').on('mouseenter','li', function(e) {
 		var coord_x = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft) - document.documentElement.clientLeft - 22;
-		$('.hint p.hint-title a').html($(this).find('a').attr('data-title'));
+		$('.hint p.hint-title span').html($(this).find('a').attr('data-title'));
 		$('.hint p.hint-info').html($(this).find('a').attr('data-info'));
 		$('.hint').css('left',coord_x).fadeIn(300);
 	}).on('mouseleave','li',function(e) {

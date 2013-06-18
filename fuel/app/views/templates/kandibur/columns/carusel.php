@@ -62,7 +62,7 @@
         </li>
     </ul>
 </div>
-<div class="hint">
-	<p class="hint-title"><a href="#shop"></a></p>
+<a class="hint" href="#gallery">
+	<p class="hint-title"><span></span></p>
 	<p class="hint-info"></p>
-</div>
+</a>

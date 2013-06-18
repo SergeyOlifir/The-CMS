@@ -9,12 +9,9 @@
 }
 
 body {
-	margin: 0px;
-}
-
-html {	
-	font-family: Arial, sans-serif;
-	font-style: normal;
+	margin: 0px !important;
+	font-family: Arial, sans-serif !important;
+	font-style: normal !important;
 }
 
 #header {
@@ -334,10 +331,11 @@ html {
 
 .column h2 {
 	color: #092F90;
-	font-size: 14pt;
+	font-size: 15pt;
 	font-weight: normal;
 	margin: 0;
-	padding: 55px 0 15px 40px;
+	padding: 55px 0 15px 30px;
+	line-height: normal;
 }
 
 .column .paginator-wrapper {
@@ -355,6 +353,7 @@ html {
     width: 640px;
     height: 22px;
     padding: 5px 0 0 15px;
+    line-height: normal;
 }
 
 .column .paginator-wrapper .paginator-bottom {
@@ -382,13 +381,13 @@ html {
 }
 
 .column .content ul.list li {
-	 background-color: rgba(170, 195, 253, 0.8);
+	background-color: rgba(170, 195, 253, 0.8);
 	border: 1px solid rgb(51, 102, 204);
 	float: left;
 	height: 103px;
 	list-style: none outside none;
 	margin-left: 3px;
-	margin-top: 6px;
+	margin-top: 5px;
 	overflow: hidden;
 	padding: 2px;
 	width: 345px;
@@ -415,41 +414,42 @@ html {
 
 .column .content ul.list .description {
 	height: 93px;
-    overflow: hidden;
-    padding: 2px 2px 5px 7px;
-    text-overflow: ellipsis;
-    width: 220px;
+	overflow: hidden;
+	padding: 3px 2px 5px 8px;
+	text-overflow: ellipsis;
+	width: 215px;
 }
 
 .column .content ul.list .description h3 {
 	color: #003399;
 	display: block;
-	font-size: 11pt;
-	font-weight: bold;
-	height: 18px;
+	font-size: 15pt;
+	font-weight: normal;
+	height: 28px;
 	margin: 0;
 	overflow: hidden;
 	padding: 0;
 	text-overflow: ellipsis;
-	width: 214px;
+	width: 215px;
+	line-height: normal;
 }
 
 .column .content ul.list .date {
 	color: #ffffff;
-    font-size: 8pt;
-    font-weight: normal;
+	font-size: 10pt;
+	font-weight: normal;
 }
 
 .column .content ul.list .description .text {
 	color: #003399;
-    font-size: 9pt;
-    font-weight: normal;
-    height: 69px;
-    line-height: 14px;
-    margin: 0;
-    overflow: hidden;
-    padding: 0;
-    text-overflow: ellipsis;
+	font-size: 10pt;
+	font-weight: normal;
+	height: 55px;
+	line-height: 17px;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	text-overflow: ellipsis;
 }
 
 .column .content ul.tile, #content-of-popup ul.tile {
@@ -653,9 +653,10 @@ html {
 /* popup styles */
 
 .reveal-modal h3 {
-	font-size: 17pt;
+	font-size: 19pt;
+	font-weight: normal;
 	color: #003377;
-	margin: 8px 0;
+	margin: 7px 0;
 }
 
 .reveal-modal .close-reveal-modal {
@@ -664,20 +665,21 @@ html {
 
 .reveal-modal {
     background: none repeat scroll 0 0 #ffffdb;
-    border-radius: 15px;
-    top:80px !important;
-    border: 2px solid #ff7722;
-    z-index: 6;
-    position: fixed;
-    padding-left: 30px;
-    margin-left: -437px;
+	border-radius: 15px;
+	top:75px !important;
+	border: 2px solid #ff7722;
+	z-index: 6;
+	position: fixed;
+	padding-left: 30px;
+	margin-left: -438px;
+	padding-top: 20px;
 }
 
 .reveal-modal .popup-content {
 	color: #003377;
 	font-size: 11pt;
 	overflow:auto;
-	max-height: 400px;
+	max-height: 410px;
 	padding-right: 5px;
 }
 .reveal-modal .popup-content .p{
@@ -726,7 +728,7 @@ html {
 }
 
 .carusel {
-	margin: 0 0 0 12px;
+	margin: 0 0 0 15px;
 	height: 103px;
 	width: 580px;
 	overflow: hidden;
@@ -749,34 +751,62 @@ html {
 	padding: 0px 1.5px;
 }
 
+#content-carousel {
+	width: 400px;
+	height: 260px;
+	float: left;
+	position: relative;
+}
+
+#content-carousel .carousel-indicators {
+	top: 240px;
+}
+
+#content-carousel .carousel-indicators .active {
+	background-color: #FF7722;
+}
+
+#content-carousel .carousel-indicators li {
+	background-color: #fff;
+	border: 1px solid #FF7722;
+	height: 8px;
+	width: 8px;
+}
+
+#content-carousel .carousel-inner {
+	width: 100%;
+	height: 100%;
+}
+
 .hint {
 	background-image: url("../../../img/templates/kandibur/hint.png");
 	background-position: center top;
     background-repeat: no-repeat;
     width: 202px;
-    height: 85px;
+    height: 88px;
     position: absolute;
     display: none;
     top: 130px;
     z-index: 3;
+    text-decoration: none;
 }
 
 .hint p.hint-title {
-	margin: 5px 7px 1px 7px;
+	margin: 5px 7px 2px 7px;
 }
 
-.hint p.hint-title a {
+.hint p.hint-title span {
 	font-size: 10pt;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
 }
 
 .hint p.hint-info {
 	font-size: 8pt;
     font-weight: normal;
     color: #fff;
-    margin: 0 5px;
+    margin: 0 7px;
     line-height: 115%;
 }
 
