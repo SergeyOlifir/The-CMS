@@ -361,11 +361,12 @@ body {
     height: 26px;
     padding: 5px 0 0 15px;
     background: url("../../../img/templates/kandibur/Plashka_content_niz.png") no-repeat scroll 0 0 transparent;
+    line-height: normal;
 }
 
 .pagination {
 	width: 50px;
-    margin: 1px 50px 0 0;
+    margin: 1px 50px 0 0 !important;
 }
 
 .column .content {
@@ -642,7 +643,6 @@ body {
 	display: block;
 	font-size: 8pt;
 	font-weight: bold;
-	padding-top: 10px;	
 }
 
 #footer .contacts-dop span a {
