@@ -8,7 +8,7 @@
 		<li>
 			<a id="<?= $content->id; ?>" data-reveal-id="contents_popup" href="#" content_id="<?= $content->id; ?>" class="show-popup">
 				<div class="img-wrapper">
-					<?= Html::img("files/{$content->image}"); ?>
+					<?= Html::img("files/{$content->logo->thumb}"); ?>
 				</div>
 				<h3 class="header">
 					<?= $content->name; ?>

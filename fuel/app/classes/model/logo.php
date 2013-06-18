@@ -9,6 +9,7 @@ class Model_Logo extends Model
 		'origin',
 		'list',
 		'tile',
+		'thumb',
 		'created_at',
 		'updated_at',
 	);

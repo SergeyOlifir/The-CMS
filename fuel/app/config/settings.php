@@ -20,6 +20,10 @@ return array(
 				'width'  => 180,
 				'height' => 100,
 			),
+			'thumb' => array(
+				'width'  => 110,
+				'height' => 100,
+			),
 		)
 	),
 	'galery' => array(
