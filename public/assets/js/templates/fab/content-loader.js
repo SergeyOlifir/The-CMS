@@ -25,6 +25,25 @@ $(document).ready( function() {
 
 	$('.hint').on('mouseleave',function() {
 		$('.hint').fadeOut(200);
+	});
+
+	$('.reveal-modal-bg').fadeIn(400);
+	$('#loading_popup').fadeIn(400);
+
+	function close_loading () {
+		$('#loading_popup').fadeOut(400);
+		$('.reveal-modal-bg').fadeOut(400);
+	}
+
+	$('.close-reveal-modal-loading').click(function(event){
+		close_loading();
+		event.stopPropagation();
+	});
+	$('.reveal-modal-bg').click(close_loading);
+
+	$('#loading_popup').click(function(){
+		close_loading();
+		//$("#content").scrollTo('#country', 900).scrollTo( '-=45px', 900, { axis:'x'});
 	})
 
 	$( ".main-menu" ).click(function() {
@@ -39,6 +58,10 @@ $(document).ready( function() {
 
 	$(window).resize(function() {
 		setPadding();
+	});
+
+	$("body").on("click", 'a[data-reveal-id]', function(event){
+		get("home/page/popup/" + $(this).attr("content_id"), "#content-of-popup");
 	});
 
 	setPadding();

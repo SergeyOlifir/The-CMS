@@ -47,7 +47,7 @@
 				<?= TCTheme::render("header",array()); ?>
 			</div>
 			<div id="content-wrapper">
-					<?= TCTheme::render("menu/arrows",array('links' => Model_Link::find_with_translitions_related_to_public($curr_lang))); ?>
+					<?= TCTheme::render("menu/arrows",array('links' => Model_Link::find_with_translitions($curr_lang, null, null, 'weight'))); ?>
 				<div id="second-wrapper">
 					<div class="menu-all clearfix">
 						<?= TCTheme::render("menu/main",array('template' => $template)); ?>
@@ -55,7 +55,7 @@
 					<div id="content">
 						<div id="all-columns" class="clearfix">
 							<?= TCTheme::render("columns/main",array()); ?>
-							<? $pages = Model_Category::find('all'); ?>
+							<? $pages = Model_Page::find('all'); ?>
 							<? foreach ($pages as $page): ?>
 								<?= TCTheme::render("columns/column",array('page' => $page)); ?>
 							<? endforeach; ?>
@@ -67,6 +67,7 @@
 				<?= TCTheme::render("footer"); ?>
 			</div>
 		</div>
+		<?= TCTheme::render("loading"); ?>
 		<?= TCTheme::render("popup"); ?>
 	</body>
 </html>
