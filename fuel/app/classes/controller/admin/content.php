@@ -40,8 +40,10 @@ class Controller_Admin_Content extends Controller_Admin_Administration {
 		    Upload::process($config);
 		    if (Upload::is_valid()) {
 			Upload::save();
+			$logo = Model_Logo::forge();
+			$logo->save();
 			$content = Model_Content::forge(array(
-				'image' => Model_Logo::forge()->id,
+				'image' => $logo->id,
 				'date_create' => Date::create_from_string(Input::post('date_create'), "us")->get_timestamp(),
 				'page_id' => $page_id,
 			));

@@ -326,6 +326,7 @@ body {
 	height: 52%;
     background-image: none;
     text-indent: 0px;
+    line-height: normal;
 }
 
 
@@ -763,12 +764,12 @@ body {
 }
 
 #content-carousel .carousel-indicators .active {
-	background-color: #FF7722;
+	background-color: #0066ff;
 }
 
 #content-carousel .carousel-indicators li {
 	background-color: #fff;
-	border: 1px solid #FF7722;
+	border: 1px solid #0066cc;
 	height: 8px;
 	width: 8px;
 }
