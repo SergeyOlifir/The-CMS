@@ -27,8 +27,8 @@
 			</li>
 		</ul>
 		<div class="groups">
-			<a href="#"><?= __("group_kandibur_vk"); ?></a>
-			<a href="#"><?= __("group_joy_vk"); ?></a>
+			<a href="http://vk.com/zvezdochka_dp"><?= __("group_kandibur_vk"); ?></a>
+			<a href="http://vk.com/club42454367"><?= __("group_joy_vk"); ?></a>
 		</div>
 	</div>
 	
@@ -52,6 +52,9 @@
 			<span><?= __("contacts.children_center_star.title"); ?></span>
 			<span><?= __("contacts.children_center_star.address"); ?></span>
 			<span><?= __("contacts.children_center_star.tel"); ?></span> 
+			<span><?= __("contacts.children_center_star.site"); ?>
+				<a target="_blank" href="http://www.zvezdochka.net.ua">www.zvezdochka.net.ua</a>
+			</span>
 		</p>
 	</div>
 </div>

@@ -14,6 +14,8 @@ body {
 	font-style: normal !important;
 }
 
+h1,h2,h3{line-height: 25px;}
+
 #header {
 	height: 130px;
 	background: #557c26; /* Old browsers */
@@ -49,7 +51,7 @@ body {
     cursor: pointer;
     height: 50px;
     margin: 0 auto;
-    padding: 15px 0 0;
+    padding: 17px 0 0;
     position: relative;
     width: 805px;
     z-index: 2;
@@ -67,7 +69,7 @@ body {
 }
 
  .main-menu-content.active {
-	height: 255px;
+	height: 240px;
 	padding: 20px 34px;
 	border: 1px solid #0088cc;
 }
@@ -76,7 +78,7 @@ body {
 	width: 238px;
 	height: 85px;
 	overflow: hidden;
-	margin: 2px 0;
+	margin: 1px 0;
 }
 
  .main-menu-content .menu-tile img {
@@ -107,24 +109,24 @@ body {
 }
 
  .main-menu-content .menu-tile .menu-description {
-	height: 40px;
+	height: 30px;
     padding-left: 3px;
     width: 187px;
 }
 
  .main-menu-content .menu-tile .menu-description h3 {
 	color: #003366;
-	font-size: 9pt;
-	font-weight: bold;
+	font-size: 14pt;
+	font-weight: normal;
 	margin: 0;
 	padding: 1px 0;
 }
 
 .main-menu-content .menu-tile .menu-description .menu-text {
 	color: #003366;
-	font-size: 7pt;
-	font-weight: bold;
-	line-height: 12px;
+	font-size: 8pt;
+	font-weight: normal;
+	line-height: 13px;
 	width: 180px;
 }
 
@@ -133,10 +135,10 @@ body {
 	color: #003399;
     display: block;
     float: left;
-    font-size: 10pt;
+    font-size: 11pt;
     font-weight: bold;
-    margin-left: 6px;
-    margin-top: -3px;
+    margin-left: 4px;
+    margin-top: -5px;
 }
 
 .main-menu .center {
@@ -146,11 +148,11 @@ body {
 
 .main-menu .mail {
 	display: block;
-	width: 15px;
-	height: 11px;
+	width: 17px;
+	height: 12px;
 	background: url('../../../img/templates/kandibur/message.png') no-repeat scroll 0px 0px transparent;
 	text-indent: -999999px;
-	margin-left: 20px;
+	margin-left: 17px;
 }
 
  .main-menu .flags {
@@ -300,20 +302,20 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     bottom: 0;
-    color: #FFFF00;
+    color: #FFFFFF;
     display: block;
-    font-weight: normal;
+    font-weight: bold;
     margin: 0;
     overflow: hidden;
-    padding-left: 3px;
+    padding-left: 0px;
     padding-right: 3px;
     position: absolute;
     font-size: 10pt;
     height: 21px;
-    opacity: 0.80;
+    opacity: 0.77;
     text-indent: -500px;
     text-align: center;
-    width: 121px;
+    width: 127px;
 }
 
 .metro-wrapper div.round h3 span {
@@ -323,7 +325,7 @@ body {
 }
 
 .metro-wrapper div.round h3.menu-tile-active {
-	height: 52%;
+	height: 49%;
     background-image: none;
     text-indent: 0px;
     line-height: normal;
@@ -479,15 +481,16 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     bottom: 0;
-    color: #ffff66;
+    color: #ffffff;
     display: block;
-    font-size: 10pt;
+    font-size: 11pt;
     font-weight: bold;
-    height: 18px;
+    line-height: 18px;
+    height: 19px;
     margin: 0;
-    opacity: 0.7;
+    opacity: 0.75;
     overflow: hidden;
-    padding-left: 4px;
+    padding-left: 8px;
     padding-right: 3px;
     position: absolute;
     text-indent: -300px;
@@ -496,7 +499,7 @@ body {
 }
 
 .column .content ul.tile li h3.tile-active, #content-of-popup ul.tile li h3.tile-active  {
-	height: 45%;
+	height: 50%;
     text-indent: 0px;
     background-image: none;
 }
@@ -535,7 +538,7 @@ body {
 
 #footer ul.social {
 	margin: 0;
-	padding: 15px 0 0 48px;
+	padding: 15px 0 0 50px;
 }
 
 #footer ul.social li {
@@ -545,7 +548,7 @@ body {
 }
 
 #footer ul.social li a {
-	width: 17px;
+	width: 18px;
 	height: 16px;
 	display: block;
 }
@@ -591,32 +594,32 @@ body {
 
 #footer .contacts {
 	color: #003300;
-    height: 115px;
-    margin-left: 30px;
-    margin-top: 8px;
-    width: 195px;
+    height: 110px;
+    margin-left: 25px;
+    margin-top: 10px;
+    width: 200px;
 }
 
 #footer .contacts h3 {
-	font-size: 9pt;
-    	margin: 3px 0 0;
+	font-size: 11pt;
+    margin: 1px 0 0;
 }
 
 #footer .contacts span, #footer .contacts-dop span {
 	display: block;
-    font-size: 8pt;
+    font-size: 9pt;
     font-weight: bold;
-    line-height: 14px;
+    line-height: 15px;
 }
 
 #footer .contacts-dop p {
-	margin: 10px 0;
+	margin: 7px 0;
 }
 
 #footer .groups {
 	color: #003366;
-    font-size: 8pt;
-    padding-left: 53px;
+    font-size: 9pt;
+    padding-left: 55px;
 }
 
 #footer .groups a, #footer .groups a:visited  {
@@ -624,31 +627,29 @@ body {
     color: #003366;
     display: block;
     font-weight: bold;
-    height: 18px;
-    line-height: 19px;
-    margin-top: 10px;
-    padding-left: 20px;
+    height: 17px;
+    line-height: 20px;
+    margin-top: 12px;
+    padding-left: 23px;
     text-decoration: none;
 }
 
 #footer .contacts-dop {
 	color: #003300;
-    height: 100px;
-    margin-left: 20px;
-    margin-top: 12px;
-    width: 245px;
+    margin-left: 25px;
+    margin-top: 15px;
+    width: 250px;
 }
 
 #footer span a {
 	color: #333399;
 	display: block;
-	font-size: 8pt;
+	font-size: 9pt;
 	font-weight: bold;
 }
 
 #footer .contacts-dop span a {
-	display: block;
-    	margin-top: 15px;
+	display: inline-block;
 }
 
 /* popup styles */

@@ -550,7 +550,7 @@ header.name h1 a:hover {
 }
 
 .project .more-link {
-	background: url("../../../img/templates/carusel/more_no_active.png") no-repeat scroll 0 0 transparent;
+	background: url("../../../img/templates/carusel/more.png") no-repeat scroll 0 0 transparent;
     bottom: 0;
     display: block;
     height: 50px;
@@ -561,7 +561,7 @@ header.name h1 a:hover {
 }
 
 .project .more-link:hover {
-	background: url("../../../img/templates/carusel/more_active.png") no-repeat scroll 0 0 transparent;
+	background-position: 0 -50px;
 }
 
 .projects.app-categories {
@@ -629,7 +629,7 @@ header.name h1 a:hover {
 }
 
 .content-and-social-button #social-buttons .back-link {
-	background: url("../../../img/templates/carusel/more_no_active.png") no-repeat scroll 0 0 transparent;
+	background: url("../../../img/templates/carusel/more.png") no-repeat scroll 0 0 transparent;
 	bottom: 0;
 	height: 50px;
 	position: absolute;
@@ -640,7 +640,7 @@ header.name h1 a:hover {
 }
 
 .content-and-social-button #social-buttons .back-link:hover {
-	background: url("../../../img/templates/carusel/more_active.png") no-repeat scroll 0 0 transparent;
+	background-position: 0 -50px;
 }
 
 .advertising {

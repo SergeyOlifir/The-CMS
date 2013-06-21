@@ -18,8 +18,8 @@
 		<?= Asset::css('jquery.fancybox.css'); ?>
 		<?= Asset::css('jquery.fancybox-buttons.css'); ?>
 		<?= Asset::css('jquery.mCustomScrollbar.css'); ?>
-		<?= TCTheme::add_css("style.css"); ?>
 		<?= Asset::css('bootstrap.min.css'); ?>
+		<?= TCTheme::add_css("style.css"); ?>
 
 		<?= Asset::js('jquery-1.8.3.min.js'); ?>
 		<?= Asset::js('jquery-ui-1.9.0.custom.min.js'); ?>
