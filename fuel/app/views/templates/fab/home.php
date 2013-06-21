@@ -29,8 +29,8 @@
 		<?= Asset::js('jquery.fancybox-buttons.js'); ?>
 		<?= Asset::js('jquery.scrollTo.js');?>
 		<?= Asset::js('jquery.mCustomScrollbar.min.js'); ?>
+		<?= Asset::js("jcarousellite_1.0.1.js"); ?>
 		<?= TCTheme::add_js("content-loader.js"); ?>
-		<?= TCTheme::add_js("jcarousellite_1.0.1.js"); ?>
 		<?= Asset::render('javascripts'); ?>
 	</head>
 

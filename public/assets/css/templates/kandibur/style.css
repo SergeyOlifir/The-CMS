@@ -427,15 +427,15 @@ h1,h2,h3{line-height: 25px;}
 .column .content ul.list .description h3 {
 	color: #003399;
 	display: block;
-	font-size: 15pt;
-	font-weight: normal;
+	font-size: 13pt;
+	font-weight: bold;
 	height: 28px;
 	margin: 0;
 	overflow: hidden;
 	padding: 0;
 	text-overflow: ellipsis;
 	width: 215px;
-	line-height: normal;
+	line-height: 25px;
 }
 
 .column .content ul.list .date {
