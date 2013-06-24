@@ -3,7 +3,7 @@
 		<li><a class="indicator-main" href="#2"></a></li>
 		<? $link_kount = 0; ?>
 		<? foreach ($links as $link): ?>
-			<? if($link_kount < 5): ?>
+			<? if($link_kount < 4): ?>
 				<? $link_kount++; ?>
 				<li><a class="indicator" href="#<?= $link->page->alias; ?>"><?= Html::img("files/{$link->image}"); ?></a></li>
 			<? endif; ?>
@@ -14,7 +14,7 @@
 	<ul class="left">
 		<? $link_kount = 0; ?>
 		<? foreach ($links as $link): ?>
-			<? if($link_kount >= 5): ?>
+			<? if($link_kount >= 4): ?>
 				<li><a class="indicator" href="#<?= $link->page->alias; ?>"><?= Html::img("files/{$link->image}"); ?></a></li>
 			<? endif; ?>
 			<? $link_kount++; ?>

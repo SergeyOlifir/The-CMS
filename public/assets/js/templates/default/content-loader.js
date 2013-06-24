@@ -6,7 +6,7 @@ $(document).ready( function() {
 	
 	$("#all-columns").css("width", $("#all-columns").children().length * $(".column").width());
 
-    $('.metro-wrapper li').hover(function(){
+    $('.metro-wrapper .round, .metro-wrapper li').hover(function(){
 		$(this).find('h3').toggleClass("menu-tile-active", 200);
 	});
 
@@ -55,6 +55,10 @@ $(document).ready( function() {
 
     $('.flags a').click(function(event){
     	event.stopPropagation();
+    })
+
+    $('.close-reveal-modal, .reveal-modal-bg').live('click',function(){
+    	$('#content-of-popup #social-buttons').html('');
     })
 
 });

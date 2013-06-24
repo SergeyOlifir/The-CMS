@@ -14,6 +14,7 @@
 
 		<title><?= $title; ?></title>
 		<link rel="shortcut icon" href="assets/img/templates/<?= $template; ?>/favicon.png" type="image/png">
+		<?= Asset::css('bootstrap.min.css'); ?>
 		<?= Asset::css('reveal.css'); ?>
 		<?= Asset::css('jquery.fancybox.css'); ?>
 		<?= Asset::css('jquery.fancybox-buttons.css'); ?>
@@ -24,13 +25,17 @@
 		<?= Asset::js('jquery-ui-1.9.0.custom.min.js'); ?>
 		<?= Asset::js('jquery.ui.min.js'); ?>
 		<?= Asset::js('jquery.mousewheel.min.js'); ?>
-		<?= Asset::js('jquery.reveal.js'); ?>
+		<script src="http://connect.facebook.net/ru_RU/all.js#xfbml=1"></script>
+		<script src="http://platform.twitter.com/widgets.js"></script>
+		
 		<?= Asset::js('jquery.fancybox.pack.js'); ?>
 		<?= Asset::js('jquery.fancybox-buttons.js'); ?>
 		<?= Asset::js('jquery.scrollTo.js');?>
 		<?= Asset::js('jquery.mCustomScrollbar.min.js'); ?>
+		<?= Asset::js("jcarousellite_1.0.1.js"); ?>
+		<?= Asset::js('bootstrap.min.js'); ?>
 		<?= TCTheme::add_js("content-loader.js"); ?>
-		<?= TCTheme::add_js("jcarousellite_1.0.1.js"); ?>
+		<?= Asset::js('jquery.reveal.js'); ?>
 		<?= Asset::render('javascripts'); ?>
 	</head>
 
@@ -47,7 +52,7 @@
 				<?= TCTheme::render("header",array()); ?>
 			</div>
 			<div id="content-wrapper">
-					<?= TCTheme::render("menu/arrows",array('links' => Model_Link::find_with_translitions_related_to_public($curr_lang))); ?>
+					<?= TCTheme::render("menu/arrows",array('links' => Model_Link::find_with_translitions($curr_lang, null, null, 'weight'))); ?>
 				<div id="second-wrapper">
 					<div class="menu-all clearfix">
 						<?= TCTheme::render("menu/main",array('template' => $template)); ?>
@@ -55,7 +60,7 @@
 					<div id="content">
 						<div id="all-columns" class="clearfix">
 							<?= TCTheme::render("columns/main",array()); ?>
-							<? $pages = Model_Category::find('all'); ?>
+							<? $pages = Model_Page::find('all'); ?>
 							<? foreach ($pages as $page): ?>
 								<?= TCTheme::render("columns/column",array('page' => $page)); ?>
 							<? endforeach; ?>

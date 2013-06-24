@@ -44,7 +44,7 @@ class Model_Link extends Model_Translition
 			'events' => array('before_save'),
 			'mysql_timestamp' => false,
 		),
-		'Orm\Observer_ImageSaver' => array(
+		'Orm\Observer_LinkimageSaver' => array(
 			'events' => array('before_save'),
 			'mysql_timestamp' => false,
 		)

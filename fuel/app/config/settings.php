@@ -24,6 +24,10 @@ return array(
 				'width'  => 110,
 				'height' => 100,
 			),
+			'small' => array(
+				'width' => 100,
+				'height' => 100,
+			),
 		)
 	),
 	'galery' => array(
