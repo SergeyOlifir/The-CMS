@@ -11,6 +11,7 @@ return array(
 			'table' => array(
 				'name' => 'Название',
 				'alias' => 'Alias',
+				'weight' => 'Вес',
 				'date_create' => 'Дата создания',
 				'actions' => 'Действия',
 			),
@@ -69,6 +70,7 @@ return array(
 		'input' => array(
 			'alias' => 'Alias',
 			'publish_date' => 'Отображать дату контента',
+			'weight' => 'Вес',
 			'submit' => 'Сохранить',
 		),
 	),

@@ -20,7 +20,9 @@ class Controller_Admin_Pages extends Controller_Admin_Administration
 
     public function action_index() {
 	    TCLocale::set_locale_from_name(Model_Local::find(1)->name);
-	    $data['pages'] = Model_Page::find('all');
+	    $data['pages'] = Model_Page::find('all', array(
+						    'order_by' => array('weight' => 'asc')
+			    ));
 	    $this->template->title = "Pages";
 	    $this->template->content = View::forge('admin/pages/index', $data);
     }
@@ -31,6 +33,7 @@ class Controller_Admin_Pages extends Controller_Admin_Administration
 		$forge = array(
 		    'alias' => \Fuel\Core\Input::post('alias'),
 		    'publish_date' => 'sdsd',
+		    'weight' => Input::post('weight'),
 		);
 		$model = Model_Page::forge($forge);
 		if($model->save_translitions(\Fuel\Core\Input::post(), $local_id) and $model->save()) {
@@ -55,6 +58,7 @@ class Controller_Admin_Pages extends Controller_Admin_Administration
 	if (Input::method() == 'POST') {
 	      $page->alias = \Fuel\Core\Input::post('alias');
 	      $page->publish_date = "kl";
+	      $page->weight = Input::post('weight');
 	      if($page->save_translitions(\Fuel\Core\Input::post(), $local_id) and $page->save()) {
 		$this->SetNotice('success', 'Updated page #' . $id);
 		Response::redirect('admin/pages');

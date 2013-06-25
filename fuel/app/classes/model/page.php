@@ -14,6 +14,7 @@ class Model_Page extends Model_Translition {
 	protected static $_properties = array(
 		'id',
 		'alias',
+		'weight',
 		'publish_date',
 		'created_at',
 		'updated_at',

@@ -4,6 +4,7 @@
 <html lang="<?= Session::get('lang') ? Session::get('lang') : Config::get('language'); ?>">
 	 <head>
 		<meta charset="utf-8"/>
+		<meta name='yandex-verification' content='4bee6e3f36f25284' />
 		
 		<meta property="og:title" content="zhitnitsa" />
 		<meta property="og:type" content="company" />
@@ -60,7 +61,7 @@
 					<div id="content">
 						<div id="all-columns" class="clearfix">
 							<?= TCTheme::render("columns/main",array()); ?>
-							<? $pages = Model_Page::find('all'); ?>
+							<? $pages = Model_Page::find('all', array('order_by' => array('weight' => 'asc'))); ?>
 							<? foreach ($pages as $page): ?>
 								<?= TCTheme::render("columns/column",array('page' => $page)); ?>
 							<? endforeach; ?>

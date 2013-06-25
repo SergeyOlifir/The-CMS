@@ -1,3 +1,8 @@
+<? $weights = array();
+	for($i = 0; $i < 40; $i++) {
+		$weights[$i] = $i;
+	}
+?>
 <?= Asset::js('ckeditor/ckeditor.js'); ?>
 <script type="text/javascript">
 	window.onload = function()
@@ -35,6 +40,12 @@
 		<?= Form::checkbox('publish_date', 1, isset($page) && $page->publish_date > 0 ? true : false);  ?>
 		<?= Form::label(__("_form.input.publish_date"), 'public_data'); ?>
 	    </div>
+	    <div class="clearfix">
+			<?= Form::label(__("_form.input.weight"), 'weight'); ?>
+			<div class="input">
+				<?= Form::select('weight', Input::post('weight', isset($page) ? $page->weight : ''), $weights, array('class' => 'span8')); ?>
+			</div>
+		</div>
 	    <div class="actions">
 		<?php echo Form::submit('submit', __("_form.input.submit"), array('class' => 'btn btn-primary btn-large')); ?>
 	    </div>
