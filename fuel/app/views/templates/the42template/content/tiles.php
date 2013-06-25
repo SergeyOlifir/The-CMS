@@ -2,7 +2,7 @@
     <? foreach ($content as $project): ?>
 	<article class="project tile left">
 	    <div class="logo-wrapper">
-		<?= Html::img("files/{$project['image']}", array("alt" => $project['name'])); ?>
+		<?= Html::img("files/{$project->logo->origin}", array("alt" => $project['name'])); ?>
 	    </div>
 	    <header class="name">			
 		<h1><?= \Fuel\Core\Html::anchor("/home/content/view/{$project['id']}", $project['name'], array('class' => 'project-link')); ?></h1>

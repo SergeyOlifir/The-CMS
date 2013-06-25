@@ -2,7 +2,7 @@
     <? foreach ($content as $project): ?>
 	<article class="project clearfix">
 	    <div class="logo-wrapper left">
-		<?= Html::img("files/{$project['image']}", array("alt" => $project['name'])); ?>
+		<?= Html::img("files/{$project->logo->origin}", array("alt" => $project['name'])); ?>
 	    </div>
             <div class="white-block left clearfix">
                 <header class="name left">
