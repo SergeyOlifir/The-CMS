@@ -24,7 +24,6 @@
 							<th><?= __("index.page-list.table.alias"); ?></th>
 							<th><?= __("index.page-list.table.date-create"); ?></th>
 							<th><?= __("index.page-list.table.date-content"); ?></th>
-							<th><?= __("index.page-list.table.view-content"); ?></th>
 							<th><?= __("index.page-list.table.actions"); ?></th>
 						</tr>
 					</thead>
@@ -35,7 +34,6 @@
 								<td><?= $page->alias; ?></td>
 								<td><?= Date::forge($page->created_at)->format("%d.%m.%Y", true); ?></td>
 								<th><?= $page->public_data == 1 ? '+' : '-'; ?></th>
-								<td><?= $page->view_content; ?></td>
 								<td>
 									<div class="btn-group">
 										<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">

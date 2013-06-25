@@ -2,7 +2,7 @@
 	$count = $page->content->count(); ?>
 <script type="text/javascript">
 
-	var view_content = "list";
+	var view_content;
 
 	$(function() {
 
@@ -11,7 +11,7 @@
 		var cur_page, total_items;
 		$('#<?= $page->alias; ?>-column .current_page').attr('value', 1);
 
-		get("home/page/view/<?= $page->alias; ?>", page, "");
+		get("home/page/view/<?= $page->alias .'/'. $page->view_content; ?>", page, "");
 		$('#list-' + page_id + '-button').click(function() {
 			get("home/contents/change/list/<?= $page->alias; ?>", page, "");
 			$('#<?= $page->alias; ?>-column .pagination .cur_page').html('1');
@@ -71,7 +71,7 @@
 		<div class="paginator-bottom left" targetContent="<?= $page->alias; ?>">
 			<?= __("pagination.next"); ?>
 			<div class="pagination right">
-				<?= __("pagination.page"); ?>&nbsp;<span class="cur_page">1</span>&nbsp;<?= __("pagination.of"); ?>&nbsp;<span class="total_items"><?= ceil($count/(\Fuel\Core\Session::get('tile') ? 15 : 6)); ?></span>
+				<?= __("pagination.page"); ?>&nbsp;<span class="cur_page">1</span>&nbsp;<?= __("pagination.of"); ?>&nbsp;<span class="total_items"><?= ceil($count/($page->view_content == 'tile' ? 15 : 6)); ?></span>
 			</div>
 		</div>
 	</div>

@@ -15,6 +15,7 @@ class Model_Page extends Model_Translition {
 		'id',
 		'alias',
 		'weight',
+		'view_content',
 		'publish_date',
 		'created_at',
 		'updated_at',

@@ -36,7 +36,6 @@ class Controller_Admin_Categories extends Controller_Admin_Administration
 		    'name' => Input::post('name'),
 		    'alias' => Input::post('alias'),
 		    'public_data' => Input::post('public_data') == 1 ? 1 : 0,
-		    'view_content' => Input::post('view_content') == 'tile' ? 'tile' : 'list',
 	    ));
 	    if ($category and $category->save_translitions(\Fuel\Core\Input::post(), $local_id) and $category->save()) {                    
 		$this->SetNotice('success', 'Added page #'.$category->id.' (' . Model_Local::find($local_id)->name . ')');
@@ -61,7 +60,6 @@ class Controller_Admin_Categories extends Controller_Admin_Administration
 		$category->name = Input::post('name');
 		$category->alias = Input::post('alias');
 		$category->public_data = Input::post('public_data') == 1 ? 1 : 0;
-		$category->view_content = Input::post('view_content') == 'tile' ? 'tile' : 'list';	
 		if ($category->save_translitions(\Fuel\Core\Input::post(), $local_id) and $category->save()) {
 			$this->SetNotice('success', 'Updated page #' . $id);
 			Response::redirect('admin/categories');

@@ -46,6 +46,15 @@
 				<?= Form::select('weight', Input::post('weight', isset($page) ? $page->weight : ''), $weights, array('class' => 'span8')); ?>
 			</div>
 		</div>
+		<div class="clearfix">
+			<?php echo Form::label(__("_form.input.view-content.title"), 'view_content'); ?>
+			<div class="input">
+			    <?= Form::radio('view_content', 'list', isset($page) && $page->view_content == 'list' ? true : false); ?>
+			    <?= Form::label(__("_form.input.view-content.list"), 'view_content'); ?>
+			    <?= Form::radio('view_content', 'tile', isset($page) && $page->view_content == 'tile' ? true : false); ?>
+			    <?= Form::label(__("_form.input.view-content.tile"), 'view_content'); ?>
+			</div>
+	    </div>
 	    <div class="actions">
 		<?php echo Form::submit('submit', __("_form.input.submit"), array('class' => 'btn btn-primary btn-large')); ?>
 	    </div>

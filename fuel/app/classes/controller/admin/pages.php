@@ -34,6 +34,7 @@ class Controller_Admin_Pages extends Controller_Admin_Administration
 		    'alias' => \Fuel\Core\Input::post('alias'),
 		    'publish_date' => 'sdsd',
 		    'weight' => Input::post('weight'),
+		    'view_content' => Input::post('view_content') == 'tile' ? 'tile' : 'list',
 		);
 		$model = Model_Page::forge($forge);
 		if($model->save_translitions(\Fuel\Core\Input::post(), $local_id) and $model->save()) {
@@ -59,6 +60,7 @@ class Controller_Admin_Pages extends Controller_Admin_Administration
 	      $page->alias = \Fuel\Core\Input::post('alias');
 	      $page->publish_date = "kl";
 	      $page->weight = Input::post('weight');
+	      $page->view_content = Input::post('view_content') == 'tile' ? 'tile' : 'list';	
 	      if($page->save_translitions(\Fuel\Core\Input::post(), $local_id) and $page->save()) {
 		$this->SetNotice('success', 'Updated page #' . $id);
 		Response::redirect('admin/pages');

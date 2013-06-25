@@ -8,7 +8,6 @@ class Model_Category extends Model_Translition {
 		'name',
 		'alias',
 		'public_data',
-		'view_content',
 		'created_at',
 		'updated_at',
 	);

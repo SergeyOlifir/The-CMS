@@ -23,6 +23,7 @@
 							<th><?= __("index.page-list.table.name"); ?></th>
 							<th><?= __("index.page-list.table.alias"); ?></th>
 							<th><?= __("index.page-list.table.weight"); ?></th>
+							<th><?= __("index.page-list.table.view-content"); ?></th>
 							<th><?= __("index.page-list.table.date_create"); ?></th>
 							<th><?= __("index.page-list.table.actions"); ?></th>
 						</tr>
@@ -33,6 +34,7 @@
 								<td><?= $page->name; ?></td>
 								<td><?= $page->alias; ?></td>
 								<td><?= $page->weight; ?></td>
+								<td><?= $page->view_content; ?></td>
 								<td><?= Date::forge($page->created_at)->format("%d.%m.%Y", true); ?></td>
 								<td>
 									<div class="btn-group">

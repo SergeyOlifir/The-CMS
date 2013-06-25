@@ -8,7 +8,7 @@
 			<?= \Fuel\Core\Html::anchor("home/content/change/tile/{$page->alias}", "Tile", array('class' => 'tile')); ?>
 			<?= \Fuel\Core\Html::anchor("home/content/change/list/{$page->alias}", "List", array('class' => 'list')); ?>
 		</section>
-		<? if (Session::get('tile')): ?>
+		<? if ($view == 'tile'): ?>
 		    <?= TCTheme::render("content/tiles", array('content' => $content, 'page' => $page)); ?>
 		<? else: ?>
 		    <?= TCTheme::render("content/list", array('content' => $content, 'page' => $page)); ?>

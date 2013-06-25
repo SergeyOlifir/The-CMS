@@ -11,16 +11,6 @@
 		</div>
 	    </div>
 	    <?= isset($page) ? $page->translition_form() : Model_Category::get_translition_form(); ?>
-
-	    <div class="clearfix">
-		<?php echo Form::label(__("_form.input.view-content.title"), 'view_content'); ?>
-		<div class="input">
-		    <?= Form::radio('view_content', 'list', isset($page) && $page->view_content == 'list' ? true : false); ?>
-		    <?= Form::label(__("_form.input.view-content.list"), 'view_content'); ?>
-		    <?= Form::radio('view_content', 'tile', isset($page) && $page->view_content == 'tile' ? true : false); ?>
-		    <?= Form::label(__("_form.input.view-content.tile"), 'view_content'); ?>
-		</div>
-	    </div>
 	    <div class="clearfix">
 		<div class="input">
 		    <?= Form::checkbox('public_data', 1, isset($page) && $page->public_data > 0 ? true : false);  ?>

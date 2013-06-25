@@ -67,7 +67,7 @@ class Controller_Home_Page extends Controller_Homerest {
 		$this->response(array('data' => $result_popup), 200);
 	}
 
-	public function get_view($alias = null) {
+	public function get_view($alias = null, $view = null) {
         !(isset($alias)) and $this->response(array('data' => "", 'popup' => ""), 404);
         $page = Model_Page::query()->where('alias', '=', $alias)->get_one();
         $count = $page->content->count();
@@ -76,7 +76,7 @@ class Controller_Home_Page extends Controller_Homerest {
         $config = array(
             'pagination_url' => $base_url,
             'total_items'    => $count,
-            'per_page'       => \Fuel\Core\Session::get('tile') ? 15 : 6,
+            'per_page'       => $view == 'tile' ? 15 : 6,
             'uri_segment'    => 'page',
             'template' => array(
                 'wrapper_start' => '<div class="pagination"> ',
@@ -91,6 +91,7 @@ class Controller_Home_Page extends Controller_Homerest {
 
         $data['content'] = $page->get_content($pagination->per_page, $pagination->offset);
         $data['page'] = $page;
+        $data['view'] = $view;
 
         $result_content = TCTheme::load_view("page/view", $data)->render();
     	$this->response(array('data' => $result_content), 200);
