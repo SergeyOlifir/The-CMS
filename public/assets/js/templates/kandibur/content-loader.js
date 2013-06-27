@@ -125,9 +125,14 @@ $(document).ready( function() {
 function get(uri, to, params) {
 	$.ajax({
 		url: uri,
+		beforeSend: function() {
+			$(to + ' > *').fadeOut('slow');
+			$(to).append("<div class='img_loading'></div>");
+		},
 		success: function(response) {
 			var dat = response;
 			$(to).html(dat.data);
+			$(to + ' > *').fadeIn('slow');
 			galeryInitialise();
 			tilehover(to);
 		},

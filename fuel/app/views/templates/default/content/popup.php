@@ -41,10 +41,14 @@
 </div>
 
 <div id="social-buttons" class="wrapper-padding clearfix">
-	<div class="fb-like" data-href="<? //= Fuel\Core\Uri::current(); ?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+	<div class="fb-like" data-href="<?= Fuel\Core\Uri::current(); ?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 
-	<a href="https://twitter.com/share" class="twitter-share-button" data-via="propozitive" data-lang="ru">Твитнуть</a>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+	<script type="text/javascript">
+	    VK.init({apiId: 3733063, onlyWidgets: true});
+	</script>
+	<div id="vk_like" style="display: inline-block; margin-left: 30px;"></div>
+	<script type="text/javascript">
+	    VK.Widgets.Like("vk_like", {type: "button", height: 18});
 	</script>
 
 	<div class="g-plusone"  data-width="300"></div>

@@ -27,7 +27,7 @@
 		<?= Asset::js('jquery.ui.min.js'); ?>
 		<?= Asset::js('jquery.mousewheel.min.js'); ?>
 		<script src="http://connect.facebook.net/ru_RU/all.js#xfbml=1"></script>
-		<script src="http://platform.twitter.com/widgets.js"></script>
+		<script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
 		
 		<?= Asset::js('jquery.fancybox.pack.js'); ?>
 		<?= Asset::js('jquery.fancybox-buttons.js'); ?>

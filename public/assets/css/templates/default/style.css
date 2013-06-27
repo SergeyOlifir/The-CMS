@@ -14,6 +14,10 @@ body {
     font-style: normal;
 }
 
+h1,h2,h3,h4,h5,h6 {
+	line-height: normal;
+}
+
 #header {
 	height: 110px;
 	background-color: #825000;
@@ -105,17 +109,18 @@ body {
 
  .main-menu-content .menu-tile .menu-description h3 {
 	color: #FFFFFF;
-	font-size: 8pt;
+	font-size: 9pt;
 	font-weight: bold;
 	margin: 0;
 	padding: 3px 0;
 	line-height: normal;
+	margin-bottom: 1px;
 }
 
 .main-menu-content .menu-tile .menu-description .menu-text {
 	color: #FFFFFF;
-	font-size: 7pt;
-	line-height: 12px;
+	font-size: 8pt;
+	line-height: 13px;
 	width: 180px;
 }
 
@@ -652,6 +657,7 @@ body {
     color: #663300;
     font-weight: normal;
     margin: 5px 0;
+    line-height: normal;
 }
 
 .reveal-modal .popup-content .p{
@@ -874,4 +880,10 @@ body {
 
 #social-buttons .fb-like {
 	margin: 20px 47px 0 45px;
+}
+
+.img_loading {
+	background: url("../../../img/templates/default/loading.gif") no-repeat center center;
+	height: 100%;
+	width: 100%;
 }

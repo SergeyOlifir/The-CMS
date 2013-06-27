@@ -935,3 +935,9 @@ h1,h2,h3{line-height: 25px;}
 }
 
 /* end clearfix */
+
+.img_loading {
+	background: url("../../../img/templates/kandibur/loading.gif") no-repeat center center;
+	height: 100%;
+	width: 100%;
+}
