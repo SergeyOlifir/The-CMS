@@ -21,7 +21,7 @@
                     <h1><?= $project['name']; ?></h1>
                 </header>
                 <div class="description">
-                    <?= Str::truncate($project['description'], 306, '...'); ?>
+                    <?= Str::truncate($project['short_description'], 306, '...'); ?>
                 </div>
             </div>
             <?  if ($page->alias != null) {
