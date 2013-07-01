@@ -32,7 +32,7 @@ class Controller_Home_Pages extends Controller_Home {
         $config = array(
             'pagination_url' => $base_url,
             'total_items'    => $count,
-            'per_page'       => $view == 'tile' ? 18 : 6,
+            'per_page'       => $view == 'tile' ? 50 : 10,
             'uri_segment'    => 'page',
             'template' => array(
                 'wrapper_start' => '<div class="pagination"> ',
