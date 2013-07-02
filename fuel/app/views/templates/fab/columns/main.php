@@ -1,4 +1,5 @@
 <div class="column main-column left" id="2">
+	<h2>Рекламных дел мастера!</h2>
 	<div class="metro-wrapper clearfix">
 		<div class="home-tile left">
 			<ul class="tile-list clearfix">

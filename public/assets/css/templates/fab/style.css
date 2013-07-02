@@ -10,11 +10,8 @@
 
 body {
 	margin: 0px;
-}
-
-html {	
 	font-family: Times New Roman;
-	font-style: italic;
+	font-style: normal;
 }
 
 #header {
@@ -34,7 +31,6 @@ html {
 #header .slogan {
     color: #FF6000;
     font-family: Times New Roman;
-    font-style: italic;
     font-weight: bold;
     margin-bottom: 2px;
     width: 540px;
@@ -44,6 +40,7 @@ html {
 #header .slogan .left {
 	font-size: 10pt;
 	margin: 13px 0 0 0;
+	line-height: normal;
 }
 
 #header .slogan .right {
@@ -150,6 +147,7 @@ html {
     font-weight: bold;
     margin-left: 15px;
     margin-top: -5px;
+    line-height: normal;
 }
 
 .main-menu .mail {
@@ -245,7 +243,7 @@ html {
 
 .metro-wrapper {
 	margin: 0 auto;
-	margin-top: 75px;
+	margin-top: -2px;
 	width: 690px;
 	height: 325px;
 }
@@ -318,6 +316,7 @@ html {
 .metro-wrapper .home-tile ul li h3.menu-tile-active {
 	height: 40%;
 	background-image: none;
+	line-height: normal;
 }
 
 .metro-wrapper .home-tile ul li h3.menu-tile-active span {
@@ -336,6 +335,11 @@ html {
     font-weight: bold;
     margin: 0;
     padding: 40px 0 10px 67px;
+    line-height: normal;
+}
+
+.main-column h2 {
+	font-size: 18pt;
 }
 
 .column .paginator-wrapper {
@@ -354,7 +358,7 @@ html {
     width: 640px;
     height: 22px;
     padding: 4px 0 0 15px;
-
+    line-height: normal;
 }
 
 .column .paginator-wrapper .paginator-bottom {
@@ -362,6 +366,7 @@ html {
 	height: 26px;
 	padding: 4px 0 0 15px;
 	background: url("../../../img/templates/fab/Plashka_content_niz.png") no-repeat scroll 0 0 transparent;
+	line-height: normal;
 }
 
 .pagination {
@@ -400,7 +405,7 @@ html {
     width: 111px;
 }
 
-.column .content ul.list li img, .column .content ul.tile li img {
+.column .content ul.list li img, .column .content ul.tile li img, #content-of-popup ul.tile li img {
 	border: 1px solid #696969;
 	height: 99px;
 	width: 108px;
@@ -425,12 +430,14 @@ html {
     padding: 0;
     text-overflow: ellipsis;
     width: 214px;
+    line-height: normal;
 }
 
 .column .content ul.list .date {
 	color: #FFFFFF;
     font-size: 10pt;
 	font-weight: normal;
+	line-height: normal;
 }
 
 .column .content ul.list .description .text {
@@ -445,12 +452,12 @@ html {
     text-overflow: ellipsis;
 }
 
-.column .content ul.tile {
+.column .content ul.tile, #content-of-popup ul.tile {
 	margin: 0;
 	padding: 0px 0 0 30px;
 }
 
-.column .content ul.tile li {
+.column .content ul.tile li, #content-of-popup ul.tile li {
 	border: 1px solid #FF3705;
     float: left;
     height: 101px;
@@ -462,7 +469,7 @@ html {
     width: 110px;
 }
 
-.column .content ul.tile li h3 {
+.column .content ul.tile li h3, #content-of-popup ul.tile li h3 {
 	background-color: #252A30;
 	    background-image: url("../../../img/templates/fab/dots.png");
 	    background-position: right center;
@@ -483,7 +490,7 @@ html {
 	    width: 105px;
 }
 
-.column .content ul.tile li h3.tile-active {
+.column .content ul.tile li h3.tile-active, #content-of-popup ul.tile li h3.tile-active {
 	height: 70%;
 	text-indent: 0px;
 	background-image: none;
@@ -597,13 +604,31 @@ html {
 /* popup styles */
 
 .reveal-modal h3 {
-	font-size: 12pt;
-	color: #000;
-	margin: 8px 0;
+	font-size: 17pt;
+    color: #FF3300;
+    margin: 6px -40px 6px -30px;
+    padding-left: 30px;
+    font-weight: normal;
+    line-height: normal;
+    box-shadow: 0px 3px 2px rgba(255, 51, 0, 0.7);
+    padding-bottom: 3px;
+}
+
+.reveal-modal .related_content .name h1 {
+	font-size: 15pt;
+    color: #ff3300;
+    margin: 6px 28px;
+    font-weight: normal;
+    line-height: normal;
 }
 
 .reveal-modal .close-reveal-modal {
 	color: #ff3300;
+}
+
+.main-content {
+	margin: 0 -40px 9px -30px;	
+	box-shadow: 0px 4px 3px rgba(255, 51, 0, 0.7);
 }
 
 .reveal-modal {
@@ -611,23 +636,58 @@ html {
      border-radius: 0 0 0 0;
      margin-left: -437px;
      padding-left: 30px;
-     position: fixed;
-     top: 80px !important;
+     position: absolute;
+     top: 90px !important;
      z-index: 6;
      background: none repeat scroll 0 0 #FdFdFd;
+     border-radius: 10px 10px 10px 10px;
 }
 
 .reveal-modal .popup-content {
 	color: #000;
-	font-size: 11pt;
-	overflow:auto;
-	max-height: 400px;
-	padding-right: 5px;
+	font-size: 10pt;
+	overflow: auto;
+	max-height: 420px;
+    margin-top: 23px;
+    padding: 0 0 0 30px;
+    margin-right: 40px;
 }
 .reveal-modal .popup-content .p{
 }
 .reveal-modal-bg {
 	z-index: 5;
+}
+
+.reveal-modal .popup-content .wrapper-preview {
+	border-radius: 0 0 20px 20px;
+	overflow: hidden;
+	margin-right: 10px;
+	min-height: 297px;
+}
+
+.reveal-modal .popup-content .preview {
+	-webkit-box-shadow: 3px 3px 5px rgba(255, 51, 0, 0.75);
+	-moz-box-shadow:    3px 3px 5px rgba(255, 51, 0, 0.75);
+	box-shadow:         3px 3px 5px rgba(255, 51, 0, 0.75);
+	min-height: 272px;
+
+}
+
+.reveal-modal .popup-content .preview .carousel-inner {
+	height: 260px;
+	width: 450px;
+	margin-top: 5px;
+	border: 1px solid #ff3300;
+}
+
+.reveal-modal .popup-content .preview .carousel-inner img {
+	width: 100%;
+	height: 100%;
+}
+
+.reveal-modal .popup-content .preview .short_description {
+	float: right;
+	width: 300px;
 }
 
 .content .reveal-modal-bg {
@@ -710,6 +770,39 @@ html {
 	margin: 0 5px;
 	line-height: 115%;
 	margin: 0 8px;
+}
+
+.column .content ul.tile li, #content-of-popup ul.tile li {
+	float: left;
+    height: 101px;
+    list-style: none outside none;
+    overflow: hidden;
+    position: relative;
+    width: 110px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border: 1px solid #ff3300;
+}
+
+.column .content ul.tile li h3, #content-of-popup ul.tile li h3 {
+	background-color: #dd3300;
+    background-image: url("../../../img/templates/fab/dots.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    bottom: 0;
+    color: #FFFFFF;
+    display: block;
+    font-size: 8pt;
+    font-weight: bold;
+    height: 18px;
+    margin: 0;
+    opacity: 0.8;
+    overflow: hidden;
+    padding-left: 5px;
+    padding-right: 3px;
+    position: absolute;
+    text-indent: -300px;
+    width: 103px;
 }
 
 /* Arrows */
@@ -892,6 +985,53 @@ html {
 }
 
 /* end clearfix */
+
+.img_loading {
+	background: url("../../../img/templates/fab/loading.gif") no-repeat center center;
+	height: 100%;
+	width: 100%;
+}
+
+
+/* content-carousel */
+
+#content-carousel {
+	float: left;
+	width: 458px;
+	height: 272px;
+	border-radius: 0 20px 20px 0;
+	overflow: hidden;
+	margin-left: 5px;
+}
+
+#content-carousel .carousel-indicators {
+	top: 240px;
+	right: 25px;
+}
+
+#content-carousel .carousel-indicators .active {
+	background-color: #ff3300;
+}
+
+#content-carousel .carousel-indicators li {
+	background-color: #fff;
+    border: 1px solid #ff3300;
+    height: 8px;
+    width: 8px;
+}
+
+/* end content-carousel */
+
+/* social-buttons */
+
+#social-buttons {
+	height: 55px;
+	margin: 10px 40px 0 30px;
+}
+
+#social-buttons .fb-like {
+	margin: 20px 47px 0 45px;
+}
 
 .img_loading {
 	background: url("../../../img/templates/fab/loading.gif") no-repeat center center;
