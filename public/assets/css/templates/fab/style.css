@@ -529,7 +529,7 @@ h1,h2,h3 {
 	height: 110px;
 	background-color: #fff;
 	position: relative;
-	border-top: 5px solid ##424242;
+	border-top: 5px solid #424242;
 }
 
 #footer .footer-content {
@@ -563,7 +563,6 @@ h1,h2,h3 {
 }
 
 #footer ul.social {
-	margin: 0 45px 0 0;
 	padding: 15px 0 0 45px;
 }
 
@@ -1049,4 +1048,9 @@ h1,h2,h3 {
 	background: url("../../../img/templates/fab/loading.gif") no-repeat center center;
 	height: 100%;
 	width: 100%;
+}
+
+.social_and_metrika {
+	padding-right: 45px;
+	width: 300px;
 }

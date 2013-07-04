@@ -18,7 +18,10 @@ return array(
 	'contacts' 		=> array(
 		'title1' 	=> '«Faberge-Media»',
 		'title2'	=> 'international PR-agency',
-		'address' 	=> 'Ukraine, Dnepropetrovsk, Neb. Lenin 15a, office 46',
-		'phones' 	=> 'tel. +38 0562 34-01-54, mob. +38 067 562-47-13',
+		'city'		=> '49000 Ukraine, Dnepropetrovsk,',
+		'address' 	=> 'Nab. Lenin 15 «а», office 46',
+		'tel1' 		=> 'tel. +38 056 376 52 70,',
+		'tel2'		=> 'mob. +38 050 801 25 36',
+		'email'		=> 'office@faberge-media.com.ua',
 	),
 );

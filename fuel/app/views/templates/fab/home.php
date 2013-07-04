@@ -11,6 +11,7 @@
 		<meta property="og:image" content="" />
 		<meta property="og:site_name" content="&#x416;&#x438;&#x442;&#x43d;&#x438;&#x446;&#x430;" />
 		<meta property="fb:admins" content="100005100901584" />
+		<meta name='yandex-verification' content='55f35cd89076afa2' />
 
 		<title><?= $title; ?></title>
 		<link rel="shortcut icon" href="assets/img/templates/<?= $template; ?>/favicon.png" type="image/png">
