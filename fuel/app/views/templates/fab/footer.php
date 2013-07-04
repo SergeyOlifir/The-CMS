@@ -3,6 +3,8 @@
 		<h3><?= __("contacts.title1"); ?><br><?= __("contacts.title2"); ?></h3>
 		<span><?= __("contacts.city"); ?></span><br>
 		<span><?= __("contacts.address"); ?></span><br>
+	</div>
+	<div class="tel_and_email left">
 		<span><?= __("contacts.tel1"); ?></span><br>
 		<span><?= __("contacts.tel2"); ?></span><br>
 		<span> email: <a href="mailto:<?= __("contacts.email"); ?>" target="_blank"><?= __("contacts.email"); ?></a></span>
