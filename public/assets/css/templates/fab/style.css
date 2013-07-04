@@ -527,54 +527,56 @@ h1,h2,h3 {
 
 #footer {
 	height: 110px;
-	background-color: #fdfdfd;
+	background-color: #fff;
 	position: relative;
-	border-top: 5px solid #4d4e53;
+	border-top: 5px solid ##424242;
 }
 
 #footer .footer-content {
-	width: 880px;
+	width: 850px;
 	margin: 0 auto;
 }
 
 #footer .footer-content .adress {
     display: block;
-    margin-left: 0px;
-    margin-top: 10px;
-    width: 332px;
+	margin-left: 40px;
+	margin-top: 8px;
+	width: 250px;
 }
 
 #footer .footer-content h3 {
-	color: #FF3400;
-    font-family: times new roman;
-    font-size: 12pt;
-    font-style: normal;
-    margin: 0;
-    padding: 0;
+	color: #FF5500;
+	font-family: times new roman;
+	font-size: 13pt;
+	line-height: 18px;
+	font-style: lighter;
+	margin: 0;
+	padding: 0;
 }
 
 #footer .footer-content span {
-	color: #000000;
-    font-family: times new roman;
-    font-size: 10pt;
-    font-style: normal;
+	color: #353535;
+	font-family: times new roman;
+	font-size: 11pt;
+	font-style: oblique;
+	line-height: 18px;
 }
 
 #footer ul.social {
-	margin: 0 30px 0 0;
-	padding: 15px 0 0 48px;
+	margin: 0 45px 0 0;
+	padding: 15px 0 0 45px;
 }
 
 #footer ul.social li {
 	list-style: none;
 	float: left;
-	margin: 0 0 0 5px;
+	margin: 0 0 0 3px;
 }
 
 #footer ul.social li a {
-	width: 17px;
+	width: 18px;
 	height: 16px;
-	display: block;
+	display: block;;
 }
 
 #footer ul.social li a.fab {

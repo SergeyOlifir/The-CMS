@@ -1,6 +1,6 @@
 <div class="footer-content clearfix">
 	<div class="adress left">
-		<h3><?= __("contacts.title"); ?></h3>
+		<h3><?= __("contacts.title1"); ?><br><?= __("contacts.title2"); ?></h3>
 		<span><?= __("contacts.address"); ?>
 		<?= __("contacts.phones"); ?></span>
 	</div>
