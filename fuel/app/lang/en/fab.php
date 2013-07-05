@@ -5,7 +5,7 @@ return array(
 
 	'default_menu' 	=> array(
 		'name'		=> 'Home',
-		'description' => 'About our project, the Internet, news, services, partners...',
+		'description' => 'About our agency activities, services, manufacturing, team news agency, advertising and PR',
 	),
 
 	'pagination' 	=> array(
