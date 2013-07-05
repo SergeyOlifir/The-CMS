@@ -20,16 +20,16 @@ h1,h2,h3 {
 }
 
 #header {
-	height: 112px;
+	height: 90px;
     background-color: #fff;
     position: relative;
     border-bottom: 5px solid #ff5500;
 }
 
 #header .header-wrapper {
-	height: 110px;
+	height: 85px;
     margin: 0 auto;
-    padding: 24px 15px 0;
+    padding: 1px 15px 0;
     width: 780px;
 }
 
@@ -43,8 +43,8 @@ h1,h2,h3 {
 }
 
 #header .slogan .left {
-	font-size: 10pt;
-	margin: 13px 0 0 0;
+	font-size: 12pt;
+	margin: 9px 0 0 0;
 	line-height: normal;
 }
 
@@ -320,7 +320,7 @@ h1,h2,h3 {
 
 .metro-wrapper .home-tile ul li h3 span {
 	display: block;
-    padding-top: 4px;
+    padding-top: 1px;
     font-weight: lighter;
     font-size: 13pt;
     line-height: 18px;
@@ -507,7 +507,7 @@ h1,h2,h3 {
 }
 
 .column .content ul.tile li h3.tile-active, #content-of-popup ul.tile li h3.tile-active {
-	height: 70%;
+	height: 50%;
 	text-indent: 0px;
 	background-image: none;
 }
@@ -538,20 +538,18 @@ h1,h2,h3 {
 	margin: 0 auto;
 }
 
-#footer .footer-content .adress,
-#footer .footer-content .tel_and_email {
-    display: block;
-	width: 235px;
-}
-
 #footer .footer-content .adress {
-	margin-left: 40px;
+	display: block;
+	width: 240px;
+	margin-left: 35px;
 	margin-top: 8px;
 }
 
 #footer .footer-content .tel_and_email {
+    display: block;
+	width: 245px;
 	margin-left: 70px;
-	margin-top: 23px;
+	margin-top: 8px;
 }
 
 #footer .footer-content h3 {
@@ -829,24 +827,25 @@ h1,h2,h3 {
 }
 
 .column .content ul.tile li h3, #content-of-popup ul.tile li h3 {
-	background-color: #dd3300;
+	background-color: #434343;
     background-image: url("../../../img/templates/fab/dots.png");
     background-position: center center;
     background-repeat: no-repeat;
     bottom: 0;
     color: #FFFFFF;
     display: block;
-    font-size: 8pt;
+    font-size: 13pt;
     font-weight: bold;
-    height: 18px;
+    height: 19px;
     margin: 0;
-    opacity: 0.8;
+    opacity: 0.7;
     overflow: hidden;
     padding-left: 5px;
     padding-right: 3px;
     position: absolute;
     text-indent: -300px;
     width: 103px;
+    line-height: 20px;
 }
 
 /* Arrows */
@@ -1078,6 +1077,6 @@ h1,h2,h3 {
 }
 
 .social_and_metrika {
-	padding-right: 45px;
+	padding-right: 40px;
 	width: 195px;
 }
