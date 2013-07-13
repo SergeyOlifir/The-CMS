@@ -205,10 +205,9 @@ a.list {
 }
 
 .project .name {
-	width: 120px;
-	padding: 30px 10px;
-	overflow: hidden;
-	text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 10px;
+    text-overflow: ellipsis;
 }
 
 .project.tile .name a {
@@ -237,27 +236,28 @@ a.list {
 }
 
 .project.tile .name h1 {
-	display: block;
+    display: block;
     font-size: 16pt;
     margin: 17px 0 0;
     overflow: hidden;
     padding: 0;
     text-overflow: ellipsis;
-	color: #FFFFFF;
+    color: #FFFFFF;
     line-height: 18px;
 }
 
 .project.tile .name p {
-	font-size: 10pt;
+    font-size: 10pt;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 165px;
 }
 
 .project .description {
-	font-size: 11pt;
-    margin: 30px 115px 20px 10px;
-    width: 300px;
+    font-size: 11pt;
+    margin: 0 0 0 10px;
+    max-height: 60px;
+    overflow: hidden;
 }
 
 .project a.more-link {
@@ -435,7 +435,9 @@ a.list {
     font-size: 16px;
     text-transform: uppercase;
     color: #5ca800;
+    line-height: 25px;
     font-weight: bold;
+    margin: 0 15px;
 }
 
 .app-categories .category h3 {
@@ -443,9 +445,10 @@ a.list {
 }
 
 .app-categories .category .description {
-    margin: 0px 10px 0 15px;
-    font-size: 12px;
-    color: #4c4a4b;
+    color: #4C4A4B;
+    font-size: 13px;
+    margin: 0 15px;
+    text-align: left;
 
 }
 /* END Categories */
