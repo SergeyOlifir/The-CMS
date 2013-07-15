@@ -202,6 +202,7 @@ a.list {
 .project .white-block {
     background: url("../../../img/templates/the42template/shadow-vertical.png") no-repeat scroll -3px 0px #FFFFFF;
     height: 155px;
+    width: 510px;
 }
 
 .project .white-block h1 {
@@ -475,6 +476,21 @@ a.list {
     box-shadow:  0px 0px 5px 0px #6CB92C;
 }
 
+.catergories-list .thumbnail {
+    border: 1px solid #6CB92C;
+    -webkit-box-shadow:  0px 0px 5px 0px #6CB92C;
+    box-shadow:  0px 0px 5px 0px #6CB92C;
+}
+
+.catergories-list .thumbnail > img {
+    display: block;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    width: 222px;
+}
+
 .catergories-list .caption h3 {
     text-align: center;
 }
@@ -662,6 +678,10 @@ a.list {
 /* registr form */
 .container.registr-form {
     width: 300px;
+}
+
+#social-buttons {
+    padding-bottom: 20px;
 }
 
 /* end */

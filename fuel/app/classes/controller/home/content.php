@@ -44,7 +44,7 @@ class Controller_Home_Content extends Controller_Home {
 	}
 			
 	function action_change($view = null, $category = null) {
-		!isset($view) and Fuel\Core\Response::redirect('home/content');
+                !isset($view) and Fuel\Core\Response::redirect('home/content');
 		if ($view === 'tile') {
 			\Fuel\Core\Session::set('tile', true);
 		} else {
