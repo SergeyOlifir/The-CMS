@@ -7,7 +7,7 @@ class Add_more_description_in_content
 	function up()
 	{
 		\DBUtil::add_fields('localcontents', array(
-			'more_description' => array('type' => 'text'),
+			'more_description' => array('type' => 'text', 'null' => true),
 		));
 	}
 

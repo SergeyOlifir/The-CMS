@@ -44,7 +44,8 @@ class Controller_Admin_Content extends Controller_Admin_Administration {
 			$logo->save();
 			$content = Model_Content::forge(array(
 				'image' => $logo->id,
-				'date_create' => Date::create_from_string(Input::post('date_create'), "us")->get_timestamp(),
+				'date_create' => Date::create_from_string(Input::post('date_create'), "us")->get_timestamp() +
+					date( 'His', time() ) - 24 * 60 * 60,
 				'page_id' => $page_id,
 			));
 			if ($content and $content->save_translitions(\Fuel\Core\Input::post(), $local_id) and $content->save()) {
@@ -72,7 +73,8 @@ class Controller_Admin_Content extends Controller_Admin_Administration {
 	    }
 	    if(\Fuel\Core\Input::post()) {
 		Upload::process($config);	
-		$content->date_create = Date::create_from_string(Input::post('date_create'), "us")->get_timestamp();
+		$content->date_create = Date::create_from_string(Input::post('date_create'), "us")->get_timestamp() + 
+			date( 'His', time() ) - 24 * 60 * 60;
 		if(Upload::is_valid()) {
 			Upload::save();
 			$logo = Model_Logo::forge();
