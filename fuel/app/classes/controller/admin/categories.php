@@ -32,8 +32,19 @@ class Controller_Admin_Categories extends Controller_Admin_Administration
     public function action_create($local_id = null) {
 	TCLocale::set_locale_from_name(Model_Local::find($local_id)->name);
 	if (Input::method() == 'POST') {
+            $logo = '';
+            $config = \Config::get('settings.logo.upload');
+                Upload::process($config);
+                if (Upload::is_valid()) {
+                    Upload::save();
+                    $logo = Model_Logo::forge();
+                    $logo->save();
+                }
+                
+            
 	    $category = Model_Category::forge(array(
-		    'name' => Input::post('name'),
+		    'image' => ($logo !== '') ? $logo->id : NULL,
+                    'name' => Input::post('name'),
 		    'alias' => Input::post('alias'),
 		    'public_data' => Input::post('public_data') == 1 ? 1 : 0,
 	    ));
@@ -57,6 +68,18 @@ class Controller_Admin_Categories extends Controller_Admin_Administration
 		    Response::redirect('admin/categories');
 	    }
 	    if(\Fuel\Core\Input::post()) {
+                
+                $logo = '';
+                $config = \Config::get('settings.logo.upload');
+                Upload::process($config);
+                if (Upload::is_valid()) {
+                    Upload::save();
+                    $logo = Model_Logo::forge();
+                    $logo->save();
+                }
+                if($logo !== '') {
+                    $category->image = $logo->id;
+                }
 		$category->name = Input::post('name');
 		$category->alias = Input::post('alias');
 		$category->public_data = Input::post('public_data') == 1 ? 1 : 0;

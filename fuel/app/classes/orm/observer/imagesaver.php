@@ -28,8 +28,7 @@ class Observer_ImageSaver extends Observer
 						\Image::load($logo_path . DS . $logo_name)->resize($size['width'], $size['height'], true, false)
 								->save($logo_path . DS . $new_logo_name);
 						$obj->set($name, $new_logo_name);
-					}
-
+                                        }
 					return true;
 				}
 			}

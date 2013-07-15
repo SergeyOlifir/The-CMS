@@ -36,7 +36,7 @@
 		<header>
 		    <h1 class="text-center"><?= $content->name; ?></h1>
 		</header>
-		<p><?=$content->description; ?></p>
+                <p><?=  Fuel\Core\Str::truncate($content->description, 500, '...'); ?></p>
 	    </div>
 	</div>
     </article>
@@ -67,6 +67,12 @@
 	</script>
 </sectioin>
 
+<? if($content->more_description) : ?>
+    <section class="container single-content">
+        <?= $content->more_description; ?>
+    </section>
+<? endif; ?>
+
 <script>$('.carousel').carousel();</script>
 <? if(count($content->related_content) > 0): ?>
     <section class="projects wrapper-padding clearfix">
@@ -76,7 +82,7 @@
 	<? foreach ($content->related_content as $project): ?>
 	    <article class="project tile left">
 		<div class="logo-wrapper">
-		    <?= Html::img("files/{$project['image']}"); ?>
+		    <?= Html::img("files/{$project->logo->tile}"); ?>
 		</div>
 		<header class="name">
 		    <h1><?= \Fuel\Core\Html::anchor("/home/content/view/{$project->id}", $project['name'], array('class' => 'project-link')); ?></h1>

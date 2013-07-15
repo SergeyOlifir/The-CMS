@@ -11,7 +11,7 @@ class Model_Base extends Model {
 		
 		return $result;
 	}
-
+        
 }
 
 ?>

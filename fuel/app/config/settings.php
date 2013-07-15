@@ -17,16 +17,16 @@ return array(
 				'height' => 150,
 			),
 			'tile' => array(
-				'width'  => 180,
-				'height' => 100,
+				'width'  => 250,
+				'height' => 250,
 			),
 			'thumb' => array(
 				'width'  => 110,
 				'height' => 100,
 			),
 			'small' => array(
-				'width' => 100,
-				'height' => 100,
+				'width' => 250,
+				'height' => 250,
 			),
 		)
 	),

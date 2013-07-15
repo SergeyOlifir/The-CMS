@@ -13,17 +13,6 @@
 class Controller_Home_Pages extends Controller_Home {
     
     public function action_view($alias = null, $view = null) {
-        /*!(isset($alias)) and Fuel\Core\Response::redirect('404');
-        if($page = Model_Page::query()->where('alias', '=', $alias)->get_one()) {
-            //Controller_Application::$current_page = $page->alias;
-	    //var_dump($page->content); die();
-            //$this->template->content = $page->description;
-	    $this->template->content = TCTheme::load_view('page/view', array('page' => $page));
-        } else {
-            Fuel\Core\Response::redirect('404');
-        }
-    }*/
-
         !(isset($alias)) and Fuel\Core\Response::redirect('404');
         $page = Model_Page::query()->where('alias', '=', $alias)->get_one();
         $count = $page->content->count();
@@ -32,7 +21,7 @@ class Controller_Home_Pages extends Controller_Home {
         $config = array(
             'pagination_url' => $base_url,
             'total_items'    => $count,
-            'per_page'       => $view == 'tile' ? 50 : 10,
+            'per_page'       => Fuel\Core\Session::get('tile') == 'tile' ? 50 : 10,
             'uri_segment'    => 'page',
             'template' => array(
                 'wrapper_start' => '<div class="pagination"> ',
@@ -48,6 +37,20 @@ class Controller_Home_Pages extends Controller_Home {
         $content = $page->get_content($pagination->per_page, $pagination->offset);
         
         $this->template->content = TCTheme::load_view('page/view', array('content' => $content, 'pagination' => $pagination->render(), 'page' => $page, 'view' => $view));
+    }
+    
+    function action_change($view = null, $page = null) {
+            
+            !isset($view) and Fuel\Core\Response::redirect('home/content');
+            if ($view === 'tile') {
+                    \Fuel\Core\Session::set('tile', true);
+            } else {
+                    \Fuel\Core\Session::delete('tile');
+            }
+            if(isset($page)) {
+                    Fuel\Core\Response::redirect("home/pages/view/{$page}");
+            }
+            Fuel\Core\Response::redirect("home/content");
     }
 }
 
