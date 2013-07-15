@@ -484,11 +484,11 @@ a.list {
 
 .catergories-list .thumbnail > img {
     display: block;
-    height: 200px;
+    height: 155px;
     margin-left: auto;
     margin-right: auto;
     
-    width: 222px;
+    width: 255px;
 }
 
 .catergories-list .caption h3 {
