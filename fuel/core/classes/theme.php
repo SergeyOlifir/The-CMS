@@ -3,7 +3,7 @@
  * Part of the Fuel framework.
  *
  * @package    Fuel
- * @version    1.5
+ * @version    1.6
  * @author     Fuel Development Team
  * @license    MIT License
  * @copyright  2010 - 2013 Fuel Development Team
@@ -102,7 +102,7 @@ class Theme
 		'assets_folder' => 'themes',
 		'view_ext' => '.html',
 		'require_info_file' => false,
-		'info_file_name' => 'theme.info.php',
+		'info_file_name' => 'themeinfo.php',
 		'use_modules' => false,
 	);
 
@@ -376,13 +376,36 @@ class Theme
 	}
 
 	/**
+	 * Returns wether or not a section has partials defined
+	 *
+	 * @param   string  				$section   Name of the partial section in the template
+	 * @return  bool
+	 */
+	public function has_partials($section)
+	{
+		return $this->partial_count($section) > 0;
+	}
+
+	/**
+	 * Returns the number of partials defined for a section
+	 *
+	 * @param   string  				$section   Name of the partial section in the template
+	 * @return  int
+	 */
+	public function partial_count($section)
+	{
+		// return the defined partial count
+		return array_key_exists($section, $this->partials) ? count($this->partials[$section]) : 0;
+	}
+
+	/**
 	 * Sets a chrome for a partial
 	 *
 	 * @param   string  				$section	Name of the partial section in the template
 	 * @param   string|View|ViewModel	$view   	chrome View, or name of the view
 	 * @param   string  				$var		Name of the variable in the chome that will output the partial
 	 *
-	 * @return  void
+	 * @return  View|ViewModel, the view partial
 	 */
 	public function set_chrome($section, $view, $var = 'content')
 	{
@@ -393,6 +416,8 @@ class Theme
 		}
 
 		$this->chrome[$section] = array('var' => $var, 'view' => $view);
+
+		return $view;
 	}
 
 	/**
@@ -467,9 +492,10 @@ class Theme
 		$themes = array();
 		foreach ($this->paths as $path)
 		{
-			foreach(glob($path.'*', GLOB_ONLYDIR) as $theme)
+			$iterator = new \GlobIterator($path.'*');
+			foreach($iterator as $theme)
 			{
-				$themes[] = basename($theme);
+				$themes[] = $theme->getFilename();
 			}
 		}
 		sort($themes);
@@ -627,12 +653,12 @@ class Theme
 	 * will be prefixed with the module name, so you don't have to hardcode the
 	 * module name as a view file prefix
 	 *
-	 * @param	$enable	enable if true, disable if false
+	 * @param	bool|string  $enable  enable if true or string, disable if false
 	 * @return	Theme
 	 */
 	public function use_modules($enable = true)
 	{
-		$this->config['use_modules'] = (bool) $enable;
+		$this->config['use_modules'] = $enable;
 
 		// return for chaining
 		return $this;
@@ -655,11 +681,19 @@ class Theme
 			$themes = array($this->active, $this->fallback);
 		}
 
-		// determine the path prefix
+		// determine the path prefix and optionally the module path
 		$path_prefix = '';
+		$module_path = null;
 		if ($this->config['use_modules'] and $module = \Request::active()->module)
 		{
+			// we're using module name prefixing
 			$path_prefix = $module.DS;
+
+			// and modules are in a separate path
+			is_string($this->config['use_modules']) and $path_prefix = trim($this->config['use_modules'], '\\/').DS.$path_prefix;
+
+			// do we need to check the module too?
+			$this->config['use_modules'] === true and $module_path = \Module::exists($module).'themes'.DS;
 		}
 
 		foreach ($themes as $theme)
@@ -671,7 +705,11 @@ class Theme
 				pathinfo($view, PATHINFO_FILENAME);
 			if (empty($theme['find_file']))
 			{
-				if (is_file($path = $theme['path'].$path_prefix.$file.$ext))
+				if ($module_path and ! empty($theme['name']) and is_file($path = $module_path.$theme['name'].DS.$file.$ext))
+				{
+					return $path;
+				}
+				elseif (is_file($path = $theme['path'].$path_prefix.$file.$ext))
 				{
 					return $path;
 				}
@@ -703,20 +741,21 @@ class Theme
 	 */
 	protected function set_theme($theme = null, $type = 'active')
 	{
-		// remove the defined theme asset paths from the asset instance
-		empty($this->active['asset_path']) or $this->asset->remove_path($this->active['asset_path']);
-		empty($this->fallback['asset_path']) or $this->asset->remove_path($this->fallback['asset_path']);
-
-		// set the fallback theme
+		// set the theme if given
 		if ($theme !== null)
 		{
+			// remove the defined theme asset paths from the asset instance
+			empty($this->active['asset_path']) or $this->asset->remove_path($this->active['asset_path']);
+			empty($this->fallback['asset_path']) or $this->asset->remove_path($this->fallback['asset_path']);
+
 			$this->{$type} = $this->create_theme_array($theme);
+
+			// add the asset paths to the asset instance
+			empty($this->fallback['asset_path']) or $this->asset->add_path($this->fallback['asset_path']);
+			empty($this->active['asset_path']) or $this->asset->add_path($this->active['asset_path']);
 		}
 
-		// add the asset paths to the asset instance
-		empty($this->fallback['asset_path']) or $this->asset->add_path($this->fallback['asset_path']);
-		empty($this->active['asset_path']) or $this->asset->add_path($this->active['asset_path']);
-
+		// and return the theme config
 		return $this->{$type};
 	}
 

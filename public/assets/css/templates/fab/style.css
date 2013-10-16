@@ -749,16 +749,15 @@ h1,h2,h3 {
 }
 
 #loading_popup .close-reveal-modal-loading {
-    color: #cc0000;
-	font-size: 10pt;
-	font-family: Arial, sans-serif;
+    color: #FF3300;
+    font-size: 11pt;
+    font-family: Arial, sans-serif;
     font-weight: bold;
     cursor: pointer;
     position: absolute;
-    right: 55px;
-    top: 20px;
+    right: 80px;
+    top: 15px;
     font-style: normal;
-    text-decoration: underline;
 }
 
 .carusel {

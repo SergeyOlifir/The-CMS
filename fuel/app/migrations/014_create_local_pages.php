@@ -15,7 +15,7 @@ class Create_local_pages
 			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 		), array('id'));
 
-		$pages = \Model_Category::find('all');
+		/*$pages = \Model_Category::find('all');
 		foreach ($pages as $page) {
 			$localpage = \Model_Localpage::forge(
 				array(
@@ -31,7 +31,7 @@ class Create_local_pages
 
 		\DBUtil::drop_fields('categories', array(
 			'header',
-		));	
+		));*/	
 	}
 
 	public function down()

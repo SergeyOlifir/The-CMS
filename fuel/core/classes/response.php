@@ -3,7 +3,7 @@
  * Part of the Fuel framework.
  *
  * @package    Fuel
- * @version    1.5
+ * @version    1.6
  * @author     Fuel Development Team
  * @license    MIT License
  * @copyright  2010 - 2013 Fuel Development Team
@@ -128,6 +128,34 @@ class Response
 
 		$response->send(true);
 		exit;
+	}
+
+	/**
+	 * Redirects back to the previous page, if that page is within the current
+	 * application. If not, it will redirect to the given url, and if none is
+	 * given, back to the application root
+	 *
+	 * @param   string  $url     The url
+	 * @param   string  $method  The redirect method
+	 * @param   int     $code    The redirect status code
+	 *
+	 * @return  void
+	 */
+	public static function redirect_back($url = '', $method = 'location', $code = 302)
+	{
+		// do we have a referrer?
+		if ($referrer = \Input::referrer())
+		{
+			// is it within our website? And not equal to the current url?
+			if (strpos($referrer, \Uri::base()) === 0 and $referrer != \Uri::current())
+			{
+				// redirect back to where we came from
+				static::redirect($referrer, $method, $code);
+			}
+		}
+
+		// no referrer or an external link, do a normal redirect
+		static::redirect($url, $method, $code);
 	}
 
 	/**

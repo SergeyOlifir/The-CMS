@@ -20,7 +20,7 @@
  */
 
 return array(
-	'driver' => 'SimpleAuth',
+	'driver' => 'Ormauth',
 	'verify_multiple_logins' => false,
 	'salt' => 'werUvxcd',
 	'groups' => array(

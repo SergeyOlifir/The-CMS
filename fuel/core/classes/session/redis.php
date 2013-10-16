@@ -3,7 +3,7 @@
  * Part of the Fuel framework.
  *
  * @package    Fuel
- * @version    1.5
+ * @version    1.6
  * @author     Fuel Development Team
  * @license    MIT License
  * @copyright  2010 - 2013 Fuel Development Team
@@ -126,15 +126,9 @@ class Session_Redis extends \Session_Driver
 					// cookie present, but session record missing. force creation of a new session
 					return $this->read(true);
 				}
-				else
-				{
-					// update the session
-					$this->keys['previous_id'] = $this->keys['session_id'];
-					$this->keys['session_id']  = $payload['rotated_session_id'];
 
-					// unpack the payload
-					$payload = $this->_unserialize($payload);
-				}
+				// unpack the payload
+				$payload = $this->_unserialize($payload);
 			}
 
 			if ( ! isset($payload[0]) or ! is_array($payload[0]))
@@ -250,7 +244,7 @@ class Session_Redis extends \Session_Driver
 	 */
 	protected function _read_redis($session_id)
 	{
-		// fetch the session data from the Memcached server
+		// fetch the session data from the redis server
 		return $this->redis->get($session_id);
 	}
 

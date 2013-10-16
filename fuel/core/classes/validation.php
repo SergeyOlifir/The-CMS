@@ -3,7 +3,7 @@
  * Part of the Fuel framework.
  *
  * @package    Fuel
- * @version    1.5
+ * @version    1.6
  * @author     Fuel Development Team
  * @license    MIT License
  * @copyright  2010 - 2013 Fuel Development Team
@@ -499,14 +499,31 @@ class Validation
 			return $this->input;
 		}
 
+		// key transformation from form array to dot notation
+		if (strpos($key,'[') !== false)
+		{
+			$key = str_replace(array('[', ']'),array('.', ''),$key);
+		}
+
+		// if we don't have this key
 		if ( ! array_key_exists($key, $this->input))
 		{
-			if (strpos($key,'[') !== false)
+			// it might be in dot-notation
+			if (strpos($key,'.') !== false)
 			{
-				$this->input[$key] =  $this->global_input_fallback ? \Arr::get(\Input::param(), str_replace(array('[', ']'),array('.', ''),$key), $default) : $default;
+				// check the input first
+				if (($result = \Arr::get($this->input, $key, null)) !== null)
+				{
+					$this->input[$key] = $result;
+				}
+				else
+				{
+					$this->input[$key] =  $this->global_input_fallback ? \Arr::get(\Input::param(), $key, $default) : $default;
+				}
 			}
 			else
 			{
+				// do a fallback to global input if needed, or use the provided default
 				$this->input[$key] =  $this->global_input_fallback ? \Input::param($key, $default) : $default;
 			}
 		}
@@ -737,7 +754,7 @@ class Validation
 	 */
 	public function _validation_min_length($val, $length)
 	{
-		return $this->_empty($val) || (MBSTRING ? mb_strlen($val) : strlen($val)) >= $length;
+		return $this->_empty($val) || \Str::length($val) >= $length;
 	}
 
 	/**
@@ -749,7 +766,7 @@ class Validation
 	 */
 	public function _validation_max_length($val, $length)
 	{
-		return $this->_empty($val) || (MBSTRING ? mb_strlen($val) : strlen($val)) <= $length;
+		return $this->_empty($val) || \Str::length($val) <= $length;
 	}
 
 	/**
@@ -761,7 +778,7 @@ class Validation
 	 */
 	public function _validation_exact_length($val, $length)
 	{
-		return $this->_empty($val) || (MBSTRING ? mb_strlen($val) : strlen($val)) == $length;
+		return $this->_empty($val) || \Str::length($val) == $length;
 	}
 
 	/**
@@ -943,5 +960,30 @@ class Validation
 		}
 
 		return true;
+	}
+
+	/**
+	 * Checks whether string input is valid date format
+	 *
+	 * @param   string
+	 * @param   string  The format used at the time of a validation
+	 * @param   bool    Whether validation checks strict
+	 * @return  bool
+	 */
+	public function _validation_valid_date($val, $format = null, $strict = true)
+	{
+		if ($this->_empty($val))
+		{
+			return true;
+		}
+		if ($format)
+		{
+			$parsed = date_parse_from_format($format, $val);
+		}
+		else
+		{
+			$parsed = date_parse($val);
+		}
+		return \Arr::get($parsed, 'error_count', 1) + ($strict ? \Arr::get($parsed, 'warning_count', 1) : 0) === 0;
 	}
 }

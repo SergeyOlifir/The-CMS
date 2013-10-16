@@ -1,9 +1,11 @@
 <?php
 /**
+ * Fuel
+ *
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
  * @package    Fuel
- * @version    1.5
+ * @version    1.6
  * @author     Fuel Development Team
  * @license    MIT License
  * @copyright  2010 - 2013 Fuel Development Team
@@ -58,7 +60,17 @@ class Observer_UpdatedAt extends Observer
 	 */
 	public function before_save(Model $obj)
 	{
-		if ($obj->is_new() or $obj->is_changed())
+		$this->before_update($obj);
+	}
+
+	/**
+	 * Set the UpdatedAt property to the current time.
+	 *
+	 * @param  Model  Model object subject of this observer method
+	 */
+	public function before_update(Model $obj)
+	{
+		if ($obj->is_changed())
 		{
 			$obj->{$this->_property} = $this->_mysql_timestamp ? \Date::time()->format('mysql') : \Date::time()->get_timestamp();
 		}

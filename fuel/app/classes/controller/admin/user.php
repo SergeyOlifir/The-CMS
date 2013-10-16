@@ -30,7 +30,7 @@ class Controller_Admin_User extends Controller_Admin {
     function action_group($id = null, $group = null) {
 		!isset($id) and \Fuel\Core\Response::redirect('admin/user/index');
 		if($model = Model_User::find($id) and isset($group)) {
-		    $model->group = $group;
+		    $model->group_id = $group;
 		    $model->save();
 	}
 	

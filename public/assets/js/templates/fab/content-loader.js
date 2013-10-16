@@ -43,7 +43,7 @@ $(document).ready( function() {
 
 	$('#loading_popup').click(function(){
 		close_loading();
-		//$("#content").scrollTo('#country', 900).scrollTo( '-=45px', 900, { axis:'x'});
+		$("#content").scrollTo('#projects', 900).scrollTo( '-=45px', 900, { axis:'x'});
 	})
 
 	$( ".main-menu" ).click(function() {

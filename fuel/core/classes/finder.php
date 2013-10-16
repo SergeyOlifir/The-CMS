@@ -3,7 +3,7 @@
  * Part of the Fuel framework.
  *
  * @package    Fuel
- * @version    1.5
+ * @version    1.6
  * @author     Fuel Development Team
  * @license    MIT License
  * @copyright  2010 - 2013 Fuel Development Team
@@ -26,6 +26,16 @@ class Finder
 	 */
 	protected static $instance = null;
 
+	public static function _init()
+	{
+		\Config::load('file', true);
+
+		// make sure the configured chmod values are octal
+		$chmod = \Config::get('file.chmod.folders', 0777);
+		is_string($chmod) and \Config::set('file.chmod.folders', octdec($chmod));
+		$chmod = \Config::get('file.chmod.files', 0666);
+		is_string($chmod) and \Config::set('file.chmod.files', octdec($chmod));
+	}
 	/**
 	 * An alias for Finder::instance()->locate();
 	 *
@@ -267,9 +277,10 @@ class Finder
 		$found = array();
 		foreach ($paths as $path)
 		{
-			if (($f = glob($path.$directory.DS.$filter)) !== false)
+			$files = new \GlobIterator(rtrim($path.$directory,DS).DS.$filter);
+			foreach($files as $file)
 			{
-				$found = array_merge($f, $found);
+				$found[] = $file->getPathname();
 			}
 		}
 
@@ -326,10 +337,10 @@ class Finder
 			$paths = $this->paths;
 
 			// get extra information of the active request
-			if (class_exists('Request', false) and ($uri = \Uri::string()) !== null)
+			if (class_exists('Request', false) and ($request = \Request::active()))
 			{
-				$cache_id .= $uri;
-				$paths = array_merge(\Request::active()->get_paths(), $paths);
+				$request->module and $cache_id .= $request->module;
+				$paths = array_merge($request->get_paths(), $paths);
 			}
 		}
 
@@ -458,7 +469,14 @@ class Finder
 				if ((time() - filemtime($dir.$file)) < $lifetime)
 				{
 					// Return the cache
-					return unserialize(file_get_contents($dir.$file));
+					try
+					{
+						return unserialize(file_get_contents($dir.$file));
+					}
+					catch (\Exception $e)
+					{
+						// Cache exists but could not be read, ignore it
+					}
 				}
 				else
 				{
@@ -476,16 +494,16 @@ class Finder
 			}
 
 			// Cache not found
-			return NULL;
+			return null;
 		}
 
 		if ( ! is_dir($dir))
 		{
 			// Create the cache directory
-			mkdir($dir, octdec(\Config::get('file.chmod.folders', 0777)), true);
+			mkdir($dir, \Config::get('file.chmod.folders', 0777), true);
 
 			// Set permissions (must be manually set to fix umask issues)
-			chmod($dir, octdec(\Config::get('file.chmod.folders', 0777)));
+			chmod($dir, \Config::get('file.chmod.folders', 0777));
 		}
 
 		// Force the data to be a string
@@ -493,10 +511,22 @@ class Finder
 
 		try
 		{
-			// Write the cache
-			return (bool) file_put_contents($dir.$file, $data, LOCK_EX);
+			// Write the cache, and set permissions
+			if ($result = (bool) file_put_contents($dir.$file, $data, LOCK_EX))
+			{
+				try
+				{
+					chmod($dir.$file, \Config::get('file.chmod.files', 0666));
+				}
+				catch (\Exception $e)
+				{
+					// we probably don't have permission, lets hope rights are ok
+				}
+			}
+
+			return $result;
 		}
-		catch (Exception $e)
+		catch (\Exception $e)
 		{
 			// Failed to write cache
 			return false;

@@ -1,24 +1,28 @@
 <?php
 
-class Controller_Admin extends Controller_Base {
-
+class Controller_Admin extends Controller_Base
+{
 	public $template = 'admin/template';
 
 	public function before()
 	{
 		parent::before();
 
-		if (Auth::check())
+		if (Request::active()->controller !== 'Controller_Admin' or ! in_array(Request::active()->action, array('login', 'logout')))
 		{
-			if ( ! Auth::member(100) and ! in_array(Request::active()->action, array('login', 'logout')))
+			if (Auth::check())
 			{
-				Session::set_flash('error', e('You don\'t have access to the admin panel'));
-				Response::redirect('/');
+				$admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
+				if ( ! Auth::member($admin_group_id))
+				{
+					Session::set_flash('error', e('You don\'t have access to the admin panel'));
+					Response::redirect('/');
+				}
 			}
-		}
-		else
-		{
-			Response::redirect('admin/login');
+			else
+			{
+				Response::redirect('admin/login');
+			}
 		}
 	}
 
@@ -44,7 +48,14 @@ class Controller_Admin extends Controller_Base {
 				if (Auth::check() or $auth->login(Input::post('email'), Input::post('password')))
 				{
 					// credentials ok, go right in
-					$current_user = Model_User::find_by_username(Auth::get_screen_name());
+					if (Config::get('auth.driver', 'Simpleauth') == 'Ormauth')
+					{
+						$current_user = Model\Auth_User::find_by_username(Auth::get_screen_name());
+					}
+					else
+					{
+						$current_user = Model_User::find_by_username(Auth::get_screen_name());
+					}
 					Session::set_flash('success', e('Welcome, '.$current_user->username));
 					Response::redirect('admin');
 				}
