@@ -41,7 +41,7 @@
 			</a>
 		</div>
 		<div class="round _5">
-			<a href="#shop">
+			<a href="#birthdays">
 				<div class="img-wrapper">
 					<?= Html::img("assets/img/templates/kandibur/main-images/4.jpg"); ?>
 				</div>
