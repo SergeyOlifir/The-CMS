@@ -6,6 +6,8 @@
 		<meta charset="utf-8"/>
 		<meta name='yandex-verification' content='4bee6e3f36f25284' />
 		
+                                    <meta name='wmail-verification' content='5622ced4bad4660a' />
+                            
 		<meta property="og:title" content="zhitnitsa" />
 		<meta property="og:type" content="company" />
 		<meta property="og:url" content="http://zhitnitsa.com.ua/" />
