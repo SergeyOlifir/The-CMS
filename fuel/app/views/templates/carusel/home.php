@@ -34,7 +34,7 @@
       <?= TCTheme::render("carousel_partners"); ?>
       <content class="all-wrapper">
         <? if(isset($content)): ?>
-                <?//= $content; ?>
+                <?= $content; ?>
         <? endif; ?>
       </content>
       <footer id="footer">
