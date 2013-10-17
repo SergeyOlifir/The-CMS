@@ -1,6 +1,0 @@
-<?php
-return array(
-	'theme_folder' => 'the42template',
-	'main_faile_name' => 'The42Template',
-);
-?>

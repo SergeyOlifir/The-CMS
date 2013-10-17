@@ -101,8 +101,61 @@
 			</section>
 		</td>
 		<td>
+			<style>
+				.advertising ul {
+					margin: 10px;
+				}
+				
+				.advertising ul li {
+					list-style: none;
+				}
+				
+				table.content td:nth-child(1) {
+				    vertical-align: top;
+				}
+				
+				table.content td:nth-child(2) {
+					position: static;
+				}
+			</style>
 			<section class="advertising right">
-
+				<ul class="baners">
+					<li>
+						<a href="/home/content/view/41.html">
+							<?= Html::img("assets/img/templates/carusel/baners/map_adv_right.png"); ?>
+						</a>
+					</li>
+					<li>
+						<?= Html::img("assets/img/templates/carusel/baners/Ermolinskie_adv_right.png"); ?>
+					</li>
+					<li>
+						<?= Html::img("assets/img/templates/carusel/baners/Reklamnoe_Polel_adv_right.png"); ?>
+					</li>
+					<li>
+						<?= Html::img("assets/img/templates/carusel/baners/34_tv_channel_adv_right.png"); ?>
+					</li>
+					<li>
+						<?= Html::img("assets/img/templates/carusel/baners/agency_Rating_adv_right.png"); ?>
+					</li>
+					<li>
+						<?= Html::img("assets/img/templates/carusel/baners/Druk_Ukraine_adv_right.png"); ?>
+					</li>
+					<li>
+						<?= Html::img("assets/img/templates/carusel/baners/Karavan_adv_right.png"); ?>
+					</li>
+					<li>
+						<?= Html::img("assets/img/templates/carusel/baners/Sova_adv_right.png"); ?>
+					</li>
+					<li>
+						<?= Html::img("assets/img/templates/carusel/baners/Cascade_adv_right.png"); ?>
+					</li>
+					<li>
+						<?= Html::img("assets/img/templates/carusel/baners/Zitnitsa_adv_right.png"); ?>
+					</li>
+					<li>
+						<?= Html::img("assets/img/templates/carusel/baners/42studio_adv_right.png"); ?>
+					</li>
+				</ul>
 			</section>
 		</td>
 	</tr>

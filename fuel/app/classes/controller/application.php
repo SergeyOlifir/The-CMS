@@ -2,7 +2,7 @@
 
 class Controller_Application extends Controller_Template {
 	public $template = 'admin';
-	public static $template_name = "the42template";
+	public static $template_name = "carusel";
 	protected $auth;
 	public static $current_page = "";
 	public $lang_id;
