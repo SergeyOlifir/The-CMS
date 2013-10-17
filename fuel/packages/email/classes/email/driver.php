@@ -1,9 +1,11 @@
 <?php
 /**
+ * Fuel
+ *
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
  * @package    Fuel
- * @version    1.5
+ * @version    1.6
  * @author     Fuel Development Team
  * @license    MIT License
  * @copyright  2010 - 2013 Fuel Development Team
@@ -83,6 +85,11 @@ abstract class Email_Driver
 	protected $extra_headers = array();
 
 	/**
+	 * Pipelining enabled?
+	 */
+	protected $pipelining = false;
+
+	/**
 	 * Mail type
 	 */
 	protected $type = 'plain';
@@ -122,6 +129,18 @@ abstract class Email_Driver
 		return $this;
 	}
 
+	/**
+	 * Enables or disables driver pipelining.
+	 *
+	 * @param	bool	$pipelining		whether or not to enable pipelining
+	 * @return	object					$this
+	 */
+	public function pipelining($pipelining = true)
+	{
+		$this->pipelining = (bool) $pipelining;
+
+		return $this;
+	}
 	/**
 	 * Sets the body
 	 *
@@ -452,7 +471,7 @@ abstract class Email_Driver
 		{
 			foreach($header as $_header => $_value)
 			{
-				empty($value) or $this->extra_headers[$header] = $value;
+				empty($_value) or $this->extra_headers[$_header] = $_value;
 			}
 		}
 		else
@@ -469,14 +488,18 @@ abstract class Email_Driver
 	 * @param	string	$file		the file to attach
 	 * @param	bool	$inline		whether to include the file inline
 	 * @param	string	$mime		the file's mime-type
-	 * @param	string	$mime		the file's mime-type
+	 * @param	string	$name		the attachment's name
 	 * @return  object              $this
 	 */
-	public function attach($file, $inline = false, $cid = null, $mime = null)
+	public function attach($file, $inline = false, $cid = null, $mime = null, $name = null)
 	{
-		if ( ! is_array($file))
+		$file = (array) $file;
+
+		// Ensure the attachment name
+		if ( ! isset($file[1]))
 		{
-			$file = array($file, pathinfo($file, PATHINFO_BASENAME));
+			$name or $name = pathinfo($file[0], PATHINFO_BASENAME);
+			$file[] = $name;
 		}
 
 		// Find the attachment.

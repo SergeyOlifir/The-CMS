@@ -2,8 +2,18 @@
     <header>
 	 <h1><legend><?= __("_form.title"); ?></legend></h1>
     </header>
-    <?php echo Form::open(); ?>
+    <?php echo Form::open(array('enctype'=>'multipart/form-data', 'class' => 'content-form')); ?>
 	<fieldset>
+            <div class="clearfix">
+                    
+                    <? if(isset($page) and !empty($page->image)): ?>
+                        <?= Html::img("files/{$page->logo->list}", array('class' => "thumbnail")); ?>
+                    <? endif; ?>
+                    <?= Form::label('HUI', 'image'); ?>
+                    <div class="input">
+                            <?= Form::file("image",array('class' => 'span8')); ?>
+                    </div>
+            </div>
 	    <div class="clearfix">
 		<?php echo Form::label(__("_form.input.alias"), 'alias'); ?>
 		<div class="input">

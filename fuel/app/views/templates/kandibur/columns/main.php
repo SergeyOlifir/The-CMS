@@ -3,7 +3,7 @@
 		<div class="round _1">
 			<a href="#news">
 				<div class="img-wrapper">
-					<?= Html::img("assets/img/templates/kandibur/main-images/4.jpg"); ?>
+					<?= Html::img("assets/img/templates/kandibur/main-images/8.jpg"); ?>
 				</div>
 				<h3 class="header">
 					Новости, анонсы мероприятий, события
@@ -41,17 +41,17 @@
 			</a>
 		</div>
 		<div class="round _5">
-			<a href="#shop">
+			<a href="#birthdays">
 				<div class="img-wrapper">
-					<?= Html::img("assets/img/templates/kandibur/main-images/8.jpg"); ?>
+					<?= Html::img("assets/img/templates/kandibur/main-images/4.jpg"); ?>
 				</div>
 				<h3 class="header">
-					Магазин игрушек, игры и пособия 
+					Дни РОЖДЕНИЯ. Праздники для детей! 
 				</h3>
 			</a>
 		</div>
 		<div class="round _6">
-			<a href="#country">
+			<a href="#about">
 				<div class="img-wrapper">
 					<?= Html::img("assets/img/templates/kandibur/main-images/3.jpg"); ?>
 				</div>

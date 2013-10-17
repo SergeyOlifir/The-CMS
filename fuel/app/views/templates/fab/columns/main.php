@@ -1,15 +1,16 @@
 <div class="column main-column left" id="2">
+	<h2>Наш новый web-проект в процессе наполнения контентом!</h2>
 	<div class="metro-wrapper clearfix">
 		<div class="home-tile left">
 			<ul class="tile-list clearfix">
 				<li class="big">
 					<a href="#news">
 						<div class="img-wrapper">
-							<?= Html::img("assets/img/templates/fab/main-images/main_1.jpg"); ?>
+							<?= Html::img("assets/img/templates/fab/main-images/Main_01.jpg"); ?>
 						</div>
 						<h3 class="header">
-							<span>Пресс - центр </span>
-							Пресс–релизы, новости агентства и партнеров, анонсы событий и акций, пост-релизы мероприятий …
+							<span>Новости агентства </span>
+							Новости агентства и наших партнеров, новости рекламы и PR, анонсы событий и мероприятий
 						</h3>
 					</a>
 				</li>
@@ -18,24 +19,24 @@
 		<div class="home-tile center left clearfix">
 			<ul class="tile-list clearfix">
 				<li class="big">
-					<a href="#products">
+					<a href="#about_agency">
 						<div class="img-wrapper">
-							<?= Html::img("assets/img/templates/fab/main-images/main_2.jpg"); ?>
+							<?= Html::img("assets/img/templates/fab/main-images/Main_02.jpg"); ?>
 						</div>
 						<h3 class="header">
-							<span>Услуги и сервисы </span>
-							PR-кампании, маркетинговые исследования, медиапланирование, наружная реклама …
+							<span>О нашем агентстве </span>
+							Легенда бренда, наша миссия, направления деятельности, команда агентства, контактная информация
 						</h3>
 					</a>
 				</li>
 				<li class="big">
-					<a href="#raws">
+					<a href="#projects">
 						<div class="img-wrapper">
-							<?= Html::img("assets/img/templates/fab/main-images/main_4.jpg"); ?>
+							<?= Html::img("assets/img/templates/fab/main-images/Main_04.jpg"); ?>
 						</div>
 						<h3 class="header">
-							<span>Клиенты агенства</span>
-							Международное агентство,  маркетинг, консалтинг, реклама и PR, планирование ...
+							<span>Проекты агентства</span>
+							Проекты сделанные нашим агентством, масштабные события и мероприятия, PR-кампании
 						</h3>
 					</a>
 				</li>
@@ -44,24 +45,24 @@
 		<div class="home-tile left">
 			<ul class="tile-list clearfix">
 				<li class="big">
-					<a href="#contacts">
+					<a href="#services">
 						<div class="img-wrapper">
-							<?= Html::img("assets/img/templates/fab/main-images/main_3.jpg"); ?>
+							<?= Html::img("assets/img/templates/fab/main-images/Main_03.jpg"); ?>
 						</div>
 						<h3 class="header">
-							<span>О нашем аганстве </span>
-							Пресс–релизы, новости агентства и партнеров, анонсы событий и акций, пост-релизы мероприятий …
+							<span>Услуги агентства </span>
+							PR-кампании, реклама в СМИ, outdoor, наружная реклама, BTL-акции, полиграфия, event, SMS, WEB-design
 						</h3>
 					</a>
 				</li>
 				<li class="big">
-					<a href="#contacts">
+					<a href="#pressroom">
 						<div class="img-wrapper">
-							<?= Html::img("assets/img/templates/fab/main-images/main_5.jpg"); ?>
+							<?= Html::img("assets/img/templates/fab/main-images/Main_05.jpg"); ?>
 						</div>
 						<h3 class="header">
-							<span>Контакты </span>
-							Контактная информация, команда, как к нам добраться, как мы отдыхаем...
+							<span>Пресс-центр </span>
+							Пресс-релизы, анонсы событий и мероприятий компаний наших партнеров, пост-релизы проведенных мероприятий
 						</h3>
 					</a>
 				</li>

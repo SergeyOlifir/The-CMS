@@ -11,9 +11,11 @@
 		<meta property="og:image" content="" />
 		<meta property="og:site_name" content="&#x416;&#x438;&#x442;&#x43d;&#x438;&#x446;&#x430;" />
 		<meta property="fb:admins" content="100005100901584" />
+		<meta name='yandex-verification' content='55f35cd89076afa2' />
 
 		<title><?= $title; ?></title>
 		<link rel="shortcut icon" href="assets/img/templates/<?= $template; ?>/favicon.png" type="image/png">
+		<?= Asset::css('bootstrap.min.css'); ?>
 		<?= Asset::css('reveal.css'); ?>
 		<?= Asset::css('jquery.fancybox.css'); ?>
 		<?= Asset::css('jquery.fancybox-buttons.css'); ?>
@@ -30,6 +32,9 @@
 		<?= Asset::js('jquery.scrollTo.js');?>
 		<?= Asset::js('jquery.mCustomScrollbar.min.js'); ?>
 		<?= Asset::js("jcarousellite_1.0.1.js"); ?>
+		<script src="http://connect.facebook.net/ru_RU/all.js#xfbml=1"></script>
+		<script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
+		<?= Asset::js('bootstrap.min.js'); ?>
 		<?= TCTheme::add_js("content-loader.js"); ?>
 		<?= Asset::render('javascripts'); ?>
 	</head>

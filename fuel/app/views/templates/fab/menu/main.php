@@ -3,7 +3,7 @@
 	<?= TCTheme::render("menu/main_menu",array('links' => Model_Link::find_with_translitions($curr_lang), null, null, 'weight')); ?>
 </div>			
 <div class="main-menu clearfix">
-	<a class="mail left" target="_blank" href="#">Mail</a>
+	<a class="mail left" target="_blank" href="mailto:office@faberge-media.com.ua">Mail</a>
 	<span><?= __("menu"); ?></span>
 	<ul class="flags right clearfix">
 		<li><a href="<?= \Uri::base(false);?>lang/index/ru" class="ru">ru</a></li>

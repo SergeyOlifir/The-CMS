@@ -11,17 +11,17 @@
 							<?= Html::img("files/{$content->logo->thumb}"); ?>
 						</div>
 						<div class="description left">
+							<? if ($content->category->public_data == 1): ?>
+								<div class="date">
+									<?= Date::forge($content["date_create"])->format("%d.%m.%Y", true); ?>
+								</div>
+							<? endif; ?>
 							<h3>
 								<?= $content["name"]; ?>
 							</h3>
 							<div class="text">
 								<?= $content["short_description"]; ?>
 							</div>
-							<? if ($content->category->public_data == 1): ?>
-								<div class="date">
-									<?= Date::forge($content["date_create"])->format("%d.%m.%Y", true); ?>
-								</div>
-							<? endif; ?>
 						</div>
 					</div>
 				</li>

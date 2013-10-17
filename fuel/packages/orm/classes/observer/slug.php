@@ -1,9 +1,11 @@
 <?php
 /**
+ * Fuel
+ *
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
  * @package    Fuel
- * @version    1.5
+ * @version    1.6
  * @author     Fuel Development Team
  * @license    MIT License
  * @copyright  2010 - 2013 Fuel Development Team
@@ -66,8 +68,23 @@ class Observer_Slug extends Observer
 		}
 		$slug = \Inflector::friendly_title(substr($source, 1), '-', true);
 
+		// query to check for existence of this slug
+		$query = $obj->query()->where($this->_property, 'like', $slug.'%');
+
+		// is this a temporal model?
+		if ($obj instanceOf Model_Temporal)
+		{
+			// add a filter to only check current revisions excluding the current object
+			$class = get_class($obj);
+			$query->where($class::temporal_property('end_column'), '=', $class::temporal_property('max_timestamp'));
+			foreach($class::getNonTimestampPks() as $key)
+			{
+				$query->where($key, '!=', $obj->{$key});
+			}
+		}
+
 		// do we have records with this slug?
-		$same = $obj->query()->where($this->_property, 'like', $slug.'%')->get();
+		$same = $query->get();
 
 		// make sure our slug is unique
 		if ( ! empty($same))

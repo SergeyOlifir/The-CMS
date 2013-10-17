@@ -3,7 +3,7 @@ class Controller_Admin extends Controller_Application {
 	public $template = 'admin';
 	
 	function check_admin() {
-		return $this->auth->member(100);
+		return $this->auth->member(6);
 	}
 	
 	function action_index () {

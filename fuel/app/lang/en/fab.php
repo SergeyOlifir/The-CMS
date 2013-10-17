@@ -5,7 +5,7 @@ return array(
 
 	'default_menu' 	=> array(
 		'name'		=> 'Home',
-		'description' => 'About our project, the Internet, news, services, partners...',
+		'description' => 'About our agency activities, services, manufacturing, team news agency, advertising and PR',
 	),
 
 	'pagination' 	=> array(
@@ -16,8 +16,16 @@ return array(
 	),
 
 	'contacts' 		=> array(
-		'title' 	=> 'The international agency',
-		'address' 	=> 'Ukraine, Dnepropetrovsk, Neb. Lenin 15a, office 46',
-		'phones' 	=> 'tel. +38 0562 34-01-54, mob. +38 067 562-47-13',
+		'title1' 	=> '«Faberge-Media»',
+		'title2'	=> 'international PR-agency',
+		'city'		=> '49000 Ukraine, Dnepropetrovsk,',
+		'address' 	=> 'Nab. Lenin 15 «а», office 46',
+		'tel1' 		=> 'Infocenter: +38 050 786-19-19,',
+		'tel2'		=> 'Tel. fax: +38 056 376-52-70,',
+		'tel3'		=> 'Pressroom: +38 095 304-49-81',
+		'tel4'		=> 'Partnership: +38 067 562-47-13',
+		'title_tel5'=> 'Department events:',
+		'tel5'		=> '+38 050 971-89-49',
+		'email'		=> 'office@faberge-media.com.ua',
 	),
 );

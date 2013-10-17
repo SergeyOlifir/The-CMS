@@ -8,6 +8,7 @@ class Model_Category extends Model_Translition {
 		'name',
 		'alias',
 		'public_data',
+                'image',
 		'created_at',
 		'updated_at',
 	);
@@ -20,6 +21,16 @@ class Model_Category extends Model_Translition {
 			'cascade_save' => true,
 			'cascade_delete' => true,
 		),
+	);
+        
+        protected static $_belongs_to = array(
+		'logo' => array(
+                    'key_from' => 'image',
+                    'model_to' => 'Model_Logo',
+                    'key_to' => 'id',
+                    'cascade_save' => true,
+                    'cascade_delete' => false,
+                ),
 	);
 	
 

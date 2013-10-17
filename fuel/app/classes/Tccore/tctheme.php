@@ -19,9 +19,9 @@ class TCTheme {
 		self::$temlate_main = \Fuel\Core\Config::get("TCTheme.main_faile_name");
 		self::$tempalte_dir = \Fuel\Core\Config::get("TCTheme.theme_folder");
 		if(isset($data)) {
-			return \Fuel\Core\View::forge("templates" . DS . self::$tempalte_dir . DS . $view, $data);
+			return \Fuel\Core\View::forge("templates" . DS . self::$tempalte_dir . DS . $view, $data,FALSE);
 		} else {
-			return \Fuel\Core\View::forge("templates" . DS . self::$tempalte_dir . DS . $view);
+			return \Fuel\Core\View::forge("templates" . DS . self::$tempalte_dir . DS . $view,FALSE);
 		}
 			
 	}
@@ -30,9 +30,9 @@ class TCTheme {
 		self::$temlate_main = \Fuel\Core\Config::get("TCTheme.main_faile_name");
 		self::$tempalte_dir = \Fuel\Core\Config::get("TCTheme.theme_folder");
 		if(isset($data)) {
-			return render("templates" . DS . self::$tempalte_dir . DS . $view, $data);
+			return render("templates" . DS . self::$tempalte_dir . DS . $view, $data,FALSE);
 		} else {
-			return render("templates" . DS . self::$tempalte_dir . DS . $view);
+			return render("templates" . DS . self::$tempalte_dir . DS . $view,FALSE);
 		}
 	}
 	

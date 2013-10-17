@@ -16,7 +16,7 @@ class Create_local_links
 			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 		), array('id'));
 
-		$links = \Model_Link::find('all');
+		/*$links = \Model_Link::find('all');
 		foreach ($links as $link) {
 			$locallink = \Model_Locallink::forge(
 				array(
@@ -34,7 +34,7 @@ class Create_local_links
 		\DBUtil::drop_fields('links', array(
 			'name',
 			'description',
-		));	
+		));*/	
 	}
 
 	public function down()

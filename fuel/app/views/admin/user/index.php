@@ -27,7 +27,7 @@
 			    <tr>
 				<td><?= $user->username; ?></td>
 				<td><?= $user->email; ?></td>
-				<td><?= $user->group; ?></td>
+				<td><?= $user->group_id; ?></td>
 				<td><?= Date::forge($user->created_at)->format("%d.%m.%Y", true); ?></td>
 				<td>
 				    <div class="btn-group">

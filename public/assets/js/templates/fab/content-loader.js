@@ -43,7 +43,7 @@ $(document).ready( function() {
 
 	$('#loading_popup').click(function(){
 		close_loading();
-		//$("#content").scrollTo('#country', 900).scrollTo( '-=45px', 900, { axis:'x'});
+		$("#content").scrollTo('#projects', 900).scrollTo( '-=45px', 900, { axis:'x'});
 	})
 
 	$( ".main-menu" ).click(function() {
@@ -66,7 +66,7 @@ $(document).ready( function() {
 
 	setPadding();
 
-	$(".content-arrow ul li a").click(function(){
+	$(".content-arrow ul li, .metro-wrapper, .main-menu-content").on('click', 'a', function(){
         var selected = $(this).attr('href');
         $("#content").scrollTo(selected, 900, {offset:{ left:0, top:-125 }});
         $("#content").scrollTo( '-=48px', 900, { axis:'x'});
@@ -85,20 +85,6 @@ $(document).ready( function() {
         return false;
     });
 
-	$(".metro-wrapper ul li a").click(function(){
-		var selected = $(this).attr('href');	
-		$("#content").scrollTo(selected, 900);
-		$("#content").scrollTo( '-=48px', 900, { axis:'x'});	
-		return false;
-	});
-
-    $(".main-menu-content a").click(function(){
-		var selected = $(this).attr('href');	
-		$("#content").scrollTo(selected, 900);
-		HideMenu();		
-		return false;
-	});
-
    $('body').click(function (event) {
     	HideMenu();
     });  
@@ -112,6 +98,10 @@ $(document).ready( function() {
     	event.stopPropagation();
     })
 
+    $('.close-reveal-modal, .reveal-modal-bg').live('click',function(){
+    	$('#content-of-popup #social-buttons').html('');
+    })
+
 });
 
 function get(uri, to, params) {
@@ -123,7 +113,7 @@ function get(uri, to, params) {
 		},
 		success: function(response) {
 			var dat = response;
-			$(to).html(dat.data + dat.popup);
+			$(to).html(dat.data);
 			$(to + ' > *').fadeIn('slow');
 			galeryInitialise();
 			tilehover(to);

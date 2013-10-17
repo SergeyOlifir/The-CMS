@@ -26,6 +26,11 @@ abstract class Controller_Rest extends \Controller
 	protected $no_data_status = 204;
 
 	/**
+	 * @var  string  authentication to be used for this controller
+	 */
+	protected $auth = null;
+
+	/**
 	 * @var  string  the detected response format
 	 */
 	protected $format = null;
@@ -95,7 +100,7 @@ abstract class Controller_Rest extends \Controller
 	 * @param  string
 	 * @param  array
 	 */
-	public function router($resource, array $arguments)
+	public function router($resource, $arguments)
 	{
 		\Config::load('rest', true);
 
@@ -106,18 +111,32 @@ abstract class Controller_Rest extends \Controller
 			$this->format = array_key_exists(\Input::extension(), $this->_supported_formats) ? \Input::extension() : $this->_detect_format();
 		}
 
-		//Check method is authorized if required
-		if (\Config::get('rest.auth') == 'basic')
+		// Get the configured auth method if none is defined
+		$this->auth === null and $this->auth = \Config::get('rest.auth');
+
+		//Check method is authorized if required, and if we're authorized
+		if ($this->auth == 'basic')
 		{
 			$valid_login = $this->_prepare_basic_auth();
 		}
-		elseif (\Config::get('rest.auth') == 'digest')
+		elseif ($this->auth == 'digest')
 		{
 			$valid_login = $this->_prepare_digest_auth();
 		}
+		elseif (method_exists($this, $this->auth))
+		{
+			if ($valid_login = $this->{$this->auth}() instanceOf \Response)
+			{
+				return $valid_login;
+			}
+		}
+		else
+		{
+			$valid_login = false;
+		}
 
 		//If the request passes auth then execute as normal
-		if(\Config::get('rest.auth') == '' or $valid_login)
+		if(empty($this->auth) or $valid_login)
 		{
 			// If they call user, go to $this->post_user();
 			$controller_method = strtolower(\Input::method()) . '_' . $resource;
@@ -225,7 +244,7 @@ abstract class Controller_Rest extends \Controller
 	protected function _detect_format()
 	{
 		// A format has been passed as an argument in the URL and it is supported
-		if (\Input::param('format') and $this->_supported_formats[\Input::param('format')])
+		if (\Input::param('format') and array_key_exists(\Input::param('format'), $this->_supported_formats))
 		{
 			return \Input::param('format');
 		}
@@ -447,11 +466,14 @@ abstract class Controller_Rest extends \Controller
 
 	protected function _force_login($nonce = '')
 	{
-		if (\Config::get('rest.auth') == 'basic')
+		// Get the configured auth method if none is defined
+		$this->auth === null and $this->auth = \Config::get('rest.auth');
+
+		if ($this->auth == 'basic')
 		{
 			$this->response->set_header('WWW-Authenticate', 'Basic realm="'. \Config::get('rest.realm') . '"');
 		}
-		elseif (\Config::get('rest.auth') == 'digest')
+		elseif ($this->auth == 'digest')
 		{
 			$this->response->set_header('WWW-Authenticate', 'Digest realm="' . \Config::get('rest.realm') . '", qop="auth", nonce="' . $nonce . '", opaque="' . md5(\Config::get('rest.realm')) . '"');
 		}

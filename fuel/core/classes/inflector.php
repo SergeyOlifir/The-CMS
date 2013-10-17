@@ -3,7 +3,7 @@
  * Part of the Fuel framework.
  *
  * @package    Fuel
- * @version    1.5
+ * @version    1.6
  * @author     Fuel Development Team
  * @license    MIT License
  * @copyright  2010 - 2013 Fuel Development Team
@@ -248,6 +248,9 @@ class Inflector
 
 		// Decode all entities to their simpler forms
 		$str = html_entity_decode($str, ENT_QUOTES, 'UTF-8');
+
+		// Replace apostrophes.
+		$str = preg_replace("#[\’]#", '-', $str);
 
 		// Remove all quotes.
 		$str = preg_replace("#[\"\']#", '', $str);

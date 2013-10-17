@@ -1,7 +1,7 @@
 <div class="main-metro-wrapper clearfix">
 	<a href="/welcome">
 		<div class="tile big left people">
-			<h3><?= __("navbar-main.users"); ?></h3>
+			<h3><?= __("index.navbar-main.users"); ?></h3>
 		</div>
 	</a>
 	<a href="/admin/categories">
