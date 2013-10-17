@@ -36,6 +36,9 @@
         <? if(isset($content)): ?>
                 <?= $content; ?>
         <? endif; ?>
+        <? if(isset($contentFirst)): ?>
+                <?= $contentFirst; ?>
+        <? endif; ?>
       </content>
       <footer id="footer">
           <?= TCTheme::render("footer"); ?>
