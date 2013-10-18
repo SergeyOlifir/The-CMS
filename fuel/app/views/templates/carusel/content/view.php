@@ -12,7 +12,7 @@
     	<?= $content->category->name; ?>
 	</h1> - 
     <h2><?= $content->name; ?></h2>
-    <h2 class="right">Рекламные места проекта</h2>
+    <h2 class="right">Партнеры проекта</h2>
 </section>
 <table class="content">
 	<tr>
@@ -126,34 +126,54 @@
 						</a>
 					</li>
 					<li>
+						<a href="/home/content/view/28.html">
 						<?= Html::img("assets/img/templates/carusel/baners/Ermolinskie_adv_right.png"); ?>
+						</a>
 					</li>
 					<li>
+						<a href="/home/content/view/25.html">
 						<?= Html::img("assets/img/templates/carusel/baners/Reklamnoe_Polel_adv_right.png"); ?>
+						</a>
 					</li>
 					<li>
+						<a href="/home/content/view/26.html">
 						<?= Html::img("assets/img/templates/carusel/baners/34_tv_channel_adv_right.png"); ?>
+						</a>
 					</li>
 					<li>
+						<a href="/home/content/view/27.html">
 						<?= Html::img("assets/img/templates/carusel/baners/agency_Rating_adv_right.png"); ?>
+						</a>
 					</li>
 					<li>
+						<a href="/home/content/view/29.html">
 						<?= Html::img("assets/img/templates/carusel/baners/Druk_Ukraine_adv_right.png"); ?>
+						</a>
 					</li>
 					<li>
+						<a href="/home/content/view/#.html">
 						<?= Html::img("assets/img/templates/carusel/baners/Karavan_adv_right.png"); ?>
+						</a>
 					</li>
 					<li>
+						<a href="/home/content/view/#.html">
 						<?= Html::img("assets/img/templates/carusel/baners/Sova_adv_right.png"); ?>
+						</a>
 					</li>
 					<li>
+						<a href="/home/content/view/#.html">
 						<?= Html::img("assets/img/templates/carusel/baners/Cascade_adv_right.png"); ?>
+						</a>
 					</li>
 					<li>
+						<a href="/home/content/view/8.html">
 						<?= Html::img("assets/img/templates/carusel/baners/Zitnitsa_adv_right.png"); ?>
+						</a>
 					</li>
 					<li>
+						<a href="/home/content/view/42.html">
 						<?= Html::img("assets/img/templates/carusel/baners/42studio_adv_right.png"); ?>
+						</a>
 					</li>
 				</ul>
 			</section>

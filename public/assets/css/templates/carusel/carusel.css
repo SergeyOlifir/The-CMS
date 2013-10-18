@@ -608,8 +608,8 @@ header.name h1 a:hover {
 }
 
 .submenu h2 {
-	font-size: 11pt;
-	margin: 3px 15px 0 10px;
+	font-size: 12pt;
+	margin: 1px 34px 0 10px;
 	display: inline-block;
 	line-height: 27px;
 }
@@ -617,7 +617,7 @@ header.name h1 a:hover {
 .submenu .category {
 	color: #CC0000;
 	text-shadow: 1px 1px 1px #656565;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 .content-and-social-button {
