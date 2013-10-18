@@ -7,30 +7,30 @@
     </header>
     <ul>
         <li class="registration left">
-            <a href="/home/content/view/2">
+            <a href="/home/content/view/45">
                 <article>
                     <div class="img-wrapper">
-                        <?= Html::img("assets/img/templates/carusel/img_registration.png"); ?>
+                        <?= Html::img("assets/img/templates/carusel/img_photoreport.png"); ?>
                     </div>
                     <header class="description">
                         <h1>
-                            <span>Регистрация</span>
-                            для участников
+                            <span>Фотоотчет</span>
+                            событий Фестиваля
                         </h1>
                     </header>
                 </article>
             </a>
         </li>
         <li class="programma left">
-            <a href="/home/content/view/3">
+            <a href="/home/content/view/46">
                 <article>
                     <div class="img-wrapper">
-                        <?= Html::img("assets/img/templates/carusel/img_programma.png"); ?>
+                        <?= Html::img("assets/img/templates/carusel/img_videoreport.png"); ?>
                     </div>
                     <header class="description">
                         <h1>
-                            <span>Программа</span>
-                            детского фестиваля
+                            <span>Фотоотчет</span>
+                            событий Фестиваля
                         </h1>
                     </header>
                 </article>
