@@ -29,7 +29,7 @@
                     </div>
                     <header class="description">
                         <h1>
-                            <span>Фотоотчет</span>
+                            <span>Видео</span>
                             событий Фестиваля
                         </h1>
                     </header>
