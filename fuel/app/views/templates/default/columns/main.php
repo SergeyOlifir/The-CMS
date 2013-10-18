@@ -24,17 +24,14 @@
 						</h3>
 					</a>
 				</li>
-				<li class="little">
-					<a href="#drinks">
-						<div class="img-wrapper">
-							<?= Html::img("assets/img/templates/default/main-images/napitok.jpg"); ?>
-						</div>
-						<h3 class="header">
-							<span>Напитки </span>
-							Применение толокна и солода в приготовлении напитков...
-						</h3>
-					</a>
-				</li>
+                                                                        <li class="little">
+                                                                            <a href="#diets">
+                                                                                <div class="img-wrapper">
+                                                                                    <img src="http://zhitnitsa.com.ua/assets/img/templates/default/main-images/dieta.jpg" alt="dieta">	</div>
+                                                                                <h3 class="header" style="">
+                                                                                    <span>Диета</span>Применение продукции в диетическом питании...</h3>
+                                                                            </a>
+                                                                        </li>
 			</ul>
 		</div>
 		<div class="home-tile center left clearfix">
@@ -51,32 +48,26 @@
 							</h3>
 						</a>
 					</li>
-					<li class="long">
-						<a href="#diets">
-							<div class="img-wrapper">
-								<?= Html::img("assets/img/templates/default/main-images/dieta.jpg"); ?>
-							</div>
-							<h3 class="header">
-								<span>Диетa </span>
-								Применение продукции как основы или компонента в питании… 
-							</h3>
-						</a>
-					</li>
+                                                                                        <li class="long">
+                                                                                            <a href="#karuselfest">
+                                                                                                <div class="img-wrapper">
+                                                                                                    <img src="http://zhitnitsa.com.ua/assets/img/templates/default/main-images/karuselfest.jpg" alt="karuselfest">	</div>
+                                                                                                <h3 class="header" style="">
+                                                                                                    <span>КАРУСЕЛЬ</span>Международный Фестиваль Детского Развития и Творчества «КАРУСЕЛЬ»...</h3>
+                                                                                            </a>
+                                                                                        </li>
 				</ul>
 			</div>
 			<div class="left">
 				<ul class="tile-list clearfix">
-					<li class="long">
-						<a href="#entrees">
-							<div class="img-wrapper">
-								<?= Html::img("assets/img/templates/default/main-images/deserts.jpg"); ?>
-							</div>
-							<h3 class="header">
-								<span>Десерты </span>
-								Новые рецепты приготовления, ингредиенты, основы к кондитерским…
-							</h3>
-						</a>
-					</li>
+                                                                                        <li class="long">
+                                                                                            <a href="#karuselfest">
+                                                                                                <div class="img-wrapper">
+                                                                                                    <img src="http://zhitnitsa.com.ua/assets/img/templates/default/main-images/zhitnitsafest.jpg" alt="zhitnitsafest">	</div>
+                                                                                                <h3 class="header" style="">
+                                                                                                    <span>Для детей</span>«Самая вкусная и полезная еда, приготовленная заботливыми мамиными руками» - ТМ «Рідна Житниця»</h3>
+                                                                                            </a>
+                                                                                        </li>
 					<li class="little">
 						<a href="#cosmetics">
 							<div class="img-wrapper">
