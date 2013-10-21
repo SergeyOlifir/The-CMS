@@ -42,7 +42,7 @@
 	</div>
 	<div id="social-buttons" class="wrapper-padding clearfix">
 		<div class="fb-like" data-href="<?= Fuel\Core\Uri::current(); ?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-
+<!--
 		<script type="text/javascript">
 		    VK.init({apiId: 3733063, onlyWidgets: true});
 		</script>
@@ -50,7 +50,7 @@
 		<script type="text/javascript">
 		    VK.Widgets.Like("vk_like", {type: "button", height: 18});
 		</script>
-
+-->
 		<div class="g-plusone"  data-width="300"></div>
 		<script type="text/javascript">
 		  	window.___gcfg = {lang: 'ru'};
