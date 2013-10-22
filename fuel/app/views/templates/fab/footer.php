@@ -71,5 +71,26 @@
 	</script>
 	<noscript><div><img src="//mc.yandex.ru/watch/5747269" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 	<!-- /Yandex.Metrika counter -->
+        
+                    <!-- Rating@Mail.ru counter -->
+                    <script type="text/javascript">//<![CDATA[
+                    var _tmr = _tmr || [];
+                    _tmr.push({id: "1724633", type: "pageView", start: (new Date()).getTime()});
+                    (function (d, w) {
+                       var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;
+                       ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";
+                       var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+                       if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+                    })(document, window);
+                    //]]></script><noscript><div style="position:absolute;left:-10000px;">
+                        <img src="//top-fwz1.mail.ru/counter?id=1724633;js=na" style="border:0;" height="1" width="1" alt="Рейтинг@Mail.ru" />
+                    </div></noscript>
+                    <!-- //Rating@Mail.ru counter -->
+
+                    <!-- Rating@Mail.ru logo -->
+                    <a href="http://top.mail.ru/jump?from=1724633">
+                        <img src="//top-fwz1.mail.ru/counter?id=1724633;t=465;l=1" 
+                             style="border:0;" height="31" width="88" alt="Рейтинг@Mail.ru" /></a>
+                    <!-- //Rating@Mail.ru logo -->
 	</div>
 </div>
