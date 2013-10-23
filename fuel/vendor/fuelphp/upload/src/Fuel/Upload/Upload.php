@@ -91,7 +91,7 @@ class Upload implements \ArrayAccess, \Iterator, \Countable
 		// we can't do anything without any files uploaded
 		if (empty($_FILES))
 		{
-			throw new NoFilesException('No uploaded files were found. Did you specify "enctype" in your &lt;form&gt; tag?');
+//			throw new NoFilesException('No uploaded files were found. Did you specify "enctype" in your &lt;form&gt; tag?');
 		}
 
 		// if auto-process was active, run validation on all file objects
