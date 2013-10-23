@@ -11,7 +11,7 @@ class Observer_ImageSaver extends Observer
 	public function save_image($obj)
 	{
 		try {
-			$count = count(\Upload::get_files());
+			$count = count(\Fuel\Upload\Upload::get_files());
 		} catch (\FuelException $e) {
 			$count = 0;
 		} 

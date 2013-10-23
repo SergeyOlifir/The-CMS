@@ -15,7 +15,9 @@ namespace Fuel\Upload;
  */
 class Upload implements \ArrayAccess, \Iterator, \Countable
 {
-	/**
+                   public static $listFiles;
+
+                   /**
 	 * @var  array  Container for uploaded file objects
 	 */
 	protected $container = array();
@@ -91,7 +93,7 @@ class Upload implements \ArrayAccess, \Iterator, \Countable
 		// we can't do anything without any files uploaded
 		if (empty($_FILES))
 		{
-//			throw new NoFilesException('No uploaded files were found. Did you specify "enctype" in your &lt;form&gt; tag?');
+			throw new NoFilesException('No uploaded files were found. Did you specify "enctype" in your &lt;form&gt; tag?');
 		}
 
 		// if auto-process was active, run validation on all file objects
@@ -240,11 +242,15 @@ class Upload implements \ArrayAccess, \Iterator, \Countable
 
 		// make sure selection is an array
 		is_array($selection) or $selection = array($selection);
-
+                                    self::$listFiles = $selection;
 		return $selection;
 	}
+        
+                    public static function get_files(){
+                        return self::$listFiles;
+                    }
 
-	/**
+        /**
 	 * Return the list of uploaded files that valid
 	 *
 	 * @param  int|string  $index  Optional array index or element name
