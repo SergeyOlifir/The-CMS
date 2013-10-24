@@ -13,7 +13,8 @@
 		<meta property="fb:admins" content="100005100901584" />
                                     <meta name='yandex-verification' content='5e759fa812b2e0eb' />
                                     
-                                    <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AK2LZ1IBAAAAVGoMJQMAegt_yZa1aAz9rRo10aqv4RSD150AAAAAAAAAAABj7Jy0EjAYdb6aeY0S8z_BS8KOdw==" type="text/javascript"></script>
+                                    <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AK2LZ1IBAAAAVGoMJQMAegt_yZa1aAz9rRo10aqv4RSD150AAAAAAAAAAABj7Jy0EjAYdb6aeY0S8z_BS8KOdw=="
+    type="text/javascript"></script>
 
 		<title><?= $title; ?></title>
 		<link rel="shortcut icon" href="assets/img/templates/<?= $template; ?>/favicon.png" type="image/png">
