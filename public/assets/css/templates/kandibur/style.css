@@ -671,7 +671,7 @@ h1,h2,h3{line-height: 25px;}
 	top:75px !important;
 	border: 2px solid #ff7722;
 	z-index: 6;
-	position: fixed;
+	position: absolute;
 	padding-left: 30px;
 	margin-left: -438px;
 	padding-top: 20px;
