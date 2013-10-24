@@ -29,6 +29,11 @@
 		<div class="groups">
 			<a href="http://vk.com/zvezdochka_dp"><?= __("group_kandibur_vk"); ?></a>
 			<a href="http://vk.com/club42454367"><?= __("group_joy_vk"); ?></a>
+                                                        <!-- Rating@Mail.ru logo -->
+                                                        <a href="http://top.mail.ru/jump?from=2416610">
+                                                            <img src="//top-fwz1.mail.ru/counter?id=2416610;t=479;l=1" 
+                                                                 style="border:0;" height="31" width="88" alt="Рейтинг@Mail.ru" /></a>
+                                                        <!-- //Rating@Mail.ru logo -->  
 		</div>
 	</div>
 	

@@ -34,6 +34,8 @@
 		<?= Asset::js("jcarousellite_1.0.1.js"); ?>
 		<script src="http://connect.facebook.net/ru_RU/all.js#xfbml=1"></script>
 		<script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
+                                    <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AHOMZ1IBAAAAsHT_HwMAQhdxh7_cQJfuKwlHFDSbfTwJYP0AAAAAAAAAAAD8Q5dr-O-KAszvC2cIvfr_iRx6sQ=="
+    type="text/javascript"></script>
 		<?= Asset::js('bootstrap.min.js'); ?>
 		<?= TCTheme::add_js("content-loader.js"); ?>
 		<?= Asset::render('javascripts'); ?>

@@ -70,6 +70,8 @@
 		<?= TCTheme::add_js("content-loader.js"); ?>
 		<?= Asset::js('jquery.reveal.js'); ?>
 		<?= Asset::render('javascripts'); ?>
+                                    <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AGOEZ1IBAAAAFaaMRwMAJy9B84wK-dU6o86VDlEL5XChoiIAAAAAAAAAAAAkOArCtwmUjAVHea0bqw0-OAyPMA=="
+                                    type="text/javascript"></script>
 	</head>
 
 	<body>

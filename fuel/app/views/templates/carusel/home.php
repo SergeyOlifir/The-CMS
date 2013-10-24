@@ -5,6 +5,7 @@
     <head>
            <title><?= $title; ?></title>
            <meta charset="utf-8"/>
+           <meta name='yandex-verification' content='74c8226138f1895c' />
            <link rel="shortcut icon" href="assets/img/templates/<?= $template; ?>/favicon.png" type="image/png">
            <?= Asset::css('bootstrap.min.css'); ?>
            <?= Asset::css('reveal.css'); ?>
@@ -25,6 +26,9 @@
            <?= Asset::render('javascripts'); ?>
 	   
 	   <script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
+                    <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AJ-mZ1IBAAAAFQKwMgMA14JRA9tzkfy9OKK1jpRwsqlcVV4AAAAAAAAAAADHTSPqAZgNvw1PA_vesRHxKRRSZw=="
+                    type="text/javascript"></script>
+           
    </head>
 
     <body>
