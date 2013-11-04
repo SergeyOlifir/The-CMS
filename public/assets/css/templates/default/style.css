@@ -486,6 +486,10 @@ h1,h2,h3,h4,h5,h6 {
 	background-image: none;
 }
 
+#content-of-popup ul.tile li h3.tile-active {
+    height: 30%;
+}
+
 .column .paginator-wrapper a {
 	width: 27px;
     height: 26px;
