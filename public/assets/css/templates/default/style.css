@@ -564,7 +564,7 @@ h1,h2,h3,h4,h5,h6 {
 	width: 140px;
 	height: 90px;
 	background: url('../../../img/templates/default/Map_geo.png') no-repeat scroll 0 0 transparent;
-	margin: 10px 35px 0 0;
+	margin: 10px 35px 10px 0;
 }
 
 #footer .contacts {
@@ -910,4 +910,14 @@ ul.tile h3{
 }
 .yand-metr.left {
     padding-right: 5px;
+}
+
+.footer-content p {
+    color: #FFFFFF;
+    float: left;
+    font-size: 14pt;
+    font-weight: normal;
+    height: 0;
+    padding-left: 191px;
+    padding-top: 10px;
 }

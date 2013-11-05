@@ -25,6 +25,7 @@
 			<a class="tv" href="#"></a>
 		</li>
 	</ul>
+                  <p>Карта сбыта</p>  
 	<a data-reveal-id="contents_popup" href="#" content_id="42" class="show-popup"><div class="map right"></div></a>
                 
 	<div class="contacts left">
