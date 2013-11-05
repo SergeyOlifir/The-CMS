@@ -16,7 +16,7 @@
 					<?= Html::img("assets/img/templates/kandibur/main-images/5.jpg"); ?>
 				</div>
 				<h3 class="header">
-					Каникулы, лето, программы
+					Каникулы, развивающие программы
 				</h3>
 			</a>
 		</div>
