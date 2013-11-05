@@ -25,7 +25,7 @@
 			<a class="tv" href="#"></a>
 		</li>
 	</ul>
-	<a class="map-link" href="#company"><div class="map right"></div></a>
+	<a data-reveal-id="contents_popup" href="#" content_id="42" class="show-popup"><div class="map right"></div></a>
                 
 	<div class="contacts left">
 		<h3><?= __("contacts.title"); ?></h3>
