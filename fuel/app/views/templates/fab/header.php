@@ -1,5 +1,5 @@
 <div class="header-wrapper clearfix">
-	<h1 class="left">Faberge-media</h1>
+    <a href="/"><h1 class="left">Faberge-media</h1></a>
 	<div class="slogan right">
 		<span class="left">Клиент-лист</span>
 	</div>

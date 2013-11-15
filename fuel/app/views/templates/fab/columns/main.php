@@ -1,5 +1,5 @@
 <div class="column main-column left" id="2">
-	<h2>Наш новый web-проект в процессе наполнения контентом!</h2>
+	<h2>Наш адрес: Наб. Ленина 15 «а», офис 46, +38 056 376-52-70</h2>
 	<div class="metro-wrapper clearfix">
 		<div class="home-tile left">
 			<ul class="tile-list clearfix">
