@@ -941,3 +941,7 @@ h1,h2,h3{line-height: 25px;}
 	height: 100%;
 	width: 100%;
 }
+
+#footer .show-popup{
+    color: #003300;
+}
