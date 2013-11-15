@@ -2,11 +2,15 @@
 	<div class="left soc">
 		<ul class="social clearfix">
 			<li>
-				<a class="fab" href="#"></a>
+				<a class="fab" href="https://www.facebook.com/dcKandibura"></a>
 			</li>
 			<li>
-				<a class="vk" href="#"></a>
+				<a class="vk" href="http://vk.com/id227409325"></a>
 			</li>
+			<li>
+				<a class="g" href="https://plus.google.com/u/0/104625015208641869840/posts"></a>
+			</li>
+                        <!--
 			<li>
 				<a class="od" href="#"></a>
 			</li>
@@ -20,11 +24,9 @@
 				<a class="ya" href="#"></a>
 			</li>
 			<li>
-				<a class="g" href="#"></a>
-			</li>
-			<li>
 				<a class="tv" href="#"></a>
 			</li>
+                        -->
 		</ul>
 		<div class="groups">
 			<a href="http://vk.com/zvezdochka_dp"><?= __("group_kandibur_vk"); ?></a>
@@ -38,11 +40,13 @@
 	</div>
 	
 	<div class="contacts left">
+            <a class="show-popup" content_id="14" href="#" data-reveal-id="contents_popup">
 		<h3><?= __("contacts.children_center.title"); ?></h3>
 		<span><?= __("contacts.children_center.city"); ?></span>
 		<span><?= __("contacts.children_center.address"); ?></span>
 		<span><?= __("contacts.children_center.tel1"); ?></span>
 		<span><?= __("contacts.children_center.tel2"); ?></span>
+            </a>
 		<span> 
 			<a target="_blank" href="mailto:O.Shkurchenko@i.ua">
 				e-mail:  O.Shkurchenko@i.ua

@@ -1,4 +1,4 @@
 <div class="header-wrapper clearfix">
-	<h1 class="left">Кандибур</h1>
+    <a href="/"><h1 class="left">Кандибур</h1></a>
 		<?= render('templates/kandibur/columns/carusel',array()); ?>
 </div>
