@@ -440,12 +440,20 @@ header.name h1 a:hover {
     color: #0033CC;
     display: block;
     font-size: 10pt;
-    margin: 13px 20px;
+    margin: 13px 20px 0 20px;
+}
+
+#footer .gorod-forum {
+    display: block;
+    width: 65px;
+    height: 25px;
+    background: url("../../../img/templates/carusel/forum_gorod_logo.png") no-repeat scroll 0 0 transparent;
 }
 
 #footer .footer-menu {
     display: table-row;
     margin-top: 8px;
+    margin-bottom: 0;
 }
 
 #footer .footer-menu li {

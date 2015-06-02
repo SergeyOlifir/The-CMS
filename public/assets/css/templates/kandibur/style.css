@@ -671,7 +671,7 @@ h1,h2,h3{line-height: 25px;}
 	top:75px !important;
 	border: 2px solid #ff7722;
 	z-index: 6;
-	position: absolute;
+	position: fixed;
 	padding-left: 30px;
 	margin-left: -438px;
 	padding-top: 20px;
@@ -940,8 +940,4 @@ h1,h2,h3{line-height: 25px;}
 	background: url("../../../img/templates/kandibur/loading.gif") no-repeat center center;
 	height: 100%;
 	width: 100%;
-}
-
-#footer .show-popup{
-    color: #003300;
 }

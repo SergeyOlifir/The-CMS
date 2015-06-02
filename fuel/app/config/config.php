@@ -35,14 +35,14 @@ return array(
 	 *
 	 * Set this to an empty string if no suffix is used
 	 */
-	// 'url_suffix'  => '',
+        'url_suffix'  => '.html',
 
 	/**
 	 * index_file - The name of the main bootstrap file.
 	 *
 	 * Set this to 'index.php if you don't use URL rewriting
 	 */
-	// 'index_file' => false,
+	'index_file' => false,
 
 	// 'profiling'  => false,
 
@@ -54,7 +54,7 @@ return array(
 	/**
 	 * Settings for the file finder cache (the Cache class has it's own config!)
 	 */
-	// 'caching'         => false,
+	'caching'         => true,
 	// 'cache_lifetime'  => 3600, // In Seconds
 
 	/**
@@ -80,7 +80,7 @@ return array(
 	 */
 	'language'           => 'ru', // Default language
 	'language_fallback'  => 'en', // Fallback language when file isn't available for default language
-	 'locale'             => 'ru_RU', // PHP set_locale() setting, null to not set
+	'locale'             => 'ru_RU', // PHP set_locale() setting, null to not set
 
 	/**
 	 * Internal string encoding charset
@@ -272,7 +272,7 @@ return array(
 		 */
 		 'packages'  => array(
 			'orm',
-                                                       'auth',
+                        'auth',
 		 ),
 
 		/**
@@ -298,8 +298,11 @@ return array(
 		 * add it like 'session' => 'auth'.
 		 * If you don't want the config in a group use null as groupname.
 		 */
-		 'config'  => array('settings',
-				'TCTheme'),
+                'config'  => array(
+                    'settings',
+                    'TCTheme',
+                    'TCThemeAdmin',
+                ),
 
 		/**
 		 * Language files to autoload

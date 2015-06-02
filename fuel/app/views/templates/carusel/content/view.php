@@ -126,6 +126,41 @@
 						</a>
 					</li>
 					<li>
+						<a href="/home/pages/view/partners/list">
+						<?= Html::img("assets/img/templates/carusel/baners/MTS_adv_right.png"); ?>
+						</a>
+					</li>
+					<li>
+						<a href="/home/content/view/26.html">
+						<?= Html::img("assets/img/templates/carusel/baners/34_tv_channel_adv_right.png"); ?>
+						</a>
+					</li>
+					<li>
+						<a href="/home/pages/view/partners/list">
+						<?= Html::img("assets/img/templates/carusel/baners/Nashi_Deti_adv_right.png"); ?>
+						</a>
+					</li>
+					<li>
+						<a href="/home/pages/view/partners/list">
+						<?= Html::img("assets/img/templates/carusel/baners/Invitro_adv_right.png"); ?>
+						</a>
+					</li>
+					<li>
+						<a href="/home/pages/view/partners/list">
+						<?= Html::img("assets/img/templates/carusel/baners/Kancler_adv_right.png"); ?>
+						</a>
+					</li>
+					<li>
+						<a href="/home/pages/view/partners/list">
+						<?= Html::img("assets/img/templates/carusel/baners/Game_Lend_adv_right.png"); ?>
+						</a>
+					</li>
+					<li>
+						<a href="/home/pages/view/partners/list">
+						<?= Html::img("assets/img/templates/carusel/baners/Navigator_adv_right.png"); ?>
+						</a>
+					</li>
+					<li>
 						<a href="/home/content/view/28.html">
 						<?= Html::img("assets/img/templates/carusel/baners/Ermolinskie_adv_right.png"); ?>
 						</a>
@@ -133,11 +168,6 @@
 					<li>
 						<a href="/home/content/view/25.html">
 						<?= Html::img("assets/img/templates/carusel/baners/Reklamnoe_Polel_adv_right.png"); ?>
-						</a>
-					</li>
-					<li>
-						<a href="/home/content/view/26.html">
-						<?= Html::img("assets/img/templates/carusel/baners/34_tv_channel_adv_right.png"); ?>
 						</a>
 					</li>
 					<li>

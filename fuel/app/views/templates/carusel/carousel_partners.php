@@ -6,64 +6,55 @@
       <ul>
 	<li>
           <a href="/home/pages/view/partners/list">
-            <?= Html::img("assets/img/templates/carusel/Dniprorada.jpg"); ?>
-          </a>
-        </li>
-        <li>
-          <a href="/home/content/view/5">
-            <?= Html::img("assets/img/templates/carusel/kandibur.jpg"); ?>
-          </a>
-        </li>
-        <li>
-          <a href="/home/content/view/4">
-            <?= Html::img("assets/img/templates/carusel/faberge.jpg"); ?>
-          </a>
-        </li>
-        <li>
-          <a href="/home/content/view/8">
-            <?= Html::img("assets/img/templates/carusel/zhitnitsa.jpg"); ?>
-          </a>
-        </li>
-        <li>
-          <a href="/home/pages/view/partners/list">
-            <?= Html::img("assets/img/templates/carusel/agency_Rating.jpg"); ?>
-          </a>
-        </li>
-        <li>
-          <a href="/home/pages/view/partners/list">
-            <?= Html::img("assets/img/templates/carusel/Ermolinskie.jpg"); ?>
-          </a>
-        </li>
-        <li>
-          <a href="/home/pages/view/partners/list">
             <?= Html::img("assets/img/templates/carusel/34_tv_channel.jpg"); ?>
           </a>
         </li>
-	<li>
+        <li>
           <a href="/home/pages/view/partners/list">
-            <?= Html::img("assets/img/templates/carusel/Karavan.jpg"); ?>
+            <?= Html::img("assets/img/templates/carusel/Lasunka_logo.jpg"); ?>
           </a>
         </li>
-	<li>
+        <li>
           <a href="/home/pages/view/partners/list">
-            <?= Html::img("assets/img/templates/carusel/Sova_studio.jpg"); ?>
+            <?= Html::img("assets/img/templates/carusel/Kancler_logo.jpg"); ?>
           </a>
         </li>
-	<li>
+        <li>
+          <a href="/home/pages/view/partners/list">
+            <?= Html::img("assets/img/templates/carusel/Invitro_logo.jpg"); ?>
+          </a>
+        </li>
+        <li>
+          <a href="/home/pages/view/partners/list">
+            <?= Html::img("assets/img/templates/carusel/Nashi_Deti_logo.jpg"); ?>
+          </a>
+        </li>
+        <li>
           <a href="/home/pages/view/partners/list">
             <?= Html::img("assets/img/templates/carusel/Druk_Ukraine.jpg"); ?>
           </a>
         </li>
+        <li>
+          <a href="/home/pages/view/partners/list">
+            <?= Html::img("assets/img/templates/carusel/Oscar_logo.jpg"); ?>
+          </a>
+        </li>
 	<li>
           <a href="/home/pages/view/partners/list">
-            <?= Html::img("assets/img/templates/carusel/IRT_tv_channel.jpg"); ?>
+            <?= Html::img("assets/img/templates/carusel/kandibur.jpg"); ?>
           </a>
         </li>
 	<li>
-          <a href="/home/content/view/1">
-            <?= Html::img("assets/img/templates/carusel/Cascad_design.jpg"); ?>
+          <a href="/home/pages/view/partners/list">
+            <?= Html::img("assets/img/templates/carusel/faberge.jpg"); ?>
           </a>
         </li>
+	<li>
+          <a href="/home/pages/view/partners/list">
+            <?= Html::img("assets/img/templates/carusel/MTS_logo.jpg"); ?>
+          </a>
+        </li>
+	
       </ul>
     </div>
   </div>

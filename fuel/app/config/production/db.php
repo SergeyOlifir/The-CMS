@@ -6,7 +6,7 @@
 return array(
 	'default' => array(
 		'connection'  => array(
-			'dsn'        => 'mysql:host=localhost;dbname=carusel',
+			'dsn'        => 'mysql:host=127.0.0.1;dbname=cms',
 			'username'   => 'root',
 			'password'   => '8056202',
 		),

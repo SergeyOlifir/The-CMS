@@ -13,6 +13,6 @@ class Add_view_pages
 
 	function down()
 	{
-		\DBUtil::drop_fields('pages', 'view_content');
+		//ß\DBUtil::drop_fields('pages', 'view_content');
 	}
 }

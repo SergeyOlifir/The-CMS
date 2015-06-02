@@ -41,9 +41,10 @@ class Create_local_links
 	{
 		\DBUtil::drop_table('locallinks');
 
-		\DBUtil::add_fields('links', array(
+		/*\DBUtil::add_fields('links', array(
 			'name' => array('constraint' => 255, 'type' => 'varchar'),
 			'description' => array('type' => 'text'),
-		));
+		));*/
+                
 	}
 }

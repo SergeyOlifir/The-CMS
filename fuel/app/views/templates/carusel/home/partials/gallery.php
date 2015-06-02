@@ -13,9 +13,6 @@
     </ol>
     <div class="carousel-inner">
 		<div class="item active">
-                    <?= Html::img("assets/img/templates/carusel/img_slideshow_06.jpg"); ?>
-                </div>
-    		<div class="item">
 		    <?= Html::img("assets/img/templates/carusel/img_slideshow_05.jpg"); ?>
 		</div>
 		<div class="item">

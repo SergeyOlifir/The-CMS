@@ -66,11 +66,10 @@ $(document).ready( function() {
 
 	setPadding();
 
-	$(".content-arrow ul li, .metro-wrapper, .main-menu-content").on('click', 'a', function(event){
+	$(".content-arrow ul li, .metro-wrapper, .main-menu-content").on('click', 'a', function(){
         var selected = $(this).attr('href');
         $("#content").scrollTo(selected, 900, {offset:{ left:0, top:-125 }});
         $("#content").scrollTo( '-=48px', 900, { axis:'x'});
-        HideMenu();
         return false;
     });
 

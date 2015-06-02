@@ -38,8 +38,8 @@ class Create_local_pages
 	{
 		\DBUtil::drop_table('localpages');
 
-		\DBUtil::add_fields('categories', array(
+		/*\DBUtil::add_fields('categories', array(
 			'header' => array('type' => 'text'),
-		));
+		));*/
 	}
 }

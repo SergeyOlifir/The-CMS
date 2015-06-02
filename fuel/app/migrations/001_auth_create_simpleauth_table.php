@@ -7,7 +7,7 @@ class Auth_Create_Simpleauth_Table
 
 	function up()
 	{
-		// get the configured table name
+		/*// get the configured table name
 		$table = \Config::get('simpleauth.table_name', 'users');
 
 		// table users
@@ -24,15 +24,15 @@ class Auth_Create_Simpleauth_Table
 		), array('id'));
 
 		// add a unique index on username and email
-		\DBUtil::create_index('users', array('username', 'email'), 'username', 'UNIQUE');
+		\DBUtil::create_index('users', array('username', 'email'), 'username', 'UNIQUE');*/
 	}
 
 	function down()
 	{
 		// get the configured table name
-		$table = \Config::get('simpleauth.table_name', 'users');
+		//$table = \Config::get('simpleauth.table_name', 'users');
 
 		// drop the users table
-		\DBUtil::drop_table($table);
+		//\DBUtil::drop_table($table);
 	}
 }
