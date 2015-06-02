@@ -23,5 +23,5 @@
             <?php endforeach; ?>
         </ul>
     </div>
-    <a class="gorod-forum" href="http://gorod.dp.ua/"></a>
+    <a class="gorod-forum" href="http://forum.gorod.dp.ua/archive/index.php/t-323016-p-12.html" target="_blank"></a>
 </nav>
