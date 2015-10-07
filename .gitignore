@@ -9,3 +9,5 @@ fuel/app/config/development/*
 fuel/app/cache/*
 .idea
 fuel/app/config/TCTheme.php
+
+fuel/app/config/production/migrations.php
