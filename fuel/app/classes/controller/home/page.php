@@ -14,7 +14,7 @@ class Controller_Home_Page extends Controller_Homerest {
 		$config = array(
 		    'pagination_url' => $base_url,
 		    'total_items'    => Model_Page::find($pageId)->get_count_content($curr_lang_id),
-		    'per_page'       => 6,
+		    'per_page'       => 20,
 		    'uri_segment'    => 'page',
 		    'template' => array(
             	'wrapper_start' => '<div class="pagination"> ',
