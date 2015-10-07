@@ -3,10 +3,10 @@
  * Part of the Fuel framework.
  *
  * @package    Fuel
- * @version    1.6
+ * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
+ * @copyright  2010 - 2015 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
@@ -117,6 +117,11 @@ class Theme
 	protected $chrome = array();
 
 	/**
+	 * @var  array  $order	Order in which partial sections should be rendered
+	 */
+	protected $order = array();
+
+	/**
 	 * Sets up the theme object.  If a config is given, it will not use the config
 	 * file.
 	 *
@@ -128,7 +133,7 @@ class Theme
 		if (empty($config))
 		{
 			\Config::load('theme', true, false, true);
-			$config = \Config::get('theme', false);
+			$config = \Config::get('theme', array());
 		}
 
 		// Order of this addition is important, do not change this.
@@ -212,6 +217,56 @@ class Theme
 	}
 
 	/**
+	 * Loads a viewmodel, and have it use the view from the currently active theme,
+	 * the fallback theme, or the standard FuelPHP cascading file system
+	 *
+	 * @param   string  ViewModel classname without View_ prefix or full classname
+	 * @param   string  Method to execute
+	 * @param   bool    $auto_filter  Auto filter the view data
+	 * @return  View    New View object
+	 *
+	 * @deprecated 1.8
+	 */
+	public function viewmodel($view, $method = 'view', $auto_filter = null)
+	{
+		return \Viewmodel::forge($view, $method, $auto_filter, $this->find_file($view));
+	}
+
+	/**
+	 * Loads a presenter, and have it use the view from the currently active theme,
+	 * the fallback theme, or the standard FuelPHP cascading file system
+	 *
+	 * @param   string  Presenter classname without View_ prefix or full classname
+	 * @param   string  Method to execute
+	 * @param   bool    Auto filter the view data
+	 * @param   string  Custom View to associate with this persenter
+	 * @return  Presenter
+	 */
+	public function presenter($presenter, $method = 'view', $auto_filter = null, $view = null)
+	{
+		// if no custom view is given, make it equal to the presenter name
+		if (is_null($view))
+		{
+			// loading from a specific namespace?
+			if (strpos($presenter, '::') !== false)
+			{
+				$split = explode('::', $presenter, 2);
+				if (isset($split[1]))
+				{
+					// remove the namespace from the view name
+					$view = $split[1];
+				}
+			}
+			else
+			{
+				$view = $presenter;
+			}
+		}
+
+		return \Presenter::forge($presenter, $method, $auto_filter, $this->find_file($view));
+	}
+
+	/**
 	 * Loads an asset from the currently loaded theme.
 	 *
 	 * @param   string  $path  Relative path to the asset
@@ -275,6 +330,17 @@ class Theme
 	}
 
 	/**
+	 * Define a custom order for a partial section
+	 *
+	 * @var  string  name of the partial section
+	 * @throws  \ThemeException
+	 */
+	public function set_order($section, $order)
+	{
+		$this->order[$section] = $order;
+	}
+
+	/**
 	 * Render the partials and the theme template
 	 *
 	 * @return  string|View
@@ -288,31 +354,56 @@ class Theme
 			throw new \ThemeException('No valid template could be found. Use set_template() to define a page template.');
 		}
 
-		// pre-process all defined partials
+		// storage for rendered results
+		$rendered = array();
+
+		// make sure we have a render ordering for all defined partials
 		foreach ($this->partials as $key => $partials)
 		{
-			$output = '';
-			foreach ($partials as $index => $partial)
+			if ( ! isset($this->order[$key]))
 			{
-				// render the partial
-				$output .= $partial->render();
+				$this->order[$key] = 0;
+			}
+		}
+
+		// determine the rendering sequence
+		asort($this->order, SORT_NUMERIC);
+
+		// pre-process all defined partials in defined order
+		foreach ($this->order as $key => $order)
+		{
+			$output = '';
+			if (isset($this->partials[$key]))
+			{
+				foreach ($this->partials[$key] as $index => $partial)
+				{
+					// render the partial
+					if (is_callable(array($partial, 'render')))
+					{
+						$output .= $partial->render();
+					}
+					else
+					{
+						$output .= $partial;
+					}
+				}
 			}
 
 			// store the rendered output
 			if ( ! empty($output) and array_key_exists($key, $this->chrome))
 			{
 				// encapsulate the partial in the chrome template
-				$this->partials[$key] = $this->chrome[$key]['view']->set($this->chrome[$key]['var'], $output, false);
+				$rendered[$key] = $this->chrome[$key]['view']->set($this->chrome[$key]['var'], $output, false);
 			}
 			else
 			{
 				// store the partial output
-				$this->partials[$key] = $output;
+				$rendered[$key] = $output;
 			}
 		}
 
 		// assign the partials to the template
-		$this->template->set('partials', $this->partials, false);
+		$this->template->set('partials', $rendered, false);
 
 		// return the template
 		return $this->template;
@@ -321,9 +412,9 @@ class Theme
 	/**
 	 * Sets a partial for the current template
 	 *
-	 * @param   string  				$section   Name of the partial section in the template
-	 * @param   string|View|ViewModel	$view      View, or name of the view
-	 * @param   bool					$overwrite If true overwrite any already defined partials for this section
+	 * @param   string  						$section   Name of the partial section in the template
+	 * @param   string|View|ViewModel|Presenter	$view      View, or name of the view
+	 * @param   bool							$overwrite If true overwrite any already defined partials for this section
 	 * @return  View
 	 */
 	public function set_partial($section, $view, $overwrite = false)
@@ -376,7 +467,7 @@ class Theme
 	}
 
 	/**
-	 * Returns wether or not a section has partials defined
+	 * Returns whether or not a section has partials defined
 	 *
 	 * @param   string  				$section   Name of the partial section in the template
 	 * @return  bool
@@ -401,11 +492,11 @@ class Theme
 	/**
 	 * Sets a chrome for a partial
 	 *
-	 * @param   string  				$section	Name of the partial section in the template
-	 * @param   string|View|ViewModel	$view   	chrome View, or name of the view
-	 * @param   string  				$var		Name of the variable in the chome that will output the partial
+	 * @param   string  						$section	Name of the partial section in the template
+	 * @param   string|View|ViewModel|Presenter	$view   	chrome View, or name of the view
+	 * @param   string  						$var		Name of the variable in the chome that will output the partial
 	 *
-	 * @return  View|ViewModel, the view partial
+	 * @return  View|ViewModel|Presenter, the view partial
 	 */
 	public function set_chrome($section, $view, $var = 'content')
 	{
@@ -423,9 +514,9 @@ class Theme
 	/**
 	 * Get a set chrome view
 	 *
-	 * @param   string  				$section	Name of the partial section in the template
-	 * @param   string|View|ViewModel	$view   	chrome View, or name of the view
-	 * @param   string  				$var		Name of the variable in the chome that will output the partial
+	 * @param   string  						$section	Name of the partial section in the template
+	 * @param   string|View|ViewModel|Presenter	$view   	chrome View, or name of the view
+	 * @param   string  						$var		Name of the variable in the chome that will output the partial
 	 *
 	 * @return  void
 	 */
@@ -590,7 +681,7 @@ class Theme
 			$name = $theme;
 			$theme = array(
 				'name' => $name,
-				'path' => $path
+				'path' => $path,
 			);
 		}
 
@@ -640,7 +731,7 @@ class Theme
 			throw new \ThemeException(sprintf('Could not find theme "%s".', $theme['name']));
 		}
 
-		if ( ! ($file = $this->find_file($this->config['info_file_name'], array($theme['name']))))
+		if ( ! ($file = $this->find_file($this->config['info_file_name'], array($theme))))
 		{
 			throw new \ThemeException(sprintf('Theme "%s" is missing "%s".', $theme['name'], $this->config['info_file_name']));
 		}
@@ -684,7 +775,7 @@ class Theme
 		// determine the path prefix and optionally the module path
 		$path_prefix = '';
 		$module_path = null;
-		if ($this->config['use_modules'] and $module = \Request::active()->module)
+		if ($this->config['use_modules'] and class_exists('Request', false) and $request = \Request::active() and $module = $request->module)
 		{
 			// we're using module name prefixing
 			$path_prefix = $module.DS;

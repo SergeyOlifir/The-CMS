@@ -10,7 +10,6 @@ use \PhpQuickProfiler;
 
 class Profiler
 {
-
 	protected static $profiler = null;
 
 	protected static $query = null;
@@ -19,7 +18,7 @@ class Profiler
 	{
 		if ( ! \Fuel::$is_cli and ! \Input::is_ajax() and ! static::$profiler)
 		{
-			static::$profiler = new PhpQuickProfiler(FUEL_START_TIME);
+			static::$profiler = new \PhpQuickProfiler(FUEL_START_TIME);
 			static::$profiler->queries = array();
 			static::$profiler->queryCount = 0;
 			static::mark(__METHOD__.' Start');
@@ -55,6 +54,7 @@ class Profiler
 				'sql' => \Security::htmlentities($sql),
 				'time' => static::$profiler->getMicroTime(),
 				'stacktrace' => $stacktrace,
+				'dbname' => $dbname,
 			);
 			return true;
 		}
@@ -65,7 +65,7 @@ class Profiler
 		if (static::$profiler)
 		{
 			static::$query['time'] = (static::$profiler->getMicroTime() - static::$query['time']) *1000;
-			array_push(static::$profiler->queries, static::$query);
+			static::$profiler->queries[] = static::$query;
 			static::$profiler->queryCount++;
 		}
 	}
@@ -79,7 +79,7 @@ class Profiler
 	{
 		return array(
 			microtime(true) - FUEL_START_TIME,
-			memory_get_peak_usage() - FUEL_START_MEM
+			memory_get_peak_usage() - FUEL_START_MEM,
 		);
 	}
 }

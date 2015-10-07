@@ -5,10 +5,10 @@
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
  * @package    Fuel
- * @version    1.6
+ * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
+ * @copyright  2010 - 2015 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
@@ -34,6 +34,5 @@ if (file_exists($file))
 else
 {
 	// route requests though the normal path
-	include($_SERVER['DOCUMENT_ROOT'].'/index.php');
+	include $_SERVER['DOCUMENT_ROOT'].'/index.php';
 }
-

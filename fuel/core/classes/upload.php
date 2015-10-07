@@ -3,10 +3,10 @@
  * Part of the Fuel framework.
  *
  * @package    Fuel
- * @version    1.6
+ * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
+ * @copyright  2010 - 2015 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
@@ -21,7 +21,6 @@ namespace Fuel\Core;
  */
 class Upload
 {
-
 	/* ---------------------------------------------------------------------------
 	 * ERROR CODE CONSTANTS
 	 * --------------------------------------------------------------------------- */
@@ -87,11 +86,27 @@ class Upload
 		$config['langCallback'] = '\\Upload::lang_callback';
 
 		// get an upload instance
-		//static::$upload = new \FuelPHP\Upload\Upload($config);
-		static::$upload = new \Fuel\Upload\Upload($config);
+		if (class_exists('Fuel\Upload\Upload'))
+		{
+			static::$upload = new \Fuel\Upload\Upload($config);
+		}
 
-		// and load the uploaded files
-		static::$upload->processFiles();
+		// 1.6.1 fallback
+		elseif (class_exists('FuelPHP\Upload\Upload'))
+		{
+			static::$upload = new \FuelPHP\Upload\Upload($config);
+		}
+
+		else
+		{
+			throw new \FuelException('Can not load \Fuel\Upload\Upload. Did you run composer to install it?');
+		}
+
+		// if auto-process is not enabled, load the uploaded files
+		if ( ! $config['auto_process'])
+		{
+			static::$upload->processFiles();
+		}
 	}
 
 	// ---------------------------------------------------------------------------
@@ -263,7 +278,7 @@ class Upload
 	public static function register($event, $callback)
 	{
 		// make sure we're setting the correct events
-		$event = str_replace(array('before', 'after', 'validate'), array('before_save', 'after_save', 'after_validate'), $event);
+		$event = str_replace(array('before', 'after', 'validate'), array('before_save', 'after_save', 'after_validation'), $event);
 
 		static::$upload->register($event, $callback);
 	}

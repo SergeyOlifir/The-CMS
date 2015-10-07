@@ -3,10 +3,10 @@
  * Part of the Fuel framework.
  *
  * @package    Fuel
- * @version    1.6
+ * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
+ * @copyright  2010 - 2015 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
@@ -27,7 +27,6 @@ namespace Fuel\Core;
 
 class Agent
 {
-
 	/**
 	 * @var  array  information about the current browser
 	 */
@@ -96,7 +95,7 @@ class Agent
 	protected static $defaults = array(
 		'browscap' => array(
 			'enabled' => true,
-			'url' => 'http://browsers.garykeith.com/stream.asp?Lite_PHP_BrowsCapINI',
+			'url' => 'http://browscap.org/stream?q=Lite_PHP_BrowsCapINI',
 			'method' => 'wrapper',
 			'file' => '',
 		),
@@ -193,7 +192,7 @@ class Agent
 		if (static::$user_agent)
 		{
 			// try the build in get_browser() method
-			if (ini_get('browscap') == '' or false === $browser = get_browser(null, true))
+			if (ini_get('browscap') == '' or false === $browser = get_browser(static::$user_agent, true))
 			{
 				// if it fails, emulate get_browser()
 				$browser = static::get_from_browscap();
@@ -422,9 +421,9 @@ class Agent
 		switch (static::$config['browscap']['method'])
 		{
 			case 'local':
-				if ( ! file_exists(static::$config['browscap']['file']) or filesize(static::$config['browscap']['file']) == 0)
+				if ( ! is_file(static::$config['browscap']['file']) or filesize(static::$config['browscap']['file']) == 0)
 				{
-					throw new \Exception('Agent class: could not open the local browscap.ini file.');
+					throw new \Exception('Agent class: could not open the local browscap.ini file: '.static::$config['browscap']['file']);
 				}
 				$data = @file_get_contents(static::$config['browscap']['file']);
 			break;
@@ -456,6 +455,7 @@ class Agent
 				}
 				catch (\ErrorException $e)
 				{
+					logger(\Fuel::L_ERROR, 'Failed to download browscap.ini file.', 'Agent::parse_browscap');
 					$data = false;
 				}
 			default:
@@ -475,7 +475,7 @@ class Agent
 			}
 			catch (\Exception $e)
 			{
-				logger(\Fuel::L_ERROR, 'Failed to download browscap.ini file.', 'Agent::parse_browscap');
+				logger(\Fuel::L_ERROR, 'Failed to get the cache of browscap.ini file.', 'Agent::parse_browscap');
 			}
 		}
 		else

@@ -5,10 +5,10 @@
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
  * @package    Fuel
- * @version    1.6
+ * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
+ * @copyright  2010 - 2015 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
@@ -16,7 +16,6 @@ namespace Auth;
 
 abstract class Auth_Login_Driver extends \Auth_Driver
 {
-
 	/**
 	 * @var  Auth_Driver	default instance
 	 */
@@ -248,7 +247,7 @@ abstract class Auth_Login_Driver extends \Auth_Driver
 	 * Set a remember-me cookie for the passed user id, or for the current
 	 * logged-in user if no id was given
 	 *
-	 * @return  bool  wether or not the cookie was set
+	 * @return  bool  whether or not the cookie was set
 	 */
 	public function remember_me($user_id = null)
 	{

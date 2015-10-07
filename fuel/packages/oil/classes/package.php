@@ -5,10 +5,10 @@
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
  * @package    Fuel
- * @version    1.6
+ * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
+ * @copyright  2010 - 2015 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
@@ -83,7 +83,6 @@ class Package
 		throw new Exception('Could not find package "' . $package . '".');
 	}
 
-
 	public static function uninstall($package)
 	{
 		$package_folder = PKGPATH . $package;
@@ -132,7 +131,6 @@ HELP;
 
 	}
 
-
 	private static function _use_git()
 	{
 		exec('which git', $output);
@@ -164,7 +162,7 @@ HELP;
 		$zip_file = $tmp_folder . '.zip';
 		@copy($zip_url, $zip_file);
 
-		if (file_exists($zip_file))
+		if (is_file($zip_file))
 		{
 			$unzip = new \Unzip;
 			$files = $unzip->extract($zip_file, $tmp_folder);

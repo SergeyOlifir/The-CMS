@@ -3,10 +3,10 @@
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
  * @package    Fuel
- * @version    1.6
+ * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
+ * @copyright  2010 - 2015 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
@@ -43,6 +43,11 @@ class Auth_Acl_Ormacl extends \Auth_Acl_Driver
 	}
 
 	/*
+	 * @var  array  cached user ACLs
+	 */
+	protected $_acl_cache = array();
+
+	/*
 	 * Return the list of defined roles
 	 */
 	public function roles()
@@ -68,10 +73,10 @@ class Auth_Acl_Ormacl extends \Auth_Acl_Driver
 		}
 
 		// get the permission area and the permission rights to be checked
-		$area    = $condition[0];
+		$area = $condition[0];
 
 		// any actions defined?
-		if (preg_match('#(.*)?\[(.*)?\]#', $condition[1], $matches))
+		if ( ! is_array($condition[1]) and preg_match('#(.*)?\[(.*)?\]#', $condition[1], $matches))
 		{
 			$rights = (array) $matches[1];
 			$actions = explode(',', $matches[2]);
@@ -94,7 +99,12 @@ class Auth_Acl_Ormacl extends \Auth_Acl_Driver
 		$cache_key = \Config::get('ormauth.cache_prefix', 'auth').'.permissions.user_'.($user ? $user->id : 0);
 		try
 		{
-			list($current_rights, $revoked_rights, $global_access) = \Cache::get($cache_key);
+			// cache in memory to avoid multiple cache hits for the same cache key
+			if ( ! isset($this->_acl_cache[$cache_key]))
+			{
+				$this->_acl_cache[$cache_key] = \Cache::get($cache_key);
+			}
+			list($current_rights, $revoked_rights, $global_access) = $this->_acl_cache[$cache_key];
 		}
 		catch (\CacheNotFoundException $e)
 		{
@@ -127,10 +137,20 @@ class Auth_Acl_Ormacl extends \Auth_Acl_Driver
 					// fetch the permissions of this role
 					foreach ($role->permissions as $permission)
 					{
-						isset($revoked_rights[$permission->area]) or $revoked_rights[$permission->area] = array();
-						if ( ! in_array($permission->permission, $revoked_rights[$permission->area]))
+						isset($revoked_rights[$permission->area][$permission->permission]) or $revoked_rights[$permission->area][$permission->permission] = array();
+						foreach ($role->rolepermission as $rolepermission)
 						{
-							$revoked_rights[$permission->area][$permission->permission] = $role->rolepermission['['.$role->id.']['.$permission->id.']']->actions;
+							if ($rolepermission->role_id == $role->id and $rolepermission->perms_id == $permission->id)
+							{
+								$revoked_rights[$permission->area][$permission->permission] = array_merge(
+									$revoked_rights[$permission->area][$permission->permission],
+									array_intersect_key(
+										$permission->actions ?: array(),
+										array_flip($rolepermission->actions ?: array())
+									)
+								);
+								break;
+							}
 						}
 					}
 				}
@@ -141,10 +161,20 @@ class Auth_Acl_Ormacl extends \Auth_Acl_Driver
 					// fetch the permissions of this role
 					foreach ($role->permissions as $permission)
 					{
-						isset($current_rights[$permission->area]) or $current_rights[$permission->area] = array();
-						if ( ! in_array($permission->permission, $current_rights[$permission->area]))
+						isset($current_rights[$permission->area][$permission->permission]) or $current_rights[$permission->area][$permission->permission] = array();
+						foreach ($role->rolepermission as $rolepermission)
 						{
-							$current_rights[$permission->area][$permission->permission] = $role->rolepermission['['.$role->id.']['.$permission->id.']']->actions;
+							if ($rolepermission->role_id == $role->id and $rolepermission->perms_id == $permission->id)
+							{
+								$current_rights[$permission->area][$permission->permission] = array_merge(
+									$current_rights[$permission->area][$permission->permission],
+									array_intersect_key(
+										$permission->actions ?: array(),
+										array_flip($rolepermission->actions ?: array())
+									)
+								);
+								break;
+							}
 						}
 					}
 				}
@@ -158,22 +188,39 @@ class Auth_Acl_Ormacl extends \Auth_Acl_Driver
 					// add the users group rights
 					foreach ($user->group->permissions as $permission)
 					{
-						isset($current_rights[$permission->area]) or $current_rights[$permission->area] = array();
-						if ( ! in_array($permission->permission, $current_rights[$permission->area]))
+						isset($current_rights[$permission->area][$permission->permission]) or $current_rights[$permission->area][$permission->permission] = array();
+						foreach ($user->group->grouppermission as $grouppermission)
 						{
-							$current_rights[$permission->area][$permission->permission] = $user->group->grouppermission['['.$user->group_id.']['.$permission->id.']']->actions;
+							if ($grouppermission->group_id == $user->group_id and $grouppermission->perms_id == $permission->id)
+							{
+								$current_rights[$permission->area][$permission->permission] = array_merge(
+									$current_rights[$permission->area][$permission->permission],
+									array_intersect_key(
+										$permission->actions ?: array(),
+										array_flip($grouppermission->actions ?: array())
+									)
+								);
+								break;
+							}
 						}
 					}
 
 					// add the users personal rights
-						if ($user)
+					foreach ($user->permissions as $permission)
 					{
-						foreach ($user->permissions as $permission)
+						isset($current_rights[$permission->area][$permission->permission]) or $current_rights[$permission->area][$permission->permission] = array();
+						foreach ($user->userpermission as $userpermission)
 						{
-							isset($current_rights[$permission->area]) or $current_rights[$permission->area] = array();
-							if ( ! in_array($permission->permission, $current_rights[$permission->area]))
+							if ($userpermission->user_id == $user->id and $userpermission->perms_id == $permission->id)
 							{
-								$current_rights[$permission->area][$permission->permission] = $user->userpermission['['.$user->id.']['.$permission->id.']']->actions;
+								$current_rights[$permission->area][$permission->permission] = array_merge(
+									$current_rights[$permission->area][$permission->permission],
+									array_intersect_key(
+										$permission->actions ?: array(),
+										array_flip($userpermission->actions ?: array())
+									)
+								);
+								break;
 							}
 						}
 					}
@@ -181,7 +228,8 @@ class Auth_Acl_Ormacl extends \Auth_Acl_Driver
 			}
 
 			// save the rights in the cache
-			\Cache::set($cache_key, array($current_rights, $revoked_rights, $global_access));
+			$this->_acl_cache[$cache_key] = array($current_rights, $revoked_rights, $global_access);
+			\Cache::set($cache_key, $this->_acl_cache[$cache_key]);
 		}
 
 		// check for a revocation first

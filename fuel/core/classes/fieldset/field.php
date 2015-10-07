@@ -3,16 +3,14 @@
  * Part of the Fuel framework.
  *
  * @package    Fuel
- * @version    1.6
+ * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
+ * @copyright  2010 - 2015 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
 namespace Fuel\Core;
-
-
 
 /**
  * Fieldset Class
@@ -92,10 +90,16 @@ class Fieldset_Field
 	 * @param  array
 	 * @param  array
 	 * @param  Fieldset
+	 * @throws \RuntimeException
 	 */
 	public function __construct($name, $label = '', array $attributes = array(), array $rules = array(), $fieldset = null)
 	{
 		$this->name = (string) $name;
+
+		if ($this->name === "")
+		{
+			throw new \RuntimeException('Fieldset field name may not be empty.');
+		}
 
 		// determine the field's base name (for fields with array indices)
 		$this->basename = ($pos = strpos($this->name, '[')) ? rtrim(substr(strrchr($this->name, '['), 1), ']') : $this->name;
@@ -128,7 +132,7 @@ class Fieldset_Field
 
 		foreach ($rules as $rule)
 		{
-			call_user_func_array(array($this, 'add_rule'), (array) $rule);
+			call_fuel_func_array(array($this, 'add_rule'), (array) $rule);
 		}
 	}
 
@@ -139,11 +143,20 @@ class Fieldset_Field
 	 */
 	public function set_fieldset(Fieldset $fieldset)
 	{
+		// if we currently have a fieldset
 		if ($this->fieldset)
 		{
-			throw new \RuntimeException('Field already belongs to a fieldset, cannot be reassigned.');
+			// remove the field from the fieldset
+			$this->fieldset->delete($this->name);
+
+			// reset the fieldset
+			$this->fieldset = null;
+
+			// add this field to the new fieldset
+			$fieldset->add($this);
 		}
 
+		// assign the new fieldset
 		$this->fieldset = $fieldset;
 
 		return $this;

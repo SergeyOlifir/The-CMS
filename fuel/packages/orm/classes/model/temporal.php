@@ -5,10 +5,10 @@
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
  * @package    Fuel
- * @version    1.6
+ * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
+ * @copyright  2010 - 2015 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
@@ -22,7 +22,6 @@ namespace Orm;
  */
 class Model_Temporal extends Model
 {
-
 	/**
 	 * Compound primary key that includes the start and end times is required
 	 */
@@ -166,7 +165,13 @@ class Model_Temporal extends Model
 		}
 
 		$query_result = $query->get_one();
-		$query_result->set_lazy_timestamp($timestamp);
+
+		// If the query did not return a result but null, then we cannot call
+		//  set_lazy_timestamp on it without throwing errors
+		if ( $query_result !== null )
+		{
+			$query_result->set_lazy_timestamp($timestamp);
+		}
 		return $query_result;
 	}
 
@@ -182,7 +187,7 @@ class Model_Temporal extends Model
 	 * @param string $property
 	 * @return mixed
 	 */
-	public function & get($property)
+	public function & get($property, array $conditions = array())
 	{
 		// if a timestamp is set and that we have a temporal relation
 		$rel = static::relations($property);
@@ -194,13 +199,13 @@ class Model_Temporal extends Model
 			$class_name = $rel->model_to;
 
 			$class_name::make_query_temporal($lazy_timestamp);
-			$result =& parent::get($property);
+			$result =& parent::get($property, $conditions);
 			$class_name::make_query_temporal(null);
 
 			return $result;
 		}
 
-		return parent::get($property);
+		return parent::get($property, $conditions);
 	}
 
 	/**
@@ -234,10 +239,14 @@ class Model_Temporal extends Model
 		$class = get_called_class();
 		$timestamp = \Arr::get(static::$_lazy_filtered_classes, $class, null);
 
-		if(! is_null($timestamp) )
+		if( ! is_null($timestamp))
 		{
 			$query->where($timestamp_start_name, '<=', $timestamp)
 				->where($timestamp_end_name, '>', $timestamp);
+		}
+		elseif(static::get_primary_key_status() and ! static::get_primary_key_id_only_status())
+		{
+			$query->where($timestamp_end_name, $max_timestamp);
 		}
 
 		return $query;
@@ -379,6 +388,12 @@ class Model_Temporal extends Model
 		// If this is an update then set a new PK, save and then insert a new row
 		else
 		{
+			// run the before save observers before checking the diff
+			$this->observe('before_save');
+
+			// then disable it so it doesn't get executed by parent::save()
+			$this->disable_event('before_save');
+
 			$diff = $this->get_diff();
 
 			if (count($diff[0]) > 0)
@@ -413,14 +428,17 @@ class Model_Temporal extends Model
 				self::enable_primary_key_check();
 
 				$result = parent::save($cascade, $use_transaction);
-
-				return $result;
 			}
 			else
 			{
 				// If nothing has changed call parent::save() to insure relations are saved too
-				return parent::save($cascade, $use_transaction);
+				$result = parent::save($cascade, $use_transaction);
 			}
+
+			// make sure the before save event is enabled again
+			$this->enable_event('before_save');
+
+			return $result;
 		}
 	}
 

@@ -65,7 +65,7 @@ class Model_Translition extends Model_Base {
 		parent::__set($property, $value);
 	}
 
-	public function &get($property) {
+	public function &get($property, array $conditions = array()) {
 		$model = 'Model_Localcontent';
 		if(count($this->translated_items) == 0) {
 			$this->translated_items = self::get_translitions($model);
@@ -76,7 +76,7 @@ class Model_Translition extends Model_Base {
 				$hh = "";
 				return $hh;
 			}
-			return parent::get($property);
+			return parent::get($property, $conditions);
 		} else {
 			return $this->translated_items[0][$property];
 		}

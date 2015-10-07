@@ -3,20 +3,17 @@
  * Part of the Fuel framework.
  *
  * @package    Fuel
- * @version    1.6
+ * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
+ * @copyright  2010 - 2015 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
 namespace Fuel\Core;
 
-
-
 abstract class Session_Driver
 {
-
 	/*
 	 * @var	session class configuration
 	 */
@@ -54,7 +51,6 @@ abstract class Session_Driver
 	 */
 	abstract function create();
 
-
 	// --------------------------------------------------------------------
 	// generic driver methods
 	// --------------------------------------------------------------------
@@ -68,7 +64,7 @@ abstract class Session_Driver
 	public function destroy()
 	{
 		// delete the session cookie
-		\Cookie::delete($this->config['cookie_name']);
+		\Cookie::delete($this->config['cookie_name'], $this->config['cookie_path'], $this->config['cookie_domain'], null, $this->config['cookie_http_only']);
 
 		// reset the stored session data
 		$this->keys = $this->flash = $this->data = array();
@@ -254,7 +250,14 @@ abstract class Session_Driver
 
 		if ($keys)
 		{
-			isset($this->flash[$this->config['flash_id'].'::'.$name]['value']) or $this->flash[$this->config['flash_id'].'::'.$name] = array('state' => 'new', 'value' => array());
+			if (isset($this->flash[$this->config['flash_id'].'::'.$name]['value']))
+			{
+				$this->flash[$this->config['flash_id'].'::'.$name]['state'] = 'new';
+			}
+			else
+			{
+				$this->flash[$this->config['flash_id'].'::'.$name] = array('state' => 'new', 'value' => array());
+			}
 			\Arr::set($this->flash[$this->config['flash_id'].'::'.$name]['value'], $keys[0], $value);
 		}
 		else
@@ -429,7 +432,10 @@ abstract class Session_Driver
 	 */
 	public function set_config($name, $value = null)
 	{
-		if (isset($this->config[$name])) $this->config[$name] = $value;
+		if (isset($this->config[$name]))
+		{
+			$this->config[$name] = $value;
+		}
 
 		return $this;
 	}
@@ -526,16 +532,16 @@ abstract class Session_Driver
 			$cookie = \Cookie::get($this->config['cookie_name'], false);
 		}
 
+		// if not found, was a session-id present in the HTTP header?
+		if ($cookie === false)
+		{
+			$cookie = \Input::headers($this->config['http_header_name'], false);
+		}
+
 		// if not found, check the URL for a cookie
 		if ($cookie === false)
 		{
 			$cookie = \Input::get($this->config['cookie_name'], false);
-		}
-
-		// if not found, was a session-id present in the HTTP header?
-		if ($cookie === false)
-		{
-			$cookie = \Input::headers($this->config['header_header_name'], false);
 		}
 
 		if ($cookie !== false)
@@ -552,6 +558,7 @@ abstract class Session_Driver
 					($this->config['driver'] !== 'cookie' and ! is_string($cookie[0])))
 				{
 					// invalid specific format
+					logger('DEBUG', 'Error: Invalid session cookie specific format');
 					$cookie = false;
 				}
 			}
@@ -565,6 +572,7 @@ abstract class Session_Driver
 			// invalid general format
 			else
 			{
+				logger('DEBUG', 'Error: Invalid session cookie general format');
 				$cookie = false;
 			}
 		}
@@ -676,6 +684,7 @@ abstract class Session_Driver
 				case 'expire_on_close':
 				case 'flash_expire_after_get':
 				case 'flash_auto_expire':
+				case 'native_emulation':
 					// make sure it's a boolean
 					$item = (bool) $item;
 				break;
@@ -701,10 +710,13 @@ abstract class Session_Driver
 				break;
 
 				case 'rotation_time':
-					// make sure it's an integer
-					$item = (int) $item;
-					// invalid? set it to 5 minutes
-					$item <= 0 and $item = 300;
+					if ($item !== false)
+					{
+						// make sure it's an integer
+						$item = (int) $item;
+						// invalid? set it to 5 minutes
+						$item <= 0 and $item = 300;
+					}
 				break;
 
 				case 'flash_id':
@@ -727,5 +739,3 @@ abstract class Session_Driver
 	}
 
 }
-
-

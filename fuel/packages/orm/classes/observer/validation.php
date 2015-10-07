@@ -5,10 +5,10 @@
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
  * @package    Fuel
- * @version    1.6
+ * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
+ * @copyright  2010 - 2015 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
@@ -58,7 +58,6 @@ class ValidationFailed extends \FuelException
  */
 class Observer_Validation extends Observer
 {
-
 	/**
 	 * Set a Model's properties as fields on a Fieldset, which will be created with the Model's
 	 * classname if none is provided.
@@ -155,7 +154,7 @@ class Observer_Validation extends Observer
 						array_unshift($args, $rule);
 					}
 
-					call_user_func_array(array($field, 'add_rule'), $args);
+					call_fuel_func_array(array($field, 'add_rule'), $args);
 				}
 			}
 		}
@@ -217,13 +216,15 @@ class Observer_Validation extends Observer
 		$fieldset = static::set_fields($obj);
 		$val = $fieldset->validation();
 
+		$is_new = $obj->is_new();
+
 		// only allow partial validation on updates, specify the fields for updates to allow null
-		$allow_partial = $obj->is_new() ? false : array();
+		$allow_partial = $is_new ? false : array();
 
 		$input = array();
 		foreach (array_keys($obj->properties()) as $p)
 		{
-			if ( ! in_array($p, $obj->primary_key()) and $obj->is_changed($p))
+			if ( ! in_array($p, $obj->primary_key()) and ($is_new or $obj->is_changed($p)))
 			{
 				$input[$p] = $obj->{$p};
 				is_array($allow_partial) and $allow_partial[] = $p;

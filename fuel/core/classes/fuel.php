@@ -3,10 +3,10 @@
  * Part of the Fuel framework.
  *
  * @package    Fuel
- * @version    1.6
+ * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
+ * @copyright  2010 - 2015 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
@@ -25,11 +25,10 @@ class FuelException extends \Exception {}
  */
 class Fuel
 {
-
 	/**
 	 * @var  string  The version of Fuel
 	 */
-	const VERSION = '1.6';
+	const VERSION = '1.7.3';
 
 	/**
 	 * @var  string  constant used for when in testing mode
@@ -134,8 +133,14 @@ class Fuel
 
 		\Config::load($config);
 
+		// Disable output compression if the client doesn't support it
+		if (static::$is_cli or ! in_array('gzip', explode(', ', \Input::headers('Accept-Encoding', ''))))
+		{
+			\Config::set('ob_callback', null);
+		}
+
 		// Start up output buffering
-		ob_start(\Config::get('ob_callback', null));
+		static::$is_cli or ob_start(\Config::get('ob_callback'));
 
 		if (\Config::get('caching', false))
 		{
@@ -162,6 +167,13 @@ class Fuel
 
 		static::$locale = \Config::get('locale', static::$locale);
 
+		// Set locale, log warning when it fails
+		if (static::$locale)
+		{
+			setlocale(LC_ALL, static::$locale) or
+				logger(\Fuel::L_WARNING, 'The configured locale '.static::$locale.' is not installed on your system.', __METHOD__);
+		}
+
 		if ( ! static::$is_cli)
 		{
 			if (\Config::get('base_url') === null)
@@ -173,7 +185,7 @@ class Fuel
 		// Run Input Filtering
 		\Security::clean_input();
 
-		\Event::register('shutdown', 'Fuel::finish');
+		\Event::register('fuel-shutdown', 'Fuel::finish');
 
 		// Always load classes, config & language set in always_load.php config
 		static::always_load();
@@ -182,12 +194,9 @@ class Fuel
 		\Config::load('routes', true);
 		\Router::add(\Config::get('routes'));
 
-		// Set locale, log warning when it fails
-		if (static::$locale)
-		{
-			setlocale(LC_ALL, static::$locale) or
-				logger(\Fuel::L_WARNING, 'The configured locale '.static::$locale.' is not installed on your system.', __METHOD__);
-		}
+		// BC FIX FOR APPLICATIONS <= 1.6.1, makes Redis_Db available as Redis,
+		// like it was in versions before 1.7
+		class_exists('Redis', false) or class_alias('Redis_Db', 'Redis');
 
 		static::$initialized = true;
 
@@ -214,7 +223,7 @@ class Fuel
 			\Finder::instance()->write_cache('FuelFileFinder');
 		}
 
-		if (static::$profiling)
+		if (static::$profiling and ! static::$is_cli and ! \Input::is_ajax())
 		{
 			// Grab the output buffer and flush it, we will rebuffer later
 			$output = ob_get_clean();
@@ -245,7 +254,7 @@ class Fuel
 				}
 			}
 			// Restart the output buffer and send the new output
-			ob_start();
+			ob_start(\Config::get('ob_callback'));
 			echo $output;
 		}
 	}
@@ -264,7 +273,8 @@ class Fuel
 		}
 		if (\Input::server('script_name'))
 		{
-			$base_url .= str_replace('\\', '/', dirname(\Input::server('script_name')));
+			$common = get_common_path(array(\Input::server('request_uri'), \Input::server('script_name')));
+			$base_url .= $common;
 		}
 
 		// Add a slash if it is missing and return it
@@ -349,8 +359,19 @@ class Fuel
 	 */
 	public static function clean_path($path)
 	{
-		static $search = array(APPPATH, COREPATH, PKGPATH, DOCROOT, '\\');
-		static $replace = array('APPPATH/', 'COREPATH/', 'PKGPATH/', 'DOCROOT/', '/');
+		// framework default paths
+		static $search = array('\\', APPPATH, COREPATH, PKGPATH, DOCROOT);
+		static $replace = array('/', 'APPPATH/', 'COREPATH/', 'PKGPATH/', 'DOCROOT/');
+
+		// additional paths configured than need cleaning
+		$extra = \Config::get('security.clean_paths', array());
+		foreach ($extra as $r => $s)
+		{
+			$search[] = $s;
+			$replace[] = $r.'/';
+		}
+
+		// clean up and return it
 		return str_ireplace($search, $replace, $path);
 	}
 }

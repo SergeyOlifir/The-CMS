@@ -2,22 +2,23 @@
 
 namespace Fuel\Migrations;
 
+include __DIR__."/../normalizedrivertypes.php";
+
 class Auth_Create_Usertables
 {
-
 	function up()
 	{
-		// get the driver used
-		\Config::load('auth', true);
-
-		$drivers = \Config::get('auth.driver', array());
-		is_array($drivers) or $drivers = array($drivers);
+		// get the drivers defined
+		$drivers = normalize_driver_types();
 
 		if (in_array('Simpleauth', $drivers))
 		{
 			// get the tablename
 			\Config::load('simpleauth', true);
 			$table = \Config::get('simpleauth.table_name', 'users');
+
+			// make sure the configured DB is used
+			\DBUtil::set_connection(\Config::get('simpleauth.db_connection', null));
 
 			// only do this if it doesn't exist yet
 			if ( ! \DBUtil::table_exists($table))
@@ -46,6 +47,9 @@ class Auth_Create_Usertables
 			// get the tablename
 			\Config::load('ormauth', true);
 			$table = \Config::get('ormauth.table_name', 'users');
+
+			// make sure the configured DB is used
+			\DBUtil::set_connection(\Config::get('ormauth.db_connection', null));
 
 			if ( ! \DBUtil::table_exists($table))
 			{
@@ -143,7 +147,7 @@ class Auth_Create_Usertables
 			// convert profile fields to metadata, and drop the column
 			if (\DBUtil::field_exists($table, 'profile_fields'))
 			{
-				$result = \DB::select('id', 'profile_fields')->from($table)->execute();
+				$result = \DB::select('id', 'profile_fields')->from($table)->execute(\Config::get('ormauth.db_connection', null));
 				foreach ($result as $row)
 				{
 					$profile_fields = empty($row['profile_fields']) ? array() : unserialize($row['profile_fields']);
@@ -157,7 +161,7 @@ class Auth_Create_Usertables
 									'key' => $field,
 									'value' => $value,
 								)
-							)->execute();
+							)->execute(\Config::get('ormauth.db_connection', null));
 						}
 					}
 				}
@@ -178,21 +182,24 @@ class Auth_Create_Usertables
 				'perms_id' => array('type' => 'int', 'constraint' => 11),
 			), array('user_id', 'perms_id'));
 		}
+
+		// reset any DBUtil connection set
+		\DBUtil::set_connection(null);
 	}
 
 	function down()
 	{
-		// get the driver used
-		\Config::load('auth', true);
-
-		$drivers = \Config::get('auth.driver', array());
-		is_array($drivers) or $drivers = array($drivers);
+		// get the drivers defined
+		$drivers = normalize_driver_types();
 
 		if (in_array('Simpleauth', $drivers))
 		{
 			// get the tablename
 			\Config::load('simpleauth', true);
 			$table = \Config::get('simpleauth.table_name', 'users');
+
+			// make sure the configured DB is used
+			\DBUtil::set_connection(\Config::get('simpleauth.db_connection', null));
 
 			// drop the admin_users table
 			\DBUtil::drop_table($table);
@@ -203,6 +210,9 @@ class Auth_Create_Usertables
 			// get the tablename
 			\Config::load('ormauth', true);
 			$table = \Config::get('ormauth.table_name', 'users');
+
+			// make sure the configured DB is used
+			\DBUtil::set_connection(\Config::get('ormauth.db_connection', null));
 
 			// drop the admin_users table
 			\DBUtil::drop_table($table);
@@ -216,5 +226,8 @@ class Auth_Create_Usertables
 			// drop the admin_users_user_perms table
 			\DBUtil::drop_table($table.'_user_permissions');
 		}
+
+		// reset any DBUtil connection set
+		\DBUtil::set_connection(null);
 	}
 }

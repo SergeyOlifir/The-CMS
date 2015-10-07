@@ -2,22 +2,23 @@
 
 namespace Fuel\Migrations;
 
+include __DIR__."/../normalizedrivertypes.php";
+
 class Auth_Create_Providers
 {
-
 	function up()
 	{
-		// get the driver used
-		\Config::load('auth', true);
-
-		$drivers = \Config::get('auth.driver', array());
-		is_array($drivers) or $drivers = array($drivers);
+		// get the drivers defined
+		$drivers = normalize_driver_types();
 
 		if (in_array('Simpleauth', $drivers))
 		{
 			// get the tablename
 			\Config::load('simpleauth', true);
 			$table = \Config::get('simpleauth.table_name', 'users').'_providers';
+
+			// make sure the configured DB is used
+			\DBUtil::set_connection(\Config::get('simpleauth.db_connection', null));
 		}
 
 		elseif (in_array('Ormauth', $drivers))
@@ -25,6 +26,9 @@ class Auth_Create_Providers
 			// get the tablename
 			\Config::load('ormauth', true);
 			$table = \Config::get('ormauth.table_name', 'users').'_providers';
+
+			// make sure the configured DB is used
+			\DBUtil::set_connection(\Config::get('ormauth.db_connection', null));
 		}
 
 		if (isset($table))
@@ -45,21 +49,24 @@ class Auth_Create_Providers
 
 			\DBUtil::create_index($table, 'parent_id', 'parent_id');
 		}
+
+		// reset any DBUtil connection set
+		\DBUtil::set_connection(null);
 	}
 
 	function down()
 	{
-		// get the driver used
-		\Config::load('auth', true);
-
-		$drivers = \Config::get('auth.driver', array());
-		is_array($drivers) or $drivers = array($drivers);
+		// get the drivers defined
+		$drivers = normalize_driver_types();
 
 		if (in_array('Simpleauth', $drivers))
 		{
 			// get the tablename
 			\Config::load('simpleauth', true);
 			$table = \Config::get('simpleauth.table_name', 'users').'_providers';
+
+			// make sure the configured DB is used
+			\DBUtil::set_connection(\Config::get('simpleauth.db_connection', null));
 		}
 
 		elseif (in_array('Ormauth', $drivers))
@@ -67,6 +74,9 @@ class Auth_Create_Providers
 			// get the tablename
 			\Config::load('ormauth', true);
 			$table = \Config::get('ormauth.table_name', 'users').'_providers';
+
+			// make sure the configured DB is used
+			\DBUtil::set_connection(\Config::get('ormauth.db_connection', null));
 		}
 
 		if (isset($table))
@@ -74,5 +84,8 @@ class Auth_Create_Providers
 			// drop the users remote table
 			\DBUtil::drop_table($table);
 		}
+
+		// reset any DBUtil connection set
+		\DBUtil::set_connection(null);
 	}
 }

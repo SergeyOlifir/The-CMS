@@ -51,7 +51,7 @@ class Model_Page extends Model_Translition {
 		)
 	);
 	
-	public function &get($property) {
+	public function &get($property, array $conditions = array()) {
 	    if($property === 'category') {
 		$pror = $this->get_category();
 		return $pror;
@@ -59,7 +59,7 @@ class Model_Page extends Model_Translition {
 		$prop = $this->get_content();
 		return $prop;
 	    } else {
-		return parent::get($property);
+		return parent::get($property, $conditions);
 	    }
 	}
 	

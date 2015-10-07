@@ -5,19 +5,17 @@
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
  * @package    Fuel
- * @version    1.6
+ * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
+ * @copyright  2010 - 2015 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
 namespace Auth;
 
-
 class Auth_Group_Simplegroup extends \Auth_Group_Driver
 {
-
 	protected static $_valid_groups = array();
 
 	public static function _init()
@@ -26,7 +24,7 @@ class Auth_Group_Simplegroup extends \Auth_Group_Driver
 	}
 
 	protected $config = array(
-		'drivers' => array('acl' => array('Simpleacl'))
+		'drivers' => array('acl' => array('Simpleacl')),
 	);
 
 	public function groups()

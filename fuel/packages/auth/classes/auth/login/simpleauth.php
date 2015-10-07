@@ -5,10 +5,10 @@
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
  * @package    Fuel
- * @version    1.6
+ * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
+ * @copyright  2010 - 2015 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
@@ -27,7 +27,7 @@ class Auth_Login_Simpleauth extends \Auth_Login_Driver
 	 */
 	public static function _init()
 	{
-		\Config::load('simpleauth', true, true, true);
+		\Config::load('simpleauth', true);
 
 		// setup the remember-me session object if needed
 		if (\Config::get('simpleauth.remember_me.enabled', false))
@@ -57,7 +57,7 @@ class Auth_Login_Simpleauth extends \Auth_Login_Driver
 		'username' => 'guest',
 		'group' => '0',
 		'login_hash' => false,
-		'email' => false
+		'email' => false,
 	);
 
 	/**
@@ -196,6 +196,13 @@ class Auth_Login_Simpleauth extends \Auth_Login_Driver
 
 		\Session::set('username', $this->user['username']);
 		\Session::set('login_hash', $this->create_login_hash());
+
+		// and rotate the session id, we've elevated rights
+		\Session::instance()->rotate();
+
+		// register so Auth::logout() can find us
+		Auth::_register_verified($this);
+
 		return true;
 	}
 
@@ -254,11 +261,11 @@ class Auth_Login_Simpleauth extends \Auth_Login_Driver
 			'username'        => (string) $username,
 			'password'        => $this->hash_password((string) $password),
 			'email'           => $email,
-			'group_id'        => (int) $group,
+			'group'           => (int) $group,
 			'profile_fields'  => serialize($profile_fields),
 			'last_login'      => 0,
 			'login_hash'      => '',
-			'created_at'      => \Date::forge()->get_timestamp()
+			'created_at'      => \Date::forge()->get_timestamp(),
 		);
 		$result = \DB::insert(\Config::get('simpleauth.table_name'))
 			->set($user)
@@ -558,7 +565,7 @@ class Auth_Login_Simpleauth extends \Auth_Login_Driver
 
 		if (isset($this->user['profile_fields']))
 		{
-			is_array($this->user['profile_fields']) or $this->user['profile_fields'] = @unserialize($this->user['profile_fields']);
+			is_array($this->user['profile_fields']) or $this->user['profile_fields'] = (@unserialize($this->user['profile_fields']) ?: array());
 		}
 		else
 		{

@@ -2,21 +2,23 @@
 
 namespace Fuel\Migrations;
 
+include __DIR__."/../normalizedrivertypes.php";
+
 class Auth_Create_Grouptables
 {
 	function up()
 	{
-		// get the driver used
-		\Config::load('auth', true);
-
-		$drivers = \Config::get('auth.driver', array());
-		is_array($drivers) or $drivers = array($drivers);
+		// get the drivers defined
+		$drivers = normalize_driver_types();
 
 		if (in_array('Ormauth', $drivers))
 		{
 			// get the tablename
 			\Config::load('ormauth', true);
 			$table = \Config::get('ormauth.table_name', 'users');
+
+			// make sure the configured DB is used
+			\DBUtil::set_connection(\Config::get('ormauth.db_connection', null));
 
 			// table users_group
 			\DBUtil::create_table($table.'_groups', array(
@@ -39,21 +41,24 @@ class Auth_Create_Grouptables
 				'perms_id' => array('type' => 'int', 'constraint' => 11),
 			), array('group_id', 'perms_id'));
 		}
+
+		// reset any DBUtil connection set
+		\DBUtil::set_connection(null);
 	}
 
 	function down()
 	{
-		// get the driver used
-		\Config::load('auth', true);
-
-		$drivers = \Config::get('auth.driver', array());
-		is_array($drivers) or $drivers = array($drivers);
+		// get the drivers defined
+		$drivers = normalize_driver_types();
 
 		if (in_array('Ormauth', $drivers))
 		{
 			// get the tablename
 			\Config::load('ormauth', true);
 			$table = \Config::get('ormauth.table_name', 'users');
+
+			// make sure the configured DB is used
+			\DBUtil::set_connection(\Config::get('ormauth.db_connection', null));
 
 			// drop the admin_users_group table
 			\DBUtil::drop_table($table.'_groups');
@@ -64,6 +69,9 @@ class Auth_Create_Grouptables
 			// drop the admin_users_group_perms table
 			\DBUtil::drop_table($table.'_group_permissions');
 		}
+
+		// reset any DBUtil connection set
+		\DBUtil::set_connection(null);
 	}
 
 }

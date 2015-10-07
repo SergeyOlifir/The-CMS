@@ -2,22 +2,23 @@
 
 namespace Fuel\Migrations;
 
+include __DIR__."/../normalizedrivertypes.php";
+
 class Auth_Create_Oauth2tables
 {
-
 	function up()
 	{
-		// get the driver used
-		\Config::load('auth', true);
-
-		$drivers = \Config::get('auth.driver', array());
-		is_array($drivers) or $drivers = array($drivers);
+		// get the drivers defined
+		$drivers = normalize_driver_types();
 
 		if (in_array('Simpleauth', $drivers))
 		{
 			// get the tablename
 			\Config::load('simpleauth', true);
 			$basetable = \Config::get('simpleauth.table_name', 'users');
+
+			// make sure the configured DB is used
+			\DBUtil::set_connection(\Config::get('simpleauth.db_connection', null));
 		}
 
 		elseif (in_array('Ormauth', $drivers))
@@ -25,6 +26,9 @@ class Auth_Create_Oauth2tables
 			// get the tablename
 			\Config::load('ormauth', true);
 			$basetable = \Config::get('ormauth.table_name', 'users');
+
+			// make sure the configured DB is used
+			\DBUtil::set_connection(\Config::get('ormauth.db_connection', null));
 		}
 
 		else
@@ -119,21 +123,24 @@ class Auth_Create_Oauth2tables
 		\DBUtil::create_index($basetable.'_sessionscopes', 'session_id', 'session_id');
 		\DBUtil::create_index($basetable.'_sessionscopes', 'access_token', 'access_token');
 		\DBUtil::create_index($basetable.'_sessionscopes', 'scope', 'scope');
+
+		// reset any DBUtil connection set
+		\DBUtil::set_connection(null);
 	}
 
 	function down()
 	{
-		// get the driver used
-		\Config::load('auth', true);
-
-		$drivers = \Config::get('auth.driver', array());
-		is_array($drivers) or $drivers = array($drivers);
+		// get the drivers defined
+		$drivers = normalize_driver_types();
 
 		if (in_array('Simpleauth', $drivers))
 		{
 			// get the tablename
 			\Config::load('simpleauth', true);
 			$basetable = \Config::get('simpleauth.table_name', 'users');
+
+			// make sure the configured DB is used
+			\DBUtil::set_connection(\Config::get('simpleauth.db_connection', null));
 		}
 
 		elseif (in_array('Ormauth', $drivers))
@@ -141,6 +148,9 @@ class Auth_Create_Oauth2tables
 			// get the tablename
 			\Config::load('ormauth', true);
 			$basetable = \Config::get('ormauth.table_name', 'users');
+
+			// make sure the configured DB is used
+			\DBUtil::set_connection(\Config::get('ormauth.db_connection', null));
 		}
 
 		else
@@ -152,5 +162,8 @@ class Auth_Create_Oauth2tables
 		\DBUtil::drop_table($basetable.'_sessions');
 		\DBUtil::drop_table($basetable.'_scopes');
 		\DBUtil::drop_table($basetable.'_clients');
+
+		// reset any DBUtil connection set
+		\DBUtil::set_connection(null);
 	}
 }
