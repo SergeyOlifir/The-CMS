@@ -20,13 +20,10 @@
         <header id="header">
             <?= TCTheme::render("header",array()); ?>
         </header>
-        <?= TCTheme::render("carousel_partners"); ?>
+        
         <content class="all-wrapper">
           <? if(isset($content)): ?>
                   <?= $content; ?>
-          <? endif; ?>
-          <? if(isset($contentFirst)): ?>
-                  <?= $contentFirst; ?>
           <? endif; ?>
         </content>
         <footer id="footer">

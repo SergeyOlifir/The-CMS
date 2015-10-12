@@ -15,8 +15,7 @@ class Controller_Home extends Controller_Application {
     function action_index() {
         self::$current_page = "Home";
         $content = \Model_Category::find('all');
-        $this->template->content = TCTheme::load_view('home/partials/gallery');
-        $this->template->contentFirst = \Fuel\Core\View::forge("templates/{$this::$template_name}/home/partials/categories", array('content' => $content));
+        $this->template->content = TCTheme::load_view('home/partials/home');
     }
 
 }

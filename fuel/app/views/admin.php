@@ -6,7 +6,7 @@
 		<meta charset="utf-8"/>
 		<title><?= $title; ?></title>
 
-		<?= Asset::css('bootstrap.min.css'); ?>
+		<?= Asset::css('bootstrap_old.min.css'); ?>
 		<?= Asset::css('reveal.css'); ?>
 		<?= Asset::css('jquery.fancybox.css'); ?>
 		<?= Asset::css('jquery.fancybox-buttons.css'); ?>
@@ -16,7 +16,7 @@
 		<?= Asset::render('stylesheets'); ?>
 		<?= Asset::js('jquery-1.8.3.min.js'); ?>
 		<?= Asset::js('jquery-ui-1.9.0.custom.min.js'); ?>
-		<?= Asset::js('bootstrap.js');?>
+		<?= Asset::js('bootstrap_old.min.js');?>
 		<?= Asset::js('jquery.mousewheel.min.js'); ?>
 		<?= Asset::js('jquery.reveal.js'); ?>
 		<?= Asset::js('jquery.fancybox.pack.js'); ?>
