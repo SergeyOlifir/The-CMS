@@ -64,6 +64,7 @@ class Model_Page extends Model_Translition {
 	}
 	
 	protected function get_relatet_categories_content() {
+            $hui = strval($this->id);
 	    $result =  \Fuel\Core\DB::select()
 		    ->from(Model_Category::table())
 		    ->join('categories_in_page', 'LEFT')
@@ -72,9 +73,14 @@ class Model_Page extends Model_Translition {
 		    ->on('categories_in_page.owner_id', '=', self::table() . '.id')
 		    ->where(self::table() . '.id', 'IS', null)
 		    ->or_where(self::table() . '.id', '<>', $this->id)
+                    //->join(array('categories_in_page', 'cat2'))
+                    //->on('cat2.category_id', '=', 'categories_in_page.category_id')
+                    //->and_on('cat2.owner_id', '=', "$this->id")
+                    //->where('cat2.id', 'IS', NULL)
 		    ->select_array(Model_Category::getTablesRow())
 		    ->as_object('Model_Category')
 		    ->execute();
+            //die($this->id);
 	    return $result;
 	  
 	}
@@ -108,6 +114,7 @@ class Model_Page extends Model_Translition {
 		    ->on('categories_in_page.owner_id', '=',Model_Page::table() . '.id')
 		    ->where(Model_Page::table() . '.id', '=', $this->id)
 		    ->select_array(Model_Category::getTablesRow())
+                    ->order_by('categories_in_page.weight')
 		    ->as_object('Model_Category')
 		    ->execute();
 	}

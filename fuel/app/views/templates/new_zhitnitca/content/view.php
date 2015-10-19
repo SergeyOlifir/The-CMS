@@ -55,6 +55,8 @@
             </div>
         </div>
         
+    <? else: ?>
+        <div class="related-wrapper"></div>
     <? endif; ?>
     
 </div>

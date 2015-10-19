@@ -1,48 +1,36 @@
 <section class="projects clearfix app-categories left">
-    <!---<ul class="clearfix">
-    	<? foreach ($content as $project): ?>
-            <li class="category left">
-                <a href="/home/content/view/<?= $project->id; ?>">
-                    <article>
-                        <div class="img-wrapper">
-                            <?= Html::img("files/{$project->logo->tile}"); ?>
-                        </div>
-                        <div class="description">
-                            <header>
-                                <h1>
-                                    <?= Str::truncate($project->name, 30, '...'); ?>
-                                </h1>
-                            </header>
-                            <? if ($project->category->public_data == 1): ?>
-                                <div class="date">
-                                    <?= Date::forge($project->date_create)->format("%d.%m.%y", true); ?>
-                                </div>
-                            <? endif; ?>
-                        </div>
-                    </article>
-                </a>
-            </li>
-        <? endforeach; ?>
-    </ul>-->
-    
-    
     <div class="row tiles">
         <? foreach ($content as $project): ?>
-            <div class="col-md-3 col-xs-6 item">
-                <a href="/home/content/view/<?= $project->id; ?>">
+            <div class="col-md-3 col-xs-6 item <?= ((isset($fool_view) and $fool_view) ? 'fool' : '') ?>">
                     <article>
+                        <a href="/home/content/view/<?= $project->id; ?>">
                             <div class="img-wrapper">
                                 <?= Html::img("files/{$project->logo->tile}"); ?>
                             </div>
+                        </a>
                             <div class="description">
                                 <header>
                                     <h1>
-                                        <?= Str::truncate($project->name, 30, '...'); ?>
+                                        <a href="/home/content/view/<?= $project->id; ?>">
+                                            <?= Str::truncate($project->name, 30, '...'); ?>
+                                        </a>
                                     </h1>
                                 </header>
+                                <? if(isset($fool_view) and $fool_view): ?>
+                                    <content>
+                                        <p class="details">
+                                            <?= \Fuel\Core\Str::truncate(strip_tags($project->short_description), 100, '...') ;?>
+                                        </p>
+                                        <div class="meta">
+                                            <p class="sm">Раздел: <?= Fuel\Core\Html::anchor("/home/category/view/{$project->page->alias}", $project->page->name) ;?></p>
+                                            <p class="sm">Количество комментариев: <a href="#">27</a></p>
+                                            <p class="sm">Автор: <a href="#">Редактор, ТМ «Рiдна Житница» </a></p>
+                                            <p class="sm">Дата: <?= Date::forge($project->created_at)->format("%d.%m.%Y", true); ?></p>
+                                        </div>
+                                    </content>
+                                <? endif; ?>
                             </div>
                     </article>
-                </a>
             </div>
         <? endforeach; ?>
     </div>

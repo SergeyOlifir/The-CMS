@@ -18,7 +18,7 @@
                 </div>
             </div>
     
-            <?= TCTheme::render("content/tiles", array('content' => $content, 'page' => $category)); ?>
+            <?= TCTheme::render("content/tiles", array('content' => $content, 'page' => $category, 'fool_view' => true)); ?>
             
             <div class="row tiles">
                 <div class="col-md-9">
